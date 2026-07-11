@@ -1,0 +1,21 @@
+{
+  "name": "model-viewer-lab",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve": "node tools/serve_viewer.mjs",
+    "link": "node tools/make_model_viewer_link.mjs",
+    "smoke": "node tools/smoke_viewer.mjs",
+    "pages-link": "node tools/make_github_pages_model_review_link.mjs"
+  },
+  "dependencies": {
+    "three": "^0.166.1"
+  },
+  "devDependencies": {
+    "esbuild-wasm": "^0.28.1",
+    "typescript": "^5.7.3",
+    "@types/node": "^22.13.5"
+  }
+}
