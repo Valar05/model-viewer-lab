@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "src": "https://raw.githubusercontent.com/Valar05/tanks-for-the-memories/codex/upper-glacis-recovery-tools/archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_silhouette_edges_scratch_v07/real_sherman_upper_glacis_silhouette_edges_scratch_v07.glb",
+  "manifest": "https://raw.githubusercontent.com/Valar05/tanks-for-the-memories/codex/upper-glacis-recovery-tools/archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_silhouette_edges_scratch_v07/model_manifest.json",
+  "title": "real_sherman_upper_glacis_silhouette_edges_scratch_v07",
+  "camera": {
+    "position": [
+      0,
+      1.4,
+      5
+    ],
+    "target": [
+      0,
+      0.8,
+      0
+    ],
+    "fov": 38
+  },
+  "display": {
+    "clay": false,
+    "wire": false,
+    "grid": true,
+    "boxes": false
+  },
+  "selectedPartId": "review_model_root",
+  "parts": [
+    {
+      "id": "review_model_root",
+      "label": "review_model_root",
+      "visible": true,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotationDeg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

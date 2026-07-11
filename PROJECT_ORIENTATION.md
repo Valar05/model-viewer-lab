@@ -31,3 +31,5 @@ This repo is the official workspace model review platform. Any mesh-producing ta
 - Keep panels hidden by default, preserve camera controls, and keep edit capability locked until the reviewer explicitly unlocks it.
 - Do not copy large model artifacts into this repo. The viewer repo owns review tooling; asset repos own GLB/GLTF files and manifests.
 - If a model asset is private or not browser-readable, report an artifact-hosting blocker instead of pretending localhost is cloud-readable.
+- Preserve review-state compatibility: `state`, `state64`, and schema version 2 URLs are public handoff interfaces.
+- The viewer is multi-agent review-friendly through shared URLs/JSON, not a live concurrent editor.

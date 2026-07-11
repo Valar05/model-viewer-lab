@@ -40,3 +40,21 @@ npm run pages-link -- --asset-repo Valar05/tanks-for-the-memories --branch codex
 ```
 
 The generated URL uses `raw.githubusercontent.com` for model assets, so the source repo/artifacts must be readable to the browser. Private asset repos need an authenticated hosting lane instead of this public Pages helper.
+
+
+## Multi-Agent Review State
+
+The viewer is static and stateless, so multiple agents can use it at the same time. Share review context through URLs or committed JSON state, not through a live session.
+
+- Use **Export -> Copy Inline URL** for quick PR comments or chat handoffs.
+- Use **Export -> Copy JSON** when the state should be committed beside a model report.
+- Use **Copy Cloud URL** when the model assets are browser-readable from GitHub and the Pages viewer is deployed.
+- Validate committed state files with `npm run validate:review-state` or `node tools/validate_review_state.mjs path/to/state.json`.
+
+Generate a Pages URL for a committed state file:
+
+```sh
+npm run pages-link -- --asset-repo Valar05/model-viewer-lab --branch main --state-json docs/examples/review-state-v2.json --title shared-review
+```
+
+This is not live collaborative editing. Agents can independently open the same URL, inspect the same camera/object state, export their own updated state, and attach that state to reviews.

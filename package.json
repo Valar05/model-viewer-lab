@@ -8,7 +8,9 @@
     "serve": "node tools/serve_viewer.mjs",
     "link": "node tools/make_model_viewer_link.mjs",
     "smoke": "node tools/smoke_viewer.mjs",
-    "pages-link": "node tools/make_github_pages_model_review_link.mjs"
+    "pages-link": "node tools/make_github_pages_model_review_link.mjs",
+    "validate:review-state": "node tools/validate_review_state.mjs docs/examples/review-state-v2.json",
+    "ci": "npm run build && npm run smoke && npm run validate:review-state"
   },
   "dependencies": {
     "three": "^0.166.1"

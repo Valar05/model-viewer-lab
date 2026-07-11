@@ -5,15 +5,27 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 type Mode = 'move' | 'rotate' | 'scale';
 type Axis = 'screen' | 'all' | 'x' | 'y' | 'z';
+type Vec3 = [number, number, number];
 type ViewPart = { id: string; label: string; object: THREE.Object3D; visible: boolean; initial: SnapshotPart; };
-type SnapshotPart = { id: string; label: string; position: [number, number, number]; rotationDeg: [number, number, number]; scale: [number, number, number]; visible: boolean; };
+type SnapshotPart = { id: string; label: string; position: Vec3; rotationDeg: Vec3; scale: Vec3; visible: boolean; };
+type ReviewState = {
+  version: number;
+  src?: string;
+  manifest?: string;
+  title?: string;
+  camera?: { position?: Vec3; target?: Vec3; fov?: number };
+  display?: { clay?: boolean; wire?: boolean; grid?: boolean; boxes?: boolean };
+  selectedPartId?: string;
+  parts?: SnapshotPart[];
+};
 
 const root = document.querySelector<HTMLDivElement>('#model-viewer-root');
 if (!root) throw new Error('missing #model-viewer-root');
 const query = new URLSearchParams(window.location.search);
-const src = query.get('src') || '';
-const manifestUrl = query.get('manifest') || '';
-const title = query.get('title') || src.split('/').pop() || 'Model';
+let src = query.get('src') || '';
+let manifestUrl = query.get('manifest') || '';
+let title = query.get('title') || src.split('/').pop() || 'Model';
+let initialState: ReviewState | null = null;
 
 root.innerHTML = '<main class="viewer-shell">' +
   '<div class="viewer-stage"><canvas aria-label="Model Viewer Lab viewport"></canvas></div>' +
@@ -22,16 +34,17 @@ root.innerHTML = '<main class="viewer-shell">' +
   '<section class="camera-widget" aria-label="Camera views"><button data-view="front">Front</button><button data-view="left">Left</button><button data-view="top">Top</button><button data-view="right">Right</button><button data-view="back">Back</button><button data-view="fit">Fit</button></section>' +
   '<section class="tweak-dock" aria-label="Object tweak controls" data-tools-panel hidden><div class="tweak-title" data-selected-title>No object selected</div><div class="row lock"><button data-edit-lock>Editing locked</button></div><div class="row modes"><button data-mode="move">Move</button><button data-mode="rotate">Rotate</button><button data-mode="scale">Scale</button></div><div class="row axes"><button data-axis="screen">Screen</button><button data-axis="x">X</button><button data-axis="y">Y</button><button data-axis="z">Z</button></div><div class="row actions"><button data-undo>Undo</button><button data-redo>Redo</button><button data-reset>Reset</button><button data-export>Export</button></div><div class="row display"><button data-clay>Clay</button><button data-wire>Wire</button><button data-grid>Grid</button><button data-boxes>Boxes</button></div></section>' +
   '<section class="sheet" aria-label="Object list" data-objects-panel hidden><div class="sheet-head"><input class="search" data-search placeholder="Filter objects" /><button data-collapse>Panel</button><button data-show-all>All</button><button data-hide-all>Hide</button></div><div class="object-list" data-object-list></div></section>' +
-  '<section class="export-panel" hidden><textarea data-export-output readonly></textarea><button data-close-export>Close</button></section>' +
+  '<section class="export-panel" hidden><textarea data-export-output readonly></textarea><div class="export-actions"><button data-copy-json>Copy JSON</button><button data-copy-inline-url>Copy Inline URL</button><button data-copy-cloud-url>Copy Cloud URL</button><button data-close-export>Close</button></div><p class="export-status" data-export-status></p></section>' +
 '</main>';
 
-root.querySelector<HTMLElement>('.title')!.textContent = title;
+const titleEl = root.querySelector<HTMLElement>('.title')!;
 const canvas = root.querySelector<HTMLCanvasElement>('canvas')!;
 const statusEl = root.querySelector<HTMLElement>('[data-status]')!;
 const objectListEl = root.querySelector<HTMLElement>('[data-object-list]')!;
 const selectedTitleEl = root.querySelector<HTMLElement>('[data-selected-title]')!;
 const exportPanel = root.querySelector<HTMLElement>('.export-panel')!;
 const exportOutput = root.querySelector<HTMLTextAreaElement>('[data-export-output]')!;
+const exportStatus = root.querySelector<HTMLElement>('[data-export-status]')!;
 const searchInput = root.querySelector<HTMLInputElement>('[data-search]')!;
 const infoPanel = root.querySelector<HTMLElement>('[data-info-panel]')!;
 const objectsPanel = root.querySelector<HTMLElement>('[data-objects-panel]')!;
@@ -97,9 +110,40 @@ let boxesEnabled = false;
 const clayMaterial = new THREE.MeshStandardMaterial({ color: 0xb4b9a6, roughness: 0.92, metalness: 0.0 });
 
 bindUi();
-loadManifest();
-loadModel();
+initialize();
 requestAnimationFrame(animate);
+
+async function initialize() {
+  await loadInitialState();
+  applyTitle();
+  loadManifest();
+  loadModel();
+}
+
+async function loadInitialState() {
+  try {
+    const encoded = query.get('state64');
+    const stateUrl = query.get('state');
+    if (encoded) initialState = JSON.parse(decodeBase64Url(encoded));
+    else if (stateUrl) {
+      const response = await fetch(stateUrl, { cache: 'no-store' });
+      if (!response.ok) throw new Error('HTTP ' + response.status + ' for review state');
+      initialState = await response.json();
+    }
+    if (!initialState) return;
+    if (!query.has('src') && initialState.src) src = initialState.src;
+    if (!query.has('manifest') && initialState.manifest) manifestUrl = initialState.manifest;
+    if (!query.has('title') && initialState.title) title = initialState.title;
+    statusEl.textContent = 'loaded review state v' + (initialState.version || '?');
+  } catch (error) {
+    statusEl.textContent = 'review state load failed: ' + (error instanceof Error ? error.message : String(error));
+  }
+}
+
+function applyTitle() {
+  titleEl.textContent = title;
+  document.title = title + ' - Model Viewer Lab';
+}
 
 function loadManifest() {
   if (!manifestUrl) return;
@@ -124,6 +168,7 @@ function loadModel() {
     renderObjectList();
     selectPart(null);
     fitCamera('front');
+    if (initialState) applyReviewState(initialState);
     statusEl.textContent = 'loaded ' + parts.length + ' objects from ' + src;
   }, undefined, (error) => {
     statusEl.textContent = 'load failed: ' + (error instanceof Error ? error.message : String(error));
@@ -192,6 +237,9 @@ function bindUi() {
   root.querySelector<HTMLButtonElement>('[data-undo]')?.addEventListener('click', undo);
   root.querySelector<HTMLButtonElement>('[data-redo]')?.addEventListener('click', redo);
   root.querySelector<HTMLButtonElement>('[data-export]')?.addEventListener('click', showExport);
+  root.querySelector<HTMLButtonElement>('[data-copy-json]')?.addEventListener('click', () => copyExport('json'));
+  root.querySelector<HTMLButtonElement>('[data-copy-inline-url]')?.addEventListener('click', () => copyExport('inline'));
+  root.querySelector<HTMLButtonElement>('[data-copy-cloud-url]')?.addEventListener('click', () => copyExport('cloud'));
   root.querySelector<HTMLButtonElement>('[data-close-export]')?.addEventListener('click', () => { exportPanel.hidden = true; });
   root.querySelector<HTMLButtonElement>('[data-clay]')?.addEventListener('click', () => { clayEnabled = !clayEnabled; applyMaterialMode(); renderControls(); });
   root.querySelector<HTMLButtonElement>('[data-wire]')?.addEventListener('click', () => { wireEnabled = !wireEnabled; applyMaterialMode(); renderControls(); });
@@ -469,15 +517,46 @@ function resetSelected() {
 function snapshotObject(id: string, label: string, object: THREE.Object3D, visible: boolean): SnapshotPart {
   return { id, label, position: [object.position.x, object.position.y, object.position.z], rotationDeg: [THREE.MathUtils.radToDeg(object.rotation.x), THREE.MathUtils.radToDeg(object.rotation.y), THREE.MathUtils.radToDeg(object.rotation.z)], scale: [object.scale.x, object.scale.y, object.scale.z], visible };
 }
+function serializeReviewState(): ReviewState {
+  return {
+    version: 2,
+    src,
+    manifest: manifestUrl,
+    title,
+    camera: { position: camera.position.toArray() as Vec3, target: controls.target.toArray() as Vec3, fov: camera.fov },
+    display: { clay: clayEnabled, wire: wireEnabled, grid: grid.visible, boxes: boxesEnabled },
+    selectedPartId: selected?.id,
+    parts: parts.map((part) => snapshotObject(part.id, part.label, part.object, part.visible))
+  };
+}
 function serializeState() {
-  return JSON.stringify({ version: 1, src, manifest: manifestUrl, title, camera: { position: camera.position.toArray(), target: controls.target.toArray(), fov: camera.fov }, parts: parts.map((part) => snapshotObject(part.id, part.label, part.object, part.visible)) }, null, 2);
+  return JSON.stringify(serializeReviewState(), null, 2);
 }
 function restoreState(json: string) {
-  const state = JSON.parse(json) as { parts: SnapshotPart[] };
+  applyReviewState(JSON.parse(json));
+}
+function applyReviewState(state: ReviewState) {
+  if (state.display) {
+    clayEnabled = Boolean(state.display.clay);
+    wireEnabled = Boolean(state.display.wire);
+    grid.visible = state.display.grid !== false;
+    boxesEnabled = Boolean(state.display.boxes);
+    applyMaterialMode();
+  }
   for (const saved of state.parts || []) {
     const part = parts.find((candidate) => candidate.id === saved.id);
     if (part) restorePart(part, saved);
   }
+  if (state.camera?.position && state.camera?.target) {
+    camera.position.set(state.camera.position[0], state.camera.position[1], state.camera.position[2]);
+    controls.target.set(state.camera.target[0], state.camera.target[1], state.camera.target[2]);
+    if (Number.isFinite(state.camera.fov)) camera.fov = Number(state.camera.fov);
+    camera.updateProjectionMatrix();
+    controls.update();
+  }
+  const part = state.selectedPartId ? parts.find((candidate) => candidate.id === state.selectedPartId) || null : null;
+  selected = part;
+  updateBoxHelpers();
   renderObjectList();
 }
 function restorePart(part: ViewPart, saved: SnapshotPart) {
@@ -489,6 +568,35 @@ function restorePart(part: ViewPart, saved: SnapshotPart) {
 function showExport() {
   exportOutput.value = serializeState();
   exportPanel.hidden = false;
+  exportStatus.textContent = '';
+}
+async function copyExport(kind: 'json' | 'inline' | 'cloud') {
+  const text = kind === 'json' ? serializeState() : shareUrl(kind === 'cloud');
+  exportOutput.value = text;
+  try {
+    await navigator.clipboard.writeText(text);
+    exportStatus.textContent = 'Copied ' + (kind === 'json' ? 'JSON' : kind + ' URL');
+  } catch (_error) {
+    exportStatus.textContent = 'Copy unavailable; select text manually';
+  }
+}
+function shareUrl(cloud: boolean) {
+  const base = cloud ? 'https://valar05.github.io/model-viewer-lab/model-viewer.html' : window.location.origin + window.location.pathname;
+  const url = new URL(base);
+  url.searchParams.set('state64', encodeBase64Url(serializeState()));
+  return url.toString();
+}
+function encodeBase64Url(value: string) {
+  const bytes = new TextEncoder().encode(value);
+  let binary = '';
+  bytes.forEach((byte) => { binary += String.fromCharCode(byte); });
+  return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
+}
+function decodeBase64Url(value: string) {
+  const padded = value.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - value.length % 4) % 4);
+  const binary = atob(padded);
+  const bytes = new Uint8Array([...binary].map((char) => char.charCodeAt(0)));
+  return new TextDecoder().decode(bytes);
 }
 function applyMaterialMode() {
   for (const [mesh, original] of originalMaterials) {
