@@ -29,6 +29,7 @@ This lab is not a finished-asset library. It does not promote any tank output as
 - `docs/research/`: neutral reusable reconstruction notes.
 - `docs/history/`: condensed factual history of approach families.
 - `review-states/`: viewer states for browser-readable source asset review.
+- `mechanisms/`: hard-surface mechanism definitions served by the mechanism viewer.
 
 ## Validation
 

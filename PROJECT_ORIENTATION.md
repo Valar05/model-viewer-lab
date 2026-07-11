@@ -9,17 +9,21 @@ This repo is the official workspace model review platform. Any mesh-producing ta
 ## Entry Points
 
 - `model-viewer.html`: browser viewer shell.
+- `mechanism-viewer.html`: browser mechanism/simulation shell.
 - `src/model-viewer.ts`: Three.js runtime, object visibility UI, camera controls, tweak UI.
+- `src/mechanism-viewer.ts`: Three.js mechanism runtime, tank-relative joystick simulation, instanced tread placement.
 - `src/model-viewer.css`: portrait-first layout and collapsible panels.
 - `scripts/build.mjs`: esbuild-wasm bundle with dependency fallback to TFTM node_modules.
 - `tools/serve_viewer.mjs`: no-cache workspace-root static server.
 - `tools/make_model_viewer_link.mjs`: creates full review URLs from workspace file paths.
 - `tools/smoke_viewer.mjs`: checks built files and current-kit link assets.
+- `tools/smoke_mechanism_viewer.mjs`: checks built mechanism viewer files and tread-system fixture.
 
 ## Rules
 
 - Portrait is the standard layout. The 3D canvas is the primary surface, not a thumbnail.
 - Review links must point at `model-viewer.html` with `src`, optional `manifest`, and a meaningful `title`.
+- Mechanism links must point at `mechanism-viewer.html` with `mechanism` and a meaningful `title`.
 - The viewer is a review and tweak surface. It does not claim production acceptance for visual work.
 - Do not copy large mesh artifacts into this repo by default. Serve them from workspace paths.
 

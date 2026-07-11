@@ -27,6 +27,21 @@ node tools/make_model_viewer_link.mjs --src /storage/emulated/0/Documents/GodotP
 ```
 
 
+## Link A Mechanism
+
+Hard-surface mechanisms live under `labs/hard-surface-factory/mechanisms/` and are served through `mechanism-viewer.html`. The first mechanism is a procedural working tread system with tank-relative joystick controls.
+
+```sh
+npm run mechanism-link -- --mechanism labs/hard-surface-factory/mechanisms/tread-system-v1/mechanism.json --title tread-system-v1
+```
+
+Local development links can be generated with:
+
+```sh
+npm run mechanism-link -- --local --mechanism labs/hard-surface-factory/mechanisms/tread-system-v1/mechanism.json --title tread-system-v1
+```
+
+
 ## Cloud Pages Links
 
 For cloud-readable review, publish this repo with GitHub Pages. The included workflow builds `dist/` and deploys the viewer at:

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "tread-system-v1",
+  "title": "Working Tread System v1",
+  "description": "Procedural instanced tread system with tank-relative joystick control.",
+  "forwardAxis": "+z",
+  "dimensions": {
+    "trackGauge": 1.64,
+    "trackWidth": 0.28,
+    "trackLength": 3.25,
+    "bottomY": 0.18,
+    "topY": 0.58,
+    "hullWidth": 1.34,
+    "hullLength": 2.45,
+    "hullHeight": 0.62
+  },
+  "tread": {
+    "linksPerSide": 60,
+    "shoeWidth": 0.28,
+    "shoeLength": 0.135,
+    "shoeThickness": 0.07,
+    "grouserHeight": 0.024
+  },
+  "simulation": {
+    "driveSpeed": 1.15,
+    "yawSpeed": 1.55,
+    "trackVisualSpeed": 1.9,
+    "joystickDeadzone": 0.08,
+    "joystickResponse": 1.15
+  },
+  "display": {
+    "showPathDefault": false,
+    "showStatsDefault": false,
+    "showGhostDefault": true,
+    "colors": {
+      "hull": "#58604d",
+      "track": "#262824",
+      "grouser": "#3b3e36",
+      "path": "#d5b46f",
+      "ghost": "#8aa0c9"
+    }
+  }
+}
