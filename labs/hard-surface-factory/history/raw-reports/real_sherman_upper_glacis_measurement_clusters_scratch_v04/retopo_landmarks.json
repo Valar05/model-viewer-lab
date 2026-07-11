@@ -1,0 +1,18 @@
+{
+  "asset_id": "real_sherman_upper_glacis_measurement_clusters_scratch_v04",
+  "landmarks": {
+    "main_glacis": "named feature plate with its own measured plane and world_corners",
+    "left_shoulder": "closed shoulder solid from measured side feature bounds",
+    "right_shoulder": "closed shoulder solid from measured side feature bounds",
+    "front_face": "closed front/lower face feature, not endpoint wall extrusion",
+    "deck_transition": "closed upper/deck transition feature behind socket",
+    "left_return": "closed side-return feature",
+    "right_return": "closed side-return feature",
+    "socket": "secondary measured cylinder landmark",
+    "ring": "secondary measured annular ring landmark"
+  },
+  "hatch": {
+    "omitted": true,
+    "reason": "feature decomposition must pass before hatch detail"
+  }
+}

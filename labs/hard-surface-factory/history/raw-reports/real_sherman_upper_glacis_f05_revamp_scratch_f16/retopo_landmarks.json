@@ -1,0 +1,18 @@
+{
+  "asset_id": "real_sherman_upper_glacis_f05_revamp_scratch_f16",
+  "loops": {
+    "source_shell": "f05/source upper-glacis shell solidified for silhouette/key-plane preservation",
+    "turret_socket_loop": {
+      "kind": "boolean cylinder cut through solid shell",
+      "segments": 96,
+      "radius": 0.185
+    },
+    "raised_ring_loop": {
+      "kind": "separate watertight torus ring",
+      "segments": 96
+    }
+  },
+  "hatch": {
+    "omitted": true
+  }
+}

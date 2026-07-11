@@ -1,0 +1,214 @@
+{
+  "asset_id": "meshy_sherman_envelope_assembly_v1",
+  "revision": "v1-textured-envelope-assembly-20260708",
+  "generated_at": "2026-07-08T13:44:05.978Z",
+  "generator": "scripts/build_meshy_envelope_assembly.mjs",
+  "source_policy": "Whole Meshy source envelopes copied intact. Compose envelope transforms only; do not compose or recenter internal pieces. Preserve embedded Meshy textures/materials/UVs.",
+  "source_images": {
+    "hull": {
+      "source": "/storage/emulated/0/Pictures/file_00000000e68871f89b503a6afb63782f.png",
+      "runtime": "public/tftm/models/meshy_sherman_envelope_assembly_v1/source_images/file_00000000e68871f89b503a6afb63782f.png"
+    },
+    "turret": {
+      "source": "/storage/emulated/0/Pictures/file_00000000407c71fd8087828e55eb7cc0.png",
+      "runtime": "public/tftm/models/meshy_sherman_envelope_assembly_v1/source_images/file_00000000407c71fd8087828e55eb7cc0.png"
+    },
+    "treads": {
+      "source": "/storage/emulated/0/Pictures/file_00000000cd0471fdafbe2cfc4e794220.png",
+      "runtime": "public/tftm/models/meshy_sherman_envelope_assembly_v1/source_images/file_00000000cd0471fdafbe2cfc4e794220.png"
+    }
+  },
+  "areas": [
+    "hull",
+    "treads",
+    "turret"
+  ],
+  "runtime_contract": {
+    "hull": "load the full textured Meshy hull source GLB as one envelope",
+    "turret": "load the full textured Meshy turret-kit source GLB as one envelope; barrel/coax/hatches stay in the source grouping instead of being separately composed",
+    "treads": "authored animated treads remain visible by default; full textured Meshy tread envelope is optional reference/model-swap candidate",
+    "parade": "future 24-tank parade must instance envelope geometry/material sets instead of deep-cloning object trees"
+  },
+  "parts": {
+    "hull_envelope": {
+      "id": "hull_envelope",
+      "label": "Meshy hull envelope",
+      "area": "hull",
+      "runtime_role": "textured_hull_envelope",
+      "source_model": "hull",
+      "source_image": "/storage/emulated/0/Pictures/file_00000000e68871f89b503a6afb63782f.png",
+      "source_glb": "/storage/emulated/0/Download/Meshy_AI_Iron_Sentinel_0708005243_texture.glb",
+      "runtime_glb": "public/tftm/models/meshy_sherman_envelope_assembly_v1/meshy_hull_envelope.glb",
+      "runtime_url": "./tftm/models/meshy_sherman_envelope_assembly_v1/meshy_hull_envelope.glb",
+      "default_visible": true,
+      "default_transform": {
+        "position": [
+          -0.04,
+          0.2,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1.65,
+          1.82,
+          2.18
+        ]
+      },
+      "envelope_policy": "whole source GLB envelope copied intact; no internal component extraction, no recentering, no material replacement",
+      "triangles": 6655,
+      "vertices": 10416,
+      "byteLength": 17679748,
+      "materialCount": 1,
+      "imageCount": 4,
+      "textureCount": 4,
+      "has_base_color_texture": true,
+      "has_pbr_texture_payload": true,
+      "bbox": {
+        "min": [
+          -0.9590880274772644,
+          -0.2627800405025482,
+          -0.4791969954967499
+        ],
+        "max": [
+          0.9528020024299622,
+          0.27049195766448975,
+          0.4713810086250305
+        ],
+        "size": [
+          1.91189,
+          0.53327,
+          0.95058
+        ],
+        "center": [
+          -0.00314,
+          0.00386,
+          -0.00391
+        ]
+      }
+    },
+    "turret_kit_envelope": {
+      "id": "turret_kit_envelope",
+      "label": "Meshy turret kit envelope",
+      "area": "turret",
+      "runtime_role": "textured_turret_kit_envelope",
+      "source_model": "turret",
+      "source_image": "/storage/emulated/0/Pictures/file_00000000407c71fd8087828e55eb7cc0.png",
+      "source_glb": "/storage/emulated/0/Download/Meshy_AI_Disassembled_Tank_Tur_0708005235_texture.glb",
+      "runtime_glb": "public/tftm/models/meshy_sherman_envelope_assembly_v1/meshy_turret_kit_envelope.glb",
+      "runtime_url": "./tftm/models/meshy_sherman_envelope_assembly_v1/meshy_turret_kit_envelope.glb",
+      "default_visible": true,
+      "default_transform": {
+        "position": [
+          0.08,
+          0.92,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.62,
+          0.62,
+          0.62
+        ]
+      },
+      "envelope_policy": "whole source GLB envelope copied intact; no internal component extraction, no recentering, no material replacement",
+      "triangles": 6867,
+      "vertices": 8492,
+      "byteLength": 17908328,
+      "materialCount": 1,
+      "imageCount": 4,
+      "textureCount": 4,
+      "has_base_color_texture": true,
+      "has_pbr_texture_payload": true,
+      "bbox": {
+        "min": [
+          -0.9585800170898438,
+          -0.3807269334793091,
+          -0.9232630133628845
+        ],
+        "max": [
+          0.9590870141983032,
+          0.3767389953136444,
+          0.923816978931427
+        ],
+        "size": [
+          1.91767,
+          0.75747,
+          1.84708
+        ],
+        "center": [
+          0.00025,
+          -0.00199,
+          0.00028
+        ]
+      }
+    },
+    "meshy_treads_envelope": {
+      "id": "meshy_treads_envelope",
+      "label": "Meshy treads envelope reference",
+      "area": "treads",
+      "runtime_role": "textured_treads_reference_envelope",
+      "source_model": "treads",
+      "source_image": "/storage/emulated/0/Pictures/file_00000000cd0471fdafbe2cfc4e794220.png",
+      "source_glb": "/storage/emulated/0/Download/Meshy_AI_Exploded_View_of_a_Tr_0708005253_texture.glb",
+      "runtime_glb": "public/tftm/models/meshy_sherman_envelope_assembly_v1/meshy_treads_envelope.glb",
+      "runtime_url": "./tftm/models/meshy_sherman_envelope_assembly_v1/meshy_treads_envelope.glb",
+      "default_visible": false,
+      "default_transform": {
+        "position": [
+          0,
+          -0.08,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1.05,
+          1.05,
+          1.05
+        ]
+      },
+      "envelope_policy": "whole source GLB envelope copied intact; no internal component extraction, no recentering, no material replacement",
+      "triangles": 7269,
+      "vertices": 9963,
+      "byteLength": 20394668,
+      "materialCount": 1,
+      "imageCount": 4,
+      "textureCount": 4,
+      "has_base_color_texture": true,
+      "has_pbr_texture_payload": true,
+      "bbox": {
+        "min": [
+          -0.9547280073165894,
+          -0.6090969443321228,
+          -0.5694690346717834
+        ],
+        "max": [
+          0.9553560018539429,
+          0.6122660040855408,
+          0.4793130159378052
+        ],
+        "size": [
+          1.91008,
+          1.22136,
+          1.04878
+        ],
+        "center": [
+          0.00031,
+          0.00158,
+          -0.04508
+        ]
+      }
+    }
+  }
+}

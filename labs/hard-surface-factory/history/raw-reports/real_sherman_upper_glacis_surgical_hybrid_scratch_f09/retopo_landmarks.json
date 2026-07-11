@@ -1,0 +1,9 @@
+{
+  "asset_id": "real_sherman_upper_glacis_surgical_hybrid_scratch_f09",
+  "dissolve_angle_degrees": 35.0,
+  "local_surgery": "delete ragged f05 ring/hatch faces and replace with measured clean shells",
+  "retopo_engine": "f05 source dissolve plus local analytic ring/hatch replacement",
+  "preserve_source_boundaries": true,
+  "source_component": "source_component_0_upper_front_glacis_assembly",
+  "lesson_from_f01_f08": "f05 was closest but seamed; f07 was box/disk abstraction; f08 looked like bad decimation. f09 preserves f05 broad hull and surgically replaces only ragged feature zones."
+}

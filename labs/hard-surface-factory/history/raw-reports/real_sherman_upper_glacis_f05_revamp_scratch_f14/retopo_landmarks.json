@@ -1,0 +1,26 @@
+{
+  "asset_id": "real_sherman_upper_glacis_f05_revamp_scratch_f14",
+  "loops": {
+    "outer_silhouette_loop": {
+      "kind": "source_boundary_candidate_simplified_in_plane_uv",
+      "samples": 96
+    },
+    "dominant_plane_loop": {
+      "kind": "fitted_deck_plane",
+      "cluster_face_count": 4644
+    },
+    "turret_socket_loop": {
+      "kind": "regularized_circle_in_fitted_plane",
+      "segments": 96,
+      "radius": 0.185
+    },
+    "raised_ring_loop": {
+      "kind": "separate_annular_closed_mesh_in_fitted_plane",
+      "segments": 96
+    }
+  },
+  "hatch": {
+    "omitted": true,
+    "reason": "do not continue hatch cap modeling in this pass"
+  }
+}

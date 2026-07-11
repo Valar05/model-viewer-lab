@@ -1,0 +1,572 @@
+{
+  "schema": 1,
+  "note": "Factual index of copied raw reports. Mesh candidate outputs are intentionally excluded.",
+  "attempts": [
+    {
+      "id": "real_sherman_chassis_castbudget_scratch_b01",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_castbudget_scratch_b01"
+    },
+    {
+      "id": "real_sherman_chassis_castbudget_scratch_b02",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_castbudget_scratch_b02"
+    },
+    {
+      "id": "real_sherman_chassis_castbudget_scratch_b03",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_castbudget_scratch_b03"
+    },
+    {
+      "id": "real_sherman_chassis_handretopo_referencekit_scratch_c01",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_handretopo_referencekit_scratch_c01"
+    },
+    {
+      "id": "real_sherman_chassis_handretopo_referencekit_scratch_c02",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_handretopo_referencekit_scratch_c02"
+    },
+    {
+      "id": "real_sherman_chassis_handretopo_referencekit_scratch_c03",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_handretopo_referencekit_scratch_c03"
+    },
+    {
+      "id": "real_sherman_chassis_kit_scratch_v1",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_kit_scratch_v1"
+    },
+    {
+      "id": "real_sherman_chassis_lowpoly_reference_kit_scratch_v1",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_lowpoly_reference_kit_scratch_v1"
+    },
+    {
+      "id": "real_sherman_chassis_lowpoly_reference_kit_scratch_v2",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_lowpoly_reference_kit_scratch_v2"
+    },
+    {
+      "id": "real_sherman_chassis_modeled_platekit_scratch_d04",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_modeled_platekit_scratch_d04"
+    },
+    {
+      "id": "real_sherman_chassis_modeled_platekit_scratch_d05",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_modeled_platekit_scratch_d05"
+    },
+    {
+      "id": "real_sherman_chassis_platekit_scratch_a01",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_platekit_scratch_a01"
+    },
+    {
+      "id": "real_sherman_chassis_platekit_scratch_a02",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_platekit_scratch_a02"
+    },
+    {
+      "id": "real_sherman_chassis_platekit_scratch_a03",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_platekit_scratch_a03"
+    },
+    {
+      "id": "real_sherman_chassis_platekit_scratch_a04",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_platekit_scratch_a04"
+    },
+    {
+      "id": "real_sherman_chassis_platekit_scratch_a05",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_platekit_scratch_a05"
+    },
+    {
+      "id": "real_sherman_chassis_reference_kit_scratch_v1",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_reference_kit_scratch_v1"
+    },
+    {
+      "id": "real_sherman_chassis_retopo_only_referencekit_scratch_e01",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_retopo_only_referencekit_scratch_e01"
+    },
+    {
+      "id": "real_sherman_chassis_retopo_only_referencekit_scratch_e02",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_retopo_only_referencekit_scratch_e02"
+    },
+    {
+      "id": "real_sherman_chassis_retopo_scratch_v1",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_retopo_scratch_v1"
+    },
+    {
+      "id": "real_sherman_chassis_scratch_v1",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_scratch_v1"
+    },
+    {
+      "id": "real_sherman_chassis_scratch_v2",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_scratch_v2"
+    },
+    {
+      "id": "real_sherman_chassis_structural_retopo_referencekit_scratch_d01",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_structural_retopo_referencekit_scratch_d01"
+    },
+    {
+      "id": "real_sherman_chassis_structural_retopo_referencekit_scratch_d02",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_structural_retopo_referencekit_scratch_d02"
+    },
+    {
+      "id": "real_sherman_chassis_structural_retopo_referencekit_scratch_d03",
+      "reports": [
+        "model_manifest.json"
+      ],
+      "asset_id": "real_sherman_chassis_structural_retopo_referencekit_scratch_d03"
+    },
+    {
+      "id": "real_sherman_upper_glacis_analytic_primitives_scratch_f06",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.575575081449304,
+        "mean_abs_depth_error": 0.07286757621307112,
+        "p95_abs_depth_error": 0.1655888557434082,
+        "max_abs_depth_error": 0.3663754463195801
+      },
+      "asset_id": "real_sherman_upper_glacis_analytic_primitives_scratch_f06"
+    },
+    {
+      "id": "real_sherman_upper_glacis_analytic_primitives_scratch_f07",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.593843994385402,
+        "mean_abs_depth_error": 0.06825233266580231,
+        "p95_abs_depth_error": 0.13782930374145508,
+        "max_abs_depth_error": 0.3663754463195801
+      },
+      "asset_id": "real_sherman_upper_glacis_analytic_primitives_scratch_f07"
+    },
+    {
+      "id": "real_sherman_upper_glacis_clean_source_islands_scratch_f08",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.9882985452245414,
+        "mean_abs_depth_error": 0.015780562795003256,
+        "p95_abs_depth_error": 0.07574129104614258,
+        "max_abs_depth_error": 0.6017804145812988
+      },
+      "asset_id": "real_sherman_upper_glacis_clean_source_islands_scratch_f08"
+    },
+    {
+      "id": "real_sherman_upper_glacis_cluster_owned_silhouette_scratch_v05",
+      "reports": [
+        "authored_solids.json",
+        "depth_error_report.json",
+        "feature_cluster_report.json",
+        "measurement_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.6248735495388277,
+        "mean_abs_depth_error": 0.279745320163106,
+        "p95_abs_depth_error": 0.5374026298522949,
+        "max_abs_depth_error": 0.6616754531860352
+      },
+      "asset_id": "real_sherman_upper_glacis_cluster_owned_silhouette_scratch_v05"
+    },
+    {
+      "id": "real_sherman_upper_glacis_dissolve_retopo_scratch_f05",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.9893549747048904,
+        "mean_abs_depth_error": 0.01036592645869667,
+        "p95_abs_depth_error": 0.05052375793457031,
+        "max_abs_depth_error": 0.6000971794128418
+      },
+      "asset_id": "real_sherman_upper_glacis_dissolve_retopo_scratch_f05"
+    },
+    {
+      "id": "real_sherman_upper_glacis_f05_revamp_scratch_f10",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.9511726647796199,
+        "mean_abs_depth_error": 0.027024163692027175,
+        "p95_abs_depth_error": 0.22536277770996094,
+        "max_abs_depth_error": 0.6000971794128418
+      },
+      "asset_id": "real_sherman_upper_glacis_f05_revamp_scratch_f10"
+    },
+    {
+      "id": "real_sherman_upper_glacis_f05_revamp_scratch_f11",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.9686985172981878,
+        "mean_abs_depth_error": 0.018843764249159366,
+        "p95_abs_depth_error": 0.11220693588256836,
+        "max_abs_depth_error": 0.6000971794128418
+      },
+      "asset_id": "real_sherman_upper_glacis_f05_revamp_scratch_f11"
+    },
+    {
+      "id": "real_sherman_upper_glacis_f05_revamp_scratch_f12",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.7110105580693816,
+        "mean_abs_depth_error": 0.041375842058680515,
+        "p95_abs_depth_error": 0.15014171600341797,
+        "max_abs_depth_error": 0.5166416168212891
+      },
+      "asset_id": "real_sherman_upper_glacis_f05_revamp_scratch_f12"
+    },
+    {
+      "id": "real_sherman_upper_glacis_f05_revamp_scratch_f13",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.7144134300188736,
+        "mean_abs_depth_error": 0.04275787698811498,
+        "p95_abs_depth_error": 0.20475435256958008,
+        "max_abs_depth_error": 0.518517017364502
+      },
+      "asset_id": "real_sherman_upper_glacis_f05_revamp_scratch_f13"
+    },
+    {
+      "id": "real_sherman_upper_glacis_f05_revamp_scratch_f14",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.4850675888085508,
+        "mean_abs_depth_error": 0.06473216435697585,
+        "p95_abs_depth_error": 0.17813968658447266,
+        "max_abs_depth_error": 0.38961267471313477
+      },
+      "asset_id": "real_sherman_upper_glacis_f05_revamp_scratch_f14"
+    },
+    {
+      "id": "real_sherman_upper_glacis_f05_revamp_scratch_f15",
+      "reports": [
+        "depth_error_report.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.4818571577956708,
+        "mean_abs_depth_error": 0.061942418933742575,
+        "p95_abs_depth_error": 0.17618846893310547,
+        "max_abs_depth_error": 0.37663698196411133
+      }
+    },
+    {
+      "id": "real_sherman_upper_glacis_f05_revamp_scratch_f16",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.44281236005373936,
+        "mean_abs_depth_error": 0.20487725541815402,
+        "p95_abs_depth_error": 0.5608034133911133,
+        "max_abs_depth_error": 0.6435933113098145
+      },
+      "asset_id": "real_sherman_upper_glacis_f05_revamp_scratch_f16"
+    },
+    {
+      "id": "real_sherman_upper_glacis_feature_retopo_scratch_f02",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.6245624562456246,
+        "mean_abs_depth_error": 0.05205420882726689,
+        "p95_abs_depth_error": 0.2786684036254883,
+        "max_abs_depth_error": 0.38119077682495117
+      },
+      "asset_id": "real_sherman_upper_glacis_feature_retopo_scratch_f02"
+    },
+    {
+      "id": "real_sherman_upper_glacis_island_retopo_scratch_f04",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.9778128286014721,
+        "mean_abs_depth_error": 0.007746691241778665,
+        "p95_abs_depth_error": 0.027983665466308594,
+        "max_abs_depth_error": 0.5272817611694336
+      },
+      "asset_id": "real_sherman_upper_glacis_island_retopo_scratch_f04"
+    },
+    {
+      "id": "real_sherman_upper_glacis_measurement_clusters_scratch_v04",
+      "reports": [
+        "authored_solids.json",
+        "depth_error_report.json",
+        "feature_cluster_report.json",
+        "measurement_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.636108019448187,
+        "mean_abs_depth_error": 0.2720169965728386,
+        "p95_abs_depth_error": 0.5428004264831543,
+        "max_abs_depth_error": 0.650362491607666
+      },
+      "asset_id": "real_sherman_upper_glacis_measurement_clusters_scratch_v04"
+    },
+    {
+      "id": "real_sherman_upper_glacis_measurement_features_scratch_v03",
+      "reports": [
+        "authored_solids.json",
+        "depth_error_report.json",
+        "measurement_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.6192474282620466,
+        "mean_abs_depth_error": 0.20943800759445774,
+        "p95_abs_depth_error": 0.36430978775024414,
+        "max_abs_depth_error": 0.5787639617919922
+      },
+      "asset_id": "real_sherman_upper_glacis_measurement_features_scratch_v03"
+    },
+    {
+      "id": "real_sherman_upper_glacis_measurement_solids_scratch_v01",
+      "reports": [
+        "authored_solids.json",
+        "depth_error_report.json",
+        "measurement_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.5821928967090257,
+        "mean_abs_depth_error": 0.05820834768457281,
+        "p95_abs_depth_error": 0.1956634521484375,
+        "max_abs_depth_error": 0.5316352844238281
+      },
+      "asset_id": "real_sherman_upper_glacis_measurement_solids_scratch_v01"
+    },
+    {
+      "id": "real_sherman_upper_glacis_measurement_solids_scratch_v02",
+      "reports": [
+        "authored_solids.json",
+        "depth_error_report.json",
+        "measurement_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.5882685170243667,
+        "mean_abs_depth_error": 0.05021450382547113,
+        "p95_abs_depth_error": 0.16885900497436523,
+        "max_abs_depth_error": 0.27988338470458984
+      },
+      "asset_id": "real_sherman_upper_glacis_measurement_solids_scratch_v02"
+    },
+    {
+      "id": "real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06",
+      "reports": [
+        "authored_solids.json",
+        "depth_error_report.json",
+        "feature_cluster_report.json",
+        "measurement_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.6478695953175153,
+        "mean_abs_depth_error": 0.20521096259569785,
+        "p95_abs_depth_error": 0.3762822151184082,
+        "max_abs_depth_error": 0.5279521942138672
+      },
+      "asset_id": "real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06"
+    },
+    {
+      "id": "real_sherman_upper_glacis_quadriflow_retopo_scratch_f03",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.9010897768552154,
+        "mean_abs_depth_error": 0.042844578627204324,
+        "p95_abs_depth_error": 0.33022069931030273,
+        "max_abs_depth_error": 0.5973773002624512
+      },
+      "asset_id": "real_sherman_upper_glacis_quadriflow_retopo_scratch_f03"
+    },
+    {
+      "id": "real_sherman_upper_glacis_retopo_landmark_scratch_f01",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.9372362869198312,
+        "mean_abs_depth_error": 0.005478361448546642,
+        "p95_abs_depth_error": 0.01810598373413086,
+        "max_abs_depth_error": 0.26984548568725586
+      },
+      "asset_id": "real_sherman_upper_glacis_retopo_landmark_scratch_f01"
+    },
+    {
+      "id": "real_sherman_upper_glacis_shared_interfaces_scratch_v08",
+      "reports": [
+        "authored_solids.json",
+        "depth_error_report.json",
+        "feature_cluster_report.json",
+        "measurement_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json",
+        "shared_interface_report.json",
+        "silhouette_edge_report.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.6312073067771894,
+        "mean_abs_depth_error": 0.07681155175782363,
+        "p95_abs_depth_error": 0.21370792388916016,
+        "max_abs_depth_error": 0.5346145629882812
+      },
+      "asset_id": "real_sherman_upper_glacis_shared_interfaces_scratch_v08"
+    },
+    {
+      "id": "real_sherman_upper_glacis_silhouette_edges_scratch_v07",
+      "reports": [
+        "authored_solids.json",
+        "depth_error_report.json",
+        "feature_cluster_report.json",
+        "measurement_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json",
+        "silhouette_edge_report.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.6995427824951013,
+        "mean_abs_depth_error": 0.04922919424753341,
+        "p95_abs_depth_error": 0.1651744842529297,
+        "max_abs_depth_error": 0.37741851806640625
+      },
+      "asset_id": "real_sherman_upper_glacis_silhouette_edges_scratch_v07"
+    },
+    {
+      "id": "real_sherman_upper_glacis_surgical_hybrid_scratch_f09",
+      "reports": [
+        "depth_error_report.json",
+        "model_manifest.json",
+        "retopo_landmarks.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.10106704248037045,
+        "mean_abs_depth_error": 0.16110177676516224,
+        "p95_abs_depth_error": 0.32779884338378906,
+        "max_abs_depth_error": 0.3376193046569824
+      },
+      "asset_id": "real_sherman_upper_glacis_surgical_hybrid_scratch_f09"
+    },
+    {
+      "id": "real_sherman_upper_hull_manufactured_scratch_v07",
+      "reports": [
+        "authored_solids.json",
+        "depth_error_report.json",
+        "measurement_report.json",
+        "model_manifest.json"
+      ],
+      "metrics": {
+        "silhouette_iou": 0.7402539541100468,
+        "mean_abs_depth_error": 0.0469124972587101,
+        "p95_abs_depth_error": 0.16401433944702148,
+        "max_abs_depth_error": 0.3443436622619629
+      },
+      "asset_id": "real_sherman_upper_hull_manufactured_scratch_v07"
+    }
+  ]
+}

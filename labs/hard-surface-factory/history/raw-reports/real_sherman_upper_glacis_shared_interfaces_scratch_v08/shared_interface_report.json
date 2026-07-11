@@ -1,0 +1,225 @@
+{
+  "asset_id": "real_sherman_upper_glacis_shared_interfaces_scratch_v08",
+  "status": "pass",
+  "interfaces": {
+    "main_glacis__left_shoulder": {
+      "left_feature": "main_glacis",
+      "right_feature": "left_shoulder",
+      "source_candidate_point_counts": {
+        "main_glacis": 12,
+        "left_shoulder": 12
+      },
+      "matched_pair_count": 3,
+      "final_shared_point_count": 3,
+      "maximum_pre_snap_separation": 0.03269165798888399,
+      "maximum_post_snap_separation": 0.0,
+      "endpoint_preservation_flags": {
+        "start_present": true,
+        "end_present": true
+      },
+      "reversed_for_second_consumer": false,
+      "wall_owner": "main_glacis",
+      "status": "pass",
+      "shared_uv": [
+        [
+          -0.05156670298310928,
+          -0.23866550030652434
+        ],
+        [
+          -0.33505640011571813,
+          -0.23472305539326044
+        ],
+        [
+          -0.3350996736335219,
+          0.1757529055703344
+        ]
+      ]
+    },
+    "main_glacis__right_shoulder": {
+      "left_feature": "main_glacis",
+      "right_feature": "right_shoulder",
+      "source_candidate_point_counts": {
+        "main_glacis": 12,
+        "right_shoulder": 12
+      },
+      "matched_pair_count": 5,
+      "final_shared_point_count": 5,
+      "maximum_pre_snap_separation": 0.052639268349845156,
+      "maximum_post_snap_separation": 0.0,
+      "endpoint_preservation_flags": {
+        "start_present": true,
+        "end_present": true
+      },
+      "reversed_for_second_consumer": false,
+      "wall_owner": "main_glacis",
+      "status": "pass",
+      "shared_uv": [
+        [
+          -0.043821586867125006,
+          -0.23569756579308887
+        ],
+        [
+          0.21925517815361673,
+          0.13879994598391932
+        ],
+        [
+          0.30180501485847344,
+          -0.2051227852334705
+        ],
+        [
+          0.3211945151233522,
+          0.13285037838795688
+        ],
+        [
+          0.3333897818929472,
+          -0.08305965879480937
+        ]
+      ]
+    },
+    "main_glacis__front_face": {
+      "left_feature": "main_glacis",
+      "right_feature": "front_face",
+      "source_candidate_point_counts": {
+        "main_glacis": 12,
+        "front_face": 12
+      },
+      "matched_pair_count": 4,
+      "final_shared_point_count": 4,
+      "maximum_pre_snap_separation": 0.038306247166180134,
+      "maximum_post_snap_separation": 0.0,
+      "endpoint_preservation_flags": {
+        "start_present": true,
+        "end_present": true
+      },
+      "reversed_for_second_consumer": false,
+      "wall_owner": "front_face",
+      "status": "pass",
+      "shared_uv": [
+        [
+          -0.3357188678091916,
+          -0.24093573944992386
+        ],
+        [
+          -0.07787322306830902,
+          -0.2572361805650871
+        ],
+        [
+          0.20316919915603648,
+          -0.23411528991664454
+        ],
+        [
+          0.30728269329938485,
+          -0.21464672189722478
+        ]
+      ]
+    },
+    "main_glacis__deck_transition": {
+      "left_feature": "main_glacis",
+      "right_feature": "deck_transition",
+      "source_candidate_point_counts": {
+        "main_glacis": 12,
+        "deck_transition": 12
+      },
+      "matched_pair_count": 5,
+      "final_shared_point_count": 5,
+      "maximum_pre_snap_separation": 0.0489045574301216,
+      "maximum_post_snap_separation": 0.0,
+      "endpoint_preservation_flags": {
+        "start_present": true,
+        "end_present": true
+      },
+      "reversed_for_second_consumer": false,
+      "wall_owner": "deck_transition",
+      "status": "pass",
+      "shared_uv": [
+        [
+          -0.33513084263177007,
+          0.17779903452537837
+        ],
+        [
+          -0.33262377474693494,
+          0.25236387752738665
+        ],
+        [
+          0.24706893087932258,
+          0.15906957811967004
+        ],
+        [
+          0.26539506457629614,
+          0.26884873294329736
+        ],
+        [
+          0.32735005951690255,
+          0.15187708513985854
+        ]
+      ]
+    },
+    "left_shoulder__left_return": {
+      "left_feature": "left_shoulder",
+      "right_feature": "left_return",
+      "source_candidate_point_counts": {
+        "left_shoulder": 12,
+        "left_return": 12
+      },
+      "matched_pair_count": 3,
+      "final_shared_point_count": 3,
+      "maximum_pre_snap_separation": 0.015580150523506744,
+      "maximum_post_snap_separation": 0.0,
+      "endpoint_preservation_flags": {
+        "start_present": true,
+        "end_present": true
+      },
+      "reversed_for_second_consumer": false,
+      "wall_owner": "left_return",
+      "status": "pass",
+      "shared_uv": [
+        [
+          -0.33373853043303825,
+          -0.23100047538173385
+        ],
+        [
+          -0.3346279174875235,
+          0.13569842433571466
+        ],
+        [
+          -0.3342924055777985,
+          0.17479217442451045
+        ]
+      ]
+    },
+    "right_shoulder__right_return": {
+      "left_feature": "right_shoulder",
+      "right_feature": "right_return",
+      "source_candidate_point_counts": {
+        "right_shoulder": 12,
+        "right_return": 12
+      },
+      "matched_pair_count": 3,
+      "final_shared_point_count": 3,
+      "maximum_pre_snap_separation": 0.044203485528723684,
+      "maximum_post_snap_separation": 0.0,
+      "endpoint_preservation_flags": {
+        "start_present": true,
+        "end_present": true
+      },
+      "reversed_for_second_consumer": false,
+      "wall_owner": "right_return",
+      "status": "pass",
+      "shared_uv": [
+        [
+          0.30177603694937716,
+          -0.19075263388367603
+        ],
+        [
+          0.35320543945908867,
+          -0.08726326901523862
+        ],
+        [
+          0.3226215737286111,
+          0.11880173076497158
+        ]
+      ]
+    }
+  },
+  "failure_reasons": []
+}

@@ -1,0 +1,276 @@
+{
+  "asset_id": "real_sherman_chassis_kit_scratch_v1",
+  "artifact_type": "scratch_hard_surface_kit_not_tank",
+  "revision": "scratch-kit-v1-eight-piece-low-poly-clean-uv",
+  "scratch_mode": true,
+  "revision_note": "rerun after Blender read: lowered and reshaped turret deck to reduce top-pad read and long side/top shadow seams",
+  "source_reference_asset": "public/tftm/models/sherman_hull_candidate_current/sherman_hull_candidate_current.glb",
+  "source_reference_imported_hidden_in_blend": true,
+  "source_reference_manifest_revision": "scratch-v14-clean-hatch-clearance-rear-bulkhead",
+  "output_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_kit_scratch_v1/real_sherman_chassis_kit_scratch_v1.glb",
+  "source_blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_chassis_kit_scratch_v1/real_sherman_chassis_kit_scratch_v1.blend",
+  "renders": {
+    "front_three_quarter": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_kit_scratch_v1/front_three_quarter.png",
+    "rear_three_quarter": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_kit_scratch_v1/rear_three_quarter.png"
+  },
+  "kit_policy": {
+    "make_tank": false,
+    "assembled_for_screenshot_parity": true,
+    "piece_count": 8,
+    "expected_piece_count": "8ish",
+    "no_protuberances": true,
+    "materials_ignored_except_neutral_render_readability": true,
+    "uv_requirement": "Every exported mesh owns a kit_clean_uv layer with simple normalized planar UVs; no packed atlas yet.",
+    "low_poly_policy": "Large manufactured hull plates only; bevels are one-segment diagnostic modifiers for edge readability."
+  },
+  "assemblies": {
+    "lower_tub": {
+      "object": "kit_v1_01_lower_tub_single_bucket",
+      "role": "lower_tub",
+      "note": "one manufactured lower hull bucket; no side shelves or blockers split away from it",
+      "material_class": "section_shell",
+      "uv_layer": "kit_clean_uv",
+      "uv_policy": "side_x",
+      "bbox": {
+        "min": [
+          -1.52,
+          -0.112,
+          -0.875
+        ],
+        "max": [
+          1.5,
+          0.465,
+          0.875
+        ],
+        "center": [
+          -0.010000000000000009,
+          0.17650000000000002,
+          0.0
+        ],
+        "size": [
+          3.02,
+          0.5770000000000001,
+          1.75
+        ]
+      },
+      "nominal_triangles_before_modifiers": 60
+    },
+    "upper_glacis_front_nose": {
+      "object": "kit_v1_02_upper_glacis_and_front_nose",
+      "role": "upper_glacis_front_nose",
+      "note": "front armor kit piece merges glacis, corner rake, and lower transmission nose into one retopo part",
+      "material_class": "thick_plate",
+      "uv_layer": "kit_clean_uv",
+      "uv_policy": "front",
+      "bbox": {
+        "min": [
+          0.12,
+          0.09,
+          -0.895
+        ],
+        "max": [
+          1.6,
+          0.758,
+          0.895
+        ],
+        "center": [
+          0.8600000000000001,
+          0.424,
+          0.0
+        ],
+        "size": [
+          1.48,
+          0.668,
+          1.79
+        ]
+      },
+      "nominal_triangles_before_modifiers": 20
+    },
+    "left_side_sponson": {
+      "object": "kit_v1_03_left_side_and_sponson_one_piece",
+      "role": "left_side_sponson",
+      "note": "left kit part merges side armor, sponson shelf, and front/rear cheek joins so it reads as one plate assembly",
+      "material_class": "thick_plate",
+      "uv_layer": "kit_clean_uv",
+      "uv_policy": "side_x",
+      "bbox": {
+        "min": [
+          -1.56,
+          0.072,
+          -1.055
+        ],
+        "max": [
+          1.52,
+          0.69,
+          -0.6
+        ],
+        "center": [
+          -0.020000000000000018,
+          0.38099999999999995,
+          -0.8274999999999999
+        ],
+        "size": [
+          3.08,
+          0.618,
+          0.45499999999999996
+        ]
+      },
+      "nominal_triangles_before_modifiers": 28
+    },
+    "right_side_sponson": {
+      "object": "kit_v1_04_right_side_and_sponson_one_piece",
+      "role": "right_side_sponson",
+      "note": "right kit part mirrors the integrated side armor and shelf; no extra wrap helper pieces",
+      "material_class": "thick_plate",
+      "uv_layer": "kit_clean_uv",
+      "uv_policy": "side_x",
+      "bbox": {
+        "min": [
+          -1.56,
+          0.072,
+          0.6
+        ],
+        "max": [
+          1.52,
+          0.69,
+          1.055
+        ],
+        "center": [
+          -0.020000000000000018,
+          0.38099999999999995,
+          0.8274999999999999
+        ],
+        "size": [
+          3.08,
+          0.618,
+          0.45499999999999996
+        ]
+      },
+      "nominal_triangles_before_modifiers": 28
+    },
+    "rear_bulkhead": {
+      "object": "kit_v1_05_rear_bulkhead_butt_plate",
+      "role": "rear_bulkhead",
+      "note": "single rear closure plate with broad butt cover; keeps the one improvement from retopo v1 without side helper noise",
+      "material_class": "thick_plate",
+      "uv_layer": "kit_clean_uv",
+      "uv_policy": "front",
+      "bbox": {
+        "min": [
+          -1.58,
+          -0.012,
+          -0.815
+        ],
+        "max": [
+          -1.425,
+          0.575,
+          0.815
+        ],
+        "center": [
+          -1.5025,
+          0.2815,
+          0.0
+        ],
+        "size": [
+          0.15500000000000003,
+          0.587,
+          1.63
+        ]
+      },
+      "nominal_triangles_before_modifiers": 12
+    },
+    "engine_deck": {
+      "object": "kit_v1_06_engine_deck_plain_plate",
+      "role": "engine_deck",
+      "note": "one low-poly engine deck plate, deliberately no grilles, rivets, or protuberances in this pass",
+      "material_class": "thick_plate",
+      "uv_layer": "kit_clean_uv",
+      "uv_policy": "top",
+      "bbox": {
+        "min": [
+          -1.42,
+          0.322,
+          -0.755
+        ],
+        "max": [
+          -0.36,
+          0.682,
+          0.755
+        ],
+        "center": [
+          -0.8899999999999999,
+          0.502,
+          0.0
+        ],
+        "size": [
+          1.06,
+          0.36000000000000004,
+          1.51
+        ]
+      },
+      "nominal_triangles_before_modifiers": 12
+    },
+    "turret_deck_socket": {
+      "object": "kit_v1_07_turret_deck_with_real_socket_cutout",
+      "role": "turret_deck_socket",
+      "note": "single deck kit plate with a real circular opening; no tank turret or top pad candidate",
+      "material_class": "deck_with_cutout",
+      "uv_layer": "kit_clean_uv",
+      "uv_policy": "top",
+      "bbox": {
+        "min": [
+          -0.8784930559928261,
+          0.662,
+          -0.805
+        ],
+        "max": [
+          0.6731208519828163,
+          0.686,
+          0.805
+        ],
+        "center": [
+          -0.10268610200500489,
+          0.674,
+          0.0
+        ],
+        "size": [
+          1.5516139079756424,
+          0.02400000000000002,
+          1.61
+        ]
+      },
+      "nominal_triangles_before_modifiers": 192
+    },
+    "turret_socket_inner_wall": {
+      "object": "kit_v1_08_turret_socket_inner_wall",
+      "role": "turret_socket_inner_wall",
+      "note": "separate low-poly ring wall for retopo/texture boundary; dark only for Blender readability",
+      "material_class": "socket_wall",
+      "uv_layer": "kit_clean_uv",
+      "uv_policy": "top",
+      "bbox": {
+        "min": [
+          -0.32599999999999996,
+          0.515,
+          -0.286
+        ],
+        "max": [
+          0.24599999999999997,
+          0.67,
+          0.286
+        ],
+        "center": [
+          -0.039999999999999994,
+          0.5925,
+          0.0
+        ],
+        "size": [
+          0.572,
+          0.15500000000000003,
+          0.572
+        ]
+      },
+      "nominal_triangles_before_modifiers": 144
+    }
+  }
+}

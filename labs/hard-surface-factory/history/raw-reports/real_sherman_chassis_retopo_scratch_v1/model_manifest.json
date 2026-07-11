@@ -1,0 +1,454 @@
+{
+  "asset_id": "real_sherman_chassis_retopo_scratch_v1",
+  "scratch_mode": true,
+  "artifact_type": "scratch_hard_surface_retopo_hull_candidate",
+  "revision": "scratch-retopo-v1-large-hard-surface-plates",
+  "source_teacher": {
+    "asset_id": "sherman_hull_candidate_current",
+    "silhouette_revision": "scratch-v14-clean-hatch-clearance-rear-bulkhead",
+    "policy": "candidate GLB optionally imported as hidden reference only; exported geometry is authored retopo plates"
+  },
+  "reference_imported_hidden": true,
+  "scope": "hull/chassis shell only; large plates only; no treads, wheels, bogies, turret, mantlet, barrel, coaxial MG, protuberances, material plan, or UV polish",
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_chassis_retopo_scratch_v1/real_sherman_chassis_retopo_scratch_v1.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_retopo_scratch_v1/real_sherman_chassis_retopo_scratch_v1.glb",
+    "front_render": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_retopo_scratch_v1/front_three_quarter.png",
+    "rear_render": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_retopo_scratch_v1/rear_three_quarter.png"
+  },
+  "assemblies": {
+    "lower_tub": {
+      "object": "retopo_v1_lower_tub_real_mesh_shell",
+      "note": "single real mesh tub with angled shoulder sections, not separate boxes",
+      "material_class": "retopo_shell",
+      "bbox": {
+        "min": [
+          -1.56,
+          -0.12,
+          -0.94
+        ],
+        "max": [
+          1.54,
+          0.485,
+          0.94
+        ],
+        "center": [
+          -0.010000000000000009,
+          0.1825,
+          0.0
+        ],
+        "size": [
+          3.1,
+          0.605,
+          1.88
+        ]
+      }
+    },
+    "upper_glacis": {
+      "object": "retopo_v1_upper_glacis_real_mesh_plate",
+      "note": "broad sloped front plate with its own thickness and Sherman angle",
+      "material_class": "large_plate",
+      "bbox": {
+        "min": [
+          0.02,
+          0.408,
+          -0.91
+        ],
+        "max": [
+          1.56,
+          0.738,
+          0.91
+        ],
+        "center": [
+          0.79,
+          0.573,
+          0.0
+        ],
+        "size": [
+          1.54,
+          0.33,
+          1.82
+        ]
+      }
+    },
+    "front_transmission_cap": {
+      "object": "retopo_v1_front_transmission_cap_real_mesh_plate",
+      "note": "large lower front closure plate, shaped instead of plugged",
+      "material_class": "large_plate",
+      "bbox": {
+        "min": [
+          0.68,
+          0.06,
+          -0.74
+        ],
+        "max": [
+          1.62,
+          0.292,
+          0.74
+        ],
+        "center": [
+          1.1500000000000001,
+          0.176,
+          0.0
+        ],
+        "size": [
+          0.9400000000000001,
+          0.23199999999999998,
+          1.48
+        ]
+      }
+    },
+    "left_side_armor": {
+      "object": "retopo_v1_left_side_armor_real_mesh_plate",
+      "note": "left side is one custom side armor mesh plate",
+      "material_class": "large_plate",
+      "bbox": {
+        "min": [
+          -1.5,
+          0.142,
+          -0.985
+        ],
+        "max": [
+          1.47,
+          0.684,
+          -0.785
+        ],
+        "center": [
+          -0.015000000000000013,
+          0.41300000000000003,
+          -0.885
+        ],
+        "size": [
+          2.9699999999999998,
+          0.542,
+          0.19999999999999996
+        ]
+      }
+    },
+    "right_side_armor": {
+      "object": "retopo_v1_right_side_armor_real_mesh_plate",
+      "note": "right side is one custom side armor mesh plate",
+      "material_class": "large_plate",
+      "bbox": {
+        "min": [
+          -1.5,
+          0.142,
+          0.785
+        ],
+        "max": [
+          1.47,
+          0.684,
+          0.985
+        ],
+        "center": [
+          -0.015000000000000013,
+          0.41300000000000003,
+          0.885
+        ],
+        "size": [
+          2.9699999999999998,
+          0.542,
+          0.19999999999999996
+        ]
+      }
+    },
+    "left_sponson_shelf": {
+      "object": "retopo_v1_left_sponson_shelf_real_mesh_plate",
+      "note": "left shelf is a shaped track-socket plate, not a slab cover",
+      "material_class": "large_plate",
+      "bbox": {
+        "min": [
+          -1.52,
+          0.023999999999999994,
+          -1.06
+        ],
+        "max": [
+          1.48,
+          0.23,
+          -0.8
+        ],
+        "center": [
+          -0.020000000000000018,
+          0.127,
+          -0.93
+        ],
+        "size": [
+          3.0,
+          0.20600000000000002,
+          0.26
+        ]
+      }
+    },
+    "right_sponson_shelf": {
+      "object": "retopo_v1_right_sponson_shelf_real_mesh_plate",
+      "note": "right shelf is a shaped track-socket plate, not a slab cover",
+      "material_class": "large_plate",
+      "bbox": {
+        "min": [
+          -1.52,
+          0.023999999999999994,
+          0.8
+        ],
+        "max": [
+          1.48,
+          0.23,
+          1.06
+        ],
+        "center": [
+          -0.020000000000000018,
+          0.127,
+          0.93
+        ],
+        "size": [
+          3.0,
+          0.20600000000000002,
+          0.26
+        ]
+      }
+    },
+    "rear_bulkhead": {
+      "object": "retopo_v1_rear_bulkhead_real_mesh_plate",
+      "note": "single rear bulkhead plate with lower closure integrated into its mesh",
+      "material_class": "large_plate",
+      "bbox": {
+        "min": [
+          -1.58,
+          0.018,
+          -0.82
+        ],
+        "max": [
+          -1.43,
+          0.558,
+          0.82
+        ],
+        "center": [
+          -1.505,
+          0.28800000000000003,
+          0.0
+        ],
+        "size": [
+          0.15000000000000013,
+          0.54,
+          1.64
+        ]
+      }
+    },
+    "left_rear_wrap": {
+      "object": "retopo_v1_left_rear_wrap_real_mesh_plate",
+      "note": "left rear wrap shares the bulkhead/side relationship",
+      "material_class": "large_plate",
+      "bbox": {
+        "min": [
+          -1.58,
+          0.112,
+          -0.955
+        ],
+        "max": [
+          -1.44,
+          0.548,
+          -0.56
+        ],
+        "center": [
+          -1.51,
+          0.33,
+          -0.7575000000000001
+        ],
+        "size": [
+          0.14000000000000012,
+          0.43600000000000005,
+          0.3949999999999999
+        ]
+      }
+    },
+    "right_rear_wrap": {
+      "object": "retopo_v1_right_rear_wrap_real_mesh_plate",
+      "note": "right rear wrap shares the bulkhead/side relationship",
+      "material_class": "large_plate",
+      "bbox": {
+        "min": [
+          -1.58,
+          0.112,
+          0.56
+        ],
+        "max": [
+          -1.44,
+          0.548,
+          0.955
+        ],
+        "center": [
+          -1.51,
+          0.33,
+          0.7575000000000001
+        ],
+        "size": [
+          0.14000000000000012,
+          0.43600000000000005,
+          0.3949999999999999
+        ]
+      }
+    },
+    "engine_deck": {
+      "object": "retopo_v1_engine_deck_real_mesh_plate",
+      "note": "plain large rear deck plate; no protuberances",
+      "material_class": "large_plate",
+      "bbox": {
+        "min": [
+          -1.42,
+          0.32,
+          -0.765
+        ],
+        "max": [
+          -0.34,
+          0.696,
+          0.765
+        ],
+        "center": [
+          -0.88,
+          0.508,
+          0.0
+        ],
+        "size": [
+          1.0799999999999998,
+          0.37599999999999995,
+          1.53
+        ]
+      }
+    },
+    "left_front_wrap": {
+      "object": "retopo_v1_left_front_wrap_real_mesh_plate",
+      "note": "left front wrap joins side armor to glacis",
+      "material_class": "large_plate",
+      "bbox": {
+        "min": [
+          1.42,
+          0.15,
+          -0.958
+        ],
+        "max": [
+          1.58,
+          0.478,
+          -0.55
+        ],
+        "center": [
+          1.5,
+          0.314,
+          -0.754
+        ],
+        "size": [
+          0.16000000000000014,
+          0.32799999999999996,
+          0.4079999999999999
+        ]
+      }
+    },
+    "right_front_wrap": {
+      "object": "retopo_v1_right_front_wrap_real_mesh_plate",
+      "note": "right front wrap joins side armor to glacis",
+      "material_class": "large_plate",
+      "bbox": {
+        "min": [
+          1.42,
+          0.15,
+          0.55
+        ],
+        "max": [
+          1.58,
+          0.478,
+          0.958
+        ],
+        "center": [
+          1.5,
+          0.314,
+          0.754
+        ],
+        "size": [
+          0.16000000000000014,
+          0.32799999999999996,
+          0.4079999999999999
+        ]
+      }
+    },
+    "turret_socket_deck": {
+      "object": "retopo_v1_integrated_turret_socket_deck_real_mesh",
+      "note": "one real mesh deck surface with circular hole; not a rectangular pad or boolean cube",
+      "material_class": "retopo_deck_with_hole",
+      "bbox": {
+        "min": [
+          -0.8350000000000001,
+          0.6689999999999999,
+          -0.78
+        ],
+        "max": [
+          0.725,
+          0.704,
+          0.78
+        ],
+        "center": [
+          -0.05500000000000005,
+          0.6864999999999999,
+          0.0
+        ],
+        "size": [
+          1.56,
+          0.03500000000000003,
+          1.56
+        ]
+      }
+    },
+    "turret_socket_lip": {
+      "object": "retopo_v1_low_socket_lip_real_mesh",
+      "note": "low hard-surface lip around the cut opening",
+      "material_class": "socket",
+      "bbox": {
+        "min": [
+          -0.39,
+          0.718,
+          -0.335
+        ],
+        "max": [
+          0.28,
+          0.736,
+          0.335
+        ],
+        "center": [
+          -0.05499999999999999,
+          0.727,
+          0.0
+        ],
+        "size": [
+          0.67,
+          0.018000000000000016,
+          0.67
+        ]
+      }
+    },
+    "turret_socket_inner_wall": {
+      "object": "retopo_v1_dark_inner_turret_wall_real_mesh",
+      "note": "dark inner vertical wall only; no bottom disk",
+      "material_class": "socket",
+      "bbox": {
+        "min": [
+          -0.347,
+          0.54,
+          -0.292
+        ],
+        "max": [
+          0.237,
+          0.72,
+          0.292
+        ],
+        "center": [
+          -0.05499999999999999,
+          0.63,
+          0.0
+        ],
+        "size": [
+          0.584,
+          0.17999999999999994,
+          0.584
+        ]
+      }
+    }
+  },
+  "judgment_notes": "Scratch retopo branch using large authored mesh plates. Materials/UVs ignored except a neutral clay render material. No production promotion or cloud acceptance."
+}

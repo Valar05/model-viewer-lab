@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "src": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/main/labs/hard-surface-factory/source-assets/meshy-envelope-assembly-v1/meshy_turret_kit_envelope.glb",
+  "title": "Meshy envelope turret kit source",
+  "camera": {
+    "position": [
+      0,
+      1.2,
+      5.2
+    ],
+    "target": [
+      0,
+      0.65,
+      0
+    ],
+    "fov": 38
+  },
+  "display": {
+    "clay": true,
+    "wire": false,
+    "grid": true,
+    "boxes": false
+  },
+  "selectedPartId": "",
+  "parts": []
+}

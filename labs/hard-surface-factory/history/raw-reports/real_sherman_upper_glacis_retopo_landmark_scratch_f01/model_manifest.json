@@ -1,0 +1,47 @@
+{
+  "asset_id": "real_sherman_upper_glacis_retopo_landmark_scratch_f01",
+  "scratch_mode": true,
+  "artifact_type": "scratch_one_piece_depth_retopo",
+  "revision": "f01-upper-glacis-source-depth-adaptive-reto",
+  "source_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/real_sherman_chassis_reference_kit_scratch_v1.glb",
+  "source_component": "source_component_0_upper_front_glacis_assembly",
+  "authoring_policy": "One-piece adaptive source-depth retopo. Output vertices are ray-supported by the source component and retained for depth or silhouette structure.",
+  "statistics_primary_piece": {
+    "triangles": 534,
+    "polygons": 267,
+    "vertices": 396
+  },
+  "primary_piece_count": 1,
+  "provenance": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_retopo_landmark_scratch_f01/retopo_vertex_provenance.json",
+    "output_vertices": 396
+  },
+  "landmarks": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_retopo_landmark_scratch_f01/retopo_landmarks.json",
+    "patch_cells": 267
+  },
+  "depth_parity": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_retopo_landmark_scratch_f01/depth_error_report.json",
+    "depth_resolution": [
+      160,
+      112
+    ],
+    "shared_pixels": 8885,
+    "source_pixels": 9480,
+    "retopo_pixels": 8885,
+    "silhouette_iou": 0.9372362869198312,
+    "mean_abs_depth_error": 0.005478361448546642,
+    "p50_abs_depth_error": 0.0013842582702636719,
+    "p95_abs_depth_error": 0.01810598373413086,
+    "max_abs_depth_error": 0.26984548568725586
+  },
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_upper_glacis_retopo_landmark_scratch_f01/real_sherman_upper_glacis_retopo_landmark_scratch_f01.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_retopo_landmark_scratch_f01/real_sherman_upper_glacis_retopo_landmark_scratch_f01.glb",
+    "source_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_retopo_landmark_scratch_f01/source_depth.png",
+    "retopo_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_retopo_landmark_scratch_f01/retopo_depth.png",
+    "depth_abs_error": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_retopo_landmark_scratch_f01/depth_abs_error.png",
+    "source_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_retopo_landmark_scratch_f01/source_shaded_same_angle.png",
+    "retopo_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_retopo_landmark_scratch_f01/retopo_shaded_same_angle.png"
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "asset_id": "real_sherman_chassis_lowpoly_reference_kit_scratch_v1",
+  "artifact_type": "scratch_lowpoly_reference_configuration_kit_planar_reduction",
+  "revision": "lowpoly-reference-kit-v1-planar-dissolve-flat-planes",
+  "scratch_mode": true,
+  "discarded_prior_artifact": "real_sherman_chassis_kit_scratch_v1 is red: assembled-tank pose and box-bashed geometry violated kit target",
+  "source_glb": "/storage/emulated/0/Download/Meshy_AI_Exploded_View_of_a_Ta_0708195813_generate.glb",
+  "output_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_lowpoly_reference_kit_scratch_v1/real_sherman_chassis_lowpoly_reference_kit_scratch_v1.glb",
+  "source_blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_chassis_lowpoly_reference_kit_scratch_v1/real_sherman_chassis_lowpoly_reference_kit_scratch_v1.blend",
+  "renders": {
+    "front_reference_config": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_lowpoly_reference_kit_scratch_v1/front_reference_config.png",
+    "rear_reference_config": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_lowpoly_reference_kit_scratch_v1/rear_reference_config.png"
+  },
+  "policy": {
+    "configuration": "original exploded reference configuration only",
+    "make_tank": false,
+    "box_bashing": false,
+    "source_mesh_components": true,
+    "materials": "preserve source material slots where present; fallback only when missing",
+    "uvs": "preserve source UVs where present; smart project only when missing",
+    "decimation": "planar hard-surface dissolve first; broad flat source tessellation must collapse to low face counts before any silhouette-guarded collapse"
+  },
+  "parts": [
+    {
+      "object": "reference_kit_v1_00_source_component_0_upper_front_glacis_assem",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "vertex_count": 3250,
+      "triangles_before_lowpoly": 77514,
+      "triangles_after_planar_dissolve": 45906,
+      "triangles_after_lowpoly": 6500,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "material_slots": [
+        "reference_kit_fallback_neutral_only_if_missing"
+      ],
+      "bbox_world": {
+        "min": [
+          -0.17845208942890167,
+          -0.3643292188644409,
+          0.11771588027477264
+        ],
+        "max": [
+          0.5161923170089722,
+          0.34660378098487854,
+          0.2876223623752594
+        ],
+        "size": [
+          0.6946444064378738,
+          0.7109329998493195,
+          0.16990648210048676
+        ]
+      }
+    },
+    {
+      "object": "reference_kit_v1_01_source_component_1_lower_hull_floor_tub",
+      "role": "source_component_1_lower_hull_floor_tub",
+      "vertex_count": 3230,
+      "triangles_before_lowpoly": 74508,
+      "triangles_after_planar_dissolve": 26712,
+      "triangles_after_lowpoly": 6500,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "material_slots": [
+        "reference_kit_fallback_neutral_only_if_missing"
+      ],
+      "bbox_world": {
+        "min": [
+          -0.4847131669521332,
+          -0.2899005711078644,
+          -0.3461519479751587
+        ],
+        "max": [
+          0.46463683247566223,
+          0.4398452639579773,
+          -0.16512931883335114
+        ],
+        "size": [
+          0.9493499994277954,
+          0.7297458350658417,
+          0.18102262914180756
+        ]
+      }
+    },
+    {
+      "object": "reference_kit_v1_02_source_component_2_engine_deck_assembly",
+      "role": "source_component_2_engine_deck_assembly",
+      "vertex_count": 3216,
+      "triangles_before_lowpoly": 39522,
+      "triangles_after_planar_dissolve": 15864,
+      "triangles_after_lowpoly": 6500,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "material_slots": [
+        "reference_kit_fallback_neutral_only_if_missing"
+      ],
+      "bbox_world": {
+        "min": [
+          -0.3809729218482971,
+          0.2964794635772705,
+          0.2970399856567383
+        ],
+        "max": [
+          0.32635772228240967,
+          0.9074288010597229,
+          0.3439873158931732
+        ],
+        "size": [
+          0.7073306441307068,
+          0.6109493374824524,
+          0.046947330236434937
+        ]
+      }
+    },
+    {
+      "object": "reference_kit_v1_03_source_component_3_rear_plate_assembly",
+      "role": "source_component_3_rear_plate_assembly",
+      "vertex_count": 3252,
+      "triangles_before_lowpoly": 31266,
+      "triangles_after_planar_dissolve": 13784,
+      "triangles_after_lowpoly": 6500,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "material_slots": [
+        "reference_kit_fallback_neutral_only_if_missing"
+      ],
+      "bbox_world": {
+        "min": [
+          -0.9502394795417786,
+          -0.5600529313087463,
+          -0.3234656751155853
+        ],
+        "max": [
+          -0.8368715643882751,
+          0.23759546875953674,
+          -0.029040470719337463
+        ],
+        "size": [
+          0.11336791515350342,
+          0.7976484000682831,
+          0.29442520439624786
+        ]
+      }
+    },
+    {
+      "object": "reference_kit_v1_04_source_component_4_left_side_assembly",
+      "role": "source_component_4_left_side_assembly",
+      "vertex_count": 3246,
+      "triangles_before_lowpoly": 28198,
+      "triangles_after_planar_dissolve": 14606,
+      "triangles_after_lowpoly": 6500,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "material_slots": [
+        "reference_kit_fallback_neutral_only_if_missing"
+      ],
+      "bbox_world": {
+        "min": [
+          -0.7777743339538574,
+          0.735873818397522,
+          -0.28596046566963196
+        ],
+        "max": [
+          0.3812805712223053,
+          0.8336325883865356,
+          0.0010032199788838625
+        ],
+        "size": [
+          1.1590549051761627,
+          0.09775876998901367,
+          0.2869636856485158
+        ]
+      }
+    },
+    {
+      "object": "reference_kit_v1_05_source_component_5_right_side_assembly",
+      "role": "source_component_5_right_side_assembly",
+      "vertex_count": 3248,
+      "triangles_before_lowpoly": 25810,
+      "triangles_after_planar_dissolve": 14976,
+      "triangles_after_lowpoly": 6500,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "material_slots": [
+        "reference_kit_fallback_neutral_only_if_missing"
+      ],
+      "bbox_world": {
+        "min": [
+          0.8303490877151489,
+          -0.9053205251693726,
+          -0.3469211459159851
+        ],
+        "max": [
+          0.948819100856781,
+          0.0835418626666069,
+          -0.07107788324356079
+        ],
+        "size": [
+          0.11847001314163208,
+          0.9888623878359795,
+          0.2758432626724243
+        ]
+      }
+    },
+    {
+      "object": "reference_kit_v1_06_source_component_6_remaining_reference_plat",
+      "role": "source_component_6_remaining_reference_plate",
+      "vertex_count": 3248,
+      "triangles_before_lowpoly": 23250,
+      "triangles_after_planar_dissolve": 7794,
+      "triangles_after_lowpoly": 6500,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "material_slots": [
+        "reference_kit_fallback_neutral_only_if_missing"
+      ],
+      "bbox_world": {
+        "min": [
+          -0.6547259092330933,
+          -0.8146349787712097,
+          -0.24546152353286743
+        ],
+        "max": [
+          0.4605242908000946,
+          -0.6628709435462952,
+          -0.14084281027317047
+        ],
+        "size": [
+          1.1152502000331879,
+          0.15176403522491455,
+          0.10461871325969696
+        ]
+      }
+    }
+  ]
+}

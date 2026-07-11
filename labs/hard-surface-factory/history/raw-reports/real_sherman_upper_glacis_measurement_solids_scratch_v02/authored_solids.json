@@ -1,0 +1,43 @@
+{
+  "asset_id": "real_sherman_upper_glacis_measurement_solids_scratch_v02",
+  "regions": [
+    {
+      "region": "main_glacis_armor_plate",
+      "topology": "closed annular prism with outer wall and socket wall",
+      "source_use": "plane, manufactured boundary stations, socket center/radius only",
+      "segments": 72,
+      "thickness": 0.05
+    },
+    {
+      "region": "left_edge_return",
+      "topology": "closed strip solid",
+      "source_use": "measured left seam stations only"
+    },
+    {
+      "region": "right_edge_return",
+      "topology": "closed strip solid",
+      "source_use": "measured right seam stations only"
+    },
+    {
+      "region": "lower_hull_seam",
+      "topology": "closed lower apron armor solid",
+      "source_use": "measured lower seam endpoints and source z-depth quantiles only",
+      "measured_drop": 0.14,
+      "thickness": 0.06
+    },
+    {
+      "region": "socket_cylinder",
+      "topology": "closed cylinder with capped top/bottom",
+      "segments": 72,
+      "radius": 0.17729999999999999
+    },
+    {
+      "region": "raised_ring",
+      "topology": "closed annular prism",
+      "segments": 72,
+      "inner_radius": 0.184,
+      "outer_radius": 0.216,
+      "height": 0.02
+    }
+  ]
+}

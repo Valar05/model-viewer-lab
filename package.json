@@ -10,7 +10,8 @@
     "smoke": "node tools/smoke_viewer.mjs",
     "pages-link": "node tools/make_github_pages_model_review_link.mjs",
     "validate:review-state": "node tools/validate_review_state.mjs docs/examples/review-state-v2.json",
-    "ci": "npm run build && npm run smoke && npm run validate:review-state"
+    "ci": "npm run build && npm run smoke && npm run validate:review-state && npm run validate:hard-surface-factory",
+    "validate:hard-surface-factory": "node labs/hard-surface-factory/scripts/validate_factory_inventory.mjs"
   },
   "dependencies": {
     "three": "^0.166.1"

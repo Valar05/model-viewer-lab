@@ -1,0 +1,47 @@
+{
+  "asset_id": "real_sherman_upper_glacis_clean_source_islands_scratch_f08",
+  "scratch_mode": true,
+  "artifact_type": "scratch_one_piece_quadriflow_retopo",
+  "revision": "f08-source-faithful-clean-island-dissolve-reto",
+  "source_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/real_sherman_chassis_reference_kit_scratch_v1.glb",
+  "source_component": "source_component_0_upper_front_glacis_assembly",
+  "authoring_policy": "Source-faithful f05-style topology cleaned by deleting tiny loose source flakes, limited-dissolving kept islands, and preserving Sherman-specific ring/hatch/plate silhouette. This rejects f07 box-and-disk abstraction.",
+  "statistics_primary_piece": {
+    "triangles": 7055,
+    "polygons": 1046,
+    "vertices": 6537
+  },
+  "primary_piece_count": 1,
+  "provenance": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_clean_source_islands_scratch_f08/retopo_vertex_provenance.json",
+    "output_vertices": 6537
+  },
+  "landmarks": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_clean_source_islands_scratch_f08/retopo_landmarks.json",
+    "dissolve_angle_degrees": 35.0
+  },
+  "depth_parity": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_clean_source_islands_scratch_f08/depth_error_report.json",
+    "depth_resolution": [
+      160,
+      112
+    ],
+    "shared_pixels": 9375,
+    "source_pixels": 9480,
+    "retopo_pixels": 9381,
+    "silhouette_iou": 0.9882985452245414,
+    "mean_abs_depth_error": 0.015780562795003256,
+    "p50_abs_depth_error": 0.0011997222900390625,
+    "p95_abs_depth_error": 0.07574129104614258,
+    "max_abs_depth_error": 0.6017804145812988
+  },
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_upper_glacis_clean_source_islands_scratch_f08/real_sherman_upper_glacis_clean_source_islands_scratch_f08.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_clean_source_islands_scratch_f08/real_sherman_upper_glacis_clean_source_islands_scratch_f08.glb",
+    "source_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_clean_source_islands_scratch_f08/source_depth.png",
+    "retopo_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_clean_source_islands_scratch_f08/retopo_depth.png",
+    "depth_abs_error": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_clean_source_islands_scratch_f08/depth_abs_error.png",
+    "source_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_clean_source_islands_scratch_f08/source_shaded_same_angle.png",
+    "retopo_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_clean_source_islands_scratch_f08/retopo_shaded_same_angle.png"
+  }
+}

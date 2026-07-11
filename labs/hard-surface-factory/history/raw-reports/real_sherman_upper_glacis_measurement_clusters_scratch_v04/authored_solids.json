@@ -1,0 +1,69 @@
+{
+  "asset_id": "real_sherman_upper_glacis_measurement_clusters_scratch_v04",
+  "regions": [
+    {
+      "region": "main_glacis",
+      "topology": "closed feature plate prism",
+      "source_use": "named feature plane/bounds/corners only",
+      "source_sample_count": 375,
+      "thickness": 0.055
+    },
+    {
+      "region": "left_shoulder",
+      "topology": "closed feature plate prism",
+      "source_use": "named feature plane/bounds/corners only",
+      "source_sample_count": 222,
+      "thickness": 0.08
+    },
+    {
+      "region": "right_shoulder",
+      "topology": "closed feature plate prism",
+      "source_use": "named feature plane/bounds/corners only",
+      "source_sample_count": 326,
+      "thickness": 0.08
+    },
+    {
+      "region": "front_face",
+      "topology": "closed feature plate prism",
+      "source_use": "named feature plane/bounds/corners only",
+      "source_sample_count": 648,
+      "thickness": 0.09
+    },
+    {
+      "region": "deck_transition",
+      "topology": "closed feature plate prism",
+      "source_use": "named feature plane/bounds/corners only",
+      "source_sample_count": 861,
+      "thickness": 0.06
+    },
+    {
+      "region": "left_return",
+      "topology": "closed feature plate prism",
+      "source_use": "named feature plane/bounds/corners only",
+      "source_sample_count": 375,
+      "thickness": 0.06
+    },
+    {
+      "region": "right_return",
+      "topology": "closed feature plate prism",
+      "source_use": "named feature plane/bounds/corners only",
+      "source_sample_count": 375,
+      "thickness": 0.06
+    },
+    {
+      "region": "socket",
+      "topology": "closed secondary cylinder",
+      "source_use": "measured socket center/radius only",
+      "source_sample_count": 8758,
+      "radius": 0.18
+    },
+    {
+      "region": "ring",
+      "topology": "closed secondary annular prism",
+      "source_use": "measured ring center/radius only",
+      "source_sample_count": 8758,
+      "inner_radius": 0.184,
+      "outer_radius": 0.216
+    }
+  ]
+}

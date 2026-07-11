@@ -1,0 +1,91 @@
+{
+  "asset_id": "real_sherman_upper_glacis_f05_revamp_scratch_f16",
+  "scratch_mode": true,
+  "artifact_type": "scratch_source_preserved_watertight_shell_boolean_socket",
+  "revision": "f16-source-shell-silhouette-solid-boolean-socket",
+  "candidate": false,
+  "candidate_reason": "requires topology pass plus f05-like silhouette/key-plane preservation; topology alone is not accepted",
+  "topology_status": "red",
+  "key_plane_status": "red_silhouette_or_key_plane_loss",
+  "shape_review_status": "red_depth_parity_weak",
+  "source_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/real_sherman_chassis_reference_kit_scratch_v1.glb",
+  "source_component": "source_component_0_upper_front_glacis",
+  "authoring_policy": "Preserve f05/source upper-glacis silhouette and key manufactured planes by solidifying the source shell, then cut an actual cylindrical socket and add a separate watertight ring. This avoids the f14 pancake single-plane failure.",
+  "current_prompt_contract": {
+    "current_user_command": "Implement f16 multi-plane/silhouette recovery plan after f14 pancake red build.",
+    "forbidden_stale_premise": "Manifold or planar status excuses destroying silhouette/key planes.",
+    "intended_mutation": "Create one new scratch artifact preserving f05/source shell silhouette while making the shell solid, cutting a cylinder socket, and exporting topology/key-plane/shape diagnostics.",
+    "why_this_satisfies_command": "It prioritizes silhouette and key-plane preservation first, with watertightness as a required gate rather than an excuse."
+  },
+  "statistics": {
+    "vertices": 4161,
+    "polygons": 4004,
+    "triangles": 6751
+  },
+  "topology_gate": {
+    "topology_status": "red",
+    "topology_pass": false,
+    "boundary_edges_total": 35,
+    "nonmanifold_edges_total": 151,
+    "failure_reasons": [
+      "boundary_edges=35",
+      "nonmanifold_edges=151"
+    ]
+  },
+  "topology_reports": [
+    {
+      "object": "real_sherman_upper_glacis_f05_revamp_scratch_f16_source_preserv",
+      "vertices": 3201,
+      "polygons": 3044,
+      "triangles": 4831,
+      "boundary_edges": 35,
+      "nonmanifold_edges": 151,
+      "uv_layers": [
+        "UVMap"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_f05_revamp_scratch_f16_separate_water",
+      "vertices": 960,
+      "polygons": 960,
+      "triangles": 1920,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "UVMap"
+      ]
+    }
+  ],
+  "key_plane_report": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f16/key_plane_report.json",
+  "retopo_landmarks": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f16/retopo_landmarks.json",
+  "solid_primitives": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f16/solid_primitives.json",
+  "provenance": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f16/retopo_vertex_provenance.json",
+    "output_vertices": 4161
+  },
+  "depth_parity": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f16/depth_error_report.json",
+    "depth_resolution": [
+      160,
+      112
+    ],
+    "shared_pixels": 4944,
+    "source_pixels": 9480,
+    "retopo_pixels": 6629,
+    "silhouette_iou": 0.44281236005373936,
+    "mean_abs_depth_error": 0.20487725541815402,
+    "p50_abs_depth_error": 0.10334253311157227,
+    "p95_abs_depth_error": 0.5608034133911133,
+    "max_abs_depth_error": 0.6435933113098145
+  },
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_upper_glacis_f05_revamp_scratch_f16/real_sherman_upper_glacis_f05_revamp_scratch_f16.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f16/real_sherman_upper_glacis_f05_revamp_scratch_f16.glb",
+    "source_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f16/source_shaded_same_angle.png",
+    "retopo_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f16/retopo_shaded_same_angle.png",
+    "hatch_deck_close": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f16/hatch_deck_close.png",
+    "source_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f16/source_depth.png",
+    "retopo_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f16/retopo_depth.png",
+    "depth_abs_error": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f16/depth_abs_error.png"
+  }
+}

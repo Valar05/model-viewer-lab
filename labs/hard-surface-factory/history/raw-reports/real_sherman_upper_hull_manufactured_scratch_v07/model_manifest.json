@@ -1,0 +1,57 @@
+{
+  "asset_id": "real_sherman_upper_hull_manufactured_scratch_v07",
+  "scratch_mode": true,
+  "artifact_type": "parametric_sherman_upper_hull",
+  "revision": "v07-parametric-sherman-template",
+  "candidate": true,
+  "classification": "local_diagnostic_template_candidate_needs_cloud_sense",
+  "construction_strategy": "parametric_sherman_template",
+  "source_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/real_sherman_chassis_reference_kit_scratch_v1.glb",
+  "source_component": "source_component_0_upper_front_glacis",
+  "statistics": {
+    "vertices": 352,
+    "polygons": 334,
+    "triangles": 676
+  },
+  "contract_assertions": {
+    "template_owned_topology": true,
+    "source_vertex_influence_dimensions_only": true,
+    "source_topology_discarded": true,
+    "turret_ring_authored_opening": true,
+    "required_measurements_present": true
+  },
+  "topology_status": "pass",
+  "depth_parity": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_hull_manufactured_scratch_v07/depth_error_report.json",
+    "depth_resolution": [
+      220,
+      154
+    ],
+    "shared_pixels": 13292,
+    "source_pixels": 16768,
+    "candidate_pixels": 14480,
+    "silhouette_iou": 0.7402539541100468,
+    "mean_abs_depth_error": 0.0469124972587101,
+    "p50_abs_depth_error": 0.030974388122558594,
+    "p95_abs_depth_error": 0.16401433944702148,
+    "max_abs_depth_error": 0.3443436622619629
+  },
+  "measurement_report": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_hull_manufactured_scratch_v07/measurement_report.json",
+  "authored_solids": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_hull_manufactured_scratch_v07/authored_solids.json",
+  "template_report": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_hull_manufactured_scratch_v07/template_report.json",
+  "topology_report": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_hull_manufactured_scratch_v07/topology_report.json",
+  "per_region_error_report": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_hull_manufactured_scratch_v07/per_region_error_report.json",
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_upper_hull_manufactured_scratch_v07/real_sherman_upper_hull_manufactured_scratch_v07.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_hull_manufactured_scratch_v07/real_sherman_upper_hull_manufactured_scratch_v07.glb",
+    "source_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_hull_manufactured_scratch_v07/source_depth.png",
+    "candidate_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_hull_manufactured_scratch_v07/candidate_depth.png",
+    "raw_depth_render": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_hull_manufactured_scratch_v07/raw_depth_error.png",
+    "shaded_render": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_hull_manufactured_scratch_v07/candidate_shaded_same_angle.png",
+    "source_candidate_side_by_side": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_hull_manufactured_scratch_v07/source_candidate_side_by_side.png",
+    "silhouette_overlay": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_hull_manufactured_scratch_v07/silhouette_overlay.png",
+    "template_overlay": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_hull_manufactured_scratch_v07/template_overlay.png"
+  },
+  "visual_acceptance_prompt": "If the turret ring is hidden, does this still immediately read as a Sherman upper hull?",
+  "authoring_policy": "source mesh measures dimensions only; final mesh is a parametric Sherman template"
+}

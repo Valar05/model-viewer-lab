@@ -1,0 +1,486 @@
+{
+  "asset_id": "real_sherman_chassis_scratch_v2",
+  "scratch_mode": true,
+  "artifact_type": "scratch_real_sherman_chassis_candidate",
+  "revision": "scratch-v2-flush-deck-closed-lower-voids",
+  "source_teacher": {
+    "asset_id": "sherman_hull_candidate_current",
+    "silhouette_revision": "scratch-v14-clean-hatch-clearance-rear-bulkhead",
+    "policy": "used as measured visual/assembly teacher only, not production truth or topology source"
+  },
+  "v1_visible_failures_addressed": [
+    "raised rectangular turret deck pad",
+    "lower/front angular dark voids",
+    "rear lower dark slot",
+    "decorative black seam strips before shell readability"
+  ],
+  "scope": "hull/chassis shell only; no treads, wheels, bogies, turret, mantlet, barrel, or coaxial MG",
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_chassis_scratch_v2/real_sherman_chassis_scratch_v2.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_scratch_v2/real_sherman_chassis_scratch_v2.glb",
+    "front_render": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_scratch_v2/front_three_quarter.png",
+    "rear_render": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_scratch_v2/rear_three_quarter.png"
+  },
+  "assemblies": {
+    "lower_tub_primary_shell": {
+      "object": "scratch_real_chassis_v2_continuous_lower_tub_with_full_shoulder",
+      "note": "broader continuous tub shoulders close the v1 lower angular voids",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          -1.56,
+          -0.115,
+          -0.905
+        ],
+        "max": [
+          1.52,
+          0.482,
+          0.905
+        ],
+        "center": [
+          -0.020000000000000018,
+          0.1835,
+          0.0
+        ],
+        "size": [
+          3.08,
+          0.597,
+          1.81
+        ]
+      }
+    },
+    "front_glacis_skin": {
+      "object": "scratch_real_chassis_v2_broad_front_glacis_skin",
+      "note": "broad sloped glacis lowered slightly to meet the flush deck",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          0.04,
+          0.416,
+          -0.9
+        ],
+        "max": [
+          1.55,
+          0.742,
+          0.9
+        ],
+        "center": [
+          0.795,
+          0.579,
+          0.0
+        ],
+        "size": [
+          1.51,
+          0.326,
+          1.8
+        ]
+      }
+    },
+    "front_transmission_cap": {
+      "object": "scratch_real_chassis_v2_integrated_front_transmission_closure",
+      "note": "deeper front closure surface, not a separate blocker",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          0.72,
+          0.06000000000000001,
+          -0.74
+        ],
+        "max": [
+          1.62,
+          0.3,
+          0.74
+        ],
+        "center": [
+          1.17,
+          0.18,
+          0.0
+        ],
+        "size": [
+          0.9000000000000001,
+          0.24,
+          1.48
+        ]
+      }
+    },
+    "left_sidewall": {
+      "object": "scratch_real_chassis_v2_left_one_piece_sidewall",
+      "note": "left sidewall kept as broad owner of side silhouette",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          -1.5,
+          0.148,
+          -0.98
+        ],
+        "max": [
+          1.45,
+          0.69,
+          -0.79
+        ],
+        "center": [
+          -0.025000000000000022,
+          0.419,
+          -0.885
+        ],
+        "size": [
+          2.95,
+          0.5419999999999999,
+          0.18999999999999995
+        ]
+      }
+    },
+    "right_sidewall": {
+      "object": "scratch_real_chassis_v2_right_one_piece_sidewall",
+      "note": "right sidewall kept as broad owner of side silhouette",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          -1.5,
+          0.148,
+          0.79
+        ],
+        "max": [
+          1.45,
+          0.69,
+          0.98
+        ],
+        "center": [
+          -0.025000000000000022,
+          0.419,
+          0.885
+        ],
+        "size": [
+          2.95,
+          0.5419999999999999,
+          0.18999999999999995
+        ]
+      }
+    },
+    "left_sponson_shelf": {
+      "object": "scratch_real_chassis_v2_left_integrated_sponson_shelf",
+      "note": "thicker left shelf closes the side/tread socket read",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          -1.52,
+          0.037000000000000005,
+          -1.055
+        ],
+        "max": [
+          1.48,
+          0.235,
+          -0.795
+        ],
+        "center": [
+          -0.020000000000000018,
+          0.136,
+          -0.925
+        ],
+        "size": [
+          3.0,
+          0.19799999999999998,
+          0.2599999999999999
+        ]
+      }
+    },
+    "right_sponson_shelf": {
+      "object": "scratch_real_chassis_v2_right_integrated_sponson_shelf",
+      "note": "thicker right shelf closes the side/tread socket read",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          -1.52,
+          0.037000000000000005,
+          0.795
+        ],
+        "max": [
+          1.48,
+          0.235,
+          1.055
+        ],
+        "center": [
+          -0.020000000000000018,
+          0.136,
+          0.925
+        ],
+        "size": [
+          3.0,
+          0.19799999999999998,
+          0.2599999999999999
+        ]
+      }
+    },
+    "rear_bulkhead_skin": {
+      "object": "scratch_real_chassis_v2_single_broad_rear_bulkhead_skin",
+      "note": "one broad rear closing skin, taller than v1 to cover lower slot",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          -1.57,
+          0.125,
+          -0.815
+        ],
+        "max": [
+          -1.435,
+          0.555,
+          0.815
+        ],
+        "center": [
+          -1.5025,
+          0.34,
+          0.0
+        ],
+        "size": [
+          0.135,
+          0.43000000000000005,
+          1.63
+        ]
+      }
+    },
+    "rear_lower_apron": {
+      "object": "scratch_real_chassis_v2_rear_lower_apron_integrated_closure",
+      "note": "broad lower rear apron closes dark rear-bottom void as hull form",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          -1.6,
+          -0.035,
+          -0.645
+        ],
+        "max": [
+          -1.395,
+          0.145,
+          0.645
+        ],
+        "center": [
+          -1.4975,
+          0.05499999999999999,
+          0.0
+        ],
+        "size": [
+          0.20500000000000007,
+          0.18,
+          1.29
+        ]
+      }
+    },
+    "left_rear_wrap": {
+      "object": "scratch_real_chassis_v2_left_rear_wrap_skin",
+      "note": "left rear wrap integrated into rear bulkhead",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          -1.57,
+          0.125,
+          -0.948
+        ],
+        "max": [
+          -1.43,
+          0.545,
+          -0.555
+        ],
+        "center": [
+          -1.5,
+          0.335,
+          -0.7515000000000001
+        ],
+        "size": [
+          0.14000000000000012,
+          0.42000000000000004,
+          0.3929999999999999
+        ]
+      }
+    },
+    "right_rear_wrap": {
+      "object": "scratch_real_chassis_v2_right_rear_wrap_skin",
+      "note": "right rear wrap integrated into rear bulkhead",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          -1.57,
+          0.125,
+          0.555
+        ],
+        "max": [
+          -1.43,
+          0.545,
+          0.948
+        ],
+        "center": [
+          -1.5,
+          0.335,
+          0.7515000000000001
+        ],
+        "size": [
+          0.14000000000000012,
+          0.42000000000000004,
+          0.3929999999999999
+        ]
+      }
+    },
+    "engine_deck": {
+      "object": "scratch_real_chassis_v2_clean_engine_deck_plate",
+      "note": "clean rear deck; no black seam strips in v2",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          -1.42,
+          0.322,
+          -0.76
+        ],
+        "max": [
+          -0.3,
+          0.704,
+          0.76
+        ],
+        "center": [
+          -0.86,
+          0.513,
+          0.0
+        ],
+        "size": [
+          1.1199999999999999,
+          0.38199999999999995,
+          1.52
+        ]
+      }
+    },
+    "left_front_wrap": {
+      "object": "scratch_real_chassis_v2_left_front_wrap_skin",
+      "note": "broad front-side wrap closes visible front corner void",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          1.42,
+          0.165,
+          -0.95
+        ],
+        "max": [
+          1.55,
+          0.488,
+          -0.56
+        ],
+        "center": [
+          1.4849999999999999,
+          0.3265,
+          -0.755
+        ],
+        "size": [
+          0.13000000000000012,
+          0.32299999999999995,
+          0.3899999999999999
+        ]
+      }
+    },
+    "right_front_wrap": {
+      "object": "scratch_real_chassis_v2_right_front_wrap_skin",
+      "note": "broad front-side wrap closes visible front corner void",
+      "material_class": "armor",
+      "bbox": {
+        "min": [
+          1.42,
+          0.165,
+          0.56
+        ],
+        "max": [
+          1.55,
+          0.488,
+          0.95
+        ],
+        "center": [
+          1.4849999999999999,
+          0.3265,
+          0.755
+        ],
+        "size": [
+          0.13000000000000012,
+          0.32299999999999995,
+          0.3899999999999999
+        ]
+      }
+    },
+    "flush_turret_socket_deck": {
+      "object": "scratch_real_chassis_v2_flush_turret_socket_deck_surface",
+      "note": "thin flush central deck with real cut turret opening",
+      "material_class": "socket",
+      "bbox": {
+        "min": [
+          -0.635,
+          0.688,
+          -0.76
+        ],
+        "max": [
+          0.5249999999999999,
+          0.72,
+          0.76
+        ],
+        "center": [
+          -0.05500000000000005,
+          0.704,
+          0.0
+        ],
+        "size": [
+          1.16,
+          0.03200000000000003,
+          1.52
+        ]
+      }
+    },
+    "turret_ring_lip": {
+      "object": "scratch_real_chassis_v2_low_turret_ring_lip",
+      "note": "lower lip, meant to read as ring on deck rather than platform",
+      "material_class": "socket",
+      "bbox": {
+        "min": [
+          -0.397,
+          0.724,
+          -0.342
+        ],
+        "max": [
+          0.28700000000000003,
+          0.742,
+          0.342
+        ],
+        "center": [
+          -0.05499999999999999,
+          0.733,
+          0.0
+        ],
+        "size": [
+          0.684,
+          0.018000000000000016,
+          0.684
+        ]
+      }
+    },
+    "turret_socket_inner_wall": {
+      "object": "scratch_real_chassis_v2_dark_vertical_turret_well_wall",
+      "note": "dark vertical well wall only; no bottom disk",
+      "material_class": "socket",
+      "bbox": {
+        "min": [
+          -0.347,
+          0.5650000000000001,
+          -0.292
+        ],
+        "max": [
+          0.237,
+          0.735,
+          0.292
+        ],
+        "center": [
+          -0.05499999999999999,
+          0.65,
+          0.0
+        ],
+        "size": [
+          0.584,
+          0.16999999999999993,
+          0.584
+        ]
+      }
+    }
+  },
+  "judgment_notes": "One-more-attempt scratch candidate for Blender render judgment only. No cloud/Sense acceptance, no production promotion, no formal validators."
+}

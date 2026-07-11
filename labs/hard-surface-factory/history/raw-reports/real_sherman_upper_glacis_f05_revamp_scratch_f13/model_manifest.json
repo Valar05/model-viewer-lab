@@ -1,0 +1,91 @@
+{
+  "asset_id": "real_sherman_upper_glacis_f05_revamp_scratch_f13",
+  "scratch_mode": true,
+  "artifact_type": "scratch_watertight_upper_glacis_solid_plate_socket_ring_no_hatch_cap",
+  "revision": "f13-watertight-clean-cylinder-ring-no-hatch-cap",
+  "candidate": false,
+  "candidate_reason": "false until topology passes and visual diagnostics show the broad f05/source relationship is strong enough for another review pass",
+  "topology_status": "pass",
+  "source_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/real_sherman_chassis_reference_kit_scratch_v1.glb",
+  "source_component": "source_component_0_upper_front_glacis",
+  "authoring_policy": "New closed hard-surface solids measured from source/f05 reference. f05/f11 topology is not used as final mesh base. Top plate is solid, aperture has cylindrical wall ownership, raised ring is a separate closed mesh, and hatch cap geometry is omitted per the latest correction.",
+  "current_prompt_contract": {
+    "current_user_command": "Implement the full watertight-first recovery plan, including the corrected hatch workflow.",
+    "forbidden_stale_premise": "Calling a nonmanifold overlay revamp a candidate or continuing to patch f11 cover-up geometry.",
+    "intended_mutation": "Create one new scratch mesh artifact with watertight solid plate, cylindrical cut, separate closed ring, no hatch cap, objective topology gate, notes, and viewer handoff.",
+    "why_this_satisfies_command": "It changes the process gate and geometry architecture rather than tweaking the rejected overlay workflow."
+  },
+  "statistics": {
+    "vertices": 768,
+    "polygons": 768,
+    "triangles": 1536
+  },
+  "topology_gate": {
+    "topology_status": "pass",
+    "topology_pass": true,
+    "boundary_edges_total": 0,
+    "nonmanifold_edges_total": 0,
+    "failure_reasons": []
+  },
+  "shape_review_status": "red_depth_parity_weak",
+  "topology_reports": [
+    {
+      "object": "real_sherman_upper_glacis_f05_revamp_scratch_f13_solid_top_plat",
+      "vertices": 384,
+      "polygons": 384,
+      "triangles": 768,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_watertight_f12"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_f05_revamp_scratch_f13_separate_water",
+      "vertices": 384,
+      "polygons": 384,
+      "triangles": 768,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_watertight_f12"
+      ]
+    }
+  ],
+  "material_slots": [
+    "armor_plate",
+    "cylindrical_socket_wall",
+    "separate_ring_armor"
+  ],
+  "solid_primitives": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f13/solid_primitives.json",
+  "provenance": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f13/retopo_vertex_provenance.json",
+    "output_vertices": 768
+  },
+  "depth_parity": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f13/depth_error_report.json",
+    "depth_resolution": [
+      160,
+      112
+    ],
+    "shared_pixels": 7192,
+    "source_pixels": 9480,
+    "retopo_pixels": 7779,
+    "silhouette_iou": 0.7144134300188736,
+    "mean_abs_depth_error": 0.04275787698811498,
+    "p50_abs_depth_error": 0.019908428192138672,
+    "p95_abs_depth_error": 0.20475435256958008,
+    "max_abs_depth_error": 0.518517017364502
+  },
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_upper_glacis_f05_revamp_scratch_f13/real_sherman_upper_glacis_f05_revamp_scratch_f13.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f13/real_sherman_upper_glacis_f05_revamp_scratch_f13.glb",
+    "source_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f13/source_shaded_same_angle.png",
+    "retopo_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f13/retopo_shaded_same_angle.png",
+    "hatch_deck_close": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f13/hatch_deck_close.png",
+    "source_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f13/source_depth.png",
+    "retopo_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f13/retopo_depth.png",
+    "depth_abs_error": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f13/depth_abs_error.png"
+  },
+  "review_language_gate": "If topology_status is red, do not call this almost-there, selected, textureable, promoted, or viewer-ready. If topology_status passes, visual review is still diagnostic in scratch mode."
+}

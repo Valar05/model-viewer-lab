@@ -1,0 +1,47 @@
+{
+  "asset_id": "real_sherman_upper_glacis_surgical_hybrid_scratch_f09",
+  "scratch_mode": true,
+  "artifact_type": "scratch_one_piece_quadriflow_retopo",
+  "revision": "f09-f05-source-faithful-local-analytic-surgery",
+  "source_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/real_sherman_chassis_reference_kit_scratch_v1.glb",
+  "source_component": "source_component_0_upper_front_glacis_assembly",
+  "authoring_policy": "Surgical hybrid: preserve f05 source-faithful broad hull, delete only local ragged ring/hatch faces, join clean measured annular/hatch shells. Reject f07 box-disk abstraction and f08 bad decimation.",
+  "statistics_primary_piece": {
+    "triangles": 380,
+    "polygons": 178,
+    "vertices": 324
+  },
+  "primary_piece_count": 1,
+  "provenance": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_surgical_hybrid_scratch_f09/retopo_vertex_provenance.json",
+    "output_vertices": 324
+  },
+  "landmarks": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_surgical_hybrid_scratch_f09/retopo_landmarks.json",
+    "dissolve_angle_degrees": 35.0
+  },
+  "depth_parity": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_surgical_hybrid_scratch_f09/depth_error_report.json",
+    "depth_resolution": [
+      160,
+      112
+    ],
+    "shared_pixels": 1004,
+    "source_pixels": 9480,
+    "retopo_pixels": 1458,
+    "silhouette_iou": 0.10106704248037045,
+    "mean_abs_depth_error": 0.16110177676516224,
+    "p50_abs_depth_error": 0.14763545989990234,
+    "p95_abs_depth_error": 0.32779884338378906,
+    "max_abs_depth_error": 0.3376193046569824
+  },
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_upper_glacis_surgical_hybrid_scratch_f09/real_sherman_upper_glacis_surgical_hybrid_scratch_f09.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_surgical_hybrid_scratch_f09/real_sherman_upper_glacis_surgical_hybrid_scratch_f09.glb",
+    "source_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_surgical_hybrid_scratch_f09/source_depth.png",
+    "retopo_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_surgical_hybrid_scratch_f09/retopo_depth.png",
+    "depth_abs_error": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_surgical_hybrid_scratch_f09/depth_abs_error.png",
+    "source_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_surgical_hybrid_scratch_f09/source_shaded_same_angle.png",
+    "retopo_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_surgical_hybrid_scratch_f09/retopo_shaded_same_angle.png"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "asset_id": "real_sherman_upper_glacis_dissolve_retopo_scratch_f05",
+  "dissolve_angle_degrees": 35.0,
+  "retopo_engine": "bpy.ops.mesh.dissolve_limited over source topology",
+  "preserve_source_boundaries": true,
+  "source_component": "source_component_0_upper_front_glacis_assembly",
+  "lesson_from_f01_f02_f03_f04": "f01 was a depth sheet; f02 guessed features; f03 bridged openings; f04 was ragged. f05 keeps source topology and dissolves hard-surface coplanar noise to establish a non-ugly visual target."
+}

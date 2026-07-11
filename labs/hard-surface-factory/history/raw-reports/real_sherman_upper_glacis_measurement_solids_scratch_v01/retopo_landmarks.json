@@ -1,0 +1,14 @@
+{
+  "asset_id": "real_sherman_upper_glacis_measurement_solids_scratch_v01",
+  "landmarks": {
+    "main_plane": "dominant upper armor plane fit from source face measurements",
+    "outer_boundary": "manufactured low-control polygon from measured boundary stations",
+    "socket": "regularized cylinder from measured ring center/radius",
+    "edge_returns": "authored closed strips from measured side seam stations",
+    "lower_hull_seam": "authored closed seam bar from measured lower endpoints"
+  },
+  "hatch": {
+    "omitted": true,
+    "reason": "socket/ring/plate architecture must pass before hatch detail"
+  }
+}

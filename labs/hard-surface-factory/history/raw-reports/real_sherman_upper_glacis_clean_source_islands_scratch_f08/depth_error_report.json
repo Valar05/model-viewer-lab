@@ -1,0 +1,14 @@
+{
+  "depth_resolution": [
+    160,
+    112
+  ],
+  "shared_pixels": 9375,
+  "source_pixels": 9480,
+  "retopo_pixels": 9381,
+  "silhouette_iou": 0.9882985452245414,
+  "mean_abs_depth_error": 0.015780562795003256,
+  "p50_abs_depth_error": 0.0011997222900390625,
+  "p95_abs_depth_error": 0.07574129104614258,
+  "max_abs_depth_error": 0.6017804145812988
+}

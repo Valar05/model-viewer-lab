@@ -1,0 +1,516 @@
+{
+  "asset_id": "meshy_sherman_lowpoly_envelope_v1",
+  "revision": "v1-direct-lowpoly-pbr-20260708",
+  "generated_at": "2026-07-08T15:48:08.492Z",
+  "generator": "scripts/build_meshy_lowpoly_envelope_assembly.mjs",
+  "source_policy": "Direct Meshy lowpoly image-to-3D outputs from concept images. No high-to-low pipeline, no local decimation, no component extraction. Runtime GLBs preserve Meshy UVs/materials/PBR textures.",
+  "source_images": {
+    "hull": {
+      "source": "/storage/emulated/0/Pictures/file_00000000e68871f89b503a6afb63782f.png",
+      "runtime": "public/tftm/models/meshy_sherman_lowpoly_envelope_v1/source_images/file_00000000e68871f89b503a6afb63782f.png"
+    },
+    "turret": {
+      "source": "/storage/emulated/0/Pictures/file_00000000407c71fd8087828e55eb7cc0.png",
+      "runtime": "public/tftm/models/meshy_sherman_lowpoly_envelope_v1/source_images/file_00000000407c71fd8087828e55eb7cc0.png"
+    },
+    "treads": {
+      "source": "/storage/emulated/0/Pictures/file_00000000cd0471fdafbe2cfc4e794220.png",
+      "runtime": "public/tftm/models/meshy_sherman_lowpoly_envelope_v1/source_images/file_00000000cd0471fdafbe2cfc4e794220.png"
+    }
+  },
+  "areas": [
+    "hull",
+    "treads",
+    "turret"
+  ],
+  "runtime_contract": {
+    "hull": "full lowpoly PBR hull envelope generated directly by Meshy",
+    "turret": "full lowpoly PBR turret envelope generated directly by Meshy; internal kit pieces remain source grouping",
+    "treads": "full lowpoly PBR tread/running-gear envelope generated directly by Meshy; authored treads may remain animation reference until accepted",
+    "parade": "24-tank runtime must use instanced/shared geometry and preserve imported PBR maps; no cloned high-poly object trees"
+  },
+  "comparison": {
+    "lowpoly_hull_envelope": {
+      "selected_slug": "sherman_lowpoly_hull_envelope_v2",
+      "rejected_slug": "sherman_lowpoly_hull_envelope_v1",
+      "selected_reason": "v2 reduced unique-position count from 7423 to 6791 without local decimation",
+      "selected_stats": {
+        "triangles": 13743,
+        "vertices": 15216,
+        "unique_positions": 6791,
+        "primitiveCount": 1,
+        "byteLength": 24978592,
+        "materialCount": 1,
+        "imageCount": 4,
+        "textureCount": 4,
+        "has_base_color_texture": true,
+        "has_normal_texture": true,
+        "has_pbr_texture_payload": true,
+        "bbox": {
+          "min": [
+            -0.9530329704284668,
+            -0.2837570011615753,
+            -0.444227010011673
+          ],
+          "max": [
+            0.9530329704284668,
+            0.2837570011615753,
+            0.444227010011673
+          ],
+          "size": [
+            1.90607,
+            0.56751,
+            0.88845
+          ],
+          "center": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "rejected_stats": {
+        "triangles": 14888,
+        "vertices": 16750,
+        "unique_positions": 7423,
+        "primitiveCount": 1,
+        "byteLength": 25108468,
+        "materialCount": 1,
+        "imageCount": 4,
+        "textureCount": 4,
+        "has_base_color_texture": true,
+        "has_normal_texture": true,
+        "has_pbr_texture_payload": true,
+        "bbox": {
+          "min": [
+            -0.9530329704284668,
+            -0.2211350053548813,
+            -0.43639901280403137
+          ],
+          "max": [
+            0.9530329704284668,
+            0.2250490039587021,
+            0.4403130114078522
+          ],
+          "size": [
+            1.90607,
+            0.44618,
+            0.87671
+          ],
+          "center": [
+            0,
+            0.00196,
+            0.00196
+          ]
+        }
+      }
+    },
+    "lowpoly_turret_envelope": {
+      "selected_slug": "sherman_lowpoly_turret_envelope_v1",
+      "rejected_slug": "sherman_lowpoly_turret_envelope_v2",
+      "selected_reason": "v1 had lower unique-position and triangle counts than stricter v2; both were generated as lowpoly, no decimation",
+      "selected_stats": {
+        "triangles": 12818,
+        "vertices": 11214,
+        "unique_positions": 6457,
+        "primitiveCount": 1,
+        "byteLength": 22866228,
+        "materialCount": 1,
+        "imageCount": 4,
+        "textureCount": 4,
+        "has_base_color_texture": true,
+        "has_normal_texture": true,
+        "has_pbr_texture_payload": true,
+        "bbox": {
+          "min": [
+            -0.9412919878959656,
+            -0.36594900488853455,
+            -0.9530329704284668
+          ],
+          "max": [
+            0.933463990688324,
+            0.36594900488853455,
+            0.9530329704284668
+          ],
+          "size": [
+            1.87476,
+            0.7319,
+            1.90607
+          ],
+          "center": [
+            -0.00391,
+            0,
+            0
+          ]
+        }
+      },
+      "rejected_stats": {
+        "triangles": 13077,
+        "vertices": 12043,
+        "unique_positions": 6549,
+        "primitiveCount": 1,
+        "byteLength": 23686472,
+        "materialCount": 1,
+        "imageCount": 4,
+        "textureCount": 4,
+        "has_base_color_texture": true,
+        "has_normal_texture": true,
+        "has_pbr_texture_payload": true,
+        "bbox": {
+          "min": [
+            -0.949118971824646,
+            -0.34637999534606934,
+            -0.9530329704284668
+          ],
+          "max": [
+            0.9530329704284668,
+            0.34637999534606934,
+            0.9530329704284668
+          ],
+          "size": [
+            1.90215,
+            0.69276,
+            1.90607
+          ],
+          "center": [
+            0.00196,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "lowpoly_treads_envelope": {
+      "selected_slug": "sherman_lowpoly_treads_envelope_v1",
+      "rejected_slug": "sherman_lowpoly_treads_envelope_v2",
+      "selected_reason": "v1 had lower unique-position and triangle counts than stricter v2; both were generated as lowpoly, no decimation",
+      "selected_stats": {
+        "triangles": 17557,
+        "vertices": 14967,
+        "unique_positions": 8858,
+        "primitiveCount": 1,
+        "byteLength": 27768512,
+        "materialCount": 1,
+        "imageCount": 4,
+        "textureCount": 4,
+        "has_base_color_texture": true,
+        "has_normal_texture": true,
+        "has_pbr_texture_payload": true,
+        "bbox": {
+          "min": [
+            -0.9530329704284668,
+            -0.8395299911499023,
+            -0.608610987663269
+          ],
+          "max": [
+            0.9530329704284668,
+            0.8395299911499023,
+            0.608610987663269
+          ],
+          "size": [
+            1.90607,
+            1.67906,
+            1.21722
+          ],
+          "center": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "rejected_stats": {
+        "triangles": 20547,
+        "vertices": 20562,
+        "unique_positions": 10265,
+        "primitiveCount": 1,
+        "byteLength": 25520784,
+        "materialCount": 1,
+        "imageCount": 4,
+        "textureCount": 4,
+        "has_base_color_texture": true,
+        "has_normal_texture": true,
+        "has_pbr_texture_payload": true,
+        "bbox": {
+          "min": [
+            -0.9530329704284668,
+            -0.7769079804420471,
+            -0.39334601163864136
+          ],
+          "max": [
+            0.9530329704284668,
+            0.7769079804420471,
+            0.38943201303482056
+          ],
+          "size": [
+            1.90607,
+            1.55382,
+            0.78278
+          ],
+          "center": [
+            0,
+            0,
+            -0.00196
+          ]
+        }
+      }
+    }
+  },
+  "parts": {
+    "lowpoly_hull_envelope": {
+      "id": "lowpoly_hull_envelope",
+      "label": "Meshy strict lowpoly hull envelope",
+      "area": "hull",
+      "runtime_role": "strict_lowpoly_hull_pbr_envelope",
+      "source_model": "hull",
+      "source_image": "/storage/emulated/0/Pictures/file_00000000e68871f89b503a6afb63782f.png",
+      "source_asset_slug": "sherman_lowpoly_hull_envelope_v2",
+      "rejected_asset_slug": "sherman_lowpoly_hull_envelope_v1",
+      "selected_reason": "v2 reduced unique-position count from 7423 to 6791 without local decimation",
+      "task_id": "019f425b-f34f-7e33-a901-2be0fa5f4dd4",
+      "source_glb": "assets/generated/meshy/sherman_lowpoly_hull_envelope_v2/glb.glb",
+      "source_fbx": "assets/generated/meshy/sherman_lowpoly_hull_envelope_v2/fbx.fbx",
+      "source_manifest": "assets/generated/meshy/sherman_lowpoly_hull_envelope_v2/manifest.json",
+      "runtime_glb": "public/tftm/models/meshy_sherman_lowpoly_envelope_v1/lowpoly_hull_envelope.glb",
+      "runtime_url": "./tftm/models/meshy_sherman_lowpoly_envelope_v1/lowpoly_hull_envelope.glb",
+      "default_visible": true,
+      "default_transform": {
+        "position": [
+          -0.04,
+          0.2,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1.65,
+          1.82,
+          2.18
+        ]
+      },
+      "generation_policy": "Meshy image-to-3D generated directly with model_type=lowpoly and target_polycount; no high-to-low bake, no Blender decimation, no component extraction",
+      "requested": {
+        "model_type": "lowpoly",
+        "target_polycount": 1500,
+        "enable_pbr": true,
+        "hd_texture": true,
+        "should_remesh": true,
+        "topology": "quad",
+        "target_formats": [
+          "glb",
+          "fbx"
+        ]
+      },
+      "budget": {
+        "max_unique_positions": 8000,
+        "max_triangles": 16000
+      },
+      "triangles": 13743,
+      "vertices": 15216,
+      "unique_positions": 6791,
+      "primitiveCount": 1,
+      "byteLength": 24978592,
+      "materialCount": 1,
+      "imageCount": 4,
+      "textureCount": 4,
+      "has_base_color_texture": true,
+      "has_normal_texture": true,
+      "has_pbr_texture_payload": true,
+      "bbox": {
+        "min": [
+          -0.9530329704284668,
+          -0.2837570011615753,
+          -0.444227010011673
+        ],
+        "max": [
+          0.9530329704284668,
+          0.2837570011615753,
+          0.444227010011673
+        ],
+        "size": [
+          1.90607,
+          0.56751,
+          0.88845
+        ],
+        "center": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "lowpoly_turret_envelope": {
+      "id": "lowpoly_turret_envelope",
+      "label": "Meshy strict lowpoly turret envelope",
+      "area": "turret",
+      "runtime_role": "strict_lowpoly_turret_pbr_envelope",
+      "source_model": "turret",
+      "source_image": "/storage/emulated/0/Pictures/file_00000000407c71fd8087828e55eb7cc0.png",
+      "source_asset_slug": "sherman_lowpoly_turret_envelope_v1",
+      "rejected_asset_slug": "sherman_lowpoly_turret_envelope_v2",
+      "selected_reason": "v1 had lower unique-position and triangle counts than stricter v2; both were generated as lowpoly, no decimation",
+      "task_id": "019f4256-08a3-750c-acf1-c7d11b590e01",
+      "source_glb": "assets/generated/meshy/sherman_lowpoly_turret_envelope_v1/glb.glb",
+      "source_fbx": "assets/generated/meshy/sherman_lowpoly_turret_envelope_v1/fbx.fbx",
+      "source_manifest": "assets/generated/meshy/sherman_lowpoly_turret_envelope_v1/manifest.json",
+      "runtime_glb": "public/tftm/models/meshy_sherman_lowpoly_envelope_v1/lowpoly_turret_envelope.glb",
+      "runtime_url": "./tftm/models/meshy_sherman_lowpoly_envelope_v1/lowpoly_turret_envelope.glb",
+      "default_visible": true,
+      "default_transform": {
+        "position": [
+          0.08,
+          0.92,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.62,
+          0.62,
+          0.62
+        ]
+      },
+      "generation_policy": "Meshy image-to-3D generated directly with model_type=lowpoly and target_polycount; no high-to-low bake, no Blender decimation, no component extraction",
+      "requested": {
+        "model_type": "lowpoly",
+        "target_polycount": 3500,
+        "enable_pbr": true,
+        "hd_texture": true,
+        "should_remesh": true,
+        "topology": "quad",
+        "target_formats": [
+          "glb",
+          "fbx"
+        ]
+      },
+      "budget": {
+        "max_unique_positions": 7500,
+        "max_triangles": 15000
+      },
+      "triangles": 12818,
+      "vertices": 11214,
+      "unique_positions": 6457,
+      "primitiveCount": 1,
+      "byteLength": 22866228,
+      "materialCount": 1,
+      "imageCount": 4,
+      "textureCount": 4,
+      "has_base_color_texture": true,
+      "has_normal_texture": true,
+      "has_pbr_texture_payload": true,
+      "bbox": {
+        "min": [
+          -0.9412919878959656,
+          -0.36594900488853455,
+          -0.9530329704284668
+        ],
+        "max": [
+          0.933463990688324,
+          0.36594900488853455,
+          0.9530329704284668
+        ],
+        "size": [
+          1.87476,
+          0.7319,
+          1.90607
+        ],
+        "center": [
+          -0.00391,
+          0,
+          0
+        ]
+      }
+    },
+    "lowpoly_treads_envelope": {
+      "id": "lowpoly_treads_envelope",
+      "label": "Meshy strict lowpoly tread/running gear envelope",
+      "area": "treads",
+      "runtime_role": "strict_lowpoly_treads_pbr_reference_envelope",
+      "source_model": "treads",
+      "source_image": "/storage/emulated/0/Pictures/file_00000000cd0471fdafbe2cfc4e794220.png",
+      "source_asset_slug": "sherman_lowpoly_treads_envelope_v1",
+      "rejected_asset_slug": "sherman_lowpoly_treads_envelope_v2",
+      "selected_reason": "v1 had lower unique-position and triangle counts than stricter v2; both were generated as lowpoly, no decimation",
+      "task_id": "019f4256-08b3-7da7-bea7-154550d9a6c0",
+      "source_glb": "assets/generated/meshy/sherman_lowpoly_treads_envelope_v1/glb.glb",
+      "source_fbx": "assets/generated/meshy/sherman_lowpoly_treads_envelope_v1/fbx.fbx",
+      "source_manifest": "assets/generated/meshy/sherman_lowpoly_treads_envelope_v1/manifest.json",
+      "runtime_glb": "public/tftm/models/meshy_sherman_lowpoly_envelope_v1/lowpoly_treads_envelope.glb",
+      "runtime_url": "./tftm/models/meshy_sherman_lowpoly_envelope_v1/lowpoly_treads_envelope.glb",
+      "default_visible": false,
+      "default_transform": {
+        "position": [
+          0,
+          -0.08,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1.05,
+          1.05,
+          1.05
+        ]
+      },
+      "generation_policy": "Meshy image-to-3D generated directly with model_type=lowpoly and target_polycount; no high-to-low bake, no Blender decimation, no component extraction",
+      "requested": {
+        "model_type": "lowpoly",
+        "target_polycount": 6000,
+        "enable_pbr": true,
+        "hd_texture": true,
+        "should_remesh": true,
+        "topology": "quad",
+        "target_formats": [
+          "glb",
+          "fbx"
+        ]
+      },
+      "budget": {
+        "max_unique_positions": 10000,
+        "max_triangles": 20000
+      },
+      "triangles": 17557,
+      "vertices": 14967,
+      "unique_positions": 8858,
+      "primitiveCount": 1,
+      "byteLength": 27768512,
+      "materialCount": 1,
+      "imageCount": 4,
+      "textureCount": 4,
+      "has_base_color_texture": true,
+      "has_normal_texture": true,
+      "has_pbr_texture_payload": true,
+      "bbox": {
+        "min": [
+          -0.9530329704284668,
+          -0.8395299911499023,
+          -0.608610987663269
+        ],
+        "max": [
+          0.9530329704284668,
+          0.8395299911499023,
+          0.608610987663269
+        ],
+        "size": [
+          1.90607,
+          1.67906,
+          1.21722
+        ],
+        "center": [
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  }
+}

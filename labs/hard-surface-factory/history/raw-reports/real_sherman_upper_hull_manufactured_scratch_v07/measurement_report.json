@@ -1,0 +1,99 @@
+{
+  "asset_id": "real_sherman_upper_hull_manufactured_scratch_v07",
+  "policy": "measure numbers only; source topology is discarded",
+  "measurements": {
+    "centerline": {
+      "raw_value": -0.034684272481626977,
+      "final_constrained_value": -0.006480355398818418
+    },
+    "hull_width": {
+      "raw_value": 0.6622124684190567,
+      "final_constrained_value": 0.6555903437348661
+    },
+    "hull_length": {
+      "raw_value": 0.6544305804272881,
+      "final_constrained_value": 0.6871521094486525
+    },
+    "glacis_plane_angle_degrees": {
+      "raw_value": 1.5530558063959043,
+      "final_constrained_value": 1.5530558063959043
+    },
+    "front_height": {
+      "raw_value": 0.12741319835186005,
+      "final_constrained_value": 0.095
+    },
+    "left_shoulder_station": {
+      "raw_value": -0.23997013769153455,
+      "final_constrained_value": null
+    },
+    "right_shoulder_station": {
+      "raw_value": 0.1706015927282806,
+      "final_constrained_value": null
+    },
+    "turret_ring_center": {
+      "raw_value": [
+        0.008706369184232343,
+        -0.014960085836024128
+      ],
+      "final_constrained_value": null
+    },
+    "turret_ring_radius": {
+      "raw_value": 0.2529671413999479,
+      "final_constrained_value": null
+    },
+    "deck_height": {
+      "raw_value": 0.271260529756546,
+      "final_constrained_value": 0.045
+    },
+    "side_return_depth": {
+      "raw_value": 0.06625486314296723,
+      "final_constrained_value": 0.06625486314296723
+    }
+  },
+  "raw_measurements": {
+    "centerline": -0.034684272481626977,
+    "hull_width": 0.6622124684190567,
+    "hull_length": 0.6544305804272881,
+    "glacis_plane_angle_degrees": 1.5530558063959043,
+    "front_height": 0.12741319835186005,
+    "left_shoulder_station": -0.23997013769153455,
+    "right_shoulder_station": 0.1706015927282806,
+    "turret_ring_center": [
+      0.008706369184232343,
+      -0.014960085836024128
+    ],
+    "turret_ring_radius": 0.2529671413999479,
+    "deck_height": 0.271260529756546,
+    "side_return_depth": 0.06625486314296723,
+    "source_uv_bounds": {
+      "u_min": -0.3657905066911553,
+      "u_max": 0.29642196172790136,
+      "v_min": -0.3275677512137918,
+      "v_max": 0.3268628292134963
+    },
+    "source_vertex_count": 20878,
+    "source_polygon_count": 24804,
+    "ring_sample_count": 8758
+  },
+  "template_parameters": {
+    "centerline": -0.006480355398818418,
+    "hull_width": 0.6555903437348661,
+    "hull_length": 0.6871521094486525,
+    "front_v": -0.31382470902481874,
+    "rear_v": 0.3733274004238337,
+    "left_u": -0.3342755272662515,
+    "right_u": 0.32131481646861465,
+    "left_shoulder_u": -0.1736558930512093,
+    "right_shoulder_u": 0.16069518225357246,
+    "ring_center": [
+      -0.0034430104822082653,
+      0.002265261321561407
+    ],
+    "ring_radius": 0.15,
+    "front_height": 0.095,
+    "deck_height": 0.045,
+    "side_return_depth": 0.06625486314296723,
+    "glacis_plane_angle_degrees": 1.5530558063959043,
+    "source_vertex_influence": "dimensions_only"
+  }
+}

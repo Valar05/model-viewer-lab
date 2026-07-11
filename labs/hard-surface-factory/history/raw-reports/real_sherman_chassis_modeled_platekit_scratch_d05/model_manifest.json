@@ -1,0 +1,319 @@
+{
+  "asset_id": "real_sherman_chassis_modeled_platekit_scratch_d05",
+  "series_id": "real_sherman_chassis_modeled_platekit_scratch",
+  "attempt": "d05",
+  "scratch_mode": true,
+  "artifact_type": "scratch_modeled_plate_reference_kit",
+  "revision": "d05-modeled-plates-more-structural-topology-no-box-assembly",
+  "source_manifest": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/model_manifest.json",
+  "reference_sheet_image": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_reference_kit_scratch_v1/front_reference_config.png",
+  "configuration_policy": "Same seven source component roles and exploded/reference configuration as Meshy reference kit.",
+  "construction_rule": "Seven primary components are custom continuous meshes; rectangular feature-box assembly is intentionally not used.",
+  "budget": {
+    "hard_cap_triangles": 12000,
+    "intent": "spend triangles on modeled plate transitions, apertures, and swept shells before optimizing"
+  },
+  "statistics_all_hand_mesh_excluding_reference_sheet": {
+    "triangles": 4477,
+    "polygons": 2283,
+    "vertices": 2768
+  },
+  "statistics_primary_kit_pieces": {
+    "triangles": 4109,
+    "polygons": 2063,
+    "vertices": 2498
+  },
+  "primary_kit_piece_count": 7,
+  "all_hand_mesh_object_count": 10,
+  "under_hard_cap": true,
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_chassis_modeled_platekit_scratch_d05/real_sherman_chassis_modeled_platekit_scratch_d05.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_modeled_platekit_scratch_d05/real_sherman_chassis_modeled_platekit_scratch_d05.glb",
+    "front_with_reference_sheet": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_modeled_platekit_scratch_d05/front_with_reference_sheet.png",
+    "hatch_deck_close": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_modeled_platekit_scratch_d05/hatch_deck_close.png",
+    "rear_oblique": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_modeled_platekit_scratch_d05/rear_oblique.png"
+  },
+  "parts": [
+    {
+      "object": "real_sherman_chassis_modeled_platekit_scratch_d05_00_upper_hull",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "source_role": "source_component_0_upper_front_glacis_assembly",
+      "primary_kit_piece": true,
+      "modeled_not_box_assembled": true,
+      "triangles": 1598,
+      "polygons": 799,
+      "vertices": 1000,
+      "source_bbox_world": {
+        "min": [
+          -0.17843028903007507,
+          -0.3644956946372986,
+          0.11783222109079361
+        ],
+        "max": [
+          0.5160584449768066,
+          0.3469688594341278,
+          0.28741639852523804
+        ],
+        "size": [
+          0.6944887340068817,
+          0.7114645540714264,
+          0.16958417743444443
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_modeled_platekit_scratch_d05_00_driver_hat",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "source_role": "source_component_0_upper_front_glacis_assembly",
+      "primary_kit_piece": false,
+      "modeled_not_box_assembled": true,
+      "triangles": 128,
+      "polygons": 64,
+      "vertices": 93,
+      "source_bbox_world": {
+        "min": [
+          -0.17843028903007507,
+          -0.3644956946372986,
+          0.11783222109079361
+        ],
+        "max": [
+          0.5160584449768066,
+          0.3469688594341278,
+          0.28741639852523804
+        ],
+        "size": [
+          0.6944887340068817,
+          0.7114645540714264,
+          0.16958417743444443
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_modeled_platekit_scratch_d05_00_ring_dark_",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "source_role": "source_component_0_upper_front_glacis_assembly",
+      "primary_kit_piece": false,
+      "modeled_not_box_assembled": true,
+      "triangles": 72,
+      "polygons": 72,
+      "vertices": 73,
+      "source_bbox_world": {
+        "min": [
+          -0.17843028903007507,
+          -0.3644956946372986,
+          0.11783222109079361
+        ],
+        "max": [
+          0.5160584449768066,
+          0.3469688594341278,
+          0.28741639852523804
+        ],
+        "size": [
+          0.6944887340068817,
+          0.7114645540714264,
+          0.16958417743444443
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_modeled_platekit_scratch_d05_01_open_tray_",
+      "role": "source_component_1_lower_hull_floor_tub",
+      "source_role": "source_component_1_lower_hull_floor_tub",
+      "primary_kit_piece": true,
+      "modeled_not_box_assembled": true,
+      "triangles": 36,
+      "polygons": 20,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.48485255241394043,
+          -0.2897157371044159,
+          -0.34691181778907776
+        ],
+        "max": [
+          0.4648239016532898,
+          0.4398635923862457,
+          -0.16509976983070374
+        ],
+        "size": [
+          0.9496764540672302,
+          0.7295793294906616,
+          0.18181204795837402
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_modeled_platekit_scratch_d05_01_recessed_f",
+      "role": "source_component_1_lower_hull_floor_tub",
+      "source_role": "source_component_1_lower_hull_floor_tub",
+      "primary_kit_piece": false,
+      "modeled_not_box_assembled": true,
+      "triangles": 168,
+      "polygons": 84,
+      "vertices": 104,
+      "source_bbox_world": {
+        "min": [
+          -0.48485255241394043,
+          -0.2897157371044159,
+          -0.34691181778907776
+        ],
+        "max": [
+          0.4648239016532898,
+          0.4398635923862457,
+          -0.16509976983070374
+        ],
+        "size": [
+          0.9496764540672302,
+          0.7295793294906616,
+          0.18181204795837402
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_modeled_platekit_scratch_d05_02_engine_dec",
+      "role": "source_component_2_engine_deck_assembly",
+      "source_role": "source_component_2_engine_deck_assembly",
+      "primary_kit_piece": true,
+      "modeled_not_box_assembled": true,
+      "triangles": 1152,
+      "polygons": 576,
+      "vertices": 711,
+      "source_bbox_world": {
+        "min": [
+          -0.38110318779945374,
+          0.29633381962776184,
+          0.2969058156013489
+        ],
+        "max": [
+          0.3265227675437927,
+          0.9073870778083801,
+          0.34389737248420715
+        ],
+        "size": [
+          0.7076259553432465,
+          0.6110532581806183,
+          0.046991556882858276
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_modeled_platekit_scratch_d05_03_rear_plate",
+      "role": "source_component_3_rear_plate_assembly",
+      "source_role": "source_component_3_rear_plate_assembly",
+      "primary_kit_piece": true,
+      "modeled_not_box_assembled": true,
+      "triangles": 652,
+      "polygons": 326,
+      "vertices": 381,
+      "source_bbox_world": {
+        "min": [
+          -0.9504520893096924,
+          -0.5600312948226929,
+          -0.32352304458618164
+        ],
+        "max": [
+          -0.8368092775344849,
+          0.23777179419994354,
+          -0.02899777702987194
+        ],
+        "size": [
+          0.11364281177520752,
+          0.7978030890226364,
+          0.2945252675563097
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_modeled_platekit_scratch_d05_04_left_swept",
+      "role": "source_component_4_left_side_assembly",
+      "source_role": "source_component_4_left_side_assembly",
+      "primary_kit_piece": true,
+      "modeled_not_box_assembled": true,
+      "triangles": 328,
+      "polygons": 166,
+      "vertices": 178,
+      "source_bbox_world": {
+        "min": [
+          -0.7779678106307983,
+          0.7357678413391113,
+          -0.28596046566963196
+        ],
+        "max": [
+          0.38128215074539185,
+          0.8336126804351807,
+          0.0010152701288461685
+        ],
+        "size": [
+          1.1592499613761902,
+          0.09784483909606934,
+          0.2869757357984781
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_modeled_platekit_scratch_d05_05_right_swep",
+      "role": "source_component_5_right_side_assembly",
+      "source_role": "source_component_5_right_side_assembly",
+      "primary_kit_piece": true,
+      "modeled_not_box_assembled": true,
+      "triangles": 328,
+      "polygons": 166,
+      "vertices": 178,
+      "source_bbox_world": {
+        "min": [
+          0.83027184009552,
+          -0.9053849577903748,
+          -0.3469211459159851
+        ],
+        "max": [
+          0.9488093852996826,
+          0.08376219123601913,
+          -0.07069874554872513
+        ],
+        "size": [
+          0.1185375452041626,
+          0.9891471490263939,
+          0.27622240036726
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_modeled_platekit_scratch_d05_06_asymmetric",
+      "role": "source_component_6_remaining_reference_plate",
+      "source_role": "source_component_6_remaining_reference_plate",
+      "primary_kit_piece": true,
+      "modeled_not_box_assembled": true,
+      "triangles": 15,
+      "polygons": 10,
+      "vertices": 26,
+      "source_bbox_world": {
+        "min": [
+          -0.654741644859314,
+          -0.8146925568580627,
+          -0.24573509395122528
+        ],
+        "max": [
+          0.46055811643600464,
+          -0.6628901362419128,
+          -0.14075486361980438
+        ],
+        "size": [
+          1.1152997612953186,
+          0.1518024206161499,
+          0.1049802303314209
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_modeled_platekit_scratch_d05_reference_she",
+      "role": "visible_reference_sheet_background",
+      "source_role": "",
+      "primary_kit_piece": false,
+      "modeled_not_box_assembled": false,
+      "triangles": 2,
+      "polygons": 1,
+      "vertices": 4,
+      "source_bbox_world": null
+    }
+  ]
+}

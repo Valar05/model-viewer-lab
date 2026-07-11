@@ -1,0 +1,21 @@
+{
+  "asset_id": "real_sherman_upper_glacis_feature_retopo_scratch_f02",
+  "source_bounds": {
+    "min_x": -0.17843028903007507,
+    "max_x": 0.5160584449768066,
+    "min_y": -0.3644956946372986,
+    "max_y": 0.3469688594341278,
+    "min_z": 0.11783222109079361,
+    "max_z": 0.28741639852523804
+  },
+  "feature_policy": "proportional source envelope selectors with per-vertex source ray support",
+  "features": [
+    "load_bearing_plate_grid",
+    "turret_ring",
+    "right_deck_hatch",
+    "small_front_periscope",
+    "left_front_boss",
+    "front_lower_lip",
+    "side_returns"
+  ]
+}

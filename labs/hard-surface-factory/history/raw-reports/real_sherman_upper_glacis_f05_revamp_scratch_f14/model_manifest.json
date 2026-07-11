@@ -1,0 +1,101 @@
+{
+  "asset_id": "real_sherman_upper_glacis_f05_revamp_scratch_f14",
+  "scratch_mode": true,
+  "artifact_type": "scratch_planar_fit_watertight_upper_glacis_socket_ring_no_hatch_cap",
+  "revision": "f14-planar-fit-watertight-socket-ring-no-hatch-cap",
+  "candidate": false,
+  "candidate_reason": "requires topology pass, plane pass, and non-red shape parity; topology alone cannot set candidate true",
+  "topology_status": "pass",
+  "plane_status": "pass",
+  "shape_review_status": "red_depth_parity_weak",
+  "source_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/real_sherman_chassis_reference_kit_scratch_v1.glb",
+  "source_component": "source_component_0_upper_front_glacis",
+  "authoring_policy": "Dominant deck plane is fitted from source faces. Broad armor vertices are generated in plane UV coordinates and offset along plane normal. Source samples are used for boundary/landmark support only, not broad-plate height.",
+  "current_prompt_contract": {
+    "current_user_command": "Implement f14 planar-fit watertight pass.",
+    "forbidden_stale_premise": "Sampling/raycasting broad planar armor vertices from source noise and accepting lumps because topology passes.",
+    "intended_mutation": "Create one new scratch mesh artifact with fitted planar armor, cylindrical cut, separate closed ring, no hatch cap, plane/topology/shape diagnostics, and viewer handoff.",
+    "why_this_satisfies_command": "It replaces the lumpy source-sampling method with mode planar coordinates while preserving watertight shell architecture."
+  },
+  "statistics": {
+    "vertices": 768,
+    "polygons": 768,
+    "triangles": 1536
+  },
+  "topology_gate": {
+    "topology_status": "pass",
+    "topology_pass": true,
+    "boundary_edges_total": 0,
+    "nonmanifold_edges_total": 0,
+    "failure_reasons": []
+  },
+  "plane_gate": {
+    "plane_status": "pass",
+    "plane_pass": true,
+    "broad_plate_residual_mean": 1.0363997281330936e-08,
+    "broad_plate_residual_max": 3.2754614950891714e-08,
+    "ring_offset_residual_max": 4.024375230282651e-08,
+    "tolerance": 1e-05
+  },
+  "topology_reports": [
+    {
+      "object": "real_sherman_upper_glacis_f05_revamp_scratch_f14_solid_planar_t",
+      "vertices": 384,
+      "polygons": 384,
+      "triangles": 768,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_planar_fit_f14"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_f05_revamp_scratch_f14_separate_plana",
+      "vertices": 384,
+      "polygons": 384,
+      "triangles": 768,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_planar_fit_f14"
+      ]
+    }
+  ],
+  "material_slots": [
+    "armor_plate_planar_fit",
+    "cylindrical_socket_wall",
+    "separate_ring_armor"
+  ],
+  "solid_primitives": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f14/solid_primitives.json",
+  "plane_fit_report": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f14/plane_fit_report.json",
+  "retopo_landmarks": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f14/retopo_landmarks.json",
+  "provenance": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f14/retopo_vertex_provenance.json",
+    "output_vertices": 768
+  },
+  "depth_parity": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f14/depth_error_report.json",
+    "depth_resolution": [
+      160,
+      112
+    ],
+    "shared_pixels": 4629,
+    "source_pixels": 9480,
+    "retopo_pixels": 4692,
+    "silhouette_iou": 0.4850675888085508,
+    "mean_abs_depth_error": 0.06473216435697585,
+    "p50_abs_depth_error": 0.0503544807434082,
+    "p95_abs_depth_error": 0.17813968658447266,
+    "max_abs_depth_error": 0.38961267471313477
+  },
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_upper_glacis_f05_revamp_scratch_f14/real_sherman_upper_glacis_f05_revamp_scratch_f14.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_f05_revamp_scratch_f14/real_sherman_upper_glacis_f05_revamp_scratch_f14.glb",
+    "source_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f14/source_shaded_same_angle.png",
+    "retopo_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f14/retopo_shaded_same_angle.png",
+    "hatch_deck_close": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f14/hatch_deck_close.png",
+    "source_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f14/source_depth.png",
+    "retopo_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f14/retopo_depth.png",
+    "depth_abs_error": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_f05_revamp_scratch_f14/depth_abs_error.png"
+  }
+}

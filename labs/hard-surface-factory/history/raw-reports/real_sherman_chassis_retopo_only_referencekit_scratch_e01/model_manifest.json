@@ -1,0 +1,124 @@
+{
+  "asset_id": "real_sherman_chassis_retopo_only_referencekit_scratch_e01",
+  "scratch_mode": true,
+  "artifact_type": "scratch_retopo_only_reference_kit",
+  "revision": "e01-source-vertex-retopo-only-no-bbox-authoring",
+  "source_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/real_sherman_chassis_reference_kit_scratch_v1.glb",
+  "authoring_policy": "Retopo-only from imported source mesh vertices. No envelope placement, generated panel construction, decimation, shrinkwrap, or direct source topology copy.",
+  "forbidden_authoring_patterns": [
+    "legacy envelope mapping helper",
+    "envelope minmax interpolation",
+    "unit component coordinate authoring",
+    "generated panel construction",
+    "decimation",
+    "shrinkwrap",
+    "autoretopo wrapper"
+  ],
+  "statistics_all_retopo_mesh_excluding_reference_sheet": {
+    "triangles": 1152,
+    "polygons": 458,
+    "vertices": 590
+  },
+  "statistics_primary_kit_pieces": {
+    "triangles": 1152,
+    "polygons": 458,
+    "vertices": 590
+  },
+  "primary_kit_piece_count": 7,
+  "all_hand_mesh_object_count": 7,
+  "provenance": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_retopo_only_referencekit_scratch_e01/retopo_vertex_provenance.json",
+    "output_vertices": 590,
+    "max_distance_to_source_vertex": 0.0,
+    "policy": "Every output retopo vertex is an actual sampled source mesh vertex from the imported reference kit."
+  },
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_chassis_retopo_only_referencekit_scratch_e01/real_sherman_chassis_retopo_only_referencekit_scratch_e01.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_retopo_only_referencekit_scratch_e01/real_sherman_chassis_retopo_only_referencekit_scratch_e01.glb",
+    "front_with_reference_sheet": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_retopo_only_referencekit_scratch_e01/front_with_reference_sheet.png",
+    "hatch_deck_close": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_retopo_only_referencekit_scratch_e01/hatch_deck_close.png",
+    "rear_oblique": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_retopo_only_referencekit_scratch_e01/rear_oblique.png"
+  },
+  "parts": [
+    {
+      "object": "real_sherman_chassis_retopo_only_referencekit_scratch_e01_sourc",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "source_object": "reference_kit_v1_00_source_component_0_upper_front_glacis_assem",
+      "primary_kit_piece": true,
+      "retopo_only": true,
+      "triangles": 236,
+      "polygons": 98,
+      "vertices": 120
+    },
+    {
+      "object": "real_sherman_chassis_retopo_only_referencekit_scratch_e01_s",
+      "role": "source_component_1_lower_hull_floor_tub",
+      "source_object": "reference_kit_v1_01_source_component_1_lower_hull_floor_tub",
+      "primary_kit_piece": true,
+      "retopo_only": true,
+      "triangles": 172,
+      "polygons": 68,
+      "vertices": 88
+    },
+    {
+      "object": "real_sherman_chassis_retopo_only_referencekit_scratch_e01_s.001",
+      "role": "source_component_2_engine_deck_assembly",
+      "source_object": "reference_kit_v1_02_source_component_2_engine_deck_assembly",
+      "primary_kit_piece": true,
+      "retopo_only": true,
+      "triangles": 172,
+      "polygons": 68,
+      "vertices": 88
+    },
+    {
+      "object": "real_sherman_chassis_retopo_only_referencekit_scratch_e01_s.002",
+      "role": "source_component_3_rear_plate_assembly",
+      "source_object": "reference_kit_v1_03_source_component_3_rear_plate_assembly",
+      "primary_kit_piece": true,
+      "retopo_only": true,
+      "triangles": 156,
+      "polygons": 62,
+      "vertices": 80
+    },
+    {
+      "object": "real_sherman_chassis_retopo_only_referencekit_scratch_e01_s.003",
+      "role": "source_component_4_left_side_assembly",
+      "source_object": "reference_kit_v1_04_source_component_4_left_side_assembly",
+      "primary_kit_piece": true,
+      "retopo_only": true,
+      "triangles": 156,
+      "polygons": 62,
+      "vertices": 80
+    },
+    {
+      "object": "real_sherman_chassis_retopo_only_referencekit_scratch_e01_s.004",
+      "role": "source_component_5_right_side_assembly",
+      "source_object": "reference_kit_v1_05_source_component_5_right_side_assembly",
+      "primary_kit_piece": true,
+      "retopo_only": true,
+      "triangles": 156,
+      "polygons": 62,
+      "vertices": 80
+    },
+    {
+      "object": "real_sherman_chassis_retopo_only_referencekit_scratch_e01_s.005",
+      "role": "source_component_6_remaining_reference_plate",
+      "source_object": "reference_kit_v1_06_source_component_6_remaining_reference_plat",
+      "primary_kit_piece": true,
+      "retopo_only": true,
+      "triangles": 104,
+      "polygons": 38,
+      "vertices": 54
+    },
+    {
+      "object": "real_sherman_chassis_retopo_only_referencekit_scratch_e01_refer",
+      "role": "visible_reference_sheet_background",
+      "source_object": "",
+      "primary_kit_piece": false,
+      "retopo_only": false,
+      "triangles": 2,
+      "polygons": 1,
+      "vertices": 4
+    }
+  ]
+}

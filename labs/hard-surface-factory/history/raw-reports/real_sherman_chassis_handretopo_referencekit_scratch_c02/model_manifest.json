@@ -1,0 +1,548 @@
+{
+  "asset_id": "real_sherman_chassis_handretopo_referencekit_scratch_c02",
+  "scratch_mode": true,
+  "artifact_type": "scratch_hand_retopo_reference_kit_same_configuration",
+  "revision": "hand-retopo-source-reference-parts-same-config-readable-reference-sheet-c02",
+  "source_manifest": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/model_manifest.json",
+  "reference_sheet_image": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_reference_kit_scratch_v1/front_reference_config.png",
+  "source_policy": "Source Meshy GLB/components used only as reference sheet and bboxes. Exported kit pieces are hand-authored meshes, not source topology and not decimated source mesh.",
+  "configuration_policy": "Same seven source component roles and same source bbox/configuration as Meshy exploded reference kit.",
+  "primary_kit_piece_count": 7,
+  "total_exported_mesh_objects_excluding_reference_sheet": 22,
+  "statistics_primary_kit_pieces": {
+    "triangles": 1268,
+    "polygons": 506,
+    "vertices": 562
+  },
+  "statistics_all_hand_retopo_meshes_excluding_reference_sheet": {
+    "triangles": 1760,
+    "polygons": 796,
+    "vertices": 842
+  },
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_chassis_handretopo_referencekit_scratch_c02/real_sherman_chassis_handretopo_referencekit_scratch_c02.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_handretopo_referencekit_scratch_c02/real_sherman_chassis_handretopo_referencekit_scratch_c02.glb",
+    "front_with_reference_sheet": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_handretopo_referencekit_scratch_c02/front_with_reference_sheet.png",
+    "rear_reference_config": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_handretopo_referencekit_scratch_c02/rear_reference_config.png"
+  },
+  "parts": [
+    {
+      "object": "handretopo_c01_00_upper_front_glacis_assembly",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "source_role": "source_component_0_upper_front_glacis_assembly",
+      "included_as_primary_kit_piece": true,
+      "triangles": 646,
+      "polygons": 194,
+      "vertices": 246,
+      "source_bbox_world": {
+        "min": [
+          -0.17843028903007507,
+          -0.3644956946372986,
+          0.11783222109079361
+        ],
+        "max": [
+          0.5160584449768066,
+          0.3469688594341278,
+          0.28741639852523804
+        ],
+        "size": [
+          0.6944887340068817,
+          0.7114645540714264,
+          0.16958417743444443
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_01_lower_hull_floor_tub",
+      "role": "source_component_1_lower_hull_floor_tub",
+      "source_role": "source_component_1_lower_hull_floor_tub",
+      "included_as_primary_kit_piece": true,
+      "triangles": 178,
+      "polygons": 85,
+      "vertices": 84,
+      "source_bbox_world": {
+        "min": [
+          -0.48485255241394043,
+          -0.2897157371044159,
+          -0.34691181778907776
+        ],
+        "max": [
+          0.4648239016532898,
+          0.4398635923862457,
+          -0.16509976983070374
+        ],
+        "size": [
+          0.9496764540672302,
+          0.7295793294906616,
+          0.18181204795837402
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_02_engine_deck_assembly",
+      "role": "source_component_2_engine_deck_assembly",
+      "source_role": "source_component_2_engine_deck_assembly",
+      "included_as_primary_kit_piece": true,
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.38110318779945374,
+          0.29633381962776184,
+          0.2969058156013489
+        ],
+        "max": [
+          0.3265227675437927,
+          0.9073870778083801,
+          0.34389737248420715
+        ],
+        "size": [
+          0.7076259553432465,
+          0.6110532581806183,
+          0.046991556882858276
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_02_engine_deck_assembly_grille_bar_00",
+      "role": "source_component_2_engine_deck_assembly",
+      "source_role": "source_component_2_engine_deck_assembly",
+      "included_as_primary_kit_piece": false,
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.38110318779945374,
+          0.29633381962776184,
+          0.2969058156013489
+        ],
+        "max": [
+          0.3265227675437927,
+          0.9073870778083801,
+          0.34389737248420715
+        ],
+        "size": [
+          0.7076259553432465,
+          0.6110532581806183,
+          0.046991556882858276
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_02_engine_deck_assembly_grille_bar_01",
+      "role": "source_component_2_engine_deck_assembly",
+      "source_role": "source_component_2_engine_deck_assembly",
+      "included_as_primary_kit_piece": false,
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.38110318779945374,
+          0.29633381962776184,
+          0.2969058156013489
+        ],
+        "max": [
+          0.3265227675437927,
+          0.9073870778083801,
+          0.34389737248420715
+        ],
+        "size": [
+          0.7076259553432465,
+          0.6110532581806183,
+          0.046991556882858276
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_02_engine_deck_assembly_grille_bar_02",
+      "role": "source_component_2_engine_deck_assembly",
+      "source_role": "source_component_2_engine_deck_assembly",
+      "included_as_primary_kit_piece": false,
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.38110318779945374,
+          0.29633381962776184,
+          0.2969058156013489
+        ],
+        "max": [
+          0.3265227675437927,
+          0.9073870778083801,
+          0.34389737248420715
+        ],
+        "size": [
+          0.7076259553432465,
+          0.6110532581806183,
+          0.046991556882858276
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_03_rear_plate_assembly",
+      "role": "source_component_3_rear_plate_assembly",
+      "source_role": "source_component_3_rear_plate_assembly",
+      "included_as_primary_kit_piece": true,
+      "triangles": 132,
+      "polygons": 64,
+      "vertices": 68,
+      "source_bbox_world": {
+        "min": [
+          -0.9504520893096924,
+          -0.5600312948226929,
+          -0.32352304458618164
+        ],
+        "max": [
+          -0.8368092775344849,
+          0.23777179419994354,
+          -0.02899777702987194
+        ],
+        "size": [
+          0.11364281177520752,
+          0.7978030890226364,
+          0.2945252675563097
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_04_left_side_assembly",
+      "role": "source_component_4_left_side_assembly",
+      "source_role": "source_component_4_left_side_assembly",
+      "included_as_primary_kit_piece": true,
+      "triangles": 108,
+      "polygons": 54,
+      "vertices": 56,
+      "source_bbox_world": {
+        "min": [
+          -0.7779678106307983,
+          0.7357678413391113,
+          -0.28596046566963196
+        ],
+        "max": [
+          0.38128215074539185,
+          0.8336126804351807,
+          0.0010152701288461685
+        ],
+        "size": [
+          1.1592499613761902,
+          0.09784483909606934,
+          0.2869757357984781
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_04_left_side_assembly_owned_rib_00",
+      "role": "source_component_4_left_side_assembly",
+      "source_role": "source_component_4_left_side_assembly",
+      "included_as_primary_kit_piece": false,
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.7779678106307983,
+          0.7357678413391113,
+          -0.28596046566963196
+        ],
+        "max": [
+          0.38128215074539185,
+          0.8336126804351807,
+          0.0010152701288461685
+        ],
+        "size": [
+          1.1592499613761902,
+          0.09784483909606934,
+          0.2869757357984781
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_04_left_side_assembly_owned_rib_01",
+      "role": "source_component_4_left_side_assembly",
+      "source_role": "source_component_4_left_side_assembly",
+      "included_as_primary_kit_piece": false,
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.7779678106307983,
+          0.7357678413391113,
+          -0.28596046566963196
+        ],
+        "max": [
+          0.38128215074539185,
+          0.8336126804351807,
+          0.0010152701288461685
+        ],
+        "size": [
+          1.1592499613761902,
+          0.09784483909606934,
+          0.2869757357984781
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_04_left_side_assembly_owned_rib_02",
+      "role": "source_component_4_left_side_assembly",
+      "source_role": "source_component_4_left_side_assembly",
+      "included_as_primary_kit_piece": false,
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.7779678106307983,
+          0.7357678413391113,
+          -0.28596046566963196
+        ],
+        "max": [
+          0.38128215074539185,
+          0.8336126804351807,
+          0.0010152701288461685
+        ],
+        "size": [
+          1.1592499613761902,
+          0.09784483909606934,
+          0.2869757357984781
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_04_left_side_assembly_owned_rib_03",
+      "role": "source_component_4_left_side_assembly",
+      "source_role": "source_component_4_left_side_assembly",
+      "included_as_primary_kit_piece": false,
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.7779678106307983,
+          0.7357678413391113,
+          -0.28596046566963196
+        ],
+        "max": [
+          0.38128215074539185,
+          0.8336126804351807,
+          0.0010152701288461685
+        ],
+        "size": [
+          1.1592499613761902,
+          0.09784483909606934,
+          0.2869757357984781
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_05_right_side_assembly",
+      "role": "source_component_5_right_side_assembly",
+      "source_role": "source_component_5_right_side_assembly",
+      "included_as_primary_kit_piece": true,
+      "triangles": 108,
+      "polygons": 54,
+      "vertices": 56,
+      "source_bbox_world": {
+        "min": [
+          0.83027184009552,
+          -0.9053849577903748,
+          -0.3469211459159851
+        ],
+        "max": [
+          0.9488093852996826,
+          0.08376219123601913,
+          -0.07069874554872513
+        ],
+        "size": [
+          0.1185375452041626,
+          0.9891471490263939,
+          0.27622240036726
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_05_right_side_assembly_owned_rib_00",
+      "role": "source_component_5_right_side_assembly",
+      "source_role": "source_component_5_right_side_assembly",
+      "included_as_primary_kit_piece": false,
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          0.83027184009552,
+          -0.9053849577903748,
+          -0.3469211459159851
+        ],
+        "max": [
+          0.9488093852996826,
+          0.08376219123601913,
+          -0.07069874554872513
+        ],
+        "size": [
+          0.1185375452041626,
+          0.9891471490263939,
+          0.27622240036726
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_05_right_side_assembly_owned_rib_01",
+      "role": "source_component_5_right_side_assembly",
+      "source_role": "source_component_5_right_side_assembly",
+      "included_as_primary_kit_piece": false,
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          0.83027184009552,
+          -0.9053849577903748,
+          -0.3469211459159851
+        ],
+        "max": [
+          0.9488093852996826,
+          0.08376219123601913,
+          -0.07069874554872513
+        ],
+        "size": [
+          0.1185375452041626,
+          0.9891471490263939,
+          0.27622240036726
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_05_right_side_assembly_owned_rib_02",
+      "role": "source_component_5_right_side_assembly",
+      "source_role": "source_component_5_right_side_assembly",
+      "included_as_primary_kit_piece": false,
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          0.83027184009552,
+          -0.9053849577903748,
+          -0.3469211459159851
+        ],
+        "max": [
+          0.9488093852996826,
+          0.08376219123601913,
+          -0.07069874554872513
+        ],
+        "size": [
+          0.1185375452041626,
+          0.9891471490263939,
+          0.27622240036726
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_05_right_side_assembly_owned_rib_03",
+      "role": "source_component_5_right_side_assembly",
+      "source_role": "source_component_5_right_side_assembly",
+      "included_as_primary_kit_piece": false,
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          0.83027184009552,
+          -0.9053849577903748,
+          -0.3469211459159851
+        ],
+        "max": [
+          0.9488093852996826,
+          0.08376219123601913,
+          -0.07069874554872513
+        ],
+        "size": [
+          0.1185375452041626,
+          0.9891471490263939,
+          0.27622240036726
+        ]
+      }
+    },
+    {
+      "object": "handretopo_c01_06_remaining_reference_plate",
+      "role": "source_component_6_remaining_reference_plate",
+      "source_role": "source_component_6_remaining_reference_plate",
+      "included_as_primary_kit_piece": true,
+      "triangles": 52,
+      "polygons": 29,
+      "vertices": 28,
+      "source_bbox_world": {
+        "min": [
+          -0.654741644859314,
+          -0.8146925568580627,
+          -0.24573509395122528
+        ],
+        "max": [
+          0.46055811643600464,
+          -0.6628901362419128,
+          -0.14075486361980438
+        ],
+        "size": [
+          1.1152997612953186,
+          0.1518024206161499,
+          0.1049802303314209
+        ]
+      }
+    },
+    {
+      "object": "reference_sheet_background__source_front_render",
+      "role": "visible_reference_sheet_background",
+      "source_role": "",
+      "included_as_primary_kit_piece": false,
+      "triangles": 2,
+      "polygons": 1,
+      "vertices": 4,
+      "source_bbox_world": null
+    },
+    {
+      "object": "reference_sheet_border_top",
+      "role": "visible_reference_sheet_border",
+      "source_role": "",
+      "included_as_primary_kit_piece": false,
+      "triangles": 2,
+      "polygons": 1,
+      "vertices": 4,
+      "source_bbox_world": null
+    },
+    {
+      "object": "reference_sheet_border_bottom",
+      "role": "visible_reference_sheet_border",
+      "source_role": "",
+      "included_as_primary_kit_piece": false,
+      "triangles": 2,
+      "polygons": 1,
+      "vertices": 4,
+      "source_bbox_world": null
+    },
+    {
+      "object": "reference_sheet_border_left",
+      "role": "visible_reference_sheet_border",
+      "source_role": "",
+      "included_as_primary_kit_piece": false,
+      "triangles": 2,
+      "polygons": 1,
+      "vertices": 4,
+      "source_bbox_world": null
+    },
+    {
+      "object": "reference_sheet_border_right",
+      "role": "visible_reference_sheet_border",
+      "source_role": "",
+      "included_as_primary_kit_piece": false,
+      "triangles": 2,
+      "polygons": 1,
+      "vertices": 4,
+      "source_bbox_world": null
+    }
+  ]
+}

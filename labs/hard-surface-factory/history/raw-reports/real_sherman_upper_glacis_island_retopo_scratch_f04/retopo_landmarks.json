@@ -1,0 +1,9 @@
+{
+  "asset_id": "real_sherman_upper_glacis_island_retopo_scratch_f04",
+  "target_policy": "per loose source island: max(28, min(420, original_triangles * 0.11))",
+  "retopo_engine": "bpy.ops.object.quadriflow_remesh per loose source island",
+  "preserve_sharp": true,
+  "preserve_boundary": true,
+  "source_component": "source_component_0_upper_front_glacis_assembly",
+  "lesson_from_f01_f02_f03": "f01 had good depth but ugly heightfield artifacts; f02 guessed feature placement; f03 remeshed the whole assembly and bridged openings. f04 separates loose source islands before retopo."
+}

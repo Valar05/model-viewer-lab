@@ -1,0 +1,631 @@
+{
+  "asset_id": "real_sherman_chassis_platekit_scratch_a03",
+  "series_id": "real_sherman_chassis_platekit_scratch",
+  "attempt": "a03",
+  "attempt_label": "preferred candidate with essential turret socket",
+  "scratch_mode": true,
+  "artifact_type": "scratch_authored_lowpoly_hard_surface_plate_kit",
+  "revision": "platekit-authored-lowpoly-attempts-a01-a03",
+  "source_policy": "Source/reference meshes are visual teachers only. Exported topology is authored hard-surface plate geometry; no Meshy/source topology copy and no decimation.",
+  "configuration_policy": "Exploded/reference kit layout only; not assembled into a tank pose.",
+  "topology_policy": "Authored mesh faces. No decimation. Broad rectangular visible plate faces are quads in Blender and two tris in GLB.",
+  "scope": "Hull/chassis large plates only. No treads, wheels, turret body, mantlet, barrel, coaxial MG, bolts, rivets, tools, material pass, or UV polish.",
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_chassis_platekit_scratch_a03/real_sherman_chassis_platekit_scratch_a03.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_platekit_scratch_a03/real_sherman_chassis_platekit_scratch_a03.glb",
+    "front_render": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_platekit_scratch_a03/front_three_quarter.png",
+    "rear_render": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_platekit_scratch_a03/rear_three_quarter.png"
+  },
+  "object_count": 15,
+  "total_triangle_count": 396,
+  "total_vertex_count": 216,
+  "flat_visible_face_failures": [
+    "real_sherman_chassis_platekit_scratch_a03_left_side_armor_plate",
+    "real_sherman_chassis_platekit_scratch_a03_right_side_armor_plate"
+  ],
+  "passes_topology_gate": false,
+  "judgment": "Preferred candidate: authored low-poly plates plus only the essential deck opening.",
+  "parts": [
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_lower_tub_single_authored_shell",
+      "role": "lower_tub",
+      "note": "one low-poly authored tub shell with eight-sided sections; no primitive boxes and no source topology",
+      "vertex_count": 32,
+      "face_count": 26,
+      "triangle_count": 60,
+      "visible_face_triangles": {
+        "longitudinal_panel_0": 2,
+        "longitudinal_panel_1": 2,
+        "longitudinal_panel_2": 2,
+        "longitudinal_panel_3": 2,
+        "longitudinal_panel_4": 2,
+        "longitudinal_panel_5": 2,
+        "longitudinal_panel_6": 2,
+        "longitudinal_panel_7": 2,
+        "longitudinal_panel_8": 2,
+        "longitudinal_panel_9": 2,
+        "longitudinal_panel_10": 2,
+        "longitudinal_panel_11": 2,
+        "longitudinal_panel_12": 2,
+        "longitudinal_panel_13": 2,
+        "longitudinal_panel_14": 2,
+        "longitudinal_panel_15": 2,
+        "longitudinal_panel_16": 2,
+        "longitudinal_panel_17": 2,
+        "longitudinal_panel_18": 2,
+        "longitudinal_panel_19": 2,
+        "longitudinal_panel_20": 2,
+        "longitudinal_panel_21": 2,
+        "longitudinal_panel_22": 2,
+        "longitudinal_panel_23": 2
+      },
+      "flat_visible_faces_all_two_tris": true,
+      "bbox_runtime": {
+        "min": [
+          -1.48,
+          -0.1,
+          -0.94
+        ],
+        "max": [
+          1.42,
+          0.41,
+          0.94
+        ],
+        "center": [
+          -0.030000000000000027,
+          0.15499999999999997,
+          0.0
+        ],
+        "size": [
+          2.9,
+          0.51,
+          1.88
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_upper_front_glacis_plate",
+      "role": "upper_glacis",
+      "note": "broad sloped glacis as one authored quad plate; visible face exports as two tris",
+      "vertex_count": 8,
+      "face_count": 6,
+      "triangle_count": 12,
+      "visible_face_triangles": {
+        "visible_outer_plate_face": 2
+      },
+      "flat_visible_faces_all_two_tris": true,
+      "bbox_runtime": {
+        "min": [
+          0.42,
+          0.9670000000000001,
+          -0.94
+        ],
+        "max": [
+          1.94,
+          1.282,
+          0.94
+        ],
+        "center": [
+          1.18,
+          1.1245,
+          0.0
+        ],
+        "size": [
+          1.52,
+          0.31499999999999995,
+          1.88
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_front_transmission_cap_plate",
+      "role": "front_transmission_cap",
+      "note": "single lower front transmission cap plate with two-tri visible face",
+      "vertex_count": 8,
+      "face_count": 6,
+      "triangle_count": 12,
+      "visible_face_triangles": {
+        "visible_outer_plate_face": 2
+      },
+      "flat_visible_faces_all_two_tris": true,
+      "bbox_runtime": {
+        "min": [
+          1.88,
+          -0.442,
+          -0.7
+        ],
+        "max": [
+          2.8600000000000003,
+          -0.222,
+          0.7
+        ],
+        "center": [
+          2.37,
+          -0.332,
+          0.0
+        ],
+        "size": [
+          0.9800000000000004,
+          0.22,
+          1.4
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_rear_bulkhead_plate",
+      "role": "rear_bulkhead",
+      "note": "one rear armor bulkhead plate, not a pasted blocker",
+      "vertex_count": 8,
+      "face_count": 6,
+      "triangle_count": 12,
+      "visible_face_triangles": {
+        "visible_outer_plate_face": 2
+      },
+      "flat_visible_faces_all_two_tris": true,
+      "bbox_runtime": {
+        "min": [
+          -3.14,
+          -0.3236,
+          -0.78
+        ],
+        "max": [
+          -3.04,
+          0.08639999999999998,
+          0.78
+        ],
+        "center": [
+          -3.09,
+          -0.11860000000000001,
+          0.0
+        ],
+        "size": [
+          0.10000000000000009,
+          0.41,
+          1.56
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_engine_deck_plate",
+      "role": "engine_deck",
+      "note": "plain engine deck plate; no grille or molded detail",
+      "vertex_count": 8,
+      "face_count": 6,
+      "triangle_count": 12,
+      "visible_face_triangles": {
+        "visible_outer_plate_face": 2
+      },
+      "flat_visible_faces_all_two_tris": true,
+      "bbox_runtime": {
+        "min": [
+          -2.29,
+          1.278,
+          -0.72
+        ],
+        "max": [
+          -1.19,
+          1.538,
+          0.72
+        ],
+        "center": [
+          -1.74,
+          1.408,
+          0.0
+        ],
+        "size": [
+          1.1,
+          0.26,
+          1.44
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_left_side_armor_plate",
+      "role": "left_side_armor",
+      "note": "left side armor as one authored polygonal plate; non-rectangular face uses only required silhouette vertices",
+      "vertex_count": 12,
+      "face_count": 8,
+      "triangle_count": 20,
+      "visible_face_triangles": {
+        "visible_outer_plate_face": 4
+      },
+      "flat_visible_faces_all_two_tris": false,
+      "bbox_runtime": {
+        "min": [
+          -1.4,
+          0.1936,
+          -2.3
+        ],
+        "max": [
+          1.34,
+          0.7436,
+          -2.093
+        ],
+        "center": [
+          -0.029999999999999916,
+          0.4686,
+          -2.1965
+        ],
+        "size": [
+          2.74,
+          0.55,
+          0.20699999999999985
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_right_side_armor_plate",
+      "role": "right_side_armor",
+      "note": "right side armor as one authored polygonal plate; mirrored without source topology",
+      "vertex_count": 12,
+      "face_count": 8,
+      "triangle_count": 20,
+      "visible_face_triangles": {
+        "visible_outer_plate_face": 4
+      },
+      "flat_visible_faces_all_two_tris": false,
+      "bbox_runtime": {
+        "min": [
+          -1.4,
+          0.1936,
+          2.093
+        ],
+        "max": [
+          1.34,
+          0.7436,
+          2.3
+        ],
+        "center": [
+          -0.029999999999999916,
+          0.4686,
+          2.1965
+        ],
+        "size": [
+          2.74,
+          0.55,
+          0.20699999999999985
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_left_sponson_shelf_plate",
+      "role": "left_sponson_shelf",
+      "note": "track-socket shelf is a single authored quad face, not a slab cover",
+      "vertex_count": 8,
+      "face_count": 6,
+      "triangle_count": 12,
+      "visible_face_triangles": {
+        "visible_outer_plate_face": 2
+      },
+      "flat_visible_faces_all_two_tris": true,
+      "bbox_runtime": {
+        "min": [
+          -1.36,
+          -0.3196,
+          -2.2212
+        ],
+        "max": [
+          1.34,
+          -0.16959999999999997,
+          -2.0012
+        ],
+        "center": [
+          -0.010000000000000009,
+          -0.24459999999999998,
+          -2.1112
+        ],
+        "size": [
+          2.7,
+          0.15000000000000002,
+          0.2200000000000002
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_right_sponson_shelf_plate",
+      "role": "right_sponson_shelf",
+      "note": "right track-socket shelf is a single authored quad face",
+      "vertex_count": 8,
+      "face_count": 6,
+      "triangle_count": 12,
+      "visible_face_triangles": {
+        "visible_outer_plate_face": 2
+      },
+      "flat_visible_faces_all_two_tris": true,
+      "bbox_runtime": {
+        "min": [
+          -1.36,
+          -0.3196,
+          2.0012
+        ],
+        "max": [
+          1.34,
+          -0.16959999999999997,
+          2.2212
+        ],
+        "center": [
+          -0.010000000000000009,
+          -0.24459999999999998,
+          2.1112
+        ],
+        "size": [
+          2.7,
+          0.15000000000000002,
+          0.2200000000000002
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_left_front_wrap_plate",
+      "role": "left_front_wrap",
+      "note": "left front wrap owns the corner relationship between side and glacis",
+      "vertex_count": 8,
+      "face_count": 6,
+      "triangle_count": 12,
+      "visible_face_triangles": {
+        "visible_outer_plate_face": 2
+      },
+      "flat_visible_faces_all_two_tris": true,
+      "bbox_runtime": {
+        "min": [
+          1.3599999999999999,
+          0.34,
+          -2.017
+        ],
+        "max": [
+          1.7,
+          0.62,
+          -1.637
+        ],
+        "center": [
+          1.5299999999999998,
+          0.48,
+          -1.827
+        ],
+        "size": [
+          0.3400000000000001,
+          0.27999999999999997,
+          0.3799999999999999
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_right_front_wrap_plate",
+      "role": "right_front_wrap",
+      "note": "right front wrap owns the corner relationship between side and glacis",
+      "vertex_count": 8,
+      "face_count": 6,
+      "triangle_count": 12,
+      "visible_face_triangles": {
+        "visible_outer_plate_face": 2
+      },
+      "flat_visible_faces_all_two_tris": true,
+      "bbox_runtime": {
+        "min": [
+          1.3599999999999999,
+          0.34,
+          1.637
+        ],
+        "max": [
+          1.7,
+          0.62,
+          2.017
+        ],
+        "center": [
+          1.5299999999999998,
+          0.48,
+          1.827
+        ],
+        "size": [
+          0.3400000000000001,
+          0.27999999999999997,
+          0.3799999999999999
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_left_rear_wrap_plate",
+      "role": "left_rear_wrap",
+      "note": "left rear wrap ties side armor to rear bulkhead",
+      "vertex_count": 8,
+      "face_count": 6,
+      "triangle_count": 12,
+      "visible_face_triangles": {
+        "visible_outer_plate_face": 2
+      },
+      "flat_visible_faces_all_two_tris": true,
+      "bbox_runtime": {
+        "min": [
+          -1.62,
+          0.3296,
+          -1.9169999999999998
+        ],
+        "max": [
+          -1.34,
+          0.6295999999999999,
+          -1.597
+        ],
+        "center": [
+          -1.48,
+          0.47959999999999997,
+          -1.757
+        ],
+        "size": [
+          0.28,
+          0.29999999999999993,
+          0.31999999999999984
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_right_rear_wrap_plate",
+      "role": "right_rear_wrap",
+      "note": "right rear wrap ties side armor to rear bulkhead",
+      "vertex_count": 8,
+      "face_count": 6,
+      "triangle_count": 12,
+      "visible_face_triangles": {
+        "visible_outer_plate_face": 2
+      },
+      "flat_visible_faces_all_two_tris": true,
+      "bbox_runtime": {
+        "min": [
+          -1.62,
+          0.3296,
+          1.597
+        ],
+        "max": [
+          -1.34,
+          0.6295999999999999,
+          1.9169999999999998
+        ],
+        "center": [
+          -1.48,
+          0.47959999999999997,
+          1.757
+        ],
+        "size": [
+          0.28,
+          0.29999999999999993,
+          0.31999999999999984
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_turret_socket_deck_cut_plate",
+      "role": "turret_socket_deck",
+      "note": "low-poly deck panel with essential turret aperture; cutout faces are controlled, not source noise",
+      "vertex_count": 32,
+      "face_count": 40,
+      "triangle_count": 80,
+      "visible_face_triangles": {
+        "top_deck_cut_segment_0": 2,
+        "top_deck_cut_segment_1": 2,
+        "top_deck_cut_segment_2": 2,
+        "top_deck_cut_segment_3": 2,
+        "top_deck_cut_segment_4": 2,
+        "top_deck_cut_segment_5": 2,
+        "top_deck_cut_segment_6": 2,
+        "top_deck_cut_segment_7": 2,
+        "top_deck_cut_segment_8": 2,
+        "top_deck_cut_segment_9": 2,
+        "top_deck_cut_segment_10": 2,
+        "top_deck_cut_segment_11": 2
+      },
+      "flat_visible_faces_all_two_tris": "not_applicable_cutout_faces",
+      "bbox_runtime": {
+        "min": [
+          -0.82,
+          1.6786,
+          -0.64
+        ],
+        "max": [
+          0.58,
+          1.7136,
+          0.64
+        ],
+        "center": [
+          -0.12,
+          1.6961,
+          0.0
+        ],
+        "size": [
+          1.4,
+          0.03499999999999992,
+          1.28
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false
+    },
+    {
+      "object": "real_sherman_chassis_platekit_scratch_a03_low_turret_ring_lip",
+      "role": "turret_ring_lip",
+      "note": "low-segment turret ring, the only deliberate curved feature in the plate kit",
+      "vertex_count": 48,
+      "face_count": 48,
+      "triangle_count": 96,
+      "visible_face_triangles": {
+        "top_ring_segment_0": 2,
+        "top_ring_segment_1": 2,
+        "top_ring_segment_2": 2,
+        "top_ring_segment_3": 2,
+        "top_ring_segment_4": 2,
+        "top_ring_segment_5": 2,
+        "top_ring_segment_6": 2,
+        "top_ring_segment_7": 2,
+        "top_ring_segment_8": 2,
+        "top_ring_segment_9": 2,
+        "top_ring_segment_10": 2,
+        "top_ring_segment_11": 2
+      },
+      "flat_visible_faces_all_two_tris": true,
+      "bbox_runtime": {
+        "min": [
+          -0.43,
+          1.7336,
+          -0.31
+        ],
+        "max": [
+          0.19,
+          1.7576,
+          0.31
+        ],
+        "center": [
+          -0.12,
+          1.7456,
+          0.0
+        ],
+        "size": [
+          0.62,
+          0.02400000000000002,
+          0.62
+        ]
+      },
+      "authored_lowpoly": true,
+      "decimated": false,
+      "source_topology_copied": false,
+      "essential_curved_opening": true
+    }
+  ]
+}

@@ -1,0 +1,1041 @@
+{
+  "asset_id": "real_sherman_chassis_structural_retopo_referencekit_scratch_d03",
+  "series_id": "real_sherman_chassis_structural_retopo_referencekit_scratch",
+  "attempt": "d03",
+  "attempt_label": "final structural cleanup",
+  "scratch_mode": true,
+  "artifact_type": "scratch_structural_retopo_reference_kit",
+  "revision": "structural-retopo-d01-d03-major-planes-hatch-side-assemblies",
+  "source_manifest": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/model_manifest.json",
+  "reference_sheet_image": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_reference_kit_scratch_v1/front_reference_config.png",
+  "source_policy": "Meshy source kit is visual/reference truth only. Exported meshes are hand-authored structural retopo; no source topology copy; no decimation.",
+  "configuration_policy": "Same seven source component roles and source bbox/exploded configuration as Meshy reference kit.",
+  "budget": {
+    "target_min_triangles": 2500,
+    "preferred_max_triangles": 3500,
+    "hard_cap_triangles": 4500
+  },
+  "statistics_all_hand_retopo_excluding_reference_sheet": {
+    "triangles": 3076,
+    "polygons": 1637,
+    "vertices": 1608
+  },
+  "statistics_primary_kit_pieces": {
+    "triangles": 1588,
+    "polygons": 797,
+    "vertices": 808
+  },
+  "primary_kit_piece_count": 7,
+  "all_hand_mesh_object_count": 35,
+  "in_preferred_budget_band": true,
+  "under_hard_cap": true,
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_chassis_structural_retopo_referencekit_scratch_d03/real_sherman_chassis_structural_retopo_referencekit_scratch_d03.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_structural_retopo_referencekit_scratch_d03/real_sherman_chassis_structural_retopo_referencekit_scratch_d03.glb",
+    "front_with_reference_sheet": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_structural_retopo_referencekit_scratch_d03/front_with_reference_sheet.png",
+    "rear_oblique": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_structural_retopo_referencekit_scratch_d03/rear_oblique.png",
+    "hatch_deck_close": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_structural_retopo_referencekit_scratch_d03/hatch_deck_close.png"
+  },
+  "parts": [
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch_d03",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "source_role": "source_component_0_upper_front_glacis_assembly",
+      "primary_kit_piece": true,
+      "triangle_spend_reason": "silhouette trace, deck/glacis crown, thickness, bevel support",
+      "triangles": 448,
+      "polygons": 224,
+      "vertices": 226,
+      "source_bbox_world": {
+        "min": [
+          -0.17843028903007507,
+          -0.3644956946372986,
+          0.11783222109079361
+        ],
+        "max": [
+          0.5160584449768066,
+          0.3469688594341278,
+          0.28741639852523804
+        ],
+        "size": [
+          0.6944887340068817,
+          0.7114645540714264,
+          0.16958417743444443
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "source_role": "source_component_0_upper_front_glacis_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "hatch/deck cut structure",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.17843028903007507,
+          -0.3644956946372986,
+          0.11783222109079361
+        ],
+        "max": [
+          0.5160584449768066,
+          0.3469688594341278,
+          0.28741639852523804
+        ],
+        "size": [
+          0.6944887340068817,
+          0.7114645540714264,
+          0.16958417743444443
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.001",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "source_role": "source_component_0_upper_front_glacis_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "hatch lip and edge catch",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.17843028903007507,
+          -0.3644956946372986,
+          0.11783222109079361
+        ],
+        "max": [
+          0.5160584449768066,
+          0.3469688594341278,
+          0.28741639852523804
+        ],
+        "size": [
+          0.6944887340068817,
+          0.7114645540714264,
+          0.16958417743444443
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.002",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "source_role": "source_component_0_upper_front_glacis_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "hatch lip and edge catch",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.17843028903007507,
+          -0.3644956946372986,
+          0.11783222109079361
+        ],
+        "max": [
+          0.5160584449768066,
+          0.3469688594341278,
+          0.28741639852523804
+        ],
+        "size": [
+          0.6944887340068817,
+          0.7114645540714264,
+          0.16958417743444443
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.003",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "source_role": "source_component_0_upper_front_glacis_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "hatch side structure",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.17843028903007507,
+          -0.3644956946372986,
+          0.11783222109079361
+        ],
+        "max": [
+          0.5160584449768066,
+          0.3469688594341278,
+          0.28741639852523804
+        ],
+        "size": [
+          0.6944887340068817,
+          0.7114645540714264,
+          0.16958417743444443
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.004",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "source_role": "source_component_0_upper_front_glacis_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "hatch side structure",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.17843028903007507,
+          -0.3644956946372986,
+          0.11783222109079361
+        ],
+        "max": [
+          0.5160584449768066,
+          0.3469688594341278,
+          0.28741639852523804
+        ],
+        "size": [
+          0.6944887340068817,
+          0.7114645540714264,
+          0.16958417743444443
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.005",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "source_role": "source_component_0_upper_front_glacis_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "major plane break, not surface detail",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.17843028903007507,
+          -0.3644956946372986,
+          0.11783222109079361
+        ],
+        "max": [
+          0.5160584449768066,
+          0.3469688594341278,
+          0.28741639852523804
+        ],
+        "size": [
+          0.6944887340068817,
+          0.7114645540714264,
+          0.16958417743444443
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.006",
+      "role": "source_component_0_upper_front_glacis_assembly",
+      "source_role": "source_component_0_upper_front_glacis_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "major rear plane step",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.17843028903007507,
+          -0.3644956946372986,
+          0.11783222109079361
+        ],
+        "max": [
+          0.5160584449768066,
+          0.3469688594341278,
+          0.28741639852523804
+        ],
+        "size": [
+          0.6944887340068817,
+          0.7114645540714264,
+          0.16958417743444443
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.007",
+      "role": "source_component_1_lower_hull_floor_tub",
+      "source_role": "source_component_1_lower_hull_floor_tub",
+      "primary_kit_piece": true,
+      "triangle_spend_reason": "open tub floor and shallow crown",
+      "triangles": 364,
+      "polygons": 182,
+      "vertices": 184,
+      "source_bbox_world": {
+        "min": [
+          -0.48485255241394043,
+          -0.2897157371044159,
+          -0.34691181778907776
+        ],
+        "max": [
+          0.4648239016532898,
+          0.4398635923862457,
+          -0.16509976983070374
+        ],
+        "size": [
+          0.9496764540672302,
+          0.7295793294906616,
+          0.18181204795837402
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.008",
+      "role": "source_component_1_lower_hull_floor_tub",
+      "source_role": "source_component_1_lower_hull_floor_tub",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "tub wall thickness and rim return",
+      "triangles": 108,
+      "polygons": 54,
+      "vertices": 56,
+      "source_bbox_world": {
+        "min": [
+          -0.48485255241394043,
+          -0.2897157371044159,
+          -0.34691181778907776
+        ],
+        "max": [
+          0.4648239016532898,
+          0.4398635923862457,
+          -0.16509976983070374
+        ],
+        "size": [
+          0.9496764540672302,
+          0.7295793294906616,
+          0.18181204795837402
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.009",
+      "role": "source_component_1_lower_hull_floor_tub",
+      "source_role": "source_component_1_lower_hull_floor_tub",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "tub wall thickness and rim return",
+      "triangles": 108,
+      "polygons": 54,
+      "vertices": 56,
+      "source_bbox_world": {
+        "min": [
+          -0.48485255241394043,
+          -0.2897157371044159,
+          -0.34691181778907776
+        ],
+        "max": [
+          0.4648239016532898,
+          0.4398635923862457,
+          -0.16509976983070374
+        ],
+        "size": [
+          0.9496764540672302,
+          0.7295793294906616,
+          0.18181204795837402
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.010",
+      "role": "source_component_1_lower_hull_floor_tub",
+      "source_role": "source_component_1_lower_hull_floor_tub",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "side wall plane and thickness",
+      "triangles": 108,
+      "polygons": 54,
+      "vertices": 56,
+      "source_bbox_world": {
+        "min": [
+          -0.48485255241394043,
+          -0.2897157371044159,
+          -0.34691181778907776
+        ],
+        "max": [
+          0.4648239016532898,
+          0.4398635923862457,
+          -0.16509976983070374
+        ],
+        "size": [
+          0.9496764540672302,
+          0.7295793294906616,
+          0.18181204795837402
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.011",
+      "role": "source_component_1_lower_hull_floor_tub",
+      "source_role": "source_component_1_lower_hull_floor_tub",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "side wall plane and thickness",
+      "triangles": 108,
+      "polygons": 54,
+      "vertices": 56,
+      "source_bbox_world": {
+        "min": [
+          -0.48485255241394043,
+          -0.2897157371044159,
+          -0.34691181778907776
+        ],
+        "max": [
+          0.4648239016532898,
+          0.4398635923862457,
+          -0.16509976983070374
+        ],
+        "size": [
+          0.9496764540672302,
+          0.7295793294906616,
+          0.18181204795837402
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.012",
+      "role": "source_component_1_lower_hull_floor_tub",
+      "source_role": "source_component_1_lower_hull_floor_tub",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "interior floor inset and tray read",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.48485255241394043,
+          -0.2897157371044159,
+          -0.34691181778907776
+        ],
+        "max": [
+          0.4648239016532898,
+          0.4398635923862457,
+          -0.16509976983070374
+        ],
+        "size": [
+          0.9496764540672302,
+          0.7295793294906616,
+          0.18181204795837402
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.013",
+      "role": "source_component_2_engine_deck_assembly",
+      "source_role": "source_component_2_engine_deck_assembly",
+      "primary_kit_piece": true,
+      "triangle_spend_reason": "broad deck plane and thickness",
+      "triangles": 220,
+      "polygons": 110,
+      "vertices": 112,
+      "source_bbox_world": {
+        "min": [
+          -0.38110318779945374,
+          0.29633381962776184,
+          0.2969058156013489
+        ],
+        "max": [
+          0.3265227675437927,
+          0.9073870778083801,
+          0.34389737248420715
+        ],
+        "size": [
+          0.7076259553432465,
+          0.6110532581806183,
+          0.046991556882858276
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.014",
+      "role": "source_component_2_engine_deck_assembly",
+      "source_role": "source_component_2_engine_deck_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "engine deck major bar, not small detail",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.38110318779945374,
+          0.29633381962776184,
+          0.2969058156013489
+        ],
+        "max": [
+          0.3265227675437927,
+          0.9073870778083801,
+          0.34389737248420715
+        ],
+        "size": [
+          0.7076259553432465,
+          0.6110532581806183,
+          0.046991556882858276
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.015",
+      "role": "source_component_2_engine_deck_assembly",
+      "source_role": "source_component_2_engine_deck_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "engine deck major bar, not small detail",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.38110318779945374,
+          0.29633381962776184,
+          0.2969058156013489
+        ],
+        "max": [
+          0.3265227675437927,
+          0.9073870778083801,
+          0.34389737248420715
+        ],
+        "size": [
+          0.7076259553432465,
+          0.6110532581806183,
+          0.046991556882858276
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.016",
+      "role": "source_component_2_engine_deck_assembly",
+      "source_role": "source_component_2_engine_deck_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "engine deck major bar, not small detail",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.38110318779945374,
+          0.29633381962776184,
+          0.2969058156013489
+        ],
+        "max": [
+          0.3265227675437927,
+          0.9073870778083801,
+          0.34389737248420715
+        ],
+        "size": [
+          0.7076259553432465,
+          0.6110532581806183,
+          0.046991556882858276
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.017",
+      "role": "source_component_2_engine_deck_assembly",
+      "source_role": "source_component_2_engine_deck_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "engine deck major bar, not small detail",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.38110318779945374,
+          0.29633381962776184,
+          0.2969058156013489
+        ],
+        "max": [
+          0.3265227675437927,
+          0.9073870778083801,
+          0.34389737248420715
+        ],
+        "size": [
+          0.7076259553432465,
+          0.6110532581806183,
+          0.046991556882858276
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.018",
+      "role": "source_component_2_engine_deck_assembly",
+      "source_role": "source_component_2_engine_deck_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "engine deck plane break",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.38110318779945374,
+          0.29633381962776184,
+          0.2969058156013489
+        ],
+        "max": [
+          0.3265227675437927,
+          0.9073870778083801,
+          0.34389737248420715
+        ],
+        "size": [
+          0.7076259553432465,
+          0.6110532581806183,
+          0.046991556882858276
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.019",
+      "role": "source_component_3_rear_plate_assembly",
+      "source_role": "source_component_3_rear_plate_assembly",
+      "primary_kit_piece": true,
+      "triangle_spend_reason": "rear silhouette shoulder, thickness, return plane",
+      "triangles": 288,
+      "polygons": 144,
+      "vertices": 146,
+      "source_bbox_world": {
+        "min": [
+          -0.9504520893096924,
+          -0.5600312948226929,
+          -0.32352304458618164
+        ],
+        "max": [
+          -0.8368092775344849,
+          0.23777179419994354,
+          -0.02899777702987194
+        ],
+        "size": [
+          0.11364281177520752,
+          0.7978030890226364,
+          0.2945252675563097
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.020",
+      "role": "source_component_3_rear_plate_assembly",
+      "source_role": "source_component_3_rear_plate_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "rear lower return",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.9504520893096924,
+          -0.5600312948226929,
+          -0.32352304458618164
+        ],
+        "max": [
+          -0.8368092775344849,
+          0.23777179419994354,
+          -0.02899777702987194
+        ],
+        "size": [
+          0.11364281177520752,
+          0.7978030890226364,
+          0.2945252675563097
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.021",
+      "role": "source_component_4_left_side_assembly",
+      "source_role": "source_component_4_left_side_assembly",
+      "primary_kit_piece": true,
+      "triangle_spend_reason": "side silhouette and primary side plane",
+      "triangles": 108,
+      "polygons": 54,
+      "vertices": 56,
+      "source_bbox_world": {
+        "min": [
+          -0.7779678106307983,
+          0.7357678413391113,
+          -0.28596046566963196
+        ],
+        "max": [
+          0.38128215074539185,
+          0.8336126804351807,
+          0.0010152701288461685
+        ],
+        "size": [
+          1.1592499613761902,
+          0.09784483909606934,
+          0.2869757357984781
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.022",
+      "role": "source_component_4_left_side_assembly",
+      "source_role": "source_component_4_left_side_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "major stepped mechanical side plane",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.7779678106307983,
+          0.7357678413391113,
+          -0.28596046566963196
+        ],
+        "max": [
+          0.38128215074539185,
+          0.8336126804351807,
+          0.0010152701288461685
+        ],
+        "size": [
+          1.1592499613761902,
+          0.09784483909606934,
+          0.2869757357984781
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.023",
+      "role": "source_component_4_left_side_assembly",
+      "source_role": "source_component_4_left_side_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "major stepped mechanical side plane",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.7779678106307983,
+          0.7357678413391113,
+          -0.28596046566963196
+        ],
+        "max": [
+          0.38128215074539185,
+          0.8336126804351807,
+          0.0010152701288461685
+        ],
+        "size": [
+          1.1592499613761902,
+          0.09784483909606934,
+          0.2869757357984781
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.024",
+      "role": "source_component_4_left_side_assembly",
+      "source_role": "source_component_4_left_side_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "major stepped mechanical side plane",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.7779678106307983,
+          0.7357678413391113,
+          -0.28596046566963196
+        ],
+        "max": [
+          0.38128215074539185,
+          0.8336126804351807,
+          0.0010152701288461685
+        ],
+        "size": [
+          1.1592499613761902,
+          0.09784483909606934,
+          0.2869757357984781
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.025",
+      "role": "source_component_4_left_side_assembly",
+      "source_role": "source_component_4_left_side_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "major stepped mechanical side plane",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.7779678106307983,
+          0.7357678413391113,
+          -0.28596046566963196
+        ],
+        "max": [
+          0.38128215074539185,
+          0.8336126804351807,
+          0.0010152701288461685
+        ],
+        "size": [
+          1.1592499613761902,
+          0.09784483909606934,
+          0.2869757357984781
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.026",
+      "role": "source_component_4_left_side_assembly",
+      "source_role": "source_component_4_left_side_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "side lower return/undercut",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          -0.7779678106307983,
+          0.7357678413391113,
+          -0.28596046566963196
+        ],
+        "max": [
+          0.38128215074539185,
+          0.8336126804351807,
+          0.0010152701288461685
+        ],
+        "size": [
+          1.1592499613761902,
+          0.09784483909606934,
+          0.2869757357984781
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.027",
+      "role": "source_component_5_right_side_assembly",
+      "source_role": "source_component_5_right_side_assembly",
+      "primary_kit_piece": true,
+      "triangle_spend_reason": "side silhouette and primary side plane",
+      "triangles": 108,
+      "polygons": 54,
+      "vertices": 56,
+      "source_bbox_world": {
+        "min": [
+          0.83027184009552,
+          -0.9053849577903748,
+          -0.3469211459159851
+        ],
+        "max": [
+          0.9488093852996826,
+          0.08376219123601913,
+          -0.07069874554872513
+        ],
+        "size": [
+          0.1185375452041626,
+          0.9891471490263939,
+          0.27622240036726
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.028",
+      "role": "source_component_5_right_side_assembly",
+      "source_role": "source_component_5_right_side_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "major stepped mechanical side plane",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          0.83027184009552,
+          -0.9053849577903748,
+          -0.3469211459159851
+        ],
+        "max": [
+          0.9488093852996826,
+          0.08376219123601913,
+          -0.07069874554872513
+        ],
+        "size": [
+          0.1185375452041626,
+          0.9891471490263939,
+          0.27622240036726
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.029",
+      "role": "source_component_5_right_side_assembly",
+      "source_role": "source_component_5_right_side_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "major stepped mechanical side plane",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          0.83027184009552,
+          -0.9053849577903748,
+          -0.3469211459159851
+        ],
+        "max": [
+          0.9488093852996826,
+          0.08376219123601913,
+          -0.07069874554872513
+        ],
+        "size": [
+          0.1185375452041626,
+          0.9891471490263939,
+          0.27622240036726
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.030",
+      "role": "source_component_5_right_side_assembly",
+      "source_role": "source_component_5_right_side_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "major stepped mechanical side plane",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          0.83027184009552,
+          -0.9053849577903748,
+          -0.3469211459159851
+        ],
+        "max": [
+          0.9488093852996826,
+          0.08376219123601913,
+          -0.07069874554872513
+        ],
+        "size": [
+          0.1185375452041626,
+          0.9891471490263939,
+          0.27622240036726
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.031",
+      "role": "source_component_5_right_side_assembly",
+      "source_role": "source_component_5_right_side_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "major stepped mechanical side plane",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          0.83027184009552,
+          -0.9053849577903748,
+          -0.3469211459159851
+        ],
+        "max": [
+          0.9488093852996826,
+          0.08376219123601913,
+          -0.07069874554872513
+        ],
+        "size": [
+          0.1185375452041626,
+          0.9891471490263939,
+          0.27622240036726
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.032",
+      "role": "source_component_5_right_side_assembly",
+      "source_role": "source_component_5_right_side_assembly",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "side lower return/undercut",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "source_bbox_world": {
+        "min": [
+          0.83027184009552,
+          -0.9053849577903748,
+          -0.3469211459159851
+        ],
+        "max": [
+          0.9488093852996826,
+          0.08376219123601913,
+          -0.07069874554872513
+        ],
+        "size": [
+          0.1185375452041626,
+          0.9891471490263939,
+          0.27622240036726
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.033",
+      "role": "source_component_6_remaining_reference_plate",
+      "source_role": "source_component_6_remaining_reference_plate",
+      "primary_kit_piece": true,
+      "triangle_spend_reason": "traced loose plate silhouette and thickness",
+      "triangles": 52,
+      "polygons": 29,
+      "vertices": 28,
+      "source_bbox_world": {
+        "min": [
+          -0.654741644859314,
+          -0.8146925568580627,
+          -0.24573509395122528
+        ],
+        "max": [
+          0.46055811643600464,
+          -0.6628901362419128,
+          -0.14075486361980438
+        ],
+        "size": [
+          1.1152997612953186,
+          0.1518024206161499,
+          0.1049802303314209
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.034",
+      "role": "visible_reference_sheet_background",
+      "source_role": "",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "",
+      "triangles": 2,
+      "polygons": 1,
+      "vertices": 4,
+      "source_bbox_world": null
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.035",
+      "role": "visible_reference_sheet_border",
+      "source_role": "",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "",
+      "triangles": 2,
+      "polygons": 1,
+      "vertices": 4,
+      "source_bbox_world": null
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.036",
+      "role": "visible_reference_sheet_border",
+      "source_role": "",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "",
+      "triangles": 2,
+      "polygons": 1,
+      "vertices": 4,
+      "source_bbox_world": null
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.037",
+      "role": "visible_reference_sheet_border",
+      "source_role": "",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "",
+      "triangles": 2,
+      "polygons": 1,
+      "vertices": 4,
+      "source_bbox_world": null
+    },
+    {
+      "object": "real_sherman_chassis_structural_retopo_referencekit_scratch.038",
+      "role": "visible_reference_sheet_border",
+      "source_role": "",
+      "primary_kit_piece": false,
+      "triangle_spend_reason": "",
+      "triangles": 2,
+      "polygons": 1,
+      "vertices": 4,
+      "source_bbox_world": null
+    }
+  ]
+}

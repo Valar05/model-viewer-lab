@@ -1,0 +1,9 @@
+{
+  "asset_id": "real_sherman_upper_glacis_quadriflow_retopo_scratch_f03",
+  "target_faces": 1200,
+  "retopo_engine": "bpy.ops.object.quadriflow_remesh",
+  "preserve_sharp": true,
+  "preserve_boundary": true,
+  "source_component": "source_component_0_upper_front_glacis_assembly",
+  "lesson_from_f01_f02": "f01 had good depth but ugly heightfield artifacts; f02 was clean but guessed feature placement. f03 preserves source feature topology directly."
+}

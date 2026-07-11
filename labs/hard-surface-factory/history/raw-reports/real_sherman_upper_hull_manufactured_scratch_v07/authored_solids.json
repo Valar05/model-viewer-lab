@@ -1,0 +1,72 @@
+{
+  "asset_id": "real_sherman_upper_hull_manufactured_scratch_v07",
+  "final_boundary_source": "template_topology",
+  "source_vertex_influence": "dimensions_only",
+  "regions": [
+    {
+      "name": "lower_front",
+      "role": "lower_front",
+      "kind": "template_solid",
+      "template_vertex_count": 8,
+      "final_boundary_source": "template_topology",
+      "source_vertex_influence": "dimensions_only"
+    },
+    {
+      "name": "upper_glacis",
+      "role": "upper_glacis",
+      "kind": "template_solid",
+      "template_vertex_count": 8,
+      "final_boundary_source": "template_topology",
+      "source_vertex_influence": "dimensions_only"
+    },
+    {
+      "name": "left_cheek",
+      "role": "left_cheek",
+      "kind": "template_solid",
+      "template_vertex_count": 8,
+      "final_boundary_source": "template_topology",
+      "source_vertex_influence": "dimensions_only"
+    },
+    {
+      "name": "right_cheek",
+      "role": "right_cheek",
+      "kind": "template_solid",
+      "template_vertex_count": 8,
+      "final_boundary_source": "template_topology",
+      "source_vertex_influence": "dimensions_only"
+    },
+    {
+      "name": "left_side",
+      "role": "left_side",
+      "kind": "template_solid",
+      "template_vertex_count": 8,
+      "final_boundary_source": "template_topology",
+      "source_vertex_influence": "dimensions_only"
+    },
+    {
+      "name": "right_side",
+      "role": "right_side",
+      "kind": "template_solid",
+      "template_vertex_count": 8,
+      "final_boundary_source": "template_topology",
+      "source_vertex_influence": "dimensions_only"
+    },
+    {
+      "name": "rear_deck",
+      "role": "rear_deck",
+      "kind": "template_solid",
+      "template_vertex_count": 16,
+      "final_boundary_source": "template_topology",
+      "source_vertex_influence": "dimensions_only"
+    },
+    {
+      "name": "turret_ring_support",
+      "role": "turret_ring_support",
+      "kind": "template_solid",
+      "template_vertex_count": 288,
+      "final_boundary_source": "template_topology",
+      "source_vertex_influence": "dimensions_only",
+      "authored_opening": true
+    }
+  ]
+}

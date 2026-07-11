@@ -1,0 +1,47 @@
+{
+  "asset_id": "real_sherman_upper_glacis_quadriflow_retopo_scratch_f03",
+  "scratch_mode": true,
+  "artifact_type": "scratch_one_piece_quadriflow_retopo",
+  "revision": "f03-source-quadriflow-preserve-sharp-reto",
+  "source_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/real_sherman_chassis_reference_kit_scratch_v1.glb",
+  "source_component": "source_component_0_upper_front_glacis_assembly",
+  "authoring_policy": "Blender Quadriflow retopo from the source component, preserving sharp and boundary features at target_faces=1200. Scratch diagnostic only.",
+  "statistics_primary_piece": {
+    "triangles": 2282,
+    "polygons": 1141,
+    "vertices": 1644
+  },
+  "primary_piece_count": 1,
+  "provenance": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_quadriflow_retopo_scratch_f03/retopo_vertex_provenance.json",
+    "output_vertices": 1644
+  },
+  "landmarks": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_quadriflow_retopo_scratch_f03/retopo_landmarks.json",
+    "target_faces": 1200
+  },
+  "depth_parity": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_quadriflow_retopo_scratch_f03/depth_error_report.json",
+    "depth_resolution": [
+      160,
+      112
+    ],
+    "shared_pixels": 8682,
+    "source_pixels": 9480,
+    "retopo_pixels": 8837,
+    "silhouette_iou": 0.9010897768552154,
+    "mean_abs_depth_error": 0.042844578627204324,
+    "p50_abs_depth_error": 0.003002643585205078,
+    "p95_abs_depth_error": 0.33022069931030273,
+    "max_abs_depth_error": 0.5973773002624512
+  },
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_upper_glacis_quadriflow_retopo_scratch_f03/real_sherman_upper_glacis_quadriflow_retopo_scratch_f03.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_quadriflow_retopo_scratch_f03/real_sherman_upper_glacis_quadriflow_retopo_scratch_f03.glb",
+    "source_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_quadriflow_retopo_scratch_f03/source_depth.png",
+    "retopo_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_quadriflow_retopo_scratch_f03/retopo_depth.png",
+    "depth_abs_error": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_quadriflow_retopo_scratch_f03/depth_abs_error.png",
+    "source_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_quadriflow_retopo_scratch_f03/source_shaded_same_angle.png",
+    "retopo_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_quadriflow_retopo_scratch_f03/retopo_shaded_same_angle.png"
+  }
+}

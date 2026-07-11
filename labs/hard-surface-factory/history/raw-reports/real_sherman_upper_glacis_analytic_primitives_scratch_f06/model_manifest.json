@@ -1,0 +1,114 @@
+{
+  "asset_id": "real_sherman_upper_glacis_analytic_primitives_scratch_f06",
+  "scratch_mode": true,
+  "artifact_type": "scratch_one_piece_analytic_primitive_fused_upper_glacis",
+  "revision": "f06-source-measured-analytic-primitive-fused-upper-glacis",
+  "source_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/real_sherman_chassis_reference_kit_scratch_v1.glb",
+  "source_component": "source_component_0_upper_front_glacis_assembly",
+  "authoring_policy": "Measured analytic shells, not noisy source topology: smooth plates, cylindrical ring/socket, rounded cuboid/cylinder details, clean UVs.",
+  "statistics_primary_piece": {
+    "vertices": 384,
+    "polygons": 328,
+    "triangles": 752,
+    "objects": 6
+  },
+  "primary_object_count": 6,
+  "surface_classification": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_analytic_primitives_scratch_f06/surface_classification.json",
+  "analytic_primitives": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_analytic_primitives_scratch_f06/analytic_primitives.json",
+  "provenance": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_analytic_primitives_scratch_f06/retopo_vertex_provenance.json",
+    "output_vertices": 384
+  },
+  "mesh_boundary_report": [
+    {
+      "object": "real_sherman_upper_glacis_analytic_primitives_scratch_f06_main_",
+      "vertices": 128,
+      "polygons": 128,
+      "triangles": 256,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_textureable_f06"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_analytic_primitives_scratch_f06_turre",
+      "vertices": 128,
+      "polygons": 128,
+      "triangles": 256,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_textureable_f06"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_analytic_primitives_scratch_f06_raise",
+      "vertices": 32,
+      "polygons": 18,
+      "triangles": 60,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_textureable_f06"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_analytic_primitives_scratch_f06_r",
+      "vertices": 32,
+      "polygons": 18,
+      "triangles": 60,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_textureable_f06"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_analytic_primitives_scratch_f06_r.001",
+      "vertices": 32,
+      "polygons": 18,
+      "triangles": 60,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_textureable_f06"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_analytic_primitives_scratch_f06_r.002",
+      "vertices": 32,
+      "polygons": 18,
+      "triangles": 60,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_textureable_f06"
+      ]
+    }
+  ],
+  "depth_parity": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_analytic_primitives_scratch_f06/depth_error_report.json",
+    "depth_resolution": [
+      160,
+      112
+    ],
+    "shared_pixels": 5830,
+    "source_pixels": 9480,
+    "retopo_pixels": 6479,
+    "silhouette_iou": 0.575575081449304,
+    "mean_abs_depth_error": 0.07286757621307112,
+    "p50_abs_depth_error": 0.06778335571289062,
+    "p95_abs_depth_error": 0.1655888557434082,
+    "max_abs_depth_error": 0.3663754463195801
+  },
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_upper_glacis_analytic_primitives_scratch_f06/real_sherman_upper_glacis_analytic_primitives_scratch_f06.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_analytic_primitives_scratch_f06/real_sherman_upper_glacis_analytic_primitives_scratch_f06.glb",
+    "source_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_analytic_primitives_scratch_f06/source_depth.png",
+    "retopo_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_analytic_primitives_scratch_f06/retopo_depth.png",
+    "depth_abs_error": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_analytic_primitives_scratch_f06/depth_abs_error.png",
+    "source_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_analytic_primitives_scratch_f06/source_shaded_same_angle.png",
+    "retopo_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_analytic_primitives_scratch_f06/retopo_shaded_same_angle.png"
+  }
+}

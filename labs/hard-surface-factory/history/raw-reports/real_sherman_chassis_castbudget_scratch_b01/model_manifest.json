@@ -1,0 +1,573 @@
+{
+  "asset_id": "real_sherman_chassis_castbudget_scratch_b01",
+  "series_id": "real_sherman_chassis_castbudget_scratch",
+  "attempt": "b01",
+  "attempt_label": "controlled bevel hull kit",
+  "scratch_mode": true,
+  "artifact_type": "scratch_guided_hard_surface_cast_hull_kit",
+  "revision": "castbudget-three-attempts-bevels-seams-guided-hard-surface",
+  "source_policy": "Authored guided hard-surface scratch geometry. No Meshy/source topology copy. No decimation. Triangles must buy bevels, cast crowns, crease seams, or silhouette.",
+  "budget_source": "docs/doctrine/mobile-tank-asset-budget-manifest.md hull subsystem: 2.5k-3.5k target, 4.5k hard cap",
+  "hull_budget": {
+    "target_min_triangles": 2500,
+    "target_max_triangles": 3500,
+    "hard_cap_triangles": 4500
+  },
+  "configuration_policy": "Exploded/reference hull kit, not assembled tank pose.",
+  "triangle_policy": "Reject triangles for density. Accept triangles that buy bevels, cast crowns, crease seams, silhouette, or material edge catch.",
+  "statistics": {
+    "triangles": 2840,
+    "polygons": 1462,
+    "vertices": 1456
+  },
+  "in_target_hull_budget": true,
+  "object_count": 18,
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_chassis_castbudget_scratch_b01/real_sherman_chassis_castbudget_scratch_b01.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_castbudget_scratch_b01/real_sherman_chassis_castbudget_scratch_b01.glb",
+    "front_render": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_castbudget_scratch_b01/front_three_quarter.png",
+    "rear_render": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_chassis_castbudget_scratch_b01/rear_three_quarter.png"
+  },
+  "parts": [
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_lower_cast_tub_crow",
+      "role": "lower_tub_cast_shell",
+      "purpose": "cast_crowned_surface",
+      "triangles": 484,
+      "polygons": 242,
+      "vertices": 244,
+      "bbox_runtime": {
+        "min": [
+          -1.525,
+          0.0,
+          -0.86
+        ],
+        "max": [
+          1.525,
+          0.203863,
+          0.86
+        ],
+        "center": [
+          0.0,
+          0.1019315,
+          0.0
+        ],
+        "size": [
+          3.05,
+          0.203863,
+          1.72
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_upper_glacis_cast_p",
+      "role": "upper_glacis_cast_plate",
+      "purpose": "cast_crowned_surface",
+      "triangles": 444,
+      "polygons": 222,
+      "vertices": 224,
+      "bbox_runtime": {
+        "min": [
+          -0.06999999999999995,
+          1.0,
+          -0.91
+        ],
+        "max": [
+          1.63,
+          1.1486425714285715,
+          0.9099999999999998
+        ],
+        "center": [
+          0.78,
+          1.0743212857142859,
+          -1.1102230246251565e-16
+        ],
+        "size": [
+          1.6999999999999997,
+          0.1486425714285715,
+          1.8199999999999998
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_front_transmission_",
+      "role": "front_transmission_cast_cover",
+      "purpose": "cast_crowned_surface",
+      "triangles": 444,
+      "polygons": 222,
+      "vertices": 224,
+      "bbox_runtime": {
+        "min": [
+          0.6299999999999999,
+          -0.72,
+          -0.675
+        ],
+        "max": [
+          1.73,
+          -0.5063028571428572,
+          0.675
+        ],
+        "center": [
+          1.18,
+          -0.6131514285714286,
+          0.0
+        ],
+        "size": [
+          1.1,
+          0.2136971428571428,
+          1.35
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_rear_bulkhead_with_",
+      "role": "rear_bulkhead_return",
+      "purpose": "cast_crowned_surface",
+      "triangles": 364,
+      "polygons": 182,
+      "vertices": 184,
+      "bbox_runtime": {
+        "min": [
+          -1.805,
+          -0.654,
+          -0.775
+        ],
+        "max": [
+          -0.955,
+          -0.492338,
+          0.775
+        ],
+        "center": [
+          -1.38,
+          -0.573169,
+          0.0
+        ],
+        "size": [
+          0.85,
+          0.16166200000000003,
+          1.55
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_engine_deck_broad_p",
+      "role": "engine_deck_plate",
+      "purpose": "cast_crowned_surface",
+      "triangles": 324,
+      "polygons": 162,
+      "vertices": 164,
+      "bbox_runtime": {
+        "min": [
+          -1.5,
+          1.2799999999999998,
+          -0.775
+        ],
+        "max": [
+          -0.19999999999999996,
+          1.3668459999999998,
+          0.775
+        ],
+        "center": [
+          -0.85,
+          1.3234229999999998,
+          0.0
+        ],
+        "size": [
+          1.3,
+          0.08684599999999998,
+          1.55
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_left_side_armor_bev",
+      "role": "left_side_armor",
+      "purpose": "plate",
+      "triangles": 120,
+      "polygons": 59,
+      "vertices": 62,
+      "bbox_runtime": {
+        "min": [
+          -1.42,
+          -0.02,
+          -1.1
+        ],
+        "max": [
+          1.35,
+          0.45,
+          -0.6599999999999999
+        ],
+        "center": [
+          -0.03499999999999992,
+          0.215,
+          -0.88
+        ],
+        "size": [
+          2.77,
+          0.47000000000000003,
+          0.44000000000000017
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_right_side_armor_be",
+      "role": "right_side_armor",
+      "purpose": "plate",
+      "triangles": 120,
+      "polygons": 59,
+      "vertices": 62,
+      "bbox_runtime": {
+        "min": [
+          -1.42,
+          -0.02,
+          0.6599999999999999
+        ],
+        "max": [
+          1.35,
+          0.45,
+          1.1
+        ],
+        "center": [
+          -0.03499999999999992,
+          0.215,
+          0.88
+        ],
+        "size": [
+          2.77,
+          0.47000000000000003,
+          0.44000000000000017
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_left_sponson_shelf_",
+      "role": "left_sponson_shelf",
+      "purpose": "plate",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "bbox_runtime": {
+        "min": [
+          -1.38,
+          -0.26,
+          -1.18
+        ],
+        "max": [
+          1.34,
+          -0.08,
+          -0.86
+        ],
+        "center": [
+          -0.019999999999999907,
+          -0.17,
+          -1.02
+        ],
+        "size": [
+          2.7199999999999998,
+          0.18,
+          0.31999999999999995
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_right_sponson_shelf",
+      "role": "right_sponson_shelf",
+      "purpose": "plate",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "bbox_runtime": {
+        "min": [
+          -1.38,
+          -0.26,
+          0.86
+        ],
+        "max": [
+          1.34,
+          -0.08,
+          1.18
+        ],
+        "center": [
+          -0.019999999999999907,
+          -0.17,
+          1.02
+        ],
+        "size": [
+          2.7199999999999998,
+          0.18,
+          0.31999999999999995
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_glacis_horizontal_c",
+      "role": "glacis_crease_seam",
+      "purpose": "crease_seam",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "bbox_runtime": {
+        "min": [
+          0.05,
+          1.153,
+          -0.6890000000000001
+        ],
+        "max": [
+          1.48,
+          1.165,
+          -0.671
+        ],
+        "center": [
+          0.765,
+          1.159,
+          -0.68
+        ],
+        "size": [
+          1.43,
+          0.01200000000000001,
+          0.018000000000000016
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_engine_deck_crease_",
+      "role": "engine_deck_crease_seam",
+      "purpose": "crease_seam",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "bbox_runtime": {
+        "min": [
+          -1.42,
+          1.39325,
+          -0.507
+        ],
+        "max": [
+          -0.28,
+          1.40525,
+          -0.493
+        ],
+        "center": [
+          -0.85,
+          1.39925,
+          -0.5
+        ],
+        "size": [
+          1.14,
+          0.01200000000000001,
+          0.014000000000000012
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_left_side_weld_crea",
+      "role": "left_side_weld_crease",
+      "purpose": "crease_seam",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "bbox_runtime": {
+        "min": [
+          -0.6071428571428572,
+          0.16799999999999998,
+          -1.152
+        ],
+        "max": [
+          -0.3771428571428572,
+          0.18,
+          -1.1380000000000001
+        ],
+        "center": [
+          -0.4921428571428572,
+          0.174,
+          -1.145
+        ],
+        "size": [
+          0.22999999999999998,
+          0.01200000000000001,
+          0.01399999999999979
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_right_side_weld_cre",
+      "role": "right_side_weld_crease",
+      "purpose": "crease_seam",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "bbox_runtime": {
+        "min": [
+          -0.2857142857142858,
+          0.16799999999999998,
+          1.1380000000000001
+        ],
+        "max": [
+          -0.05571428571428583,
+          0.18,
+          1.152
+        ],
+        "center": [
+          -0.17071428571428582,
+          0.174,
+          1.145
+        ],
+        "size": [
+          0.22999999999999998,
+          0.01200000000000001,
+          0.01399999999999979
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_glacis_horizont",
+      "role": "glacis_crease_seam",
+      "purpose": "crease_seam",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "bbox_runtime": {
+        "min": [
+          0.05,
+          1.154,
+          0.08814285714285709
+        ],
+        "max": [
+          1.48,
+          1.166,
+          0.10614285714285708
+        ],
+        "center": [
+          0.765,
+          1.16,
+          0.09714285714285709
+        ],
+        "size": [
+          1.43,
+          0.01200000000000001,
+          0.017999999999999988
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_engine_deck_cre",
+      "role": "engine_deck_crease_seam",
+      "purpose": "crease_seam",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "bbox_runtime": {
+        "min": [
+          -1.42,
+          1.39425,
+          0.29300000000000004
+        ],
+        "max": [
+          -0.28,
+          1.40625,
+          0.30700000000000005
+        ],
+        "center": [
+          -0.85,
+          1.40025,
+          0.30000000000000004
+        ],
+        "size": [
+          1.14,
+          0.01200000000000001,
+          0.014000000000000012
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_left_side_weld_",
+      "role": "left_side_weld_crease",
+      "purpose": "crease_seam",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "bbox_runtime": {
+        "min": [
+          0.6785714285714284,
+          0.16799999999999998,
+          -1.152
+        ],
+        "max": [
+          0.9085714285714284,
+          0.18,
+          -1.1380000000000001
+        ],
+        "center": [
+          0.7935714285714284,
+          0.174,
+          -1.145
+        ],
+        "size": [
+          0.22999999999999998,
+          0.01200000000000001,
+          0.01399999999999979
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_right_side_weld",
+      "role": "right_side_weld_crease",
+      "purpose": "crease_seam",
+      "triangles": 44,
+      "polygons": 26,
+      "vertices": 24,
+      "bbox_runtime": {
+        "min": [
+          1.0,
+          0.16799999999999998,
+          1.1380000000000001
+        ],
+        "max": [
+          1.23,
+          0.18,
+          1.152
+        ],
+        "center": [
+          1.115,
+          0.174,
+          1.145
+        ],
+        "size": [
+          0.22999999999999998,
+          0.01200000000000001,
+          0.01399999999999979
+        ]
+      }
+    },
+    {
+      "object": "real_sherman_chassis_castbudget_scratch_b01_cast_access_lip_00",
+      "role": "cast_access_lip",
+      "purpose": "cast_crowned_surface",
+      "triangles": 100,
+      "polygons": 54,
+      "vertices": 52,
+      "bbox_runtime": {
+        "min": [
+          -1.1199999999999999,
+          1.465,
+          -0.53
+        ],
+        "max": [
+          -0.7799999999999998,
+          1.505915,
+          -0.31000000000000005
+        ],
+        "center": [
+          -0.9499999999999998,
+          1.4854574999999999,
+          -0.42000000000000004
+        ],
+        "size": [
+          0.3400000000000001,
+          0.04091499999999981,
+          0.21999999999999997
+        ]
+      }
+    }
+  ]
+}

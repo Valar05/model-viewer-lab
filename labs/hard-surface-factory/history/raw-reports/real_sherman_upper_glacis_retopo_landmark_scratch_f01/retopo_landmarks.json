@@ -1,0 +1,2948 @@
+{
+  "asset_id": "real_sherman_upper_glacis_retopo_landmark_scratch_f01",
+  "grid": [
+    64,
+    48
+  ],
+  "plane_tolerance": 0.026,
+  "jump_limit": 0.2,
+  "cells": [
+    {
+      "cell": [
+        15,
+        11,
+        16,
+        12
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.02006053924560547,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        10,
+        17,
+        11,
+        18
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.01666545867919922,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        11,
+        17,
+        12,
+        18
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0007696151733398438,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        15,
+        12,
+        16,
+        13
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.020998477935791016,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        15,
+        13,
+        16,
+        15
+      ],
+      "fit_error": 0.00024580955505371094,
+      "depth_jump": 0.020233154296875,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        12,
+        17,
+        13,
+        18
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0007548332214355469,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        13,
+        17,
+        14,
+        18
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0017528533935546875,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        15,
+        15,
+        16,
+        16
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.006304740905761719,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        14,
+        17,
+        15,
+        18
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.09670257568359375,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        15,
+        16,
+        16,
+        18
+      ],
+      "fit_error": 0.0007202625274658203,
+      "depth_jump": 0.013689994812011719,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        10,
+        18,
+        11,
+        19
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.07903718948364258,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        11,
+        18,
+        12,
+        19
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0014047622680664062,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        10,
+        19,
+        11,
+        21
+      ],
+      "fit_error": 0.00424647331237793,
+      "depth_jump": 0.08478927612304688,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        11,
+        19,
+        12,
+        21
+      ],
+      "fit_error": 2.3603439331054688e-05,
+      "depth_jump": 0.0017876625061035156,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        9,
+        21,
+        10,
+        22
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.10834884643554688,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        9,
+        22,
+        10,
+        24
+      ],
+      "fit_error": 0.022939682006835938,
+      "depth_jump": 0.16561079025268555,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        10,
+        21,
+        11,
+        22
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.08410358428955078,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        11,
+        21,
+        12,
+        22
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0013356208801269531,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        10,
+        22,
+        11,
+        24
+      ],
+      "fit_error": 0.022939682006835938,
+      "depth_jump": 0.0824894905090332,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        11,
+        22,
+        12,
+        24
+      ],
+      "fit_error": 0.009650707244873047,
+      "depth_jump": 0.020804405212402344,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        12,
+        18,
+        14,
+        19
+      ],
+      "fit_error": 0.022332429885864258,
+      "depth_jump": 0.044408321380615234,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        12,
+        19,
+        14,
+        21
+      ],
+      "fit_error": 0.022870182991027832,
+      "depth_jump": 0.04463005065917969,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        14,
+        18,
+        15,
+        19
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.08974218368530273,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        15,
+        18,
+        16,
+        19
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.008054256439208984,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        14,
+        19,
+        16,
+        21
+      ],
+      "fit_error": 0.01986098289489746,
+      "depth_jump": 0.037279605865478516,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        12,
+        21,
+        16,
+        24
+      ],
+      "fit_error": 0.01812291145324707,
+      "depth_jump": 0.06752872467041016,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        17,
+        6,
+        18,
+        7
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.004654884338378906,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        16,
+        7,
+        18,
+        9
+      ],
+      "fit_error": 0.0036973953247070312,
+      "depth_jump": 0.008330821990966797,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        18,
+        6,
+        20,
+        9
+      ],
+      "fit_error": 5.6664148966767414e-05,
+      "depth_jump": 0.013001441955566406,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        16,
+        9,
+        20,
+        12
+      ],
+      "fit_error": 0.008888721466064453,
+      "depth_jump": 0.010859966278076172,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        20,
+        6,
+        24,
+        12
+      ],
+      "fit_error": 0.002342383066812559,
+      "depth_jump": 0.023241519927978516,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        24,
+        6,
+        32,
+        12
+      ],
+      "fit_error": 0.0023416678110761424,
+      "depth_jump": 0.027906417846679688,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        16,
+        12,
+        32,
+        24
+      ],
+      "fit_error": 0.01816391944885254,
+      "depth_jump": 0.09335041046142578,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        9,
+        24,
+        10,
+        25
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.17055606842041016,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        8,
+        25,
+        9,
+        26
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.18771648406982422,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        8,
+        26,
+        9,
+        27
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.21477317810058594,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        9,
+        25,
+        10,
+        27
+      ],
+      "fit_error": 4.9591064453125e-05,
+      "depth_jump": 0.17651605606079102,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        10,
+        24,
+        12,
+        27
+      ],
+      "fit_error": 0.0217435359954834,
+      "depth_jump": 0.06787252426147461,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        8,
+        27,
+        9,
+        28
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.20981693267822266,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        9,
+        27,
+        10,
+        28
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.17289400100708008,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        8,
+        28,
+        9,
+        29
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.20180606842041016,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        8,
+        29,
+        9,
+        30
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.19167375564575195,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        9,
+        28,
+        10,
+        30
+      ],
+      "fit_error": 7.152557373046875e-07,
+      "depth_jump": 0.17665433883666992,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        10,
+        27,
+        12,
+        28
+      ],
+      "fit_error": 0.024168968200683594,
+      "depth_jump": 0.07193565368652344,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        10,
+        28,
+        11,
+        30
+      ],
+      "fit_error": 0.0006821155548095703,
+      "depth_jump": 0.06826353073120117,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        11,
+        28,
+        12,
+        30
+      ],
+      "fit_error": 0.0006821155548095703,
+      "depth_jump": 0.013298988342285156,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        12,
+        24,
+        16,
+        30
+      ],
+      "fit_error": 0.013211448987325625,
+      "depth_jump": 0.04279327392578125,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        8,
+        30,
+        9,
+        31
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.18143224716186523,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        9,
+        30,
+        10,
+        31
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.1724386215209961,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        8,
+        31,
+        9,
+        32
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.17142152786254883,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        8,
+        32,
+        9,
+        33
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.2215867042541504,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        9,
+        31,
+        10,
+        33
+      ],
+      "fit_error": 4.76837158203125e-07,
+      "depth_jump": 0.17619752883911133,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        10,
+        30,
+        11,
+        31
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.07159662246704102,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        11,
+        30,
+        12,
+        31
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.00803518295288086,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        10,
+        31,
+        11,
+        33
+      ],
+      "fit_error": 0.0003905296325683594,
+      "depth_jump": 0.07278633117675781,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        11,
+        31,
+        12,
+        33
+      ],
+      "fit_error": 0.00043320655822753906,
+      "depth_jump": 0.015071392059326172,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        8,
+        33,
+        9,
+        34
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.21767568588256836,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        9,
+        33,
+        10,
+        34
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.17197227478027344,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        8,
+        34,
+        9,
+        36
+      ],
+      "fit_error": 0.0010724067687988281,
+      "depth_jump": 0.19777488708496094,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        9,
+        34,
+        10,
+        36
+      ],
+      "fit_error": 0.012453556060791016,
+      "depth_jump": 0.1754603385925293,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        10,
+        33,
+        11,
+        34
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0630788803100586,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        11,
+        33,
+        12,
+        34
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.04148578643798828,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        10,
+        34,
+        12,
+        36
+      ],
+      "fit_error": 0.012453556060791016,
+      "depth_jump": 0.10083532333374023,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        12,
+        30,
+        16,
+        33
+      ],
+      "fit_error": 0.000571131706237793,
+      "depth_jump": 0.02563762664794922,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        12,
+        33,
+        16,
+        36
+      ],
+      "fit_error": 0.01757204532623291,
+      "depth_jump": 0.14124298095703125,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        8,
+        36,
+        9,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.16431665420532227,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        9,
+        36,
+        10,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.10389184951782227,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        8,
+        37,
+        9,
+        38
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.17624187469482422,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        9,
+        37,
+        10,
+        39
+      ],
+      "fit_error": 0.01556706428527832,
+      "depth_jump": 0.10137033462524414,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        10,
+        36,
+        12,
+        39
+      ],
+      "fit_error": 0.0002567768096923828,
+      "depth_jump": 0.1545848846435547,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        9,
+        39,
+        10,
+        40
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0520319938659668,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        10,
+        39,
+        12,
+        40
+      ],
+      "fit_error": 1.430511474609375e-05,
+      "depth_jump": 0.053096771240234375,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        12,
+        36,
+        14,
+        39
+      ],
+      "fit_error": 0.0009845097859706442,
+      "depth_jump": 0.15422582626342773,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        14,
+        36,
+        16,
+        37
+      ],
+      "fit_error": 0.010649442672729492,
+      "depth_jump": 0.07476520538330078,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        14,
+        37,
+        15,
+        39
+      ],
+      "fit_error": 0.02294325828552246,
+      "depth_jump": 0.14615917205810547,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        15,
+        37,
+        16,
+        39
+      ],
+      "fit_error": 0.02294325828552246,
+      "depth_jump": 0.0854024887084961,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        12,
+        39,
+        14,
+        40
+      ],
+      "fit_error": 4.76837158203125e-07,
+      "depth_jump": 0.05307197570800781,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        14,
+        39,
+        15,
+        40
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.14432287216186523,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        15,
+        39,
+        16,
+        40
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.05191516876220703,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        16,
+        24,
+        24,
+        30
+      ],
+      "fit_error": 0.007307608922323183,
+      "depth_jump": 0.05201435089111328,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        16,
+        30,
+        20,
+        33
+      ],
+      "fit_error": 0.0005679130554199219,
+      "depth_jump": 0.025577545166015625,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        16,
+        33,
+        20,
+        36
+      ],
+      "fit_error": 0.024303277333577178,
+      "depth_jump": 0.11417770385742188,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        20,
+        30,
+        24,
+        33
+      ],
+      "fit_error": 0.0004024505615234375,
+      "depth_jump": 0.025664329528808594,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        20,
+        33,
+        22,
+        36
+      ],
+      "fit_error": 0.024303277333577178,
+      "depth_jump": 0.04891395568847656,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        22,
+        33,
+        24,
+        34
+      ],
+      "fit_error": 0.00046539306640625,
+      "depth_jump": 0.029266357421875,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        22,
+        34,
+        23,
+        36
+      ],
+      "fit_error": 0.011559486389160156,
+      "depth_jump": 0.022986412048339844,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        23,
+        34,
+        24,
+        35
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.004461765289306641,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        23,
+        35,
+        24,
+        36
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.36487817764282227,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        24,
+        24,
+        32,
+        30
+      ],
+      "fit_error": 0.015733559926350615,
+      "depth_jump": 0.05467653274536133,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        24,
+        30,
+        28,
+        33
+      ],
+      "fit_error": 0.0003906885782880565,
+      "depth_jump": 0.025599002838134766,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        24,
+        33,
+        26,
+        34
+      ],
+      "fit_error": 0.000530242919921875,
+      "depth_jump": 0.017894268035888672,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        24,
+        34,
+        25,
+        35
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.003623485565185547,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        24,
+        35,
+        25,
+        36
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.3716459274291992,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        25,
+        34,
+        26,
+        35
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0025467872619628906,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        25,
+        35,
+        26,
+        36
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.37607383728027344,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        26,
+        33,
+        28,
+        34
+      ],
+      "fit_error": 0.0003936290740966797,
+      "depth_jump": 0.009969711303710938,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        26,
+        34,
+        27,
+        35
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0012884140014648438,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        26,
+        35,
+        27,
+        36
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.3782048225402832,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        27,
+        34,
+        28,
+        35
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0002827644348144531,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        27,
+        35,
+        28,
+        36
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.3782048225402832,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        28,
+        30,
+        32,
+        33
+      ],
+      "fit_error": 0.002166748046875,
+      "depth_jump": 0.025920867919921875,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        28,
+        33,
+        30,
+        34
+      ],
+      "fit_error": 0.0003619194030761719,
+      "depth_jump": 0.01003408432006836,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        28,
+        34,
+        29,
+        35
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0014185905456542969,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        28,
+        35,
+        29,
+        36
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.3780937194824219,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        29,
+        34,
+        30,
+        35
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0022649765014648438,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        29,
+        35,
+        30,
+        36
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.3755679130554199,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        30,
+        33,
+        32,
+        34
+      ],
+      "fit_error": 0.0005750656127929688,
+      "depth_jump": 0.016288280487060547,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        30,
+        34,
+        31,
+        35
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.003722667694091797,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        30,
+        35,
+        31,
+        36
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.3707551956176758,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        31,
+        34,
+        32,
+        35
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.005025386810302734,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        31,
+        35,
+        32,
+        36
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.36353540420532227,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        16,
+        36,
+        18,
+        37
+      ],
+      "fit_error": 0.008414268493652344,
+      "depth_jump": 0.03748893737792969,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        16,
+        37,
+        17,
+        38
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.17926025390625,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        16,
+        38,
+        17,
+        39
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.12978267669677734,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        17,
+        37,
+        18,
+        38
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.20622491836547852,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        17,
+        38,
+        18,
+        39
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.02780628204345703,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        18,
+        36,
+        19,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.28435373306274414,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        19,
+        36,
+        20,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.30832815170288086,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        18,
+        37,
+        19,
+        38
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.24850893020629883,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        18,
+        38,
+        19,
+        39
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.019348621368408203,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        19,
+        37,
+        20,
+        39
+      ],
+      "fit_error": 0.012001752853393555,
+      "depth_jump": 0.03924560546875,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        16,
+        39,
+        18,
+        40
+      ],
+      "fit_error": 0.02505779266357422,
+      "depth_jump": 0.10430049896240234,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        16,
+        40,
+        17,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.051579952239990234,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        17,
+        40,
+        18,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.028046607971191406,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        18,
+        39,
+        20,
+        40
+      ],
+      "fit_error": 0.002104520797729492,
+      "depth_jump": 0.033965110778808594,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        18,
+        40,
+        19,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.018728256225585938,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        19,
+        40,
+        20,
+        42
+      ],
+      "fit_error": 0.016177654266357422,
+      "depth_jump": 0.03218507766723633,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        20,
+        36,
+        21,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.31958818435668945,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        21,
+        36,
+        22,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.32766151428222656,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        20,
+        37,
+        22,
+        39
+      ],
+      "fit_error": 0.011589765548706055,
+      "depth_jump": 0.04289960861206055,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        22,
+        36,
+        23,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.3330249786376953,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        23,
+        36,
+        24,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.3374300003051758,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        22,
+        37,
+        24,
+        39
+      ],
+      "fit_error": 0.010132789611816406,
+      "depth_jump": 0.0334620475769043,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        20,
+        39,
+        24,
+        42
+      ],
+      "fit_error": 0.012746969858804746,
+      "depth_jump": 0.03273630142211914,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        24,
+        36,
+        32,
+        42
+      ],
+      "fit_error": 0.015817642211914062,
+      "depth_jump": 0.023707866668701172,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        32,
+        6,
+        40,
+        12
+      ],
+      "fit_error": 0.0022430419921875,
+      "depth_jump": 0.027758121490478516,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        40,
+        6,
+        48,
+        12
+      ],
+      "fit_error": 0.0022439956665039062,
+      "depth_jump": 0.027985572814941406,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        32,
+        12,
+        48,
+        24
+      ],
+      "fit_error": 0.0026786327362060547,
+      "depth_jump": 0.10438203811645508,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        48,
+        6,
+        50,
+        9
+      ],
+      "fit_error": 4.1484832763671875e-05,
+      "depth_jump": 0.013073444366455078,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        50,
+        6,
+        51,
+        7
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.005011558532714844,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        50,
+        7,
+        51,
+        9
+      ],
+      "fit_error": 4.00543212890625e-05,
+      "depth_jump": 0.008312225341796875,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        48,
+        9,
+        50,
+        12
+      ],
+      "fit_error": 0.001761754353841738,
+      "depth_jump": 0.010226249694824219,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        50,
+        9,
+        51,
+        10
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0047760009765625,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        50,
+        10,
+        51,
+        12
+      ],
+      "fit_error": 0.0011301040649414062,
+      "depth_jump": 0.0060176849365234375,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        48,
+        12,
+        50,
+        15
+      ],
+      "fit_error": 0.0003302892049159567,
+      "depth_jump": 0.02243661880493164,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        50,
+        12,
+        52,
+        15
+      ],
+      "fit_error": 0.020210742950439453,
+      "depth_jump": 0.04280376434326172,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        48,
+        15,
+        52,
+        18
+      ],
+      "fit_error": 0.0020165443420410156,
+      "depth_jump": 0.028308391571044922,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        52,
+        16,
+        53,
+        18
+      ],
+      "fit_error": 0.008720636367797852,
+      "depth_jump": 0.03360176086425781,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        48,
+        18,
+        52,
+        24
+      ],
+      "fit_error": 0.0022404988606767873,
+      "depth_jump": 0.05090522766113281,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        52,
+        18,
+        53,
+        19
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.00842905044555664,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        53,
+        18,
+        54,
+        19
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.12483644485473633,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        52,
+        19,
+        53,
+        21
+      ],
+      "fit_error": 4.00543212890625e-05,
+      "depth_jump": 0.015228748321533203,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        53,
+        19,
+        54,
+        20
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.11751317977905273,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        53,
+        20,
+        54,
+        21
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.020223617553710938,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        52,
+        21,
+        54,
+        24
+      ],
+      "fit_error": 0.0010622342427577536,
+      "depth_jump": 0.0244598388671875,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        54,
+        21,
+        55,
+        22
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.10614442825317383,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        54,
+        22,
+        55,
+        24
+      ],
+      "fit_error": 0.021008968353271484,
+      "depth_jump": 0.10033512115478516,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        32,
+        24,
+        36,
+        30
+      ],
+      "fit_error": 0.01830514272054007,
+      "depth_jump": 0.059126853942871094,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        36,
+        24,
+        40,
+        27
+      ],
+      "fit_error": 0.022480646769206025,
+      "depth_jump": 0.07108449935913086,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        36,
+        27,
+        40,
+        30
+      ],
+      "fit_error": 0.019740581512451172,
+      "depth_jump": 0.04591798782348633,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        32,
+        30,
+        36,
+        33
+      ],
+      "fit_error": 0.004552364349365234,
+      "depth_jump": 0.022400379180908203,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        32,
+        33,
+        34,
+        34
+      ],
+      "fit_error": 0.00034236907958984375,
+      "depth_jump": 0.02716827392578125,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        32,
+        34,
+        33,
+        35
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0066089630126953125,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        32,
+        35,
+        33,
+        36
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.3537893295288086,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        33,
+        34,
+        34,
+        36
+      ],
+      "fit_error": 0.014189958572387695,
+      "depth_jump": 0.028460025787353516,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        34,
+        33,
+        36,
+        36
+      ],
+      "fit_error": 0.023783206939697266,
+      "depth_jump": 0.049282073974609375,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        36,
+        30,
+        40,
+        33
+      ],
+      "fit_error": 0.004467765490214326,
+      "depth_jump": 0.01464223861694336,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        36,
+        33,
+        40,
+        36
+      ],
+      "fit_error": 0.023783206939697266,
+      "depth_jump": 0.1270923614501953,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        40,
+        24,
+        42,
+        27
+      ],
+      "fit_error": 0.025498390197753906,
+      "depth_jump": 0.06621599197387695,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        42,
+        24,
+        44,
+        27
+      ],
+      "fit_error": 0.009748458862304688,
+      "depth_jump": 0.013393878936767578,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        40,
+        27,
+        41,
+        28
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.052903175354003906,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        41,
+        27,
+        42,
+        28
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0030760765075683594,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        40,
+        28,
+        41,
+        30
+      ],
+      "fit_error": 0.0045166015625,
+      "depth_jump": 0.052903175354003906,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        41,
+        28,
+        42,
+        30
+      ],
+      "fit_error": 0.0045166015625,
+      "depth_jump": 0.005114555358886719,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        42,
+        27,
+        44,
+        30
+      ],
+      "fit_error": 0.002277215321859316,
+      "depth_jump": 0.007236003875732422,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        44,
+        24,
+        48,
+        30
+      ],
+      "fit_error": 0.024911165237426758,
+      "depth_jump": 0.05040168762207031,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        40,
+        30,
+        42,
+        31
+      ],
+      "fit_error": 0.020742416381835938,
+      "depth_jump": 0.058087825775146484,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        40,
+        31,
+        42,
+        33
+      ],
+      "fit_error": 0.020742416381835938,
+      "depth_jump": 0.0090179443359375,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        42,
+        30,
+        44,
+        31
+      ],
+      "fit_error": 0.002861499786376953,
+      "depth_jump": 0.06290197372436523,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        42,
+        31,
+        44,
+        33
+      ],
+      "fit_error": 0.002861499786376953,
+      "depth_jump": 0.007784366607666016,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        40,
+        33,
+        44,
+        36
+      ],
+      "fit_error": 0.014201641082763672,
+      "depth_jump": 0.14626502990722656,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        44,
+        30,
+        45,
+        31
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.06375312805175781,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        45,
+        30,
+        46,
+        31
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.056797027587890625,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        44,
+        31,
+        45,
+        33
+      ],
+      "fit_error": 0.004850149154663086,
+      "depth_jump": 0.05582571029663086,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        45,
+        31,
+        46,
+        33
+      ],
+      "fit_error": 0.004850149154663086,
+      "depth_jump": 0.05854082107543945,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        46,
+        30,
+        48,
+        33
+      ],
+      "fit_error": 0.004825750986734434,
+      "depth_jump": 0.031981468200683594,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        44,
+        33,
+        46,
+        36
+      ],
+      "fit_error": 0.015546480814616181,
+      "depth_jump": 0.1333904266357422,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        46,
+        33,
+        48,
+        36
+      ],
+      "fit_error": 0.015546480814616181,
+      "depth_jump": 0.12736892700195312,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        32,
+        36,
+        33,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.3198695182800293,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        33,
+        36,
+        34,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.3123588562011719,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        32,
+        37,
+        34,
+        39
+      ],
+      "fit_error": 0.01049184799194336,
+      "depth_jump": 0.038365840911865234,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        34,
+        36,
+        35,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.30169057846069336,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        35,
+        36,
+        36,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.28639936447143555,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        34,
+        37,
+        36,
+        39
+      ],
+      "fit_error": 0.01049184799194336,
+      "depth_jump": 0.049085140228271484,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        32,
+        39,
+        34,
+        42
+      ],
+      "fit_error": 0.017287572224935488,
+      "depth_jump": 0.02408313751220703,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        34,
+        39,
+        36,
+        40
+      ],
+      "fit_error": 0.0016663074493408203,
+      "depth_jump": 0.027436256408691406,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        34,
+        40,
+        35,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.012272357940673828,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        35,
+        40,
+        36,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.015082836151123047,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        36,
+        36,
+        37,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.25148773193359375,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        37,
+        36,
+        38,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.22173261642456055,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        36,
+        37,
+        37,
+        39
+      ],
+      "fit_error": 0.0003604888916015625,
+      "depth_jump": 0.021708965301513672,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        37,
+        37,
+        38,
+        38
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.1787872314453125,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        37,
+        38,
+        38,
+        39
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.030095577239990234,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        38,
+        36,
+        40,
+        37
+      ],
+      "fit_error": 0.011716365814208984,
+      "depth_jump": 0.054967403411865234,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        38,
+        37,
+        39,
+        38
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.1486215591430664,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        38,
+        38,
+        39,
+        39
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.09730005264282227,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        39,
+        37,
+        40,
+        39
+      ],
+      "fit_error": 0.013498306274414062,
+      "depth_jump": 0.10159873962402344,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        36,
+        39,
+        38,
+        40
+      ],
+      "fit_error": 0.0047740936279296875,
+      "depth_jump": 0.04933643341064453,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        36,
+        40,
+        37,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.02426004409790039,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        37,
+        40,
+        38,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.050240516662597656,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        38,
+        39,
+        39,
+        40
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.05068063735961914,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        39,
+        39,
+        40,
+        40
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.14623117446899414,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        38,
+        40,
+        39,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.16251468658447266,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        39,
+        40,
+        40,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.16315412521362305,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        40,
+        36,
+        41,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.0709843635559082,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        41,
+        36,
+        42,
+        37
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.05193519592285156,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        40,
+        37,
+        41,
+        39
+      ],
+      "fit_error": 0.013498306274414062,
+      "depth_jump": 0.1710042953491211,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        41,
+        37,
+        42,
+        39
+      ],
+      "fit_error": 0.00023818016052246094,
+      "depth_jump": 0.10184669494628906,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        42,
+        36,
+        44,
+        39
+      ],
+      "fit_error": 0.0002458890279131154,
+      "depth_jump": 0.15392160415649414,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        40,
+        39,
+        41,
+        40
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.14585542678833008,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        41,
+        39,
+        42,
+        40
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.05156517028808594,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        40,
+        40,
+        41,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.06883668899536133,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        41,
+        40,
+        42,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.06870365142822266,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        42,
+        39,
+        44,
+        40
+      ],
+      "fit_error": 1.3589859008789062e-05,
+      "depth_jump": 0.05280780792236328,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        42,
+        40,
+        43,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.06905794143676758,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        43,
+        40,
+        44,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.06786584854125977,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        44,
+        36,
+        46,
+        39
+      ],
+      "fit_error": 0.017850637435913086,
+      "depth_jump": 0.15163326263427734,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        46,
+        36,
+        48,
+        37
+      ],
+      "fit_error": 0.012690305709838867,
+      "depth_jump": 0.10662078857421875,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        46,
+        37,
+        48,
+        39
+      ],
+      "fit_error": 0.02306079864501953,
+      "depth_jump": 0.18439912796020508,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        44,
+        39,
+        45,
+        40
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.051805973052978516,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        45,
+        39,
+        46,
+        40
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.08517646789550781,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        44,
+        40,
+        45,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.07238578796386719,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        45,
+        40,
+        46,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.12735366821289062,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        46,
+        39,
+        48,
+        40
+      ],
+      "fit_error": 0.0179135799407959,
+      "depth_jump": 0.06046915054321289,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        46,
+        40,
+        47,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.05673074722290039,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        47,
+        40,
+        48,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.051990509033203125,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        48,
+        24,
+        52,
+        30
+      ],
+      "fit_error": 0.00946378707885831,
+      "depth_jump": 0.052443504333496094,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        52,
+        24,
+        54,
+        27
+      ],
+      "fit_error": 0.0130316416422529,
+      "depth_jump": 0.03570890426635742,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        54,
+        24,
+        55,
+        25
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.01083993911743164,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        54,
+        25,
+        56,
+        27
+      ],
+      "fit_error": 0.010607719421386719,
+      "depth_jump": 0.04854774475097656,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        52,
+        27,
+        54,
+        30
+      ],
+      "fit_error": 0.0057220458984375,
+      "depth_jump": 0.03339815139770508,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        54,
+        27,
+        56,
+        28
+      ],
+      "fit_error": 0.025377511978149414,
+      "depth_jump": 0.06872940063476562,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        54,
+        28,
+        56,
+        30
+      ],
+      "fit_error": 0.025377511978149414,
+      "depth_jump": 0.06106758117675781,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        48,
+        30,
+        52,
+        36
+      ],
+      "fit_error": 0.01615309715270996,
+      "depth_jump": 0.09084558486938477,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        52,
+        30,
+        54,
+        33
+      ],
+      "fit_error": 0.014011144638061523,
+      "depth_jump": 0.04158973693847656,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        54,
+        30,
+        56,
+        33
+      ],
+      "fit_error": 0.022319793701171875,
+      "depth_jump": 0.05997419357299805,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        52,
+        33,
+        54,
+        36
+      ],
+      "fit_error": 0.014011144638061523,
+      "depth_jump": 0.051116943359375,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        54,
+        33,
+        56,
+        34
+      ],
+      "fit_error": 0.009745597839355469,
+      "depth_jump": 0.030306339263916016,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        54,
+        34,
+        55,
+        36
+      ],
+      "fit_error": 0.01724410057067871,
+      "depth_jump": 0.05098533630371094,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        55,
+        34,
+        56,
+        36
+      ],
+      "fit_error": 0.01724410057067871,
+      "depth_jump": 0.10480022430419922,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        48,
+        36,
+        50,
+        37
+      ],
+      "fit_error": 0.025563716888427734,
+      "depth_jump": 0.06325531005859375,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        48,
+        37,
+        50,
+        39
+      ],
+      "fit_error": 0.025563716888427734,
+      "depth_jump": 0.15835332870483398,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        50,
+        36,
+        52,
+        39
+      ],
+      "fit_error": 0.0039679209391279,
+      "depth_jump": 0.1574687957763672,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        48,
+        39,
+        50,
+        40
+      ],
+      "fit_error": 0.00035309791564941406,
+      "depth_jump": 0.05042123794555664,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        48,
+        40,
+        49,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.05160236358642578,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        49,
+        40,
+        50,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.05129432678222656,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        50,
+        39,
+        52,
+        40
+      ],
+      "fit_error": 0.0016436576843261719,
+      "depth_jump": 0.04788637161254883,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        50,
+        40,
+        51,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.051964759826660156,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        51,
+        40,
+        52,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.05089998245239258,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        52,
+        36,
+        54,
+        39
+      ],
+      "fit_error": 0.0039679209391279,
+      "depth_jump": 0.15747547149658203,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        54,
+        36,
+        56,
+        37
+      ],
+      "fit_error": 0.01814746856689453,
+      "depth_jump": 0.1277751922607422,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        54,
+        37,
+        55,
+        39
+      ],
+      "fit_error": 0.011029720306396484,
+      "depth_jump": 0.176055908203125,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        55,
+        37,
+        56,
+        38
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.07787418365478516,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        52,
+        39,
+        53,
+        40
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.049324989318847656,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        53,
+        39,
+        54,
+        40
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.12118053436279297,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    },
+    {
+      "cell": [
+        52,
+        40,
+        53,
+        41
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.049757957458496094,
+      "semantic_patch": "depth_carrying_patch"
+    },
+    {
+      "cell": [
+        54,
+        39,
+        55,
+        40
+      ],
+      "fit_error": 0.0,
+      "depth_jump": 0.12090730667114258,
+      "semantic_patch": "silhouette_or_plane_break_patch"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "asset_id": "real_sherman_upper_glacis_shared_interfaces_scratch_v08",
+  "regions": [
+    {
+      "region": "primary_visible_skin",
+      "topology": "single continuous closed armor skin",
+      "source_use": "measured source exterior edge chain plus v07 feature/interface measurements; no visible independent feature prisms",
+      "source_sample_count": 20878,
+      "thickness": 0.075,
+      "boundary_point_count": 12
+    },
+    {
+      "region": "socket",
+      "topology": "closed secondary cylinder",
+      "source_use": "measured socket center/radius only; provisional surface diagnostic in v08 continuous-skin path",
+      "source_sample_count": 8758,
+      "radius": 0.18
+    },
+    {
+      "region": "ring",
+      "topology": "closed secondary annular prism",
+      "source_use": "measured ring center/radius only; seated on continuous primary visible skin",
+      "source_sample_count": 8758,
+      "inner_radius": 0.184,
+      "outer_radius": 0.216
+    }
+  ]
+}

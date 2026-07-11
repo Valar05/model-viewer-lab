@@ -1,0 +1,9 @@
+{
+  "asset_id": "real_sherman_upper_glacis_clean_source_islands_scratch_f08",
+  "dissolve_angle_degrees": 35.0,
+  "island_cleanup": "delete tiny loose source flakes before dissolve; keep source-faithful silhouette islands",
+  "retopo_engine": "loose source island cleanup plus bpy.ops.mesh.dissolve_limited",
+  "preserve_source_boundaries": true,
+  "source_component": "source_component_0_upper_front_glacis_assembly",
+  "lesson_from_f01_f07": "f05 was visually close but seamed; f07 became box-and-disk abstraction. f08 keeps f05 source identity and removes tiny loose islands that caused seam/sliver junk."
+}

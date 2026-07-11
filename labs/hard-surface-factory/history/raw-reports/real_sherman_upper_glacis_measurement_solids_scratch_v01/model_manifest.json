@@ -1,0 +1,134 @@
+{
+  "asset_id": "real_sherman_upper_glacis_measurement_solids_scratch_v01",
+  "scratch_mode": true,
+  "artifact_type": "measurement_to_authored_closed_solids_upper_glacis",
+  "revision": "v01-measurement-cloud-authored-closed-solids",
+  "candidate": false,
+  "candidate_reason": "requires zero boundary/nonmanifold edges plus depth/silhouette parity; cloud review still required for visual acceptance",
+  "topology_status": "pass",
+  "shape_review_status": "red_depth_or_silhouette",
+  "source_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/real_sherman_chassis_reference_kit_scratch_v1.glb",
+  "source_component": "source_component_0_upper_front_glacis",
+  "authoring_policy": "Source cloud measures features only. Output regions are authored closed solids and never preserve source topology.",
+  "current_prompt_contract": {
+    "current_user_command": "Continue upper-glacis recovery by replacing construction strategy with source-as-measurement and authored solids.",
+    "forbidden_stale_premise": "Tweaking f12-f16 meshes, preserving source triangles, source-shell solidify, blanket vertex snapping, or raycasting an entire surface back to the cloud.",
+    "intended_mutation": "Create a reusable scratch exporter that measures planes/boundary/socket/seams, discards sampled vertices, and generates independent closed hard-surface solids.",
+    "why_this_satisfies_command": "It makes the source cloud scaffolding and the authored solids the product, matching the new doctrine instead of tuning the failed loop."
+  },
+  "statistics": {
+    "vertices": 760,
+    "polygons": 684,
+    "triangles": 1504
+  },
+  "topology_gate": {
+    "topology_status": "pass",
+    "topology_pass": true,
+    "boundary_edges_total": 0,
+    "nonmanifold_edges_total": 0,
+    "failure_reasons": []
+  },
+  "topology_reports": [
+    {
+      "object": "real_sherman_upper_glacis_measurement_solids_scratch_v01_main_g",
+      "role": "main_glacis_armor_plate",
+      "vertices": 288,
+      "polygons": 288,
+      "triangles": 576,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_measurement_solids"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_measurement_solids_scratch_v01_left_e",
+      "role": "left_edge_return",
+      "vertices": 16,
+      "polygons": 14,
+      "triangles": 28,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_measurement_solids"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_measurement_solids_scratch_v01_right_",
+      "role": "right_edge_return",
+      "vertices": 16,
+      "polygons": 14,
+      "triangles": 28,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_measurement_solids"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_measurement_solids_scratch_v01_lower_",
+      "role": "lower_hull_seam",
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_measurement_solids"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_measurement_solids_scratch_v01_socket",
+      "role": "socket_cylinder",
+      "vertices": 144,
+      "polygons": 74,
+      "triangles": 284,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_measurement_solids"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_measurement_solids_scratch_v01_raised",
+      "role": "raised_ring",
+      "vertices": 288,
+      "polygons": 288,
+      "triangles": 576,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_measurement_solids"
+      ]
+    }
+  ],
+  "measurement_report": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_measurement_solids_scratch_v01/measurement_report.json",
+  "authored_solids": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_measurement_solids_scratch_v01/authored_solids.json",
+  "retopo_landmarks": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_measurement_solids_scratch_v01/retopo_landmarks.json",
+  "depth_parity": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_measurement_solids_scratch_v01/depth_error_report.json",
+    "depth_resolution": [
+      180,
+      126
+    ],
+    "shared_pixels": 7147,
+    "source_pixels": 11942,
+    "retopo_pixels": 7481,
+    "silhouette_iou": 0.5821928967090257,
+    "mean_abs_depth_error": 0.05820834768457281,
+    "p50_abs_depth_error": 0.0371551513671875,
+    "p95_abs_depth_error": 0.1956634521484375,
+    "max_abs_depth_error": 0.5316352844238281
+  },
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_upper_glacis_measurement_solids_scratch_v01/real_sherman_upper_glacis_measurement_solids_scratch_v01.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_measurement_solids_scratch_v01/real_sherman_upper_glacis_measurement_solids_scratch_v01.glb",
+    "source_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_measurement_solids_scratch_v01/source_depth.png",
+    "retopo_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_measurement_solids_scratch_v01/retopo_depth.png",
+    "depth_abs_error": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_measurement_solids_scratch_v01/depth_abs_error.png",
+    "depth_side_by_side": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_measurement_solids_scratch_v01/depth_side_by_side.png",
+    "source_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_measurement_solids_scratch_v01/source_shaded_same_angle.png",
+    "retopo_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_measurement_solids_scratch_v01/retopo_shaded_same_angle.png",
+    "socket_close": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_measurement_solids_scratch_v01/socket_close.png"
+  }
+}

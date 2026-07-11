@@ -1,0 +1,82 @@
+{
+  "asset_id": "real_sherman_upper_glacis_measurement_solids_scratch_v01",
+  "policy": "source mesh is measurement only; plane fit survives, source triangles do not",
+  "plane_point": [
+    0.18100164830684662,
+    -0.006669999100267887,
+    0.2573356628417969
+  ],
+  "plane_normal": [
+    0.010757935233414173,
+    0.007245480082929134,
+    0.9999158978462219
+  ],
+  "plane_u": [
+    0.9999421834945679,
+    -7.795092096785083e-05,
+    -0.01075765397399664
+  ],
+  "plane_v": [
+    0.0,
+    0.999973714351654,
+    -0.007245898712426424
+  ],
+  "seed_face_count": 8138,
+  "cluster_face_count": 5894,
+  "source_plane_residual_mean": 0.023654993613244288,
+  "source_plane_residual_max": 0.07372714311350137,
+  "source_vertex_count": 20878,
+  "source_polygon_count": 24804,
+  "deck_candidate_count": 13990,
+  "bounds_uv": {
+    "u_min": -0.3535376463423745,
+    "u_max": 0.3115963947011551,
+    "v_min": -0.26877453392262396,
+    "v_max": 0.29951775012887083
+  },
+  "outer_boundary_uv": [
+    [
+      -0.3535376463423745,
+      -0.23664197226025863
+    ],
+    [
+      -0.15399743402931562,
+      -0.2594411804348056
+    ],
+    [
+      0.11205618238809617,
+      -0.24454980439330143
+    ],
+    [
+      0.3115963947011551,
+      -0.2597553644677646
+    ],
+    [
+      0.3115963947011551,
+      0.23307871429278748
+    ],
+    [
+      0.11205618238809617,
+      0.21617931167020288
+    ],
+    [
+      -0.15399743402931562,
+      0.2658317941622954
+    ],
+    [
+      -0.3535376463423745,
+      0.2723915980723177
+    ]
+  ],
+  "ring_center_uv": [
+    0.0006893073524373111,
+    -0.005207560340327994
+  ],
+  "socket_radius": 0.18,
+  "forbidden_operations": [
+    "copy_source_triangles",
+    "source_shell_solidify",
+    "blanket_vertex_snapping",
+    "dense_raycast_reconstruction"
+  ]
+}

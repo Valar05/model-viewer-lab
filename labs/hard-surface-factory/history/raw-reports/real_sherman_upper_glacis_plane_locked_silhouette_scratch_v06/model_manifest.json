@@ -1,0 +1,199 @@
+{
+  "asset_id": "real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06",
+  "scratch_mode": true,
+  "artifact_type": "measurement_cluster_discovery_upper_glacis",
+  "revision": "v06-plane-locked-primary-armor-clusters",
+  "candidate": false,
+  "candidate_reason": "requires required feature measurements, closed independent regions, topology pass, non-ring projected area dominance, and improved shape diagnostics; cloud review still required",
+  "topology_status": "pass",
+  "shape_review_status": "red_depth_or_silhouette",
+  "source_glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_reference_kit_scratch_v1/real_sherman_chassis_reference_kit_scratch_v1.glb",
+  "source_component": "source_component_0_upper_front_glacis",
+  "authoring_policy": "Source cloud measures named features only. Output solids are authored from measured constraints and do not preserve source topology.",
+  "current_prompt_contract": {
+    "current_user_command": "Implement v06 plane-locked silhouette-improvement scratch pass from PR review.",
+    "forbidden_stale_premise": "Tweaking v02 constants, preserving source topology, source-shell solidify, blanket snapping, or letting topology pass imply visual pass.",
+    "intended_mutation": "Create a new v06 exporter and artifacts that enforce unique feature clusters, side-normal returns, and one shared manufactured primary armor plane.",
+    "why_this_satisfies_command": "The review says the next useful artifact proves feature decomposition, not a prettier v02 slab."
+  },
+  "required_features": [
+    "main_glacis",
+    "left_shoulder",
+    "right_shoulder",
+    "front_face",
+    "deck_transition",
+    "socket",
+    "ring"
+  ],
+  "missing_required_features": [],
+  "statistics": {
+    "vertices": 544,
+    "polygons": 432,
+    "triangles": 1056
+  },
+  "topology_gate": {
+    "topology_status": "pass",
+    "topology_pass": true,
+    "boundary_edges_total": 0,
+    "nonmanifold_edges_total": 0,
+    "failure_reasons": []
+  },
+  "topology_reports": [
+    {
+      "object": "real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06_m",
+      "role": "main_glacis",
+      "vertices": 16,
+      "polygons": 10,
+      "triangles": 28,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_plane_locked_v06"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06_l",
+      "role": "left_shoulder",
+      "vertices": 16,
+      "polygons": 10,
+      "triangles": 28,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_plane_locked_v06"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06_r",
+      "role": "right_shoulder",
+      "vertices": 16,
+      "polygons": 10,
+      "triangles": 28,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_plane_locked_v06"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06_f",
+      "role": "front_face",
+      "vertices": 16,
+      "polygons": 10,
+      "triangles": 28,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_plane_locked_v06"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06_d",
+      "role": "deck_transition",
+      "vertices": 16,
+      "polygons": 10,
+      "triangles": 28,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_plane_locked_v06"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_plane_locked_silhouette_scratch_v",
+      "role": "left_return",
+      "vertices": 16,
+      "polygons": 10,
+      "triangles": 28,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_plane_locked_v06"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_plane_locked_silhouette_scratch_v.001",
+      "role": "right_return",
+      "vertices": 16,
+      "polygons": 10,
+      "triangles": 28,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_plane_locked_v06"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06_s",
+      "role": "socket",
+      "vertices": 144,
+      "polygons": 74,
+      "triangles": 284,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_plane_locked_v06"
+      ]
+    },
+    {
+      "object": "real_sherman_upper_glacis_plane_locked_silhouette_scratch_v.002",
+      "role": "ring",
+      "vertices": 288,
+      "polygons": 288,
+      "triangles": 576,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "uv_layers": [
+        "uv_plane_locked_v06"
+      ]
+    }
+  ],
+  "region_area_report": {
+    "status": "pass",
+    "total_projected_area": 0.651717847895739,
+    "non_ring_projected_area": 0.5374031517377709,
+    "ring_socket_projected_area": 0.1143146961579682,
+    "ring_socket_fraction": 0.17540519494297493,
+    "regions": {
+      "main_glacis": 0.13490920711032486,
+      "left_shoulder": 0.06571502123881476,
+      "right_shoulder": 0.08862385542269824,
+      "front_face": 0.1347596336262236,
+      "deck_transition": 0.09981827332892484,
+      "left_return": 0.005073137842563232,
+      "right_return": 0.008504023168221419,
+      "socket": 0.08563317189045838,
+      "ring": 0.02868152426750982
+    }
+  },
+  "measurement_report": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/measurement_report.json",
+  "feature_cluster_report": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/feature_cluster_report.json",
+  "authored_solids": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/authored_solids.json",
+  "retopo_landmarks": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/retopo_landmarks.json",
+  "depth_parity": {
+    "path": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/depth_error_report.json",
+    "depth_resolution": [
+      180,
+      126
+    ],
+    "shared_pixels": 10294,
+    "source_pixels": 11942,
+    "retopo_pixels": 14241,
+    "silhouette_iou": 0.6478695953175153,
+    "mean_abs_depth_error": 0.20521096259569785,
+    "p50_abs_depth_error": 0.28647947311401367,
+    "p95_abs_depth_error": 0.3762822151184082,
+    "max_abs_depth_error": 0.5279521942138672
+  },
+  "outputs": {
+    "blend": "archive/scratch/20260708-real-sherman-chassis-scratch/source_blends/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06.blend",
+    "glb": "archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06.glb",
+    "source_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/source_depth.png",
+    "retopo_depth": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/retopo_depth.png",
+    "depth_abs_error": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/depth_abs_error.png",
+    "depth_side_by_side": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/depth_side_by_side.png",
+    "source_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/source_shaded_same_angle.png",
+    "retopo_shaded_same_angle": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/retopo_shaded_same_angle.png",
+    "feature_close": "archive/scratch/20260708-real-sherman-chassis-scratch/renders/real_sherman_upper_glacis_plane_locked_silhouette_scratch_v06/feature_close.png"
+  }
+}
