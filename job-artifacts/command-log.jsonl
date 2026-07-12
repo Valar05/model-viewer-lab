@@ -1,0 +1,9 @@
+{"command":"git clone https://github.com/Valar05/model-viewer-lab.git model-viewer-lab","exitCode":128,"summary":"Failed because existing Git LFS object meshy_hull_envelope.glb returned 404 during smudge."}
+{"command":"git lfs install --local --skip-smudge && GIT_LFS_SKIP_SMUDGE=1 git checkout -f main","exitCode":0,"summary":"Recovered checkout with LFS pointers."}
+{"command":"git switch -c agent/portable-ci-pages-upper-glacis","exitCode":0,"summary":"Created branch from main."}
+{"command":"npm run generate:upper-glacis","exitCode":0,"summary":"Generated authored upper-glacis GLB and evidence; topology pass."}
+{"command":"npm install --package-lock-only","exitCode":0,"summary":"Created lockfile for npm ci."}
+{"command":"npm ci && npm run ci","exitCode":0,"summary":"Clean install and full CI passed."}
+{"command":"npm run smoke:local-artifacts","exitCode":0,"summary":"Optional phone-local artifact lane remains available and passed on this worker."}
+{"command":"gh api repos/Valar05/model-viewer-lab/pages","exitCode":1,"summary":"Pages API returned 404 before workflow repair; repo Pages site not currently enabled/configured."}
+{"command":"npm run ci","exitCode":0,"summary":"Final local CI passed after Pages workflow update."}

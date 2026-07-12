@@ -1,5 +1,8 @@
 node_modules/
 dist/
 generated/
+!labs/hard-surface-factory/generated/
+!labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/
+!labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/**
 *.tsbuildinfo
 .DS_Store

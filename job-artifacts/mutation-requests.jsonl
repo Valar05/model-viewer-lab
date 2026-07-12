@@ -1,0 +1,2 @@
+{"type":"repository-setting","status":"code-side-configured","request":"Enable GitHub Pages for Valar05/model-viewer-lab with GitHub Actions as the source if actions/configure-pages enablement:true cannot create the Pages site under repository policy."}
+{"type":"deploy-production","status":"not-run","request":"Do not manually dispatch production Pages deployment from this worker; merge to main or authorized workflow dispatch should run pages.yml."}

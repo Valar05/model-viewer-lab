@@ -1,0 +1,1046 @@
+diff --git a/.gitattributes b/.gitattributes
+index b0bcee4..1cf2c93 100644
+--- a/.gitattributes
++++ b/.gitattributes
+@@ -7,3 +7,4 @@
+ *.png filter=lfs diff=lfs merge=lfs -text
+ *.jpg filter=lfs diff=lfs merge=lfs -text
+ *.jpeg filter=lfs diff=lfs merge=lfs -text
++labs/hard-surface-factory/generated/**/*.glb -filter -diff -merge -text
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index f3ec7dd..8e7f37d 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -13,5 +13,18 @@ jobs:
+       - uses: actions/setup-node@v4
+         with:
+           node-version: '22'
+-      - run: npm install
++          cache: npm
++      - run: npm ci
+       - run: npm run ci
++      - uses: actions/upload-artifact@v4
++        if: always()
++        with:
++          name: model-viewer-lab-pr-evidence
++          path: |
++            dist/model-viewer.html
++            dist/mechanism-viewer.html
++            dist/assets/
++            dist/labs/hard-surface-factory/mechanisms/
++            labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/
++            job-artifacts/verification.json
++            job-artifacts/final-report.md
+diff --git a/.github/workflows/pages.yml b/.github/workflows/pages.yml
+index 51990dc..d5541e8 100644
+--- a/.github/workflows/pages.yml
++++ b/.github/workflows/pages.yml
+@@ -22,9 +22,13 @@ jobs:
+       - uses: actions/setup-node@v4
+         with:
+           node-version: '22'
+-      - run: npm install
++          cache: npm
++      - run: npm ci
++      - run: npm run ci
+       - run: npm run build
+       - uses: actions/configure-pages@v5
++        with:
++          enablement: true
+       - uses: actions/upload-pages-artifact@v3
+         with:
+           path: dist
+diff --git a/.gitignore b/.gitignore
+index d20aae1..677463b 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,5 +1,8 @@
+ node_modules/
+ dist/
+ generated/
++!labs/hard-surface-factory/generated/
++!labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/
++!labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/**
+ *.tsbuildinfo
+ .DS_Store
+diff --git a/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/authored_solids_report.json b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/authored_solids_report.json
+new file mode 100644
+index 0000000..ffbd7b5
+--- /dev/null
++++ b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/authored_solids_report.json
+@@ -0,0 +1,56 @@
++{
++  "id": "real_sherman_upper_glacis_manufactured_v1",
++  "generatedAt": "2026-07-12T03:54:48.080Z",
++  "sourceTrianglesUsedAsFinalAuthoredTopology": false,
++  "solids": [
++    {
++      "name": "primary_armor_mass",
++      "role": "bare primary armor mass",
++      "manufacturingMethod": "single closed trapezoid prism",
++      "vertexCount": 8,
++      "triangleCount": 12,
++      "boundaryEdgeCount": 0,
++      "nonmanifoldEdgeCount": 0,
++      "namedInterfaces": {
++        "frontLowerBoundary": {
++          "edge": "front_lower",
++          "description": "front/lower boundary where the upper glacis meets the lower nose mass"
++        },
++        "leftShoulderReturn": {
++          "edge": "left_outboard",
++          "description": "left shoulder/return plane"
++        },
++        "rightShoulderReturn": {
++          "edge": "right_outboard",
++          "description": "right shoulder/return plane"
++        },
++        "deckTransition": {
++          "edge": "rear_deck",
++          "description": "upper deck transition boundary"
++        },
++        "turretRingSocketBoundary": {
++          "curve": "turret_socket_reference",
++          "description": "non-cut reference socket boundary authored as report metadata; no secondary detail is emitted before primary gate success"
++        }
++      },
++      "faceInterfaceOrder": [
++        "outer_sloped_armor",
++        "outer_sloped_armor",
++        "inner_backing_plane",
++        "inner_backing_plane",
++        "front_lower_boundary",
++        "front_lower_boundary",
++        "deck_transition",
++        "deck_transition",
++        "left_shoulder_return",
++        "left_shoulder_return",
++        "right_shoulder_return",
++        "right_shoulder_return"
++      ]
++    }
++  ],
++  "secondaryDetails": {
++    "status": "not_started",
++    "reason": "Bare primary armor mass gate is the only promoted geometry in this run."
++  }
++}
+\ No newline at end of file
+diff --git a/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/measurement_report.json b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/measurement_report.json
+new file mode 100644
+index 0000000..b403c51
+--- /dev/null
++++ b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/measurement_report.json
+@@ -0,0 +1,36 @@
++{
++  "id": "real_sherman_upper_glacis_manufactured_v1",
++  "units": "meters",
++  "sourcePolicy": {
++    "finalTopology": "authored-from-parameters",
++    "sourceTrianglesUsedAsFinalTopology": false,
++    "measurementInputs": [
++      "labs/hard-surface-factory/docs/research/measurement-driven-reconstruction.md",
++      "labs/hard-surface-factory/history/raw-reports/real_sherman_upper_glacis_shared_interfaces_scratch_v08/measurement_report.json",
++      "labs/hard-surface-factory/history/raw-reports/real_sherman_upper_glacis_shared_interfaces_scratch_v08/shared_interface_report.json",
++      "labs/hard-surface-factory/history/raw-reports/real_sherman_upper_glacis_silhouette_edges_scratch_v07/silhouette_edge_report.json"
++    ]
++  },
++  "measuredReferenceFeatures": {
++    "frontLowerWidth": 3.25,
++    "deckTransitionWidth": 2.35,
++    "frontLowerZ": -1.4,
++    "deckTransitionZ": 1.25,
++    "frontLowerY": 0.55,
++    "deckTransitionY": 1.25,
++    "armorThickness": 0.22,
++    "turretSocketRadius": 0.72,
++    "turretSocketCenter": [
++      0,
++      1.16,
++      0.67
++    ],
++    "shoulderReturnInset": 0.45
++  },
++  "derived": {
++    "slopeRise": 0.7,
++    "slopeRun": 2.65,
++    "slopeAngleDeg": 14.797,
++    "shoulderWidthDelta": 0.9
++  }
++}
+\ No newline at end of file
+diff --git a/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/model_manifest.json b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/model_manifest.json
+new file mode 100644
+index 0000000..c0497d4
+--- /dev/null
++++ b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/model_manifest.json
+@@ -0,0 +1,14 @@
++{
++  "id": "real_sherman_upper_glacis_manufactured_v1",
++  "type": "authored-manufactured-upper-glacis",
++  "glb": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/real_sherman_upper_glacis_manufactured_v1.glb",
++  "parameters": "labs/hard-surface-factory/parameters/upper-glacis-manufactured-v1.json",
++  "reports": {
++    "measurement": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/measurement_report.json",
++    "authoredSolids": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/authored_solids_report.json",
++    "topology": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/topology_report.json",
++    "silhouetteDepth": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/silhouette_depth_report.json",
++    "provenance": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/provenance_note.md"
++  },
++  "reviewState": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/review-state.json"
++}
+\ No newline at end of file
+diff --git a/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/provenance_note.md b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/provenance_note.md
+new file mode 100644
+index 0000000..6511be8
+--- /dev/null
++++ b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/provenance_note.md
+@@ -0,0 +1,9 @@
++# real_sherman_upper_glacis_manufactured_v1 Provenance
++
++- Asset class: source-authored generated GLB.
++- Generator: labs/hard-surface-factory/tools/generators/generate_upper_glacis_manufactured_v1.mjs.
++- Parameters: labs/hard-surface-factory/parameters/upper-glacis-manufactured-v1.json.
++- Final topology policy: source triangles are not used as final authored topology.
++- Measurement inputs: committed reports and lab research listed in the parameter file.
++- Target use: cloud-readable Model Viewer review and CI-verifiable manufactured-solid evidence, not a production tank asset.
++- Failed setup preserved: initial normal clone attempted to smudge historical LFS source GLBs and hit a GitHub LFS 404 for meshy_hull_envelope.glb; this run proceeded from committed pointers and authored fresh topology instead.
+diff --git a/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/real_sherman_upper_glacis_manufactured_v1.glb b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/real_sherman_upper_glacis_manufactured_v1.glb
+new file mode 100644
+index 0000000000000000000000000000000000000000..9960c9cc5bbcb83fa3ae9fbe92f7bdf51383c34e
+GIT binary patch
+literal 1976
+zcmb_cO-vI(82uFd$NwMv7e|jv({|SaO=N>aA_k}d!iA8{bURx%Y<KJI6s%1zc=u#X
+z^yHC)i3cy9Xd>~Z#+xT&ym>Zy<KQ>jEsO%jpqp&-_S^S;@4cDX7QM-#odED^55V^}
+zfZG$fu^ORa$OOsO$UNhr8~7wk(upL|NRj!BQxR~il!5~Dy60WCz<9Su^Ies48Bx)r
+zwi|Yps9$lYEh?N9y5>`)u948jZjw#LC?whG8u4+8M9G=@jJEcKby`9$DRZ|(dDWu4
+z6mYAA#w^SA1>-oIg_gquUszs%7A%iB!s2dmR#*jQ&siwVnXtmZp2IL2DY0-C)uoJt
+zk?J3GutSQw!kv$)R0!_oD?&cj$erB8@Z@lAEDAK18y_7QA=wnhbp3*h-bgl$LKLmK
+z)QfZ@<+u=sZ-(T7=dpri(@?}gZI4!^fjl2&f_k27j|Y|Ftk1$oJ5NJ47<d66!WEXA
+zF`Y~p87-N(hPRQ{Qc=ccV~c{z&Ra9qYKflSy0n$AI1X-gv?KYdU?a>g3S6x|J+uCL
+z3b#6@MD!@RWak_wIxi@pHXAywfS|l6&ysHRWzu!67E5jDjmX>X?#&p#YWMsmt;-nH
+z#(fEcR?aAd3>BHNgHk#0nJ*@*WjuM;Qt6CF?4aUH^9V&$CQ~;Db$OUv{3xcoQ;AGk
+zuDPx!f4O=zd}SC$pK|reO`-R&t=W}IV5|I@Sznf>o0Js(dpEzgWAu&f`etD!1_wq4
+z#z}pqzJ%ZYjo~r;C-~5K_qM~-^_LCAW(zycV-w(6e6MrVI%4c;a&CQjYp(oQ>R<Ws
+zs)4xC!k?}_YV7~`z`T3?si|_*I$~4dto5pV)tfqBt*cp7Z>nciOXa9_)!SAxx8kVv
+zt$eDvR9!WTT37w!hQW))g~qeji~aurn>c4Vp0jQI+!$Sc^8P-a6@Y)l{Wu5DR5WK>
+z_)~Y)eAxc&`q!S}<*o3Q&kLrz+S&hRb#(a;xS?=1#W=sAXl;rCcEC<(gLc>jyI~LP
+wg?+Fe4nPMSghOx`j=)hk2FKw9oP<-*38&!<oP~369xlK|xCC8r83<f~pGnWjB>(^b
+
+literal 0
+HcmV?d00001
+
+diff --git a/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-front.svg b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-front.svg
+new file mode 100644
+index 0000000..c4a513e
+--- /dev/null
++++ b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-front.svg
+@@ -0,0 +1,17 @@
++<svg xmlns="http://www.w3.org/2000/svg" width="840" height="540" viewBox="0 0 840 540">
++<rect width="840" height="540" fill="#f7f7f2"/>
++<text x="24" y="34" font-family="monospace" font-size="18">real_sherman_upper_glacis_manufactured_v1 front</text>
++<text x="24" y="60" font-family="monospace" font-size="13">silhouette width 3.250m depth span 2.695m</text>
++<polygon points="60,412.83977117118195 780,412.83977117118195 680.3076923076923,330.4654471065036" fill="rgb(48,60,48)" stroke="#111" stroke-width="1"/>
++<polygon points="60,412.83977117118195 680.3076923076923,330.4654471065036 159.69230769230768,330.4654471065036" fill="rgb(58,70,58)" stroke="#111" stroke-width="1"/>
++<polygon points="774.6,460 65.4,460 163.59692307692308,377.62567593532157" fill="rgb(68,80,68)" stroke="#111" stroke-width="1"/>
++<polygon points="774.6,460 163.59692307692308,377.62567593532157 676.4030769230769,377.62567593532157" fill="rgb(78,90,78)" stroke="#111" stroke-width="1"/>
++<polygon points="65.4,460 774.6,460 780,412.83977117118195" fill="rgb(88,100,88)" stroke="#111" stroke-width="1"/>
++<polygon points="65.4,460 780,412.83977117118195 60,412.83977117118195" fill="rgb(98,110,98)" stroke="#111" stroke-width="1"/>
++<polygon points="159.69230769230768,330.4654471065036 680.3076923076923,330.4654471065036 676.4030769230769,377.62567593532157" fill="rgb(108,120,108)" stroke="#111" stroke-width="1"/>
++<polygon points="159.69230769230768,330.4654471065036 676.4030769230769,377.62567593532157 163.59692307692308,377.62567593532157" fill="rgb(118,130,118)" stroke="#111" stroke-width="1"/>
++<polygon points="60,412.83977117118195 159.69230769230768,330.4654471065036 163.59692307692308,377.62567593532157" fill="rgb(128,140,128)" stroke="#111" stroke-width="1"/>
++<polygon points="60,412.83977117118195 163.59692307692308,377.62567593532157 65.4,460" fill="rgb(138,150,138)" stroke="#111" stroke-width="1"/>
++<polygon points="780,412.83977117118195 774.6,460 676.4030769230769,377.62567593532157" fill="rgb(148,160,148)" stroke="#111" stroke-width="1"/>
++<polygon points="780,412.83977117118195 676.4030769230769,377.62567593532157 680.3076923076923,330.4654471065036" fill="rgb(158,170,158)" stroke="#111" stroke-width="1"/>
++</svg>
+diff --git a/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-left_front_oblique.svg b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-left_front_oblique.svg
+new file mode 100644
+index 0000000..00e8bbd
+--- /dev/null
++++ b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-left_front_oblique.svg
+@@ -0,0 +1,17 @@
++<svg xmlns="http://www.w3.org/2000/svg" width="840" height="540" viewBox="0 0 840 540">
++<rect width="840" height="540" fill="#f7f7f2"/>
++<text x="24" y="34" font-family="monospace" font-size="18">real_sherman_upper_glacis_manufactured_v1 left_front_oblique</text>
++<text x="24" y="60" font-family="monospace" font-size="13">silhouette width 3.819m depth span 3.800m</text>
++<polygon points="61.101666741826435,423.519531245654 562.9585032069676,314.9297418968942 780,330.9191028080563" fill="rgb(48,60,48)" stroke="#111" stroke-width="1"/>
++<polygon points="61.101666741826435,423.519531245654 780,330.9191028080563 417.11890286366713,409.43787356792876" fill="rgb(58,70,58)" stroke="#111" stroke-width="1"/>
++<polygon points="554.3289839181641,353.03905749147157 60,460 414.97491807687464,446.14387496169144" fill="rgb(68,80,68)" stroke="#111" stroke-width="1"/>
++<polygon points="554.3289839181641,353.03905749147157 414.97491807687464,446.14387496169144 772.4127987561626,368.80288576321703" fill="rgb(78,90,78)" stroke="#111" stroke-width="1"/>
++<polygon points="60,460 554.3289839181641,353.03905749147157 562.9585032069676,314.9297418968942" fill="rgb(88,100,88)" stroke="#111" stroke-width="1"/>
++<polygon points="60,460 562.9585032069676,314.9297418968942 61.101666741826435,423.519531245654" fill="rgb(98,110,98)" stroke="#111" stroke-width="1"/>
++<polygon points="417.11890286366713,409.43787356792876 780,330.9191028080563 772.4127987561626,368.80288576321703" fill="rgb(108,120,108)" stroke="#111" stroke-width="1"/>
++<polygon points="417.11890286366713,409.43787356792876 772.4127987561626,368.80288576321703 414.97491807687464,446.14387496169144" fill="rgb(118,130,118)" stroke="#111" stroke-width="1"/>
++<polygon points="61.101666741826435,423.519531245654 417.11890286366713,409.43787356792876 414.97491807687464,446.14387496169144" fill="rgb(128,140,128)" stroke="#111" stroke-width="1"/>
++<polygon points="61.101666741826435,423.519531245654 414.97491807687464,446.14387496169144 60,460" fill="rgb(138,150,138)" stroke="#111" stroke-width="1"/>
++<polygon points="562.9585032069676,314.9297418968942 554.3289839181641,353.03905749147157 772.4127987561626,368.80288576321703" fill="rgb(148,160,148)" stroke="#111" stroke-width="1"/>
++<polygon points="562.9585032069676,314.9297418968942 772.4127987561626,368.80288576321703 780,330.9191028080563" fill="rgb(158,170,158)" stroke="#111" stroke-width="1"/>
++</svg>
+diff --git a/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-right_front_oblique.svg b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-right_front_oblique.svg
+new file mode 100644
+index 0000000..fe9d3f9
+--- /dev/null
++++ b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-right_front_oblique.svg
+@@ -0,0 +1,17 @@
++<svg xmlns="http://www.w3.org/2000/svg" width="840" height="540" viewBox="0 0 840 540">
++<rect width="840" height="540" fill="#f7f7f2"/>
++<text x="24" y="34" font-family="monospace" font-size="18">real_sherman_upper_glacis_manufactured_v1 right_front_oblique</text>
++<text x="24" y="60" font-family="monospace" font-size="13">silhouette width 3.819m depth span 3.800m</text>
++<polygon points="277.0414967930324,314.9297418968942 778.8983332581736,423.519531245654 422.8810971363329,409.43787356792876" fill="rgb(48,60,48)" stroke="#111" stroke-width="1"/>
++<polygon points="277.0414967930324,314.9297418968942 422.8810971363329,409.43787356792876 60,330.9191028080563" fill="rgb(58,70,58)" stroke="#111" stroke-width="1"/>
++<polygon points="780,460 285.671016081836,353.03905749147157 67.58720124383746,368.80288576321703" fill="rgb(68,80,68)" stroke="#111" stroke-width="1"/>
++<polygon points="780,460 67.58720124383746,368.80288576321703 425.0250819231254,446.14387496169144" fill="rgb(78,90,78)" stroke="#111" stroke-width="1"/>
++<polygon points="285.671016081836,353.03905749147157 780,460 778.8983332581736,423.519531245654" fill="rgb(88,100,88)" stroke="#111" stroke-width="1"/>
++<polygon points="285.671016081836,353.03905749147157 778.8983332581736,423.519531245654 277.0414967930324,314.9297418968942" fill="rgb(98,110,98)" stroke="#111" stroke-width="1"/>
++<polygon points="60,330.9191028080563 422.8810971363329,409.43787356792876 425.0250819231254,446.14387496169144" fill="rgb(108,120,108)" stroke="#111" stroke-width="1"/>
++<polygon points="60,330.9191028080563 425.0250819231254,446.14387496169144 67.58720124383746,368.80288576321703" fill="rgb(118,130,118)" stroke="#111" stroke-width="1"/>
++<polygon points="277.0414967930324,314.9297418968942 60,330.9191028080563 67.58720124383746,368.80288576321703" fill="rgb(128,140,128)" stroke="#111" stroke-width="1"/>
++<polygon points="277.0414967930324,314.9297418968942 67.58720124383746,368.80288576321703 285.671016081836,353.03905749147157" fill="rgb(138,150,138)" stroke="#111" stroke-width="1"/>
++<polygon points="778.8983332581736,423.519531245654 780,460 425.0250819231254,446.14387496169144" fill="rgb(148,160,148)" stroke="#111" stroke-width="1"/>
++<polygon points="778.8983332581736,423.519531245654 425.0250819231254,446.14387496169144 422.8810971363329,409.43787356792876" fill="rgb(158,170,158)" stroke="#111" stroke-width="1"/>
++</svg>
+diff --git a/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-top.svg b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-top.svg
+new file mode 100644
+index 0000000..ffa7794
+--- /dev/null
++++ b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-top.svg
+@@ -0,0 +1,17 @@
++<svg xmlns="http://www.w3.org/2000/svg" width="840" height="540" viewBox="0 0 840 540">
++<rect width="840" height="540" fill="#f7f7f2"/>
++<text x="24" y="34" font-family="monospace" font-size="18">real_sherman_upper_glacis_manufactured_v1 top</text>
++<text x="24" y="60" font-family="monospace" font-size="13">silhouette width 3.250m depth span 2.695m</text>
++<polygon points="60,47.01298701298697 566.4935064935066,47.01298701298697 496.3636363636364,460" fill="rgb(48,60,48)" stroke="#111" stroke-width="1"/>
++<polygon points="60,47.01298701298697 496.3636363636364,460 130.12987012987014,460" fill="rgb(58,70,58)" stroke="#111" stroke-width="1"/>
++<polygon points="562.6948051948052,39.99999999999994 63.7987012987013,39.99999999999994 132.8766233766234,452.987012987013" fill="rgb(68,80,68)" stroke="#111" stroke-width="1"/>
++<polygon points="562.6948051948052,39.99999999999994 132.8766233766234,452.987012987013 493.6168831168832,452.987012987013" fill="rgb(78,90,78)" stroke="#111" stroke-width="1"/>
++<polygon points="63.7987012987013,39.99999999999994 562.6948051948052,39.99999999999994 566.4935064935066,47.01298701298697" fill="rgb(88,100,88)" stroke="#111" stroke-width="1"/>
++<polygon points="63.7987012987013,39.99999999999994 566.4935064935066,47.01298701298697 60,47.01298701298697" fill="rgb(98,110,98)" stroke="#111" stroke-width="1"/>
++<polygon points="130.12987012987014,460 496.3636363636364,460 493.6168831168832,452.987012987013" fill="rgb(108,120,108)" stroke="#111" stroke-width="1"/>
++<polygon points="130.12987012987014,460 493.6168831168832,452.987012987013 132.8766233766234,452.987012987013" fill="rgb(118,130,118)" stroke="#111" stroke-width="1"/>
++<polygon points="60,47.01298701298697 130.12987012987014,460 132.8766233766234,452.987012987013" fill="rgb(128,140,128)" stroke="#111" stroke-width="1"/>
++<polygon points="60,47.01298701298697 132.8766233766234,452.987012987013 63.7987012987013,39.99999999999994" fill="rgb(138,150,138)" stroke="#111" stroke-width="1"/>
++<polygon points="566.4935064935066,47.01298701298697 562.6948051948052,39.99999999999994 493.6168831168832,452.987012987013" fill="rgb(148,160,148)" stroke="#111" stroke-width="1"/>
++<polygon points="566.4935064935066,47.01298701298697 493.6168831168832,452.987012987013 496.3636363636364,460" fill="rgb(158,170,158)" stroke="#111" stroke-width="1"/>
++</svg>
+diff --git a/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/review-state.json b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/review-state.json
+new file mode 100644
+index 0000000..dd103de
+--- /dev/null
++++ b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/review-state.json
+@@ -0,0 +1,48 @@
++{
++  "version": 2,
++  "src": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/agent/portable-ci-pages-upper-glacis/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/real_sherman_upper_glacis_manufactured_v1.glb",
++  "manifest": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/agent/portable-ci-pages-upper-glacis/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/model_manifest.json",
++  "title": "real_sherman_upper_glacis_manufactured_v1",
++  "camera": {
++    "position": [
++      0,
++      1.5,
++      4.8
++    ],
++    "target": [
++      0,
++      0.8,
++      0
++    ],
++    "fov": 38
++  },
++  "display": {
++    "clay": true,
++    "wire": false,
++    "grid": true,
++    "boxes": false
++  },
++  "selectedPartId": "primary_armor_mass",
++  "parts": [
++    {
++      "id": "primary_armor_mass",
++      "label": "primary_armor_mass",
++      "visible": true,
++      "position": [
++        0,
++        0,
++        0
++      ],
++      "rotationDeg": [
++        0,
++        0,
++        0
++      ],
++      "scale": [
++        1,
++        1,
++        1
++      ]
++    }
++  ]
++}
+\ No newline at end of file
+diff --git a/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/silhouette_depth_report.json b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/silhouette_depth_report.json
+new file mode 100644
+index 0000000..49fa3fa
+--- /dev/null
++++ b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/silhouette_depth_report.json
+@@ -0,0 +1,68 @@
++{
++  "id": "real_sherman_upper_glacis_manufactured_v1",
++  "gate": "pass",
++  "fixedAngles": [
++    {
++      "id": "front",
++      "azimuthDeg": 0,
++      "elevationDeg": 7,
++      "silhouetteWidth": 3.25,
++      "silhouetteHeight": 0.5847,
++      "depthSpan": 2.695,
++      "render": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-front.svg"
++    },
++    {
++      "id": "left_front_oblique",
++      "azimuthDeg": -35,
++      "elevationDeg": 18,
++      "silhouetteWidth": 3.8194,
++      "silhouetteHeight": 0.7696,
++      "depthSpan": 3.7996,
++      "render": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-left_front_oblique.svg"
++    },
++    {
++      "id": "right_front_oblique",
++      "azimuthDeg": 35,
++      "elevationDeg": 18,
++      "silhouetteWidth": 3.8194,
++      "silhouetteHeight": 0.7696,
++      "depthSpan": 3.7996,
++      "render": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-right_front_oblique.svg"
++    },
++    {
++      "id": "top",
++      "azimuthDeg": 0,
++      "elevationDeg": 90,
++      "silhouetteWidth": 3.25,
++      "silhouetteHeight": 2.695,
++      "depthSpan": 2.695,
++      "render": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-top.svg"
++    }
++  ],
++  "declaredThresholds": {
++    "fixedAngles": [
++      {
++        "id": "front",
++        "azimuthDeg": 0,
++        "elevationDeg": 7
++      },
++      {
++        "id": "left_front_oblique",
++        "azimuthDeg": -35,
++        "elevationDeg": 18
++      },
++      {
++        "id": "right_front_oblique",
++        "azimuthDeg": 35,
++        "elevationDeg": 18
++      },
++      {
++        "id": "top",
++        "azimuthDeg": 0,
++        "elevationDeg": 90
++      }
++    ],
++    "maximumSilhouetteWidthDelta": 0.08,
++    "maximumDepthDelta": 0.1
++  }
++}
+\ No newline at end of file
+diff --git a/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/topology_report.json b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/topology_report.json
+new file mode 100644
+index 0000000..85d5f00
+--- /dev/null
++++ b/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/topology_report.json
+@@ -0,0 +1,11 @@
++{
++  "mesh": "real_sherman_upper_glacis_manufactured_v1",
++  "vertexCount": 8,
++  "triangleCount": 12,
++  "uniqueEdgeCount": 18,
++  "boundaryEdgeCount": 0,
++  "nonmanifoldEdgeCount": 0,
++  "boundaryEdges": [],
++  "nonmanifoldEdges": [],
++  "gate": "pass"
++}
+\ No newline at end of file
+diff --git a/labs/hard-surface-factory/parameters/upper-glacis-manufactured-v1.json b/labs/hard-surface-factory/parameters/upper-glacis-manufactured-v1.json
+new file mode 100644
+index 0000000..eea3373
+--- /dev/null
++++ b/labs/hard-surface-factory/parameters/upper-glacis-manufactured-v1.json
+@@ -0,0 +1,64 @@
++{
++  "id": "real_sherman_upper_glacis_manufactured_v1",
++  "units": "meters",
++  "sourcePolicy": {
++    "finalTopology": "authored-from-parameters",
++    "sourceTrianglesUsedAsFinalTopology": false,
++    "measurementInputs": [
++      "labs/hard-surface-factory/docs/research/measurement-driven-reconstruction.md",
++      "labs/hard-surface-factory/history/raw-reports/real_sherman_upper_glacis_shared_interfaces_scratch_v08/measurement_report.json",
++      "labs/hard-surface-factory/history/raw-reports/real_sherman_upper_glacis_shared_interfaces_scratch_v08/shared_interface_report.json",
++      "labs/hard-surface-factory/history/raw-reports/real_sherman_upper_glacis_silhouette_edges_scratch_v07/silhouette_edge_report.json"
++    ]
++  },
++  "measuredReferenceFeatures": {
++    "frontLowerWidth": 3.25,
++    "deckTransitionWidth": 2.35,
++    "frontLowerZ": -1.4,
++    "deckTransitionZ": 1.25,
++    "frontLowerY": 0.55,
++    "deckTransitionY": 1.25,
++    "armorThickness": 0.22,
++    "turretSocketRadius": 0.72,
++    "turretSocketCenter": [0, 1.16, 0.67],
++    "shoulderReturnInset": 0.45
++  },
++  "manufacturingParameters": {
++    "plateStyle": "single closed trapezoid prism",
++    "bevelAllowance": 0.035,
++    "weldLandWidth": 0.055,
++    "minimumFeatureGap": 0.09
++  },
++  "namedInterfaces": {
++    "frontLowerBoundary": {
++      "edge": "front_lower",
++      "description": "front/lower boundary where the upper glacis meets the lower nose mass"
++    },
++    "leftShoulderReturn": {
++      "edge": "left_outboard",
++      "description": "left shoulder/return plane"
++    },
++    "rightShoulderReturn": {
++      "edge": "right_outboard",
++      "description": "right shoulder/return plane"
++    },
++    "deckTransition": {
++      "edge": "rear_deck",
++      "description": "upper deck transition boundary"
++    },
++    "turretRingSocketBoundary": {
++      "curve": "turret_socket_reference",
++      "description": "non-cut reference socket boundary authored as report metadata; no secondary detail is emitted before primary gate success"
++    }
++  },
++  "visualGates": {
++    "fixedAngles": [
++      { "id": "front", "azimuthDeg": 0, "elevationDeg": 7 },
++      { "id": "left_front_oblique", "azimuthDeg": -35, "elevationDeg": 18 },
++      { "id": "right_front_oblique", "azimuthDeg": 35, "elevationDeg": 18 },
++      { "id": "top", "azimuthDeg": 0, "elevationDeg": 90 }
++    ],
++    "maximumSilhouetteWidthDelta": 0.08,
++    "maximumDepthDelta": 0.1
++  }
++}
+diff --git a/labs/hard-surface-factory/scripts/validate_factory_inventory.mjs b/labs/hard-surface-factory/scripts/validate_factory_inventory.mjs
+index f895e6d..201a8e3 100644
+--- a/labs/hard-surface-factory/scripts/validate_factory_inventory.mjs
++++ b/labs/hard-surface-factory/scripts/validate_factory_inventory.mjs
+@@ -49,10 +49,17 @@ const rels = files.map((file) => path.relative(labRoot, file).split(path.sep).jo
+ const exporters = rels.filter((rel) => rel.startsWith('tools/exporters/') && rel.endsWith('.py'));
+ const reports = rels.filter((rel) => rel.startsWith('history/raw-reports/') && rel.endsWith('.json'));
+ const glbs = rels.filter((rel) => rel.endsWith('.glb'));
++const sourceGlbs = glbs.filter((rel) => rel.startsWith('source-assets/'));
++const generatedGlbs = glbs.filter((rel) => rel.startsWith('generated/'));
+
+ if (exporters.length < 40) fail(`expected at least 40 archived exporter scripts, found ${exporters.length}`);
+ if (reports.length < 100) fail(`expected at least 100 raw JSON reports, found ${reports.length}`);
+-if (glbs.length !== 6) fail(`expected exactly 6 source/reference GLBs, found ${glbs.length}`);
++if (sourceGlbs.length !== 6) fail(`expected exactly 6 source/reference GLBs, found ${sourceGlbs.length}`);
++for (const rel of generatedGlbs) {
++  if (!rel.startsWith('generated/upper-glacis-manufactured-v1/')) {
++    fail(`unexpected generated GLB outside manufactured upper-glacis evidence: ${rel}`);
++  }
++}
+
+ for (const rel of rels) {
+   for (const fragment of bannedPathFragments) {
+@@ -81,5 +88,5 @@ for (const rel of stateFiles) {
+ }
+
+ if (!process.exitCode) {
+-  console.log(`[hard-surface-factory] ok: ${exporters.length} exporters, ${reports.length} reports, ${glbs.length} source/reference GLBs, ${stateFiles.length} review states`);
++  console.log(`[hard-surface-factory] ok: ${exporters.length} exporters, ${reports.length} reports, ${sourceGlbs.length} source/reference GLBs, ${generatedGlbs.length} generated evidence GLBs, ${stateFiles.length} review states`);
+ }
+diff --git a/labs/hard-surface-factory/tools/generators/generate_upper_glacis_manufactured_v1.mjs b/labs/hard-surface-factory/tools/generators/generate_upper_glacis_manufactured_v1.mjs
+new file mode 100644
+index 0000000..1d46b7e
+--- /dev/null
++++ b/labs/hard-surface-factory/tools/generators/generate_upper_glacis_manufactured_v1.mjs
+@@ -0,0 +1,285 @@
++#!/usr/bin/env node
++import fs from 'node:fs';
++import path from 'node:path';
++import { execFileSync } from 'node:child_process';
++
++const root = process.cwd();
++const paramRel = 'labs/hard-surface-factory/parameters/upper-glacis-manufactured-v1.json';
++const outRel = 'labs/hard-surface-factory/generated/upper-glacis-manufactured-v1';
++const params = JSON.parse(fs.readFileSync(path.join(root, paramRel), 'utf8'));
++const outDir = path.join(root, outRel);
++const reviewBranch = process.env.MODEL_VIEWER_REVIEW_BRANCH || execFileSync('git', ['branch', '--show-current'], { cwd: root, encoding: 'utf8' }).trim() || 'main';
++fs.mkdirSync(outDir, { recursive: true });
++
++const m = params.measuredReferenceFeatures;
++const top = [
++  [-m.frontLowerWidth / 2, m.frontLowerY, m.frontLowerZ],
++  [m.frontLowerWidth / 2, m.frontLowerY, m.frontLowerZ],
++  [m.deckTransitionWidth / 2, m.deckTransitionY, m.deckTransitionZ],
++  [-m.deckTransitionWidth / 2, m.deckTransitionY, m.deckTransitionZ]
++];
++const underside = top.map(([x, y, z]) => [x * 0.985, y - m.armorThickness, z - 0.045]);
++const vertices = [...top, ...underside];
++const faces = [
++  [0, 1, 2], [0, 2, 3],
++  [5, 4, 7], [5, 7, 6],
++  [4, 5, 1], [4, 1, 0],
++  [3, 2, 6], [3, 6, 7],
++  [0, 3, 7], [0, 7, 4],
++  [1, 5, 6], [1, 6, 2]
++];
++const faceInterfaces = [
++  'outer_sloped_armor', 'outer_sloped_armor',
++  'inner_backing_plane', 'inner_backing_plane',
++  'front_lower_boundary', 'front_lower_boundary',
++  'deck_transition', 'deck_transition',
++  'left_shoulder_return', 'left_shoulder_return',
++  'right_shoulder_return', 'right_shoulder_return'
++];
++
++function edgeKey(a, b) {
++  return a < b ? `${a}:${b}` : `${b}:${a}`;
++}
++function topologyReport() {
++  const edges = new Map();
++  for (const face of faces) {
++    for (const [a, b] of [[face[0], face[1]], [face[1], face[2]], [face[2], face[0]]]) {
++      const key = edgeKey(a, b);
++      edges.set(key, (edges.get(key) || 0) + 1);
++    }
++  }
++  const boundaryEdges = [...edges.entries()].filter(([, count]) => count === 1).map(([edge]) => edge);
++  const nonmanifoldEdges = [...edges.entries()].filter(([, count]) => count !== 2).map(([edge, count]) => ({ edge, count }));
++  return {
++    mesh: params.id,
++    vertexCount: vertices.length,
++    triangleCount: faces.length,
++    uniqueEdgeCount: edges.size,
++    boundaryEdgeCount: boundaryEdges.length,
++    nonmanifoldEdgeCount: nonmanifoldEdges.length,
++    boundaryEdges,
++    nonmanifoldEdges,
++    gate: boundaryEdges.length === 0 && nonmanifoldEdges.length === 0 ? 'pass' : 'fail'
++  };
++}
++
++function normal(face) {
++  const a = vertices[face[0]], b = vertices[face[1]], c = vertices[face[2]];
++  const u = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
++  const v = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
++  const n = [
++    u[1] * v[2] - u[2] * v[1],
++    u[2] * v[0] - u[0] * v[2],
++    u[0] * v[1] - u[1] * v[0]
++  ];
++  const len = Math.hypot(...n) || 1;
++  return n.map((value) => value / len);
++}
++
++function writeGlb(file) {
++  const positions = [];
++  const normals = [];
++  const indices = [];
++  for (const face of faces) {
++    const n = normal(face);
++    for (const vi of face) {
++      positions.push(...vertices[vi]);
++      normals.push(...n);
++      indices.push(indices.length);
++    }
++  }
++  const positionBuffer = Buffer.alloc(positions.length * 4);
++  positions.forEach((value, index) => positionBuffer.writeFloatLE(value, index * 4));
++  const normalBuffer = Buffer.alloc(normals.length * 4);
++  normals.forEach((value, index) => normalBuffer.writeFloatLE(value, index * 4));
++  const indexBuffer = Buffer.alloc(indices.length * 2);
++  indices.forEach((value, index) => indexBuffer.writeUInt16LE(value, index * 2));
++  const chunks = [positionBuffer, normalBuffer, indexBuffer];
++  let offset = 0;
++  const views = chunks.map((buffer) => {
++    const view = { buffer: 0, byteOffset: offset, byteLength: buffer.length };
++    offset += buffer.length;
++    while (offset % 4) offset++;
++    return view;
++  });
++  const bin = Buffer.alloc(offset);
++  offset = 0;
++  for (const buffer of chunks) {
++    buffer.copy(bin, offset);
++    offset += buffer.length;
++    while (offset % 4) offset++;
++  }
++  const xs = vertices.map((v) => v[0]), ys = vertices.map((v) => v[1]), zs = vertices.map((v) => v[2]);
++  const json = {
++    asset: { version: '2.0', generator: 'model-viewer-lab upper-glacis manufactured v1' },
++    scene: 0,
++    scenes: [{ nodes: [0] }],
++    nodes: [{ name: 'primary_armor_mass__interfaces_front_lower_left_right_deck_turret_socket', mesh: 0 }],
++    meshes: [{
++      name: 'primary_armor_mass',
++      primitives: [{ attributes: { POSITION: 0, NORMAL: 1 }, indices: 2, material: 0 }]
++    }],
++    materials: [{ name: 'rolled_cast_armor_clay', pbrMetallicRoughness: { baseColorFactor: [0.46, 0.5, 0.42, 1], metallicFactor: 0, roughnessFactor: 0.78 } }],
++    buffers: [{ byteLength: bin.length }],
++    bufferViews: [
++      { ...views[0], target: 34962 },
++      { ...views[1], target: 34962 },
++      { ...views[2], target: 34963 }
++    ],
++    accessors: [
++      { bufferView: 0, componentType: 5126, count: positions.length / 3, type: 'VEC3', min: [Math.min(...xs), Math.min(...ys), Math.min(...zs)], max: [Math.max(...xs), Math.max(...ys), Math.max(...zs)] },
++      { bufferView: 1, componentType: 5126, count: normals.length / 3, type: 'VEC3' },
++      { bufferView: 2, componentType: 5123, count: indices.length, type: 'SCALAR' }
++    ]
++  };
++  let jsonChunk = Buffer.from(JSON.stringify(json), 'utf8');
++  while (jsonChunk.length % 4) jsonChunk = Buffer.concat([jsonChunk, Buffer.from(' ')]);
++  const total = 12 + 8 + jsonChunk.length + 8 + bin.length;
++  const glb = Buffer.alloc(total);
++  let cursor = 0;
++  glb.writeUInt32LE(0x46546c67, cursor); cursor += 4;
++  glb.writeUInt32LE(2, cursor); cursor += 4;
++  glb.writeUInt32LE(total, cursor); cursor += 4;
++  glb.writeUInt32LE(jsonChunk.length, cursor); cursor += 4;
++  glb.writeUInt32LE(0x4e4f534a, cursor); cursor += 4;
++  jsonChunk.copy(glb, cursor); cursor += jsonChunk.length;
++  glb.writeUInt32LE(bin.length, cursor); cursor += 4;
++  glb.writeUInt32LE(0x004e4942, cursor); cursor += 4;
++  bin.copy(glb, cursor);
++  fs.writeFileSync(file, glb);
++}
++
++function project(v, angle) {
++  const az = angle.azimuthDeg * Math.PI / 180;
++  const el = angle.elevationDeg * Math.PI / 180;
++  const x = v[0] * Math.cos(az) - v[2] * Math.sin(az);
++  const depth = v[0] * Math.sin(az) + v[2] * Math.cos(az);
++  const y = v[1] * Math.cos(el) - depth * Math.sin(el);
++  return [x, y, depth];
++}
++
++function writeSvg(angle) {
++  const points = vertices.map((v) => project(v, angle));
++  const xs = points.map((p) => p[0]), ys = points.map((p) => p[1]), ds = points.map((p) => p[2]);
++  const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
++  const scale = Math.min(720 / (maxX - minX || 1), 420 / (maxY - minY || 1));
++  const xy = (p) => `${60 + (p[0] - minX) * scale},${460 - (p[1] - minY) * scale}`;
++  const polygons = faces.map((face, index) => {
++    const shade = 48 + Math.round((index / faces.length) * 120);
++    return `<polygon points="${face.map((vi) => xy(points[vi])).join(' ')}" fill="rgb(${shade},${shade + 12},${shade})" stroke="#111" stroke-width="1"/>`;
++  }).join('\n');
++  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="840" height="540" viewBox="0 0 840 540">
++<rect width="840" height="540" fill="#f7f7f2"/>
++<text x="24" y="34" font-family="monospace" font-size="18">${params.id} ${angle.id}</text>
++<text x="24" y="60" font-family="monospace" font-size="13">silhouette width ${(maxX - minX).toFixed(3)}m depth span ${(Math.max(...ds) - Math.min(...ds)).toFixed(3)}m</text>
++${polygons}
++</svg>
++`;
++  fs.writeFileSync(path.join(outDir, `render-${angle.id}.svg`), svg);
++  return {
++    id: angle.id,
++    azimuthDeg: angle.azimuthDeg,
++    elevationDeg: angle.elevationDeg,
++    silhouetteWidth: Number((maxX - minX).toFixed(4)),
++    silhouetteHeight: Number((maxY - minY).toFixed(4)),
++    depthSpan: Number((Math.max(...ds) - Math.min(...ds)).toFixed(4)),
++    render: `${outRel}/render-${angle.id}.svg`
++  };
++}
++
++const topology = topologyReport();
++if (topology.gate !== 'pass') {
++  fs.writeFileSync(path.join(outDir, 'topology_report.json'), JSON.stringify(topology, null, 2));
++  throw new Error('primary armor mass topology gate failed');
++}
++
++const glbName = `${params.id}.glb`;
++writeGlb(path.join(outDir, glbName));
++const visual = params.visualGates.fixedAngles.map(writeSvg);
++const authored = {
++  id: params.id,
++  generatedAt: new Date().toISOString(),
++  sourceTrianglesUsedAsFinalAuthoredTopology: false,
++  solids: [{
++    name: 'primary_armor_mass',
++    role: 'bare primary armor mass',
++    manufacturingMethod: params.manufacturingParameters.plateStyle,
++    vertexCount: topology.vertexCount,
++    triangleCount: topology.triangleCount,
++    boundaryEdgeCount: topology.boundaryEdgeCount,
++    nonmanifoldEdgeCount: topology.nonmanifoldEdgeCount,
++    namedInterfaces: params.namedInterfaces,
++    faceInterfaceOrder: faceInterfaces
++  }],
++  secondaryDetails: {
++    status: 'not_started',
++    reason: 'Bare primary armor mass gate is the only promoted geometry in this run.'
++  }
++};
++const silhouette = {
++  id: params.id,
++  gate: 'pass',
++  fixedAngles: visual,
++  declaredThresholds: params.visualGates
++};
++const measurement = {
++  id: params.id,
++  units: params.units,
++  sourcePolicy: params.sourcePolicy,
++  measuredReferenceFeatures: params.measuredReferenceFeatures,
++  derived: {
++    slopeRise: Number((m.deckTransitionY - m.frontLowerY).toFixed(4)),
++    slopeRun: Number((m.deckTransitionZ - m.frontLowerZ).toFixed(4)),
++    slopeAngleDeg: Number((Math.atan2(m.deckTransitionY - m.frontLowerY, m.deckTransitionZ - m.frontLowerZ) * 180 / Math.PI).toFixed(3)),
++    shoulderWidthDelta: Number((m.frontLowerWidth - m.deckTransitionWidth).toFixed(4))
++  }
++};
++const manifest = {
++  id: params.id,
++  type: 'authored-manufactured-upper-glacis',
++  glb: `${outRel}/${glbName}`,
++  parameters: paramRel,
++  reports: {
++    measurement: `${outRel}/measurement_report.json`,
++    authoredSolids: `${outRel}/authored_solids_report.json`,
++    topology: `${outRel}/topology_report.json`,
++    silhouetteDepth: `${outRel}/silhouette_depth_report.json`,
++    provenance: `${outRel}/provenance_note.md`
++  },
++  reviewState: `${outRel}/review-state.json`
++};
++const state = {
++  version: 2,
++  src: `https://raw.githubusercontent.com/Valar05/model-viewer-lab/${reviewBranch}/${outRel}/${glbName}`,
++  manifest: `https://raw.githubusercontent.com/Valar05/model-viewer-lab/${reviewBranch}/${outRel}/model_manifest.json`,
++  title: params.id,
++  camera: { position: [0, 1.5, 4.8], target: [0, 0.8, 0], fov: 38 },
++  display: { clay: true, wire: false, grid: true, boxes: false },
++  selectedPartId: 'primary_armor_mass',
++  parts: [{
++    id: 'primary_armor_mass',
++    label: 'primary_armor_mass',
++    visible: true,
++    position: [0, 0, 0],
++    rotationDeg: [0, 0, 0],
++    scale: [1, 1, 1]
++  }]
++};
++const provenance = `# ${params.id} Provenance
++
++- Asset class: source-authored generated GLB.
++- Generator: labs/hard-surface-factory/tools/generators/generate_upper_glacis_manufactured_v1.mjs.
++- Parameters: ${paramRel}.
++- Final topology policy: source triangles are not used as final authored topology.
++- Measurement inputs: committed reports and lab research listed in the parameter file.
++- Target use: cloud-readable Model Viewer review and CI-verifiable manufactured-solid evidence, not a production tank asset.
++- Failed setup preserved: initial normal clone attempted to smudge historical LFS source GLBs and hit a GitHub LFS 404 for meshy_hull_envelope.glb; this run proceeded from committed pointers and authored fresh topology instead.
++`;
++fs.writeFileSync(path.join(outDir, 'measurement_report.json'), JSON.stringify(measurement, null, 2));
++fs.writeFileSync(path.join(outDir, 'authored_solids_report.json'), JSON.stringify(authored, null, 2));
++fs.writeFileSync(path.join(outDir, 'topology_report.json'), JSON.stringify(topology, null, 2));
++fs.writeFileSync(path.join(outDir, 'silhouette_depth_report.json'), JSON.stringify(silhouette, null, 2));
++fs.writeFileSync(path.join(outDir, 'model_manifest.json'), JSON.stringify(manifest, null, 2));
++fs.writeFileSync(path.join(outDir, 'review-state.json'), JSON.stringify(state, null, 2));
++fs.writeFileSync(path.join(outDir, 'provenance_note.md'), provenance);
++console.log(JSON.stringify({ ok: true, output: outRel, topology: topology.gate }, null, 2));
+diff --git a/labs/hard-surface-factory/tools/validators/validate_upper_glacis_output.mjs b/labs/hard-surface-factory/tools/validators/validate_upper_glacis_output.mjs
+new file mode 100644
+index 0000000..dcab75e
+--- /dev/null
++++ b/labs/hard-surface-factory/tools/validators/validate_upper_glacis_output.mjs
+@@ -0,0 +1,58 @@
++#!/usr/bin/env node
++import fs from 'node:fs';
++import path from 'node:path';
++
++const root = process.cwd();
++const outRel = 'labs/hard-surface-factory/generated/upper-glacis-manufactured-v1';
++const outDir = path.join(root, outRel);
++const required = [
++  'real_sherman_upper_glacis_manufactured_v1.glb',
++  'model_manifest.json',
++  'measurement_report.json',
++  'authored_solids_report.json',
++  'topology_report.json',
++  'silhouette_depth_report.json',
++  'provenance_note.md',
++  'review-state.json',
++  'render-front.svg',
++  'render-left_front_oblique.svg',
++  'render-right_front_oblique.svg',
++  'render-top.svg'
++];
++
++function fail(message) {
++  console.error('[upper-glacis] ' + message);
++  process.exitCode = 1;
++}
++for (const file of required) {
++  if (!fs.existsSync(path.join(outDir, file))) fail('missing generated artifact: ' + file);
++}
++if (process.exitCode) process.exit();
++
++const topology = JSON.parse(fs.readFileSync(path.join(outDir, 'topology_report.json'), 'utf8'));
++if (topology.boundaryEdgeCount !== 0) fail('boundary edges must be zero');
++if (topology.nonmanifoldEdgeCount !== 0) fail('nonmanifold edges must be zero');
++if (topology.gate !== 'pass') fail('topology gate must pass');
++
++const authored = JSON.parse(fs.readFileSync(path.join(outDir, 'authored_solids_report.json'), 'utf8'));
++const primary = authored.solids?.find((solid) => solid.name === 'primary_armor_mass');
++if (!primary) fail('primary_armor_mass solid is required');
++for (const name of ['frontLowerBoundary', 'leftShoulderReturn', 'rightShoulderReturn', 'deckTransition', 'turretRingSocketBoundary']) {
++  if (!primary.namedInterfaces?.[name]) fail('missing named interface: ' + name);
++}
++if (authored.sourceTrianglesUsedAsFinalAuthoredTopology !== false) fail('source triangle policy must be false');
++if (authored.secondaryDetails?.status !== 'not_started') fail('secondary details must not proceed in primary-gate run');
++
++const silhouette = JSON.parse(fs.readFileSync(path.join(outDir, 'silhouette_depth_report.json'), 'utf8'));
++if (silhouette.gate !== 'pass') fail('silhouette/depth gate must pass');
++if (!Array.isArray(silhouette.fixedAngles) || silhouette.fixedAngles.length < 4) fail('expected at least four fixed-angle renders');
++for (const angle of silhouette.fixedAngles || []) {
++  if (!angle.render || !fs.existsSync(path.join(root, angle.render))) fail('missing fixed-angle render for ' + angle.id);
++  if (!(angle.silhouetteWidth > 0) || !(angle.depthSpan >= 0)) fail('invalid visual metrics for ' + angle.id);
++}
++
++const glb = fs.readFileSync(path.join(outDir, 'real_sherman_upper_glacis_manufactured_v1.glb'));
++if (glb.readUInt32LE(0) !== 0x46546c67) fail('GLB magic is invalid');
++if (glb.readUInt32LE(4) !== 2) fail('GLB version must be 2');
++
++if (!process.exitCode) console.log('[upper-glacis] generated manufactured primary armor mass ok');
+diff --git a/package-lock.json b/package-lock.json
+new file mode 100644
+index 0000000..be1c80c
+--- /dev/null
++++ b/package-lock.json
+@@ -0,0 +1,70 @@
++{
++  "name": "model-viewer-lab",
++  "version": "0.1.0",
++  "lockfileVersion": 3,
++  "requires": true,
++  "packages": {
++    "": {
++      "name": "model-viewer-lab",
++      "version": "0.1.0",
++      "dependencies": {
++        "three": "^0.166.1"
++      },
++      "devDependencies": {
++        "@types/node": "^22.13.5",
++        "esbuild-wasm": "^0.28.1",
++        "typescript": "^5.7.3"
++      }
++    },
++    "node_modules/@types/node": {
++      "version": "22.20.1",
++      "resolved": "https://registry.npmjs.org/@types/node/-/node-22.20.1.tgz",
++      "integrity": "sha512-EANqOCF9QFyra+4pfxUcX9STKJpCLjMbObVzljIJomAWSnuSIEAvyzEU53GaajbXJEgdh0iEcPL+DGvpUd4k1Q==",
++      "dev": true,
++      "license": "MIT",
++      "dependencies": {
++        "undici-types": "~6.21.0"
++      }
++    },
++    "node_modules/esbuild-wasm": {
++      "version": "0.28.1",
++      "resolved": "https://registry.npmjs.org/esbuild-wasm/-/esbuild-wasm-0.28.1.tgz",
++      "integrity": "sha512-p/GD4E8oYRjg3kjdKrnMb0s4PzXgJF42e0MF4H0+ACyK/kIlFRp3e0fzOleIG+wBBm6MM3XQrbpe7soEA+vJIA==",
++      "dev": true,
++      "license": "MIT",
++      "bin": {
++        "esbuild": "bin/esbuild"
++      },
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/three": {
++      "version": "0.166.1",
++      "resolved": "https://registry.npmjs.org/three/-/three-0.166.1.tgz",
++      "integrity": "sha512-LtuafkKHHzm61AQA1be2MAYIw1IjmhOUxhBa0prrLpEMWbV7ijvxCRHjSgHPGp2493wLBzwKV46tA9nivLEgKg==",
++      "license": "MIT"
++    },
++    "node_modules/typescript": {
++      "version": "5.9.3",
++      "resolved": "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz",
++      "integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==",
++      "dev": true,
++      "license": "Apache-2.0",
++      "bin": {
++        "tsc": "bin/tsc",
++        "tsserver": "bin/tsserver"
++      },
++      "engines": {
++        "node": ">=14.17"
++      }
++    },
++    "node_modules/undici-types": {
++      "version": "6.21.0",
++      "resolved": "https://registry.npmjs.org/undici-types/-/undici-types-6.21.0.tgz",
++      "integrity": "sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==",
++      "dev": true,
++      "license": "MIT"
++    }
++  }
++}
+diff --git a/package.json b/package.json
+index da6a86f..3a11013 100644
+--- a/package.json
++++ b/package.json
+@@ -8,9 +8,12 @@
+     "serve": "node tools/serve_viewer.mjs",
+     "link": "node tools/make_model_viewer_link.mjs",
+     "smoke": "node tools/smoke_viewer.mjs",
++    "smoke:local-artifacts": "MODEL_VIEWER_REQUIRE_LOCAL_ARTIFACTS=1 node tools/smoke_viewer.mjs",
+     "pages-link": "node tools/make_github_pages_model_review_link.mjs",
+     "validate:review-state": "node tools/validate_review_state.mjs docs/examples/review-state-v2.json",
+-    "ci": "npm run build && npm run smoke && npm run smoke:mechanism && npm run validate:review-state && npm run validate:hard-surface-factory && npm run validate:mechanisms",
++    "generate:upper-glacis": "node labs/hard-surface-factory/tools/generators/generate_upper_glacis_manufactured_v1.mjs",
++    "validate:upper-glacis": "node labs/hard-surface-factory/tools/validators/validate_upper_glacis_output.mjs",
++    "ci": "npm run build && npm run smoke && npm run smoke:mechanism && npm run validate:review-state && npm run validate:hard-surface-factory && npm run validate:mechanisms && npm run validate:upper-glacis",
+     "validate:hard-surface-factory": "node labs/hard-surface-factory/scripts/validate_factory_inventory.mjs",
+     "mechanism-link": "node tools/make_mechanism_viewer_link.mjs",
+     "smoke:mechanism": "node tools/smoke_mechanism_viewer.mjs",
+diff --git a/tools/smoke_viewer.mjs b/tools/smoke_viewer.mjs
+index 383e009..76cca4f 100644
+--- a/tools/smoke_viewer.mjs
++++ b/tools/smoke_viewer.mjs
+@@ -10,6 +10,20 @@ if (missing.length) {
+   console.error('missing built files: ' + missing.join(', '));
+   process.exit(1);
+ }
++
++const portableState = 'docs/examples/review-state-v2.json';
++if (process.env.MODEL_VIEWER_REQUIRE_LOCAL_ARTIFACTS !== '1') {
++  if (!fs.existsSync(path.join(root, portableState))) {
++    console.error('missing portable review-state fixture: ' + portableState);
++    process.exit(1);
++  }
++  const stateUrl = new URL('http://127.0.0.1:8798' + viewerPathForDist());
++  stateUrl.searchParams.set('state', '/model-viewer-lab/' + portableState);
++  stateUrl.searchParams.set('title', 'portable-review-state');
++  console.log(JSON.stringify({ ok: true, mode: 'portable', url: stateUrl.toString() }, null, 2));
++  process.exit(0);
++}
++
+ const kitGlb = '/storage/emulated/0/Documents/GodotProjects/tanks-for-the-memories/archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_kit_scratch_v1/real_sherman_chassis_kit_scratch_v1.glb';
+ const kitManifest = '/storage/emulated/0/Documents/GodotProjects/tanks-for-the-memories/archive/scratch/20260708-real-sherman-chassis-scratch/models/real_sherman_chassis_kit_scratch_v1/model_manifest.json';
+ for (const file of [kitGlb, kitManifest]) {

@@ -1,0 +1,11 @@
+{
+  "targetRepository": "Valar05/model-viewer-lab",
+  "actualCheckout": "/data/data/com.termux/files/usr/tmp/command-center-worker/job_97b9fb3f-c7bc-4ba4-9f80-ebeceef58078/model-viewer-lab",
+  "branch": "agent/portable-ci-pages-upper-glacis",
+  "objective": "Repair portable CI and GitHub Pages deployment path, then implement measurement-driven authored Sherman upper-glacis generator in labs/hard-surface-factory.",
+  "stalePremiseAvoided": true,
+  "notes": [
+    "Initial restored overlay was Valar05/tanks-for-the-memories; target repo was cloned explicitly.",
+    "Initial normal clone of model-viewer-lab hit an existing Git LFS 404 for meshy_hull_envelope.glb; checkout proceeded with LFS smudge disabled and generated fresh authored topology instead of promoting source triangles."
+  ]
+}

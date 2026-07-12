@@ -1,0 +1,27 @@
+{
+  "files": [
+    ".gitattributes",
+    ".github/workflows/ci.yml",
+    ".github/workflows/pages.yml",
+    ".gitignore",
+    "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/authored_solids_report.json",
+    "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/measurement_report.json",
+    "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/model_manifest.json",
+    "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/provenance_note.md",
+    "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/real_sherman_upper_glacis_manufactured_v1.glb",
+    "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-front.svg",
+    "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-left_front_oblique.svg",
+    "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-right_front_oblique.svg",
+    "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-top.svg",
+    "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/review-state.json",
+    "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/silhouette_depth_report.json",
+    "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/topology_report.json",
+    "labs/hard-surface-factory/parameters/upper-glacis-manufactured-v1.json",
+    "labs/hard-surface-factory/scripts/validate_factory_inventory.mjs",
+    "labs/hard-surface-factory/tools/generators/generate_upper_glacis_manufactured_v1.mjs",
+    "labs/hard-surface-factory/tools/validators/validate_upper_glacis_output.mjs",
+    "package-lock.json",
+    "package.json",
+    "tools/smoke_viewer.mjs"
+  ]
+}

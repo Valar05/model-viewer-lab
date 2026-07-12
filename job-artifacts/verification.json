@@ -1,0 +1,42 @@
+{
+  "branch": "agent/portable-ci-pages-upper-glacis",
+  "checks": [
+    {
+      "command": "npm ci && npm run ci",
+      "status": "pass"
+    },
+    {
+      "command": "npm run ci",
+      "status": "pass"
+    },
+    {
+      "command": "npm run smoke:local-artifacts",
+      "status": "pass"
+    },
+    {
+      "command": "node tools/validate_review_state.mjs labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/review-state.json",
+      "status": "pass"
+    },
+    {
+      "command": "gh api repos/Valar05/model-viewer-lab/pages",
+      "status": "blocked",
+      "detail": "HTTP 404 before enablement; pages.yml now sets actions/configure-pages enablement: true."
+    }
+  ],
+  "topology": {
+    "boundaryEdgeCount": 0,
+    "nonmanifoldEdgeCount": 0,
+    "gate": "pass"
+  },
+  "visualEvidence": {
+    "modelViewer": "https://valar05.github.io/model-viewer-lab/model-viewer.html?state=https%3A%2F%2Fraw.githubusercontent.com%2FValar05%2Fmodel-viewer-lab%2Fagent%2Fportable-ci-pages-upper-glacis%2Flabs%2Fhard-surface-factory%2Fgenerated%2Fupper-glacis-manufactured-v1%2Freview-state.json&title=real_sherman_upper_glacis_manufactured_v1",
+    "mechanismViewer": "https://valar05.github.io/model-viewer-lab/mechanism-viewer.html?mechanism=https%3A%2F%2Fraw.githubusercontent.com%2FValar05%2Fmodel-viewer-lab%2Fmain%2Flabs%2Fhard-surface-factory%2Fmechanisms%2Ftread-system-v1%2Fmechanism.json&title=tread-system-v1",
+    "fixedAngleRenders": [
+      "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-front.svg",
+      "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-left_front_oblique.svg",
+      "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-right_front_oblique.svg",
+      "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-top.svg"
+    ]
+  },
+  "artifactBackedEvidence": "GitHub Actions CI uploads model-viewer-lab-pr-evidence with dist/model-viewer.html and dist/mechanism-viewer.html."
+}

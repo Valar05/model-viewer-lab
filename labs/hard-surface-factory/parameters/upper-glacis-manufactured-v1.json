@@ -1,0 +1,64 @@
+{
+  "id": "real_sherman_upper_glacis_manufactured_v1",
+  "units": "meters",
+  "sourcePolicy": {
+    "finalTopology": "authored-from-parameters",
+    "sourceTrianglesUsedAsFinalTopology": false,
+    "measurementInputs": [
+      "labs/hard-surface-factory/docs/research/measurement-driven-reconstruction.md",
+      "labs/hard-surface-factory/history/raw-reports/real_sherman_upper_glacis_shared_interfaces_scratch_v08/measurement_report.json",
+      "labs/hard-surface-factory/history/raw-reports/real_sherman_upper_glacis_shared_interfaces_scratch_v08/shared_interface_report.json",
+      "labs/hard-surface-factory/history/raw-reports/real_sherman_upper_glacis_silhouette_edges_scratch_v07/silhouette_edge_report.json"
+    ]
+  },
+  "measuredReferenceFeatures": {
+    "frontLowerWidth": 3.25,
+    "deckTransitionWidth": 2.35,
+    "frontLowerZ": -1.4,
+    "deckTransitionZ": 1.25,
+    "frontLowerY": 0.55,
+    "deckTransitionY": 1.25,
+    "armorThickness": 0.22,
+    "turretSocketRadius": 0.72,
+    "turretSocketCenter": [0, 1.16, 0.67],
+    "shoulderReturnInset": 0.45
+  },
+  "manufacturingParameters": {
+    "plateStyle": "single closed trapezoid prism",
+    "bevelAllowance": 0.035,
+    "weldLandWidth": 0.055,
+    "minimumFeatureGap": 0.09
+  },
+  "namedInterfaces": {
+    "frontLowerBoundary": {
+      "edge": "front_lower",
+      "description": "front/lower boundary where the upper glacis meets the lower nose mass"
+    },
+    "leftShoulderReturn": {
+      "edge": "left_outboard",
+      "description": "left shoulder/return plane"
+    },
+    "rightShoulderReturn": {
+      "edge": "right_outboard",
+      "description": "right shoulder/return plane"
+    },
+    "deckTransition": {
+      "edge": "rear_deck",
+      "description": "upper deck transition boundary"
+    },
+    "turretRingSocketBoundary": {
+      "curve": "turret_socket_reference",
+      "description": "non-cut reference socket boundary authored as report metadata; no secondary detail is emitted before primary gate success"
+    }
+  },
+  "visualGates": {
+    "fixedAngles": [
+      { "id": "front", "azimuthDeg": 0, "elevationDeg": 7 },
+      { "id": "left_front_oblique", "azimuthDeg": -35, "elevationDeg": 18 },
+      { "id": "right_front_oblique", "azimuthDeg": 35, "elevationDeg": 18 },
+      { "id": "top", "azimuthDeg": 0, "elevationDeg": 90 }
+    ],
+    "maximumSilhouetteWidthDelta": 0.08,
+    "maximumDepthDelta": 0.1
+  }
+}

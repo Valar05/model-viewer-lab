@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "src": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/agent/portable-ci-pages-upper-glacis/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/real_sherman_upper_glacis_manufactured_v1.glb",
+  "manifest": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/agent/portable-ci-pages-upper-glacis/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/model_manifest.json",
+  "title": "real_sherman_upper_glacis_manufactured_v1",
+  "camera": {
+    "position": [
+      0,
+      1.5,
+      4.8
+    ],
+    "target": [
+      0,
+      0.8,
+      0
+    ],
+    "fov": 38
+  },
+  "display": {
+    "clay": true,
+    "wire": false,
+    "grid": true,
+    "boxes": false
+  },
+  "selectedPartId": "primary_armor_mass",
+  "parts": [
+    {
+      "id": "primary_armor_mass",
+      "label": "primary_armor_mass",
+      "visible": true,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotationDeg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

@@ -13,5 +13,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install
+          cache: npm
+      - run: npm ci
       - run: npm run ci
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model-viewer-lab-pr-evidence
+          path: |
+            dist/model-viewer.html
+            dist/mechanism-viewer.html
+            dist/assets/
+            dist/labs/hard-surface-factory/mechanisms/
+            labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/
+            job-artifacts/verification.json
+            job-artifacts/final-report.md
