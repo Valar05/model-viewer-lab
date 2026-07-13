@@ -64,7 +64,13 @@ try {
   if (ready.dataset !== 'true') throw new Error('model did not become ready: ' + JSON.stringify(ready));
   const captures = [];
   for (const view of views) {
-    await page.locator(`[data-view="${view}"]`).click({ timeout: 5000 });
+    const clicked = await page.evaluate((viewName) => {
+      const button = document.querySelector(`[data-view=\"${viewName}\"]`);
+      if (!(button instanceof HTMLButtonElement)) return false;
+      button.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+      return true;
+    }, view);
+    if (!clicked) throw new Error('missing camera button for ' + view);
     await page.waitForTimeout(waitMs);
     const png = path.join(outDir, `model-viewer-${view}.png`);
     await page.screenshot({ path: png, fullPage: false });
