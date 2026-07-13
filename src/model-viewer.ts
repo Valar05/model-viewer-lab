@@ -26,6 +26,7 @@ let src = query.get('src') || '';
 let manifestUrl = query.get('manifest') || '';
 let title = query.get('title') || src.split('/').pop() || 'Model';
 let initialState: ReviewState | null = null;
+declare global { interface Window { __MODEL_VIEWER_LAB_READY?: { ready: boolean; title: string; src: string; partCount: number; status: string; timestamp: string }; } }
 
 root.innerHTML = '<main class="viewer-shell">' +
   '<div class="viewer-stage"><canvas aria-label="Model Viewer Lab viewport"></canvas></div>' +
@@ -114,6 +115,7 @@ initialize();
 requestAnimationFrame(animate);
 
 async function initialize() {
+  document.body.dataset.modelReady = 'loading';
   await loadInitialState();
   applyTitle();
   loadManifest();
@@ -170,8 +172,11 @@ function loadModel() {
     fitCamera('front');
     if (initialState) applyReviewState(initialState);
     statusEl.textContent = 'loaded ' + parts.length + ' objects from ' + src;
+    markModelReady();
   }, undefined, (error) => {
     statusEl.textContent = 'load failed: ' + (error instanceof Error ? error.message : String(error));
+    document.body.dataset.modelReady = 'error';
+    window.__MODEL_VIEWER_LAB_READY = { ready: false, title, src, partCount: 0, status: statusEl.textContent || 'load failed', timestamp: new Date().toISOString() };
   });
 }
 
@@ -342,6 +347,12 @@ function focusPart(part: ViewPart, moveCamera = true) {
   controls.target.copy(center);
   if (moveCamera) fitCamera('fit');
   controls.update();
+}
+
+function markModelReady() {
+  document.body.dataset.modelReady = 'true';
+  window.__MODEL_VIEWER_LAB_READY = { ready: true, title, src, partCount: parts.length, status: statusEl.textContent || 'loaded', timestamp: new Date().toISOString() };
+  window.dispatchEvent(new CustomEvent('model-viewer-lab-ready', { detail: window.__MODEL_VIEWER_LAB_READY }));
 }
 
 function fitCamera(view: string) {

@@ -1,0 +1,57 @@
+name: Model Viewer Browser Acceptance
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: Full model-viewer URL to capture
+        required: true
+        type: string
+      label:
+        description: Artifact label
+        required: false
+        default: model-viewer-browser-acceptance
+        type: string
+      wait_ms:
+        description: Milliseconds to wait after each camera change
+        required: false
+        default: '800'
+        type: string
+  pull_request:
+    paths:
+      - 'src/model-viewer.ts'
+      - 'src/model-viewer.css'
+      - 'scripts/browser-acceptance.mjs'
+      - '.github/workflows/browser-acceptance.yml'
+      - 'package.json'
+      - 'package-lock.json'
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install
+      - run: npm install --no-save playwright@1.61.1
+      - run: node node_modules/playwright/cli.js install --with-deps chromium
+      - run: npm run build
+      - name: Capture fixed model-viewer screenshots
+        if: github.event_name == 'workflow_dispatch'
+        run: >-
+          node scripts/browser-acceptance.mjs
+          --url "${{ inputs.url }}"
+          --out "artifacts/${{ inputs.label }}"
+          --wait-ms "${{ inputs.wait_ms }}"
+      - name: Script syntax check for pull requests
+        if: github.event_name == 'pull_request'
+        run: node --check scripts/browser-acceptance.mjs
+      - name: Upload browser evidence
+        if: always() && github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.label }}
+          path: artifacts/${{ inputs.label }}
+          if-no-files-found: error

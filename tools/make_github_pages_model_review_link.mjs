@@ -13,10 +13,17 @@ function requireValue(name) {
   }
   return found;
 }
+function normalizedRepo(repo) {
+  return repo.replace(/^https:\/\/github\.com\//, '').replace(/\.git$/, '');
+}
+function encodedPath(filePath) {
+  return filePath.replace(/^\/+/, '').split('/').map(encodeURIComponent).join('/');
+}
 function rawGitHubUrl(repo, branch, filePath) {
   if (!filePath) return '';
   if (filePath.startsWith('http://') || filePath.startsWith('https://')) return filePath;
-  return 'https://raw.githubusercontent.com/' + repo.replace(/^https:\/\/github\.com\//, '').replace(/\.git$/, '') + '/' + encodeURIComponent(branch).replace(/%2F/g, '/') + '/' + filePath.replace(/^\/+/, '').split('/').map(encodeURIComponent).join('/');
+  const host = filePath.toLowerCase().endsWith('.glb') ? 'https://media.githubusercontent.com/media/' : 'https://raw.githubusercontent.com/';
+  return host + normalizedRepo(repo) + '/' + encodeURIComponent(branch).replace(/%2F/g, '/') + '/' + encodedPath(filePath);
 }
 
 const assetRepo = requireValue('--asset-repo');
