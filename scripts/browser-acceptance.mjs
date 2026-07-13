@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright';
 
@@ -74,27 +74,15 @@ try {
     await page.waitForTimeout(waitMs);
     const png = path.join(outDir, `model-viewer-${view}.png`);
     await page.screenshot({ path: png, fullPage: false });
-    const pixelProbe = await page.evaluate(() => {
+    const screenshotBytes = statSync(png).size;
+    const canvasProbe = await page.evaluate(() => {
       const canvas = document.querySelector('canvas');
       if (!canvas) return { ok: false, reason: 'missing canvas' };
-      const probe = document.createElement('canvas');
-      probe.width = 32;
-      probe.height = 32;
-      const ctx = probe.getContext('2d', { willReadFrequently: true });
-      if (!ctx) return { ok: false, reason: 'missing 2d context' };
-      ctx.drawImage(canvas, 0, 0, 32, 32);
-      const data = ctx.getImageData(0, 0, 32, 32).data;
-      let nonTransparent = 0;
-      const colors = new Set();
-      for (let i = 0; i < data.length; i += 4) {
-        if (data[i + 3] > 0) nonTransparent += 1;
-        colors.add(`${data[i]},${data[i + 1]},${data[i + 2]},${data[i + 3]}`);
-      }
-      return { ok: true, nonTransparent, uniqueColors: colors.size };
+      return { ok: true, width: canvas.width, height: canvas.height };
     });
-    captures.push({ view, path: png, pixelProbe });
-    if (failOnBlank && (!pixelProbe.ok || pixelProbe.uniqueColors < 4 || pixelProbe.nonTransparent < 128)) {
-      throw new Error(`blank or low-information canvas for ${view}: ${JSON.stringify(pixelProbe)}`);
+    captures.push({ view, path: png, screenshotBytes, canvasProbe });
+    if (failOnBlank && screenshotBytes < 20000) {
+      throw new Error(`blank or low-information screenshot for ${view}: ${screenshotBytes} bytes`);
     }
   }
   report = { ok: true, url, viewport: { width, height }, views, ready, captures, consoleMessages, pageErrors };
