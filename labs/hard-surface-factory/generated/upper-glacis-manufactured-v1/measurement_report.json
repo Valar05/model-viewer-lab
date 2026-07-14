@@ -1,0 +1,36 @@
+{
+  "id": "real_sherman_upper_glacis_manufactured_v1",
+  "units": "meters",
+  "sourcePolicy": {
+    "finalTopology": "authored-from-parameters",
+    "sourceTrianglesUsedAsFinalTopology": false,
+    "measurementInputs": [
+      "labs/hard-surface-factory/docs/research/measurement-driven-reconstruction.md",
+      "labs/hard-surface-factory/history/raw-reports/real_sherman_upper_glacis_shared_interfaces_scratch_v08/measurement_report.json",
+      "labs/hard-surface-factory/history/raw-reports/real_sherman_upper_glacis_shared_interfaces_scratch_v08/shared_interface_report.json",
+      "labs/hard-surface-factory/history/raw-reports/real_sherman_upper_glacis_silhouette_edges_scratch_v07/silhouette_edge_report.json"
+    ]
+  },
+  "measuredReferenceFeatures": {
+    "frontLowerWidth": 3.25,
+    "deckTransitionWidth": 2.35,
+    "frontLowerZ": -1.4,
+    "deckTransitionZ": 1.25,
+    "frontLowerY": 0.55,
+    "deckTransitionY": 1.25,
+    "armorThickness": 0.22,
+    "turretSocketRadius": 0.72,
+    "turretSocketCenter": [
+      0,
+      1.16,
+      0.67
+    ],
+    "shoulderReturnInset": 0.45
+  },
+  "derived": {
+    "slopeRise": 0.7,
+    "slopeRun": 2.65,
+    "slopeAngleDeg": 14.797,
+    "shoulderWidthDelta": 0.9
+  }
+}

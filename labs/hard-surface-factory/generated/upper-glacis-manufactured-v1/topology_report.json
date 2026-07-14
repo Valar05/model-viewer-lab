@@ -1,0 +1,11 @@
+{
+  "mesh": "real_sherman_upper_glacis_manufactured_v1",
+  "vertexCount": 8,
+  "triangleCount": 12,
+  "uniqueEdgeCount": 18,
+  "boundaryEdgeCount": 0,
+  "nonmanifoldEdgeCount": 0,
+  "boundaryEdges": [],
+  "nonmanifoldEdges": [],
+  "gate": "pass"
+}

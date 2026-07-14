@@ -1,0 +1,96 @@
+{
+  "id": "real_sherman_upper_glacis_manufactured_v1",
+  "gate": "pass",
+  "fixedAngles": [
+    {
+      "id": "front",
+      "azimuthDeg": 0,
+      "elevationDeg": 7,
+      "silhouetteWidth": 3.25,
+      "silhouetteHeight": 0.5847,
+      "depthSpan": 2.695,
+      "render": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-front.svg"
+    },
+    {
+      "id": "rear",
+      "azimuthDeg": 180,
+      "elevationDeg": 7,
+      "silhouetteWidth": 3.25,
+      "silhouetteHeight": 1.2416,
+      "depthSpan": 2.695,
+      "render": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-rear.svg"
+    },
+    {
+      "id": "left",
+      "azimuthDeg": -90,
+      "elevationDeg": 10,
+      "silhouetteWidth": 2.695,
+      "silhouetteHeight": 1.388,
+      "depthSpan": 3.25,
+      "render": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-left.svg"
+    },
+    {
+      "id": "right",
+      "azimuthDeg": 90,
+      "elevationDeg": 10,
+      "silhouetteWidth": 2.695,
+      "silhouetteHeight": 1.388,
+      "depthSpan": 3.25,
+      "render": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-right.svg"
+    },
+    {
+      "id": "left_front_oblique",
+      "azimuthDeg": -35,
+      "elevationDeg": 18,
+      "silhouetteWidth": 3.8194,
+      "silhouetteHeight": 0.7696,
+      "depthSpan": 3.7996,
+      "render": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-left_front_oblique.svg"
+    },
+    {
+      "id": "top",
+      "azimuthDeg": 0,
+      "elevationDeg": 90,
+      "silhouetteWidth": 3.25,
+      "silhouetteHeight": 2.695,
+      "depthSpan": 2.695,
+      "render": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/render-top.svg"
+    }
+  ],
+  "declaredThresholds": {
+    "fixedAngles": [
+      {
+        "id": "front",
+        "azimuthDeg": 0,
+        "elevationDeg": 7
+      },
+      {
+        "id": "rear",
+        "azimuthDeg": 180,
+        "elevationDeg": 7
+      },
+      {
+        "id": "left",
+        "azimuthDeg": -90,
+        "elevationDeg": 10
+      },
+      {
+        "id": "right",
+        "azimuthDeg": 90,
+        "elevationDeg": 10
+      },
+      {
+        "id": "left_front_oblique",
+        "azimuthDeg": -35,
+        "elevationDeg": 18
+      },
+      {
+        "id": "top",
+        "azimuthDeg": 0,
+        "elevationDeg": 90
+      }
+    ],
+    "maximumSilhouetteWidthDelta": 0.08,
+    "maximumDepthDelta": 0.1
+  }
+}

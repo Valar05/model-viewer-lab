@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "src": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/real_sherman_upper_glacis_manufactured_v1.glb",
+  "manifest": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/model_manifest.json",
+  "title": "real_sherman_upper_glacis_manufactured_v1",
+  "camera": {
+    "position": [
+      0,
+      1.5,
+      4.8
+    ],
+    "target": [
+      0,
+      0.8,
+      0
+    ],
+    "fov": 38
+  },
+  "display": {
+    "clay": true,
+    "wire": false,
+    "grid": true,
+    "boxes": false
+  },
+  "selectedPartId": "upper_glacis_primary_part",
+  "parts": [
+    {
+      "id": "upper_glacis_primary_part",
+      "label": "upper_glacis_primary_part",
+      "visible": true,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotationDeg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

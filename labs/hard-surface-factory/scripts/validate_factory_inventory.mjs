@@ -49,10 +49,17 @@ const rels = files.map((file) => path.relative(labRoot, file).split(path.sep).jo
 const exporters = rels.filter((rel) => rel.startsWith('tools/exporters/') && rel.endsWith('.py'));
 const reports = rels.filter((rel) => rel.startsWith('history/raw-reports/') && rel.endsWith('.json'));
 const glbs = rels.filter((rel) => rel.endsWith('.glb'));
+const sourceGlbs = glbs.filter((rel) => rel.startsWith('source-assets/'));
+const generatedGlbs = glbs.filter((rel) => rel.startsWith('generated/'));
 
 if (exporters.length < 40) fail(`expected at least 40 archived exporter scripts, found ${exporters.length}`);
 if (reports.length < 100) fail(`expected at least 100 raw JSON reports, found ${reports.length}`);
-if (glbs.length !== 6) fail(`expected exactly 6 source/reference GLBs, found ${glbs.length}`);
+if (sourceGlbs.length !== 6) fail(`expected exactly 6 source/reference GLBs, found ${sourceGlbs.length}`);
+for (const rel of generatedGlbs) {
+  if (!rel.startsWith('generated/upper-glacis-manufactured-v1/')) {
+    fail(`unexpected generated GLB outside manufactured upper-glacis evidence: ${rel}`);
+  }
+}
 
 for (const rel of rels) {
   for (const fragment of bannedPathFragments) {
@@ -81,5 +88,5 @@ for (const rel of stateFiles) {
 }
 
 if (!process.exitCode) {
-  console.log(`[hard-surface-factory] ok: ${exporters.length} exporters, ${reports.length} reports, ${glbs.length} source/reference GLBs, ${stateFiles.length} review states`);
+  console.log(`[hard-surface-factory] ok: ${exporters.length} exporters, ${reports.length} reports, ${sourceGlbs.length} source/reference GLBs, ${generatedGlbs.length} generated evidence GLBs, ${stateFiles.length} review states`);
 }
