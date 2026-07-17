@@ -1,7 +1,7 @@
 {
   "id": "meshy-component-kit-071716",
   "type": "meshy-reference-component-kit",
-  "generatedAt": "2026-07-17T18:08:46.015Z",
+  "generatedAt": "2026-07-17T18:14:26.678Z",
   "sourcePolicy": {
     "assetClass": "generated Meshy reference scaffolds",
     "productionTopology": false,
@@ -77,7 +77,7 @@
       "transform": {
         "position": [
           0,
-          0.226,
+          0.21,
           -0.04
         ],
         "rotationDeg": [
@@ -86,9 +86,9 @@
           0
         ],
         "scale": [
-          0.42,
-          0.42,
-          0.42
+          0.38,
+          0.38,
+          0.38
         ]
       },
       "bytes": 8252900,
@@ -190,7 +190,7 @@
         "position": [
           0.115,
           0.245,
-          -0.395
+          -0.37
         ],
         "rotationDeg": [
           0,

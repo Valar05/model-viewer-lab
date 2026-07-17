@@ -103,7 +103,7 @@ if (!process.exitCode) {
   if (!vectorClose(turretTransform?.rotationDeg, [0, 180, 0])) fail('turret must be rotated 180 degrees so mantlet/front detail faces the gun axis');
   if (!vectorClose(gunTransform?.rotationDeg, [0, 90, 0])) fail('main gun must rotate onto tank-forward -Z');
   if (!vectorClose(mgTransform?.rotationDeg, [0, -90, 0])) fail('MG must be flipped relative to the previous backwards orientation');
-  if (!(turretTransform?.scale?.[0] <= 0.43)) fail('turret scale must be reduced from the red-build oversized setting');
+  if (!(turretTransform?.scale?.[0] <= 0.39)) fail('turret scale must be reduced from the red-build oversized setting');
   const assemblyJson = readGlbJson(path.join(outDir, 'meshy_component_kit_positioning_study.glb'));
   const sceneNodes = new Set((assemblyJson.scenes?.[assemblyJson.scene || 0]?.nodes || []).map((index) => assemblyJson.nodes?.[index]?.name));
   for (const id of ['tank_hull', 'tank_turret_housing', 'tank_gun_barrel', 'perforated_barrel_mac']) {

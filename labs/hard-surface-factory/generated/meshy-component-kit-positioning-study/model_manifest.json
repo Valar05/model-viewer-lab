@@ -59,7 +59,7 @@
       "originalTransform": {
         "position": [
           0,
-          0.226,
+          0.21,
           -0.04
         ],
         "rotationDeg": [
@@ -68,9 +68,9 @@
           0
         ],
         "scale": [
-          0.42,
-          0.42,
-          0.42
+          0.38,
+          0.38,
+          0.38
         ]
       },
       "visibleByDefault": true
@@ -106,7 +106,7 @@
         "position": [
           0.115,
           0.245,
-          -0.395
+          -0.37
         ],
         "rotationDeg": [
           0,
