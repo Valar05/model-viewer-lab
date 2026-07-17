@@ -89,8 +89,8 @@ const stateFiles = rels.filter((rel) => rel.startsWith('review-states/') && rel.
 for (const rel of stateFiles) {
   const state = JSON.parse(fs.readFileSync(path.join(labRoot, rel), 'utf8'));
   if (state.version !== 2) fail(`review state must be version 2: ${rel}`);
-  if (!state.src || !state.src.startsWith('https://raw.githubusercontent.com/Valar05/model-viewer-lab/')) {
-    fail(`review state src must be a raw GitHub URL: ${rel}`);
+  if (!state.src || !(state.src.startsWith('https://raw.githubusercontent.com/Valar05/model-viewer-lab/') || state.src.startsWith('https://media.githubusercontent.com/media/Valar05/model-viewer-lab/'))) {
+    fail(`review state src must be a raw/media GitHub URL: ${rel}`);
   }
 }
 

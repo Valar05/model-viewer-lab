@@ -35,6 +35,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: true
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -58,7 +60,7 @@ jobs:
           set -euo pipefail
           STATE_PATH="labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/review-state.json"
           STATE_URL="https://raw.githubusercontent.com/Valar05/model-viewer-lab/$HEAD_BRANCH/$STATE_PATH"
-          SRC_URL="https://raw.githubusercontent.com/Valar05/model-viewer-lab/$HEAD_BRANCH/labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/meshy_component_kit_positioning_study.glb"
+          SRC_URL="https://media.githubusercontent.com/media/Valar05/model-viewer-lab/$HEAD_BRANCH/labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/meshy_component_kit_positioning_study.glb"
           REVIEW_URL="$(node tools/make_github_pages_model_review_link.mjs --asset-repo Valar05/model-viewer-lab --branch "$HEAD_BRANCH" --state-json "$STATE_PATH" --title meshy_component_kit_positioning_study)"
           node scripts/browser-acceptance.mjs \
             --url "$REVIEW_URL" \

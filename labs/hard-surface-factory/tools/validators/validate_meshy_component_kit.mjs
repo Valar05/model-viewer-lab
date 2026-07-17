@@ -81,7 +81,7 @@ if (!process.exitCode) {
     else {
       const state = readJson(reviewPath);
       if (state.version !== 2) fail('component review state must be version 2: ' + id);
-      if (!state.src?.startsWith('https://raw.githubusercontent.com/Valar05/model-viewer-lab/')) fail('component review state must use raw GitHub URL: ' + id);
+      if (!state.src?.startsWith('https://media.githubusercontent.com/media/Valar05/model-viewer-lab/')) fail('component review state must use media GitHub URL for LFS GLB: ' + id);
     }
   }
 }

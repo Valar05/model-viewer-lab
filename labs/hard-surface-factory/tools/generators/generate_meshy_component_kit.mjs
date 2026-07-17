@@ -13,6 +13,7 @@ const outDir = path.join(root, outRel);
 const reviewDir = path.join(root, reviewRel);
 const reviewBranch = process.env.MODEL_VIEWER_REVIEW_BRANCH || execFileSync('git', ['branch', '--show-current'], { cwd: root, encoding: 'utf8' }).trim() || 'main';
 const rawBase = 'https://raw.githubusercontent.com/Valar05/model-viewer-lab/' + reviewBranch;
+const mediaBase = 'https://media.githubusercontent.com/media/Valar05/model-viewer-lab/' + reviewBranch;
 
 const components = [
   { id: 'tank_hull', label: 'tank_hull', sourceFilename: 'Meshy_AI_Tank_hull_0717161907_texture.glb', filename: 'tank_hull.glb', category: 'hull_reference_scaffold', intendedUse: 'source reference scaffold for hull proportions and texture cues', participatesInDefaultAssembly: true, transform: { position: [0, 0, 0], rotationDeg: [0, 0, 0], scale: [1, 1, 1] } },
@@ -264,10 +265,10 @@ function mergeGlbs(stats) {
 }
 function writeReviewState(file, state) { fs.writeFileSync(path.join(reviewDir, file), JSON.stringify(state, null, 2) + '\n'); }
 function componentReviewState(component) {
-  return { version: 2, src: rawBase + '/' + sourceRel + '/' + component.filename, manifest: rawBase + '/' + sourceRel + '/kit_manifest.json', title: 'Meshy component ' + component.id, camera: { position: [0, 1.2, 3.2], target: [0, 0, 0], fov: 38 }, display: { clay: false, wire: false, grid: true, boxes: false }, selectedPartId: component.id, parts: [{ id: component.id, label: component.label, visible: true, position: [0, 0, 0], rotationDeg: [0, 0, 0], scale: [1, 1, 1] }] };
+  return { version: 2, src: mediaBase + '/' + sourceRel + '/' + component.filename, manifest: rawBase + '/' + sourceRel + '/kit_manifest.json', title: 'Meshy component ' + component.id, camera: { position: [0, 1.2, 3.2], target: [0, 0, 0], fov: 38 }, display: { clay: false, wire: false, grid: true, boxes: false }, selectedPartId: component.id, parts: [{ id: component.id, label: component.label, visible: true, position: [0, 0, 0], rotationDeg: [0, 0, 0], scale: [1, 1, 1] }] };
 }
 function assemblyReviewState(stats) {
-  return { version: 2, src: rawBase + '/' + outRel + '/meshy_component_kit_positioning_study.glb', manifest: rawBase + '/' + outRel + '/model_manifest.json', title: 'meshy_component_kit_positioning_study', camera: { position: [0, 1.0, 3.0], target: [0, 0.18, -0.08], fov: 34 }, display: { clay: false, wire: false, grid: true, boxes: false }, selectedPartId: 'tank_hull', parts: stats.filter((component) => component.participatesInDefaultAssembly).map((component) => ({ id: component.id, label: component.label, visible: true, position: [0, 0, 0], rotationDeg: [0, 0, 0], scale: [1, 1, 1] })) };
+  return { version: 2, src: mediaBase + '/' + outRel + '/meshy_component_kit_positioning_study.glb', manifest: rawBase + '/' + outRel + '/model_manifest.json', title: 'meshy_component_kit_positioning_study', camera: { position: [0, 1.0, 3.0], target: [0, 0.18, -0.08], fov: 34 }, display: { clay: false, wire: false, grid: true, boxes: false }, selectedPartId: 'tank_hull', parts: stats.filter((component) => component.participatesInDefaultAssembly).map((component) => ({ id: component.id, label: component.label, visible: true, position: [0, 0, 0], rotationDeg: [0, 0, 0], scale: [1, 1, 1] })) };
 }
 
 const stats = components.map(componentStats);
