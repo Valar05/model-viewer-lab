@@ -26,7 +26,7 @@ let src = query.get('src') || '';
 let manifestUrl = query.get('manifest') || '';
 let title = query.get('title') || src.split('/').pop() || 'Model';
 let initialState: ReviewState | null = null;
-declare global { interface Window { __MODEL_VIEWER_LAB_READY?: { ready: boolean; title: string; src: string; partCount: number; status: string; timestamp: string }; } }
+declare global { interface Window { __MODEL_VIEWER_LAB_READY?: { ready: boolean; title: string; src: string; manifest: string; stateUrl: string; partCount: number; partIds: string[]; visiblePartIds: string[]; status: string; timestamp: string }; } }
 
 root.innerHTML = '<main class="viewer-shell">' +
   '<div class="viewer-stage"><canvas aria-label="Model Viewer Lab viewport"></canvas></div>' +
@@ -176,7 +176,7 @@ function loadModel() {
   }, undefined, (error) => {
     statusEl.textContent = 'load failed: ' + (error instanceof Error ? error.message : String(error));
     document.body.dataset.modelReady = 'error';
-    window.__MODEL_VIEWER_LAB_READY = { ready: false, title, src, partCount: 0, status: statusEl.textContent || 'load failed', timestamp: new Date().toISOString() };
+    window.__MODEL_VIEWER_LAB_READY = { ready: false, title, src, manifest: manifestUrl, stateUrl: query.get('state') || '', partCount: 0, partIds: [], visiblePartIds: [], status: statusEl.textContent || 'load failed', timestamp: new Date().toISOString() };
   });
 }
 
@@ -351,7 +351,7 @@ function focusPart(part: ViewPart, moveCamera = true) {
 
 function markModelReady() {
   document.body.dataset.modelReady = 'true';
-  window.__MODEL_VIEWER_LAB_READY = { ready: true, title, src, partCount: parts.length, status: statusEl.textContent || 'loaded', timestamp: new Date().toISOString() };
+  window.__MODEL_VIEWER_LAB_READY = { ready: true, title, src, manifest: manifestUrl, stateUrl: query.get('state') || '', partCount: parts.length, partIds: parts.map((part) => part.id), visiblePartIds: parts.filter((part) => part.visible).map((part) => part.id), status: statusEl.textContent || 'loaded', timestamp: new Date().toISOString() };
   window.dispatchEvent(new CustomEvent('model-viewer-lab-ready', { detail: window.__MODEL_VIEWER_LAB_READY }));
 }
 

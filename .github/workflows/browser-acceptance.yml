@@ -24,6 +24,10 @@ on:
       - 'scripts/browser-acceptance.mjs'
       - '.github/workflows/browser-acceptance.yml'
       - 'package.json'
+      - 'labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/**'
+      - 'labs/hard-surface-factory/source-assets/meshy-component-kit-071716/**'
+      - 'labs/hard-surface-factory/tools/generators/generate_meshy_component_kit.mjs'
+      - 'labs/hard-surface-factory/tools/validators/validate_meshy_component_kit.mjs'
       - 'package-lock.json'
 
 jobs:
@@ -45,13 +49,40 @@ jobs:
           --url "${{ inputs.url }}"
           --out "artifacts/${{ inputs.label }}"
           --wait-ms "${{ inputs.wait_ms }}"
-      - name: Script syntax check for pull requests
+          --require-cloud-url
+      - name: Capture Meshy component kit cloud review for pull requests
         if: github.event_name == 'pull_request'
+        env:
+          HEAD_BRANCH: ${{ github.head_ref }}
+        run: |
+          set -euo pipefail
+          STATE_PATH="labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/review-state.json"
+          STATE_URL="https://raw.githubusercontent.com/Valar05/model-viewer-lab/$HEAD_BRANCH/$STATE_PATH"
+          SRC_URL="https://raw.githubusercontent.com/Valar05/model-viewer-lab/$HEAD_BRANCH/labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/meshy_component_kit_positioning_study.glb"
+          REVIEW_URL="$(node tools/make_github_pages_model_review_link.mjs --asset-repo Valar05/model-viewer-lab --branch "$HEAD_BRANCH" --state-json "$STATE_PATH" --title meshy_component_kit_positioning_study)"
+          node scripts/browser-acceptance.mjs \
+            --url "$REVIEW_URL" \
+            --out "artifacts/meshy-component-kit-cloud-review" \
+            --wait-ms "800" \
+            --views "front,left,right,fit" \
+            --require-cloud-url \
+            --expect-state-url "$STATE_URL" \
+            --expect-src "$SRC_URL" \
+            --expect-parts "tank_hull,tank_turret_housing,tank_gun_barrel,perforated_barrel_mac" \
+            --expect-visible-parts "tank_hull,tank_turret_housing,tank_gun_barrel,perforated_barrel_mac"
+      - name: Script syntax check
         run: node --check scripts/browser-acceptance.mjs
-      - name: Upload browser evidence
+      - name: Upload workflow-dispatch browser evidence
         if: always() && github.event_name == 'workflow_dispatch'
         uses: actions/upload-artifact@v4
         with:
           name: ${{ inputs.label }}
           path: artifacts/${{ inputs.label }}
+          if-no-files-found: error
+      - name: Upload PR cloud browser evidence
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: meshy-component-kit-cloud-review
+          path: artifacts/meshy-component-kit-cloud-review
           if-no-files-found: error

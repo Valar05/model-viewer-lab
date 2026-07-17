@@ -25,6 +25,11 @@ const timeoutMs = Number(value('--timeout-ms', '90000'));
 const width = Number(value('--width', '1280'));
 const height = Number(value('--height', '960'));
 const views = value('--views', 'front,left,top,right,back,fit').split(',').map((item) => item.trim()).filter(Boolean);
+const expectParts = value('--expect-parts').split(',').map((item) => item.trim()).filter(Boolean);
+const expectVisibleParts = value('--expect-visible-parts').split(',').map((item) => item.trim()).filter(Boolean);
+const expectStateUrl = value('--expect-state-url');
+const expectSrc = value('--expect-src');
+const requireCloudUrl = flag('--require-cloud-url');
 const failOnBlank = !flag('--allow-blank');
 mkdirSync(outDir, { recursive: true });
 
@@ -47,6 +52,9 @@ page.on('console', (message) => consoleMessages.push({ type: message.type(), tex
 page.on('pageerror', (error) => pageErrors.push(String(error?.stack || error)));
 let report;
 try {
+  const parsedUrl = new URL(url);
+  if (requireCloudUrl && parsedUrl.origin !== 'https://valar05.github.io') throw new Error('expected GitHub Pages cloud URL, got ' + parsedUrl.origin);
+  if (expectStateUrl && parsedUrl.searchParams.get('state') !== expectStateUrl) throw new Error('cloud URL state mismatch: expected ' + expectStateUrl + ' got ' + parsedUrl.searchParams.get('state'));
   await page.goto(url, { waitUntil: 'networkidle', timeout: timeoutMs });
   await page.waitForFunction(() => document.body.dataset.modelReady === 'true' || document.body.dataset.modelReady === 'error', null, { timeout: timeoutMs });
   const ready = await page.evaluate(() => ({
@@ -62,6 +70,12 @@ try {
     })(),
   }));
   if (ready.dataset !== 'true') throw new Error('model did not become ready: ' + JSON.stringify(ready));
+  if (expectStateUrl && ready.signal?.stateUrl !== expectStateUrl) throw new Error('runtime state URL mismatch: expected ' + expectStateUrl + ' got ' + ready.signal?.stateUrl);
+  if (expectSrc && ready.signal?.src !== expectSrc) throw new Error('runtime src mismatch: expected ' + expectSrc + ' got ' + ready.signal?.src);
+  const partIds = new Set(ready.signal?.partIds || []);
+  const visiblePartIds = new Set(ready.signal?.visiblePartIds || []);
+  for (const part of expectParts) if (!partIds.has(part)) throw new Error('missing expected runtime part: ' + part + ' in ' + JSON.stringify([...partIds]));
+  for (const part of expectVisibleParts) if (!visiblePartIds.has(part)) throw new Error('missing expected visible runtime part: ' + part + ' in ' + JSON.stringify([...visiblePartIds]));
   const captures = [];
   for (const view of views) {
     const clicked = await page.evaluate((viewName) => {
