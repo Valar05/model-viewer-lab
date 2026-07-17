@@ -59,20 +59,24 @@ jobs:
         run: |
           set -euo pipefail
           STATE_PATH="labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/review-state.json"
-          STATE_URL="https://raw.githubusercontent.com/Valar05/model-viewer-lab/$HEAD_BRANCH/$STATE_PATH"
-          SRC_URL="https://media.githubusercontent.com/media/Valar05/model-viewer-lab/$HEAD_BRANCH/labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/meshy_component_kit_positioning_study.glb"
-          REVIEW_URL="$(node tools/make_github_pages_model_review_link.mjs --asset-repo Valar05/model-viewer-lab --branch "$HEAD_BRANCH" --state-json "$STATE_PATH" --title meshy_component_kit_positioning_study)"
+          STATE_URL="https://raw.githubusercontent.com/Valar05/model-viewer-lab/$HEAD_BRANCH/$STATE_PATH?v=${{ github.event.pull_request.head.sha }}"
+          SRC_URL="$(node -e "fetch(process.argv[1]).then(r => r.json()).then(j => process.stdout.write(j.src))" "$STATE_URL")"
+          ENCODED_STATE="$(node -e "process.stdout.write(encodeURIComponent(process.argv[1]))" "$STATE_URL")"
+          REVIEW_URL="https://valar05.github.io/model-viewer-lab/model-viewer.html?state=$ENCODED_STATE&title=meshy_component_kit_positioning_study"
           node scripts/browser-acceptance.mjs \
             --url "$REVIEW_URL" \
             --out "artifacts/meshy-component-kit-cloud-review" \
-            --wait-ms "800" \
+            --wait-ms "1200" \
+            --width "918" \
+            --height "2048" \
             --views "front,left,right,fit" \
             --require-cloud-url \
             --expect-state-url "$STATE_URL" \
             --expect-src "$SRC_URL" \
             --expect-parts "tank_hull,tank_turret_housing,tank_gun_barrel,perforated_barrel_mac" \
             --expect-visible-parts "tank_hull,tank_turret_housing,tank_gun_barrel,perforated_barrel_mac" \
-            --expect-tank-assembly-contract
+            --expect-tank-assembly-contract \
+            --expect-canvas-pixels
       - name: Script syntax check
         run: node --check scripts/browser-acceptance.mjs
       - name: Upload workflow-dispatch browser evidence

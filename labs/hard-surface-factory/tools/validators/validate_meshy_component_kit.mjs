@@ -133,6 +133,8 @@ if (!process.exitCode) {
   }
   const assemblyState = readJson(path.join(outDir, 'review-state.json'));
   if (assemblyState.version !== 2) fail('assembly review state must be version 2');
+  if (!assemblyState.src?.includes('?v=')) fail('assembly review state must cache-bust LFS GLB URL');
+  if (!assemblyState.manifest?.includes('?v=')) fail('assembly review state must cache-bust manifest URL');
   if (assemblyState.parts?.length !== 4) fail('assembly review state must list exactly the four visible tank components');
   for (const id of ['tank_hull', 'tank_turret_housing', 'tank_gun_barrel', 'perforated_barrel_mac']) {
     const part = assemblyState.parts.find((candidate) => candidate.id === id);
@@ -146,6 +148,8 @@ if (!process.exitCode) {
       const state = readJson(reviewPath);
       if (state.version !== 2) fail('component review state must be version 2: ' + id);
       if (!state.src?.startsWith('https://media.githubusercontent.com/media/Valar05/model-viewer-lab/')) fail('component review state must use media GitHub URL for LFS GLB: ' + id);
+      if (!state.src?.includes('?v=')) fail('component review state must cache-bust LFS GLB URL: ' + id);
+      if (!state.manifest?.includes('?v=')) fail('component review state must cache-bust manifest URL: ' + id);
     }
   }
 }
