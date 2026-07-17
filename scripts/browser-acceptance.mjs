@@ -78,17 +78,6 @@ function nodeMeshBounds(glbJson) {
   return bounds;
 }
 
-function summarizeCanvasPixels(pixelValues) {
-  const pixels = [];
-  for (let index = 0; index < pixelValues.length; index += 4) {
-    const r = pixelValues[index], g = pixelValues[index + 1], b = pixelValues[index + 2], a = pixelValues[index + 3];
-    pixels.push({ r, g, b, a, max: Math.max(r, g, b), sum: r + g + b });
-  }
-  const brightPixels = pixels.filter((pixel) => pixel.a > 0 && pixel.max >= 50 && pixel.sum >= 120).length;
-  const nonTransparentPixels = pixels.filter((pixel) => pixel.a > 0).length;
-  return { sampleCount: pixels.length, brightPixels, nonTransparentPixels };
-}
-
 function assertTankAssemblyContract({ manifest, bounds, src }) {
   const contract = manifest.relationshipContracts || {};
   const requiredNodes = ['tank_hull', 'tank_turret_housing', 'tank_gun_barrel', 'perforated_barrel_mac'];
@@ -185,29 +174,25 @@ try {
     const canvasProbe = await page.evaluate(() => {
       const canvas = document.querySelector('canvas');
       if (!canvas) return { ok: false, reason: 'missing canvas' };
-      const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
-      if (!gl) return { ok: false, reason: 'missing webgl context', width: canvas.width, height: canvas.height };
-      const width = gl.drawingBufferWidth;
-      const height = gl.drawingBufferHeight;
-      const fractions = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8];
-      const pixels = new Uint8Array(fractions.length * fractions.length * 4);
-      let writeOffset = 0;
-      for (const y of fractions) {
-        for (const x of fractions) {
-          gl.readPixels(Math.max(0, Math.min(width - 1, Math.floor(width * x))), Math.max(0, Math.min(height - 1, Math.floor(height * y))), 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, pixels.subarray(writeOffset, writeOffset + 4));
-          writeOffset += 4;
-        }
-      }
-      return { ok: true, width: canvas.width, height: canvas.height, drawingBufferWidth: width, drawingBufferHeight: height, pixelValues: [...pixels] };
+      const rect = canvas.getBoundingClientRect();
+      return { ok: true, width: canvas.width, height: canvas.height, rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height } };
     });
-    const canvasPixelSummary = canvasProbe.pixelValues ? summarizeCanvasPixels(canvasProbe.pixelValues) : null;
-    captures.push({ view, path: png, screenshotBytes, canvasProbe: { ...canvasProbe, pixelValues: undefined }, canvasPixelSummary });
+    let canvasScreenshot = null;
+    if (canvasProbe.ok) {
+      const canvasElement = await page.$('canvas');
+      if (canvasElement) {
+        const canvasPng = path.join(outDir, `model-viewer-${view}-canvas.png`);
+        await canvasElement.screenshot({ path: canvasPng });
+        canvasScreenshot = { path: canvasPng, bytes: statSync(canvasPng).size };
+      }
+    }
+    captures.push({ view, path: png, screenshotBytes, canvasProbe, canvasScreenshot });
     if (failOnBlank && screenshotBytes < 20000) {
       throw new Error(`blank or low-information screenshot for ${view}: ${screenshotBytes} bytes`);
     }
     if (expectCanvasPixels) {
-      if (!canvasProbe.ok) throw new Error(`canvas probe failed for ${view}: ${JSON.stringify(canvasProbe)}`);
-      if (!canvasPixelSummary || canvasPixelSummary.brightPixels < 4) throw new Error(`blank or model-free canvas pixels for ${view}: ${JSON.stringify(canvasPixelSummary)}`);
+      if (!canvasProbe.ok || !canvasScreenshot) throw new Error(`canvas screenshot probe failed for ${view}: ${JSON.stringify(canvasProbe)}`);
+      if (canvasScreenshot.bytes < 120000) throw new Error(`blank or low-information canvas screenshot for ${view}: ${canvasScreenshot.bytes} bytes`);
     }
   }
   report = { ok: true, url, viewport: { width, height }, views, ready, tankAssemblyContract, captures, consoleMessages, pageErrors };
