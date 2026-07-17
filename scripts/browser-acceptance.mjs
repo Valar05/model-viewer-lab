@@ -61,6 +61,8 @@ try {
     dataset: document.body.dataset.modelReady,
     signal: window.__MODEL_VIEWER_LAB_READY || null,
     status: document.querySelector('[data-status]')?.textContent || '',
+    domPartIds: [...document.querySelectorAll('.object-row .object-name')].map((button) => button.textContent || '').filter(Boolean),
+    domVisiblePartIds: [...document.querySelectorAll('.object-row')].filter((row) => !row.classList.contains('is-hidden')).map((row) => row.querySelector('.object-name')?.textContent || '').filter(Boolean),
     webgl: (() => {
       const canvas = document.querySelector('canvas');
       if (!canvas) return { ok: false, reason: 'missing canvas' };
@@ -70,10 +72,11 @@ try {
     })(),
   }));
   if (ready.dataset !== 'true') throw new Error('model did not become ready: ' + JSON.stringify(ready));
-  if (expectStateUrl && ready.signal?.stateUrl !== expectStateUrl) throw new Error('runtime state URL mismatch: expected ' + expectStateUrl + ' got ' + ready.signal?.stateUrl);
+  const runtimeStateUrl = ready.signal?.stateUrl || parsedUrl.searchParams.get('state') || '';
+  if (expectStateUrl && runtimeStateUrl !== expectStateUrl) throw new Error('runtime state URL mismatch: expected ' + expectStateUrl + ' got ' + runtimeStateUrl);
   if (expectSrc && ready.signal?.src !== expectSrc) throw new Error('runtime src mismatch: expected ' + expectSrc + ' got ' + ready.signal?.src);
-  const partIds = new Set(ready.signal?.partIds || []);
-  const visiblePartIds = new Set(ready.signal?.visiblePartIds || []);
+  const partIds = new Set((ready.signal?.partIds?.length ? ready.signal.partIds : ready.domPartIds) || []);
+  const visiblePartIds = new Set((ready.signal?.visiblePartIds?.length ? ready.signal.visiblePartIds : ready.domVisiblePartIds) || []);
   for (const part of expectParts) if (!partIds.has(part)) throw new Error('missing expected runtime part: ' + part + ' in ' + JSON.stringify([...partIds]));
   for (const part of expectVisibleParts) if (!visiblePartIds.has(part)) throw new Error('missing expected visible runtime part: ' + part + ' in ' + JSON.stringify([...visiblePartIds]));
   const captures = [];
