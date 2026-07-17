@@ -6,15 +6,15 @@
   "camera": {
     "position": [
       0,
-      1.2,
-      3.4
+      1,
+      3
     ],
     "target": [
       0,
       0.18,
-      0
+      -0.08
     ],
-    "fov": 38
+    "fov": 34
   },
   "display": {
     "clay": false,
@@ -50,8 +50,8 @@
       "visible": true,
       "position": [
         0,
-        0.3,
-        -0.02
+        0,
+        0
       ],
       "rotationDeg": [
         0,
@@ -59,9 +59,9 @@
         0
       ],
       "scale": [
-        0.5,
-        0.5,
-        0.5
+        1,
+        1,
+        1
       ]
     },
     {
@@ -70,18 +70,18 @@
       "visible": true,
       "position": [
         0,
-        0.31,
-        -0.55
+        0,
+        0
       ],
       "rotationDeg": [
         0,
-        90,
+        0,
         0
       ],
       "scale": [
-        0.72,
-        0.72,
-        0.72
+        1,
+        1,
+        1
       ]
     },
     {
@@ -89,29 +89,9 @@
       "label": "perforated_barrel_mac",
       "visible": true,
       "position": [
-        0.13,
-        0.29,
-        -0.45
-      ],
-      "rotationDeg": [
         0,
-        90,
+        0,
         0
-      ],
-      "scale": [
-        0.34,
-        0.34,
-        0.34
-      ]
-    },
-    {
-      "id": "canteen_lid",
-      "label": "canteen_lid",
-      "visible": false,
-      "position": [
-        1.05,
-        0.18,
-        0.08
       ],
       "rotationDeg": [
         0,
@@ -119,9 +99,9 @@
         0
       ],
       "scale": [
-        0.22,
-        0.22,
-        0.22
+        1,
+        1,
+        1
       ]
     }
   ]

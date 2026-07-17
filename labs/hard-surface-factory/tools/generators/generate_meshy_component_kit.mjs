@@ -104,12 +104,81 @@ function eulerToQuat(rotationDeg) {
   ].map((value) => Number(value.toFixed(8)));
 }
 function prefixedName(prefix, value, fallback) { return prefix + '__' + (value || fallback); }
+function degToQuatXYZ(rotationDeg) {
+  const x = degToRad(rotationDeg[0]) / 2;
+  const y = degToRad(rotationDeg[1]) / 2;
+  const z = degToRad(rotationDeg[2]) / 2;
+  const sx = Math.sin(x), cx = Math.cos(x);
+  const sy = Math.sin(y), cy = Math.cos(y);
+  const sz = Math.sin(z), cz = Math.cos(z);
+  return [
+    sx * cy * cz - cx * sy * sz,
+    cx * sy * cz + sx * cy * sz,
+    cx * cy * sz - sx * sy * cz,
+    cx * cy * cz + sx * sy * sz
+  ];
+}
+function rotateVecByQuat(v, q) {
+  const [x, y, z] = v;
+  const [qx, qy, qz, qw] = q;
+  const ix = qw * x + qy * z - qz * y;
+  const iy = qw * y + qz * x - qx * z;
+  const iz = qw * z + qx * y - qy * x;
+  const iw = -qx * x - qy * y - qz * z;
+  return [
+    ix * qw + iw * -qx + iy * -qz - iz * -qy,
+    iy * qw + iw * -qy + iz * -qx - ix * -qz,
+    iz * qw + iw * -qz + ix * -qy - iy * -qx
+  ];
+}
+function transformSourceBin(component, json, bin) {
+  const out = Buffer.from(bin);
+  const q = degToQuatXYZ(component.transform.rotationDeg);
+  const scale = component.transform.scale;
+  const translate = component.transform.position;
+  for (const mesh of json.meshes || []) {
+    for (const primitive of mesh.primitives || []) {
+      for (const [semantic, accessorIndex] of Object.entries(primitive.attributes || {})) {
+        if (semantic !== 'POSITION' && semantic !== 'NORMAL') continue;
+        const accessor = json.accessors?.[accessorIndex];
+        const view = json.bufferViews?.[accessor?.bufferView];
+        if (!accessor || !view || accessor.componentType !== 5126 || accessor.type !== 'VEC3') continue;
+        const stride = view.byteStride || 12;
+        const start = (view.byteOffset || 0) + (accessor.byteOffset || 0);
+        const values = [];
+        for (let i = 0; i < accessor.count; i++) {
+          const offset = start + i * stride;
+          const raw = [out.readFloatLE(offset), out.readFloatLE(offset + 4), out.readFloatLE(offset + 8)];
+          let transformed;
+          if (semantic === 'POSITION') {
+            const scaled = [raw[0] * scale[0], raw[1] * scale[1], raw[2] * scale[2]];
+            const rotated = rotateVecByQuat(scaled, q);
+            transformed = [rotated[0] + translate[0], rotated[1] + translate[1], rotated[2] + translate[2]];
+          } else {
+            transformed = rotateVecByQuat(raw, q);
+            const len = Math.hypot(transformed[0], transformed[1], transformed[2]) || 1;
+            transformed = transformed.map((value) => value / len);
+          }
+          for (let axis = 0; axis < 3; axis++) out.writeFloatLE(transformed[axis], offset + axis * 4);
+          if (semantic === 'POSITION') values.push(transformed);
+        }
+        if (semantic === 'POSITION' && values.length) {
+          accessor.min = [0, 1, 2].map((axis) => Math.min(...values.map((v) => v[axis])));
+          accessor.max = [0, 1, 2].map((axis) => Math.max(...values.map((v) => v[axis])));
+        }
+      }
+    }
+  }
+  return out;
+}
 function mergeGlbs(stats) {
   const merged = { asset: { version: '2.0', generator: 'model-viewer-lab meshy component kit positioning study' }, scene: 0, scenes: [{ name: 'meshy_component_kit_positioning_study', nodes: [] }], nodes: [], meshes: [], materials: [], textures: [], images: [], samplers: [], accessors: [], bufferViews: [], buffers: [] };
   const binChunks = [];
   let byteOffset = 0;
-  for (const component of stats) {
-    const { json, bin } = readGlb(path.join(sourceDir, component.filename));
+  for (const component of stats.filter((entry) => entry.participatesInDefaultAssembly)) {
+    const loaded = readGlb(path.join(sourceDir, component.filename));
+    const json = loaded.json;
+    const bin = transformSourceBin(component, json, loaded.bin);
     const bufferViewOffset = merged.bufferViews.length;
     const accessorOffset = merged.accessors.length;
     const materialOffset = merged.materials.length;
@@ -165,15 +234,16 @@ function mergeGlbs(stats) {
     const childNodes = [];
     for (const node of sourceNodes) {
       const next = JSON.parse(JSON.stringify(node));
-      next.name = component.id + '__source_node';
+      next.name = component.id;
       if (next.mesh !== undefined) next.mesh += meshOffset;
       if (next.children) next.children = next.children.map((child) => child + merged.nodes.length);
       childNodes.push(merged.nodes.length);
       merged.nodes.push(next);
     }
-    const rootNodeIndex = merged.nodes.length;
-    merged.nodes.push({ name: component.id, children: childNodes, translation: component.transform.position, rotation: eulerToQuat(component.transform.rotationDeg), scale: component.transform.scale, extras: { category: component.category, intendedUse: component.intendedUse, participatesInDefaultAssembly: component.participatesInDefaultAssembly } });
-    merged.scenes[0].nodes.push(rootNodeIndex);
+    for (const nodeIndex of childNodes) {
+      merged.nodes[nodeIndex].extras = { category: component.category, intendedUse: component.intendedUse, bakedIntoVisibleTankAssembly: true };
+      merged.scenes[0].nodes.push(nodeIndex);
+    }
   }
   const bin = Buffer.concat(binChunks);
   merged.buffers = [{ byteLength: bin.length }];
@@ -197,7 +267,7 @@ function componentReviewState(component) {
   return { version: 2, src: rawBase + '/' + sourceRel + '/' + component.filename, manifest: rawBase + '/' + sourceRel + '/kit_manifest.json', title: 'Meshy component ' + component.id, camera: { position: [0, 1.2, 3.2], target: [0, 0, 0], fov: 38 }, display: { clay: false, wire: false, grid: true, boxes: false }, selectedPartId: component.id, parts: [{ id: component.id, label: component.label, visible: true, position: [0, 0, 0], rotationDeg: [0, 0, 0], scale: [1, 1, 1] }] };
 }
 function assemblyReviewState(stats) {
-  return { version: 2, src: rawBase + '/' + outRel + '/meshy_component_kit_positioning_study.glb', manifest: rawBase + '/' + outRel + '/model_manifest.json', title: 'meshy_component_kit_positioning_study', camera: { position: [0, 1.2, 3.4], target: [0, 0.18, 0], fov: 38 }, display: { clay: false, wire: false, grid: true, boxes: false }, selectedPartId: 'tank_hull', parts: stats.map((component) => ({ id: component.id, label: component.label, visible: component.participatesInDefaultAssembly, position: component.transform.position, rotationDeg: component.transform.rotationDeg, scale: component.transform.scale })) };
+  return { version: 2, src: rawBase + '/' + outRel + '/meshy_component_kit_positioning_study.glb', manifest: rawBase + '/' + outRel + '/model_manifest.json', title: 'meshy_component_kit_positioning_study', camera: { position: [0, 1.0, 3.0], target: [0, 0.18, -0.08], fov: 34 }, display: { clay: false, wire: false, grid: true, boxes: false }, selectedPartId: 'tank_hull', parts: stats.filter((component) => component.participatesInDefaultAssembly).map((component) => ({ id: component.id, label: component.label, visible: true, position: [0, 0, 0], rotationDeg: [0, 0, 0], scale: [1, 1, 1] })) };
 }
 
 const stats = components.map(componentStats);
@@ -210,7 +280,17 @@ fs.writeFileSync(path.join(sourceDir, 'PROVENANCE.md'), provenance);
 for (const component of stats) writeReviewState('meshy-component-kit-' + component.id + '.json', componentReviewState(component));
 const assemblyState = assemblyReviewState(stats);
 fs.writeFileSync(path.join(outDir, 'review-state.json'), JSON.stringify(assemblyState, null, 2) + '\n');
-const modelManifest = { id: 'meshy_component_kit_positioning_study', type: 'positioning-study', sourceKit: sourceRel + '/kit_manifest.json', glb: outRel + '/meshy_component_kit_positioning_study.glb', reviewState: outRel + '/review-state.json', claim: 'non-production layout/reference study only; not visual acceptance and not authored topology', parts: stats.map((component) => ({ id: component.id, category: component.category, source: component.sourcePath, transform: component.transform, visibleByDefault: component.participatesInDefaultAssembly })) };
+const redBuildEvidence = {
+  id: 'red-build-20260717-no-visible-tank',
+  capturePath: '/storage/emulated/0/Pictures/Screenshots/Screenshot_20260717-111902.png',
+  captureTimestampLocal: '2026-07-17 11:19:02 America/Chicago',
+  expectedVisibleState: 'one tank-like assembly with hull, turret housing, main gun barrel, and secondary barrel visible together',
+  actualVisibleRead: 'capture shows only a hull/chassis shell; no turret housing, no main gun barrel, no secondary barrel, and therefore no assembled tank relationship',
+  failingGate: 'previous CI/catalog validation proved files existed but did not prove the visible tank relationship',
+  requiredRepair: 'generated assembly GLB must bake visible hull, turret, and barrels into the default geometry so generic viewers and Model Viewer Lab show a tank-like assembly without relying on metadata-only transforms'
+};
+fs.writeFileSync(path.join(outDir, 'red-build-evidence.json'), JSON.stringify(redBuildEvidence, null, 2) + '\n');
+const modelManifest = { id: 'meshy_component_kit_positioning_study', type: 'visible-tank-positioning-study', sourceKit: sourceRel + '/kit_manifest.json', glb: outRel + '/meshy_component_kit_positioning_study.glb', reviewState: outRel + '/review-state.json', redBuildEvidence: outRel + '/red-build-evidence.json', claim: 'non-production visible tank assembly study only; not visual acceptance and not authored topology', visibleAssemblyRequiredParts: ['tank_hull', 'tank_turret_housing', 'tank_gun_barrel', 'perforated_barrel_mac'], quarantinedSourceOnlyParts: ['canteen_lid'], parts: stats.map((component) => ({ id: component.id, category: component.category, source: component.sourcePath, originalTransform: component.transform, visibleByDefault: component.participatesInDefaultAssembly })) };
 fs.writeFileSync(path.join(outDir, 'model_manifest.json'), JSON.stringify(modelManifest, null, 2) + '\n');
 console.log(JSON.stringify({ ok: true, kit: sourceRel, output: outRel, componentCount: stats.length }, null, 2));
 

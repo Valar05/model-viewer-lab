@@ -1,16 +1,26 @@
 {
   "id": "meshy_component_kit_positioning_study",
-  "type": "positioning-study",
+  "type": "visible-tank-positioning-study",
   "sourceKit": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/kit_manifest.json",
   "glb": "labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/meshy_component_kit_positioning_study.glb",
   "reviewState": "labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/review-state.json",
-  "claim": "non-production layout/reference study only; not visual acceptance and not authored topology",
+  "redBuildEvidence": "labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/red-build-evidence.json",
+  "claim": "non-production visible tank assembly study only; not visual acceptance and not authored topology",
+  "visibleAssemblyRequiredParts": [
+    "tank_hull",
+    "tank_turret_housing",
+    "tank_gun_barrel",
+    "perforated_barrel_mac"
+  ],
+  "quarantinedSourceOnlyParts": [
+    "canteen_lid"
+  ],
   "parts": [
     {
       "id": "tank_hull",
       "category": "hull_reference_scaffold",
       "source": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/tank_hull.glb",
-      "transform": {
+      "originalTransform": {
         "position": [
           0,
           0,
@@ -33,7 +43,7 @@
       "id": "tank_turret_housing",
       "category": "turret_reference_scaffold",
       "source": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/tank_turret_housing.glb",
-      "transform": {
+      "originalTransform": {
         "position": [
           0,
           0.3,
@@ -56,7 +66,7 @@
       "id": "tank_gun_barrel",
       "category": "main_gun_reference_scaffold",
       "source": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/tank_gun_barrel.glb",
-      "transform": {
+      "originalTransform": {
         "position": [
           0,
           0.31,
@@ -79,7 +89,7 @@
       "id": "perforated_barrel_mac",
       "category": "secondary_barrel_reference_scaffold",
       "source": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/perforated_barrel_mac.glb",
-      "transform": {
+      "originalTransform": {
         "position": [
           0.13,
           0.29,
@@ -102,7 +112,7 @@
       "id": "canteen_lid",
       "category": "quarantined_hatch_candidate",
       "source": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/canteen_lid.glb",
-      "transform": {
+      "originalTransform": {
         "position": [
           1.05,
           0.18,
