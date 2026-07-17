@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "src": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/source-assets/meshy-component-kit-071716/perforated_barrel_mac.glb",
+  "manifest": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/source-assets/meshy-component-kit-071716/kit_manifest.json",
+  "title": "Meshy component perforated_barrel_mac",
+  "camera": {
+    "position": [
+      0,
+      1.2,
+      3.2
+    ],
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "fov": 38
+  },
+  "display": {
+    "clay": false,
+    "wire": false,
+    "grid": true,
+    "boxes": false
+  },
+  "selectedPartId": "perforated_barrel_mac",
+  "parts": [
+    {
+      "id": "perforated_barrel_mac",
+      "label": "perforated_barrel_mac",
+      "visible": true,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotationDeg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

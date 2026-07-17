@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "src": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/source-assets/meshy-component-kit-071716/canteen_lid.glb",
+  "manifest": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/source-assets/meshy-component-kit-071716/kit_manifest.json",
+  "title": "Meshy component canteen_lid",
+  "camera": {
+    "position": [
+      0,
+      1.2,
+      3.2
+    ],
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "fov": 38
+  },
+  "display": {
+    "clay": false,
+    "wire": false,
+    "grid": true,
+    "boxes": false
+  },
+  "selectedPartId": "canteen_lid",
+  "parts": [
+    {
+      "id": "canteen_lid",
+      "label": "canteen_lid",
+      "visible": true,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotationDeg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

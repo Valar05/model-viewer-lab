@@ -1,0 +1,128 @@
+{
+  "version": 2,
+  "src": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/meshy_component_kit_positioning_study.glb",
+  "manifest": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/model_manifest.json",
+  "title": "meshy_component_kit_positioning_study",
+  "camera": {
+    "position": [
+      0,
+      1.2,
+      3.4
+    ],
+    "target": [
+      0,
+      0.18,
+      0
+    ],
+    "fov": 38
+  },
+  "display": {
+    "clay": false,
+    "wire": false,
+    "grid": true,
+    "boxes": false
+  },
+  "selectedPartId": "tank_hull",
+  "parts": [
+    {
+      "id": "tank_hull",
+      "label": "tank_hull",
+      "visible": true,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotationDeg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "tank_turret_housing",
+      "label": "tank_turret_housing",
+      "visible": true,
+      "position": [
+        0,
+        0.3,
+        -0.02
+      ],
+      "rotationDeg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "tank_gun_barrel",
+      "label": "tank_gun_barrel",
+      "visible": true,
+      "position": [
+        0,
+        0.31,
+        -0.55
+      ],
+      "rotationDeg": [
+        0,
+        90,
+        0
+      ],
+      "scale": [
+        0.72,
+        0.72,
+        0.72
+      ]
+    },
+    {
+      "id": "perforated_barrel_mac",
+      "label": "perforated_barrel_mac",
+      "visible": true,
+      "position": [
+        0.13,
+        0.29,
+        -0.45
+      ],
+      "rotationDeg": [
+        0,
+        90,
+        0
+      ],
+      "scale": [
+        0.34,
+        0.34,
+        0.34
+      ]
+    },
+    {
+      "id": "canteen_lid",
+      "label": "canteen_lid",
+      "visible": false,
+      "position": [
+        1.05,
+        0.18,
+        0.08
+      ],
+      "rotationDeg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.22,
+        0.22,
+        0.22
+      ]
+    }
+  ]
+}

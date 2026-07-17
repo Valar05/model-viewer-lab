@@ -1,0 +1,308 @@
+{
+  "id": "meshy-component-kit-071716",
+  "type": "meshy-reference-component-kit",
+  "generatedAt": "2026-07-17T16:49:47.952Z",
+  "sourcePolicy": {
+    "assetClass": "generated Meshy reference scaffolds",
+    "productionTopology": false,
+    "finalAuthoredGeometry": false,
+    "taskManifestsAvailable": false,
+    "notes": "Original GLBs were found untracked at the Model Viewer Lab repo root. No Meshy task manifest or prompt payload accompanied them."
+  },
+  "components": [
+    {
+      "id": "tank_hull",
+      "label": "tank_hull",
+      "sourceFilename": "Meshy_AI_Tank_hull_0717161907_texture.glb",
+      "filename": "tank_hull.glb",
+      "category": "hull_reference_scaffold",
+      "intendedUse": "source reference scaffold for hull proportions and texture cues",
+      "participatesInDefaultAssembly": true,
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "bytes": 8011476,
+      "asset": {
+        "generator": "pygltflib@v1.16.5",
+        "version": "2.0"
+      },
+      "nodeCount": 1,
+      "meshCount": 1,
+      "materialCount": 1,
+      "embeddedImageCount": 4,
+      "textureCount": 4,
+      "vertexCount": 3903,
+      "indexedTriangleCountApprox": 4019,
+      "bounds": {
+        "min": [
+          -0.32226601243019104,
+          -0.15136699378490448,
+          -0.49804699420928955
+        ],
+        "max": [
+          0.32226601243019104,
+          0.14941400289535522,
+          0.5
+        ],
+        "dimensions": [
+          0.644532,
+          0.300781,
+          0.998047
+        ]
+      },
+      "sourcePath": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/tank_hull.glb"
+    },
+    {
+      "id": "tank_turret_housing",
+      "label": "tank_turret_housing",
+      "sourceFilename": "Meshy_AI_Tank_turret_housing_0717162705_texture.glb",
+      "filename": "tank_turret_housing.glb",
+      "category": "turret_reference_scaffold",
+      "intendedUse": "source reference scaffold for turret housing proportions",
+      "participatesInDefaultAssembly": true,
+      "transform": {
+        "position": [
+          0,
+          0.3,
+          -0.02
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "bytes": 8252900,
+      "asset": {
+        "generator": "pygltflib@v1.16.5",
+        "version": "2.0"
+      },
+      "nodeCount": 1,
+      "meshCount": 1,
+      "materialCount": 1,
+      "embeddedImageCount": 4,
+      "textureCount": 4,
+      "vertexCount": 3218,
+      "indexedTriangleCountApprox": 3998,
+      "bounds": {
+        "min": [
+          -0.4804689884185791,
+          -0.19726599752902985,
+          -0.5
+        ],
+        "max": [
+          0.484375,
+          0.19335900247097015,
+          0.5
+        ],
+        "dimensions": [
+          0.964844,
+          0.390625,
+          1
+        ]
+      },
+      "sourcePath": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/tank_turret_housing.glb"
+    },
+    {
+      "id": "tank_gun_barrel",
+      "label": "tank_gun_barrel",
+      "sourceFilename": "Meshy_AI_Tank_gun_barrel_0717163811_texture.glb",
+      "filename": "tank_gun_barrel.glb",
+      "category": "main_gun_reference_scaffold",
+      "intendedUse": "source reference scaffold for main gun barrel; local X is rotated to tank-forward Z in the positioning study",
+      "participatesInDefaultAssembly": true,
+      "transform": {
+        "position": [
+          0,
+          0.31,
+          -0.55
+        ],
+        "rotationDeg": [
+          0,
+          90,
+          0
+        ],
+        "scale": [
+          0.72,
+          0.72,
+          0.72
+        ]
+      },
+      "bytes": 5987512,
+      "asset": {
+        "generator": "pygltflib@v1.16.5",
+        "version": "2.0"
+      },
+      "nodeCount": 1,
+      "meshCount": 1,
+      "materialCount": 1,
+      "embeddedImageCount": 4,
+      "textureCount": 4,
+      "vertexCount": 622,
+      "indexedTriangleCountApprox": 456,
+      "bounds": {
+        "min": [
+          -0.5,
+          -0.07324200123548508,
+          -0.06494099646806717
+        ],
+        "max": [
+          0.5,
+          0.07470700144767761,
+          0.06347700208425522
+        ],
+        "dimensions": [
+          1,
+          0.147949,
+          0.128418
+        ]
+      },
+      "sourcePath": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/tank_gun_barrel.glb"
+    },
+    {
+      "id": "perforated_barrel_mac",
+      "label": "perforated_barrel_mac",
+      "sourceFilename": "Meshy_AI_Perforated_Barrel_Mac_0717163656_texture.glb",
+      "filename": "perforated_barrel_mac.glb",
+      "category": "secondary_barrel_reference_scaffold",
+      "intendedUse": "source reference scaffold for coaxial or alternate barrel detail",
+      "participatesInDefaultAssembly": true,
+      "transform": {
+        "position": [
+          0.13,
+          0.29,
+          -0.45
+        ],
+        "rotationDeg": [
+          0,
+          90,
+          0
+        ],
+        "scale": [
+          0.34,
+          0.34,
+          0.34
+        ]
+      },
+      "bytes": 7608052,
+      "asset": {
+        "generator": "pygltflib@v1.16.5",
+        "version": "2.0"
+      },
+      "nodeCount": 1,
+      "meshCount": 1,
+      "materialCount": 1,
+      "embeddedImageCount": 4,
+      "textureCount": 4,
+      "vertexCount": 599,
+      "indexedTriangleCountApprox": 443,
+      "bounds": {
+        "min": [
+          -0.5,
+          -0.13378900289535522,
+          -0.15039099752902985
+        ],
+        "max": [
+          0.4960939884185791,
+          0.13476599752902985,
+          0.14941400289535522
+        ],
+        "dimensions": [
+          0.996094,
+          0.268555,
+          0.299805
+        ]
+      },
+      "sourcePath": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/perforated_barrel_mac.glb"
+    },
+    {
+      "id": "canteen_lid",
+      "label": "canteen_lid",
+      "sourceFilename": "Meshy_AI_Canteen_lid_0717163648_texture.glb",
+      "filename": "canteen_lid.glb",
+      "category": "quarantined_hatch_candidate",
+      "intendedUse": "quarantined non-tank semantic candidate; inspect only as possible hatch/lid reference",
+      "participatesInDefaultAssembly": false,
+      "transform": {
+        "position": [
+          1.05,
+          0.18,
+          0.08
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.22,
+          0.22,
+          0.22
+        ]
+      },
+      "bytes": 7206812,
+      "asset": {
+        "generator": "pygltflib@v1.16.5",
+        "version": "2.0"
+      },
+      "nodeCount": 1,
+      "meshCount": 1,
+      "materialCount": 1,
+      "embeddedImageCount": 4,
+      "textureCount": 4,
+      "vertexCount": 428,
+      "indexedTriangleCountApprox": 300,
+      "bounds": {
+        "min": [
+          -0.49804699420928955,
+          -0.11425799876451492,
+          -0.5
+        ],
+        "max": [
+          0.4960939884185791,
+          0.11816400289535522,
+          0.5
+        ],
+        "dimensions": [
+          0.994141,
+          0.232422,
+          1
+        ]
+      },
+      "sourcePath": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/canteen_lid.glb"
+    }
+  ],
+  "positioningStudy": {
+    "id": "meshy_component_kit_positioning_study",
+    "claim": "non-production layout/reference study only; not visual acceptance and not authored topology",
+    "glb": "labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/meshy_component_kit_positioning_study.glb",
+    "manifest": "labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/model_manifest.json",
+    "reviewState": "labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/review-state.json"
+  },
+  "reviewStates": {
+    "tank_hull": "labs/hard-surface-factory/review-states/meshy-component-kit-tank_hull.json",
+    "tank_turret_housing": "labs/hard-surface-factory/review-states/meshy-component-kit-tank_turret_housing.json",
+    "tank_gun_barrel": "labs/hard-surface-factory/review-states/meshy-component-kit-tank_gun_barrel.json",
+    "perforated_barrel_mac": "labs/hard-surface-factory/review-states/meshy-component-kit-perforated_barrel_mac.json",
+    "canteen_lid": "labs/hard-surface-factory/review-states/meshy-component-kit-canteen_lid.json"
+  }
+}
