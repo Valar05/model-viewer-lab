@@ -71,7 +71,8 @@ jobs:
             --expect-state-url "$STATE_URL" \
             --expect-src "$SRC_URL" \
             --expect-parts "tank_hull,tank_turret_housing,tank_gun_barrel,perforated_barrel_mac" \
-            --expect-visible-parts "tank_hull,tank_turret_housing,tank_gun_barrel,perforated_barrel_mac"
+            --expect-visible-parts "tank_hull,tank_turret_housing,tank_gun_barrel,perforated_barrel_mac" \
+            --expect-tank-assembly-contract
       - name: Script syntax check
         run: node --check scripts/browser-acceptance.mjs
       - name: Upload workflow-dispatch browser evidence

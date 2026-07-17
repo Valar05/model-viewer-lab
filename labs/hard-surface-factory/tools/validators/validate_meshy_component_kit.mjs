@@ -31,6 +31,35 @@ function readGlbJson(file) {
   }
   throw new Error('missing GLB JSON: ' + file);
 }
+
+function nodeMeshBounds(glbJson) {
+  const bounds = {};
+  function meshBounds(meshIndex) {
+    const mesh = glbJson.meshes?.[meshIndex];
+    const min = [Infinity, Infinity, Infinity];
+    const max = [-Infinity, -Infinity, -Infinity];
+    for (const primitive of mesh?.primitives || []) {
+      const accessorIndex = primitive.attributes?.POSITION;
+      const accessor = glbJson.accessors?.[accessorIndex];
+      if (!accessor?.min || !accessor?.max) continue;
+      for (let axis = 0; axis < 3; axis++) {
+        min[axis] = Math.min(min[axis], accessor.min[axis]);
+        max[axis] = Math.max(max[axis], accessor.max[axis]);
+      }
+    }
+    if (min[0] === Infinity) return null;
+    return { min, max, dim: max.map((value, axis) => value - min[axis]), center: max.map((value, axis) => (value + min[axis]) / 2) };
+  }
+  for (const node of glbJson.nodes || []) {
+    if (node.mesh !== undefined && node.name) bounds[node.name] = meshBounds(node.mesh);
+  }
+  return bounds;
+}
+function closeEnough(actual, expected, tolerance = 0.0001) { return Math.abs(actual - expected) <= tolerance; }
+function vectorClose(actual, expected, tolerance = 0.0001) {
+  return Array.isArray(actual) && actual.length === expected.length && actual.every((value, index) => closeEnough(value, expected[index], tolerance));
+}
+function transformFor(modelManifest, id) { return modelManifest.parts?.find((part) => part.id === id)?.originalTransform; }
 for (const file of expectedFiles) {
   const full = path.join(sourceDir, file);
   if (!fs.existsSync(full)) fail('missing source GLB: ' + file);
@@ -60,13 +89,48 @@ if (!process.exitCode) {
   }
   if (!modelManifest.quarantinedSourceOnlyParts?.includes('canteen_lid')) fail('canteen_lid must be source-only in the visible assembly');
   const redEvidence = readJson(path.join(outDir, 'red-build-evidence.json'));
-  if (redEvidence.actualVisibleRead?.includes('only a hull') !== true) fail('red-build evidence must record the hull-only visual failure');
+  if (redEvidence.actualVisibleRead?.includes('mantlet/front detail on the opposite side') !== true) fail('red-build evidence must record the orientation and seating visual failure');
+  if (redEvidence.capturePath?.endsWith('Screenshot_20260717-130121.png') !== true) fail('red-build evidence must point at the corrected user screenshot candidate');
+  const contract = modelManifest.relationshipContracts || {};
+  if (JSON.stringify(contract.tankForwardAxis) !== JSON.stringify([0, 0, -1])) fail('assembly contract must declare tank-forward -Z');
+  if (contract.turretMantletSharesGunAxis !== true) fail('assembly contract must require turret mantlet to share gun axis');
+  if (contract.coaxialMgSharesGunAxis !== true) fail('assembly contract must require coaxial MG to share gun axis');
+  if (contract.turretMustBeSeatedOnHull !== true) fail('assembly contract must require turret seating');
+  if (contract.barrelMustOverlapTurretFront !== true) fail('assembly contract must require barrel/turret front overlap');
+  const turretTransform = transformFor(modelManifest, 'tank_turret_housing');
+  const gunTransform = transformFor(modelManifest, 'tank_gun_barrel');
+  const mgTransform = transformFor(modelManifest, 'perforated_barrel_mac');
+  if (!vectorClose(turretTransform?.rotationDeg, [0, 180, 0])) fail('turret must be rotated 180 degrees so mantlet/front detail faces the gun axis');
+  if (!vectorClose(gunTransform?.rotationDeg, [0, 90, 0])) fail('main gun must rotate onto tank-forward -Z');
+  if (!vectorClose(mgTransform?.rotationDeg, [0, -90, 0])) fail('MG must be flipped relative to the previous backwards orientation');
+  if (!(turretTransform?.scale?.[0] <= 0.43)) fail('turret scale must be reduced from the red-build oversized setting');
   const assemblyJson = readGlbJson(path.join(outDir, 'meshy_component_kit_positioning_study.glb'));
   const sceneNodes = new Set((assemblyJson.scenes?.[assemblyJson.scene || 0]?.nodes || []).map((index) => assemblyJson.nodes?.[index]?.name));
   for (const id of ['tank_hull', 'tank_turret_housing', 'tank_gun_barrel', 'perforated_barrel_mac']) {
     if (!sceneNodes.has(id)) fail('visible assembly GLB scene missing node: ' + id);
   }
   if (sceneNodes.has('canteen_lid')) fail('canteen_lid must not be in the default visible tank assembly GLB scene');
+  const bounds = nodeMeshBounds(assemblyJson);
+  for (const id of ['tank_hull', 'tank_turret_housing', 'tank_gun_barrel', 'perforated_barrel_mac']) {
+    if (!bounds[id]) fail('missing measured GLB bounds for: ' + id);
+  }
+  if (bounds.tank_hull && bounds.tank_turret_housing) {
+    const hullTop = bounds.tank_hull.max[1];
+    const turretBottom = bounds.tank_turret_housing.min[1];
+    const seatingOverlap = hullTop - turretBottom;
+    if (!(seatingOverlap >= 0.003 && seatingOverlap <= 0.03)) fail('turret seating must overlap hull roof by 0.003-0.03; got ' + seatingOverlap.toFixed(6));
+    const widthRatio = bounds.tank_turret_housing.dim[0] / bounds.tank_hull.dim[0];
+    const lengthRatio = bounds.tank_turret_housing.dim[2] / bounds.tank_hull.dim[2];
+    if (!(widthRatio <= contract.turretMaxWidthRatioOfHull)) fail('turret too wide for hull: ratio ' + widthRatio.toFixed(3));
+    if (!(lengthRatio <= contract.turretMaxLengthRatioOfHull)) fail('turret too long for hull: ratio ' + lengthRatio.toFixed(3));
+  }
+  if (bounds.tank_turret_housing && bounds.tank_gun_barrel && bounds.perforated_barrel_mac) {
+    const turretFrontZ = bounds.tank_turret_housing.min[2];
+    if (!(bounds.tank_gun_barrel.min[2] < turretFrontZ && bounds.tank_gun_barrel.max[2] > turretFrontZ)) fail('main gun must overlap turret front plane on -Z axis');
+    if (!(bounds.perforated_barrel_mac.min[2] < turretFrontZ && bounds.perforated_barrel_mac.max[2] > turretFrontZ)) fail('coaxial MG must overlap turret front plane on -Z axis');
+    if (!(Math.abs(bounds.tank_gun_barrel.center[1] - bounds.perforated_barrel_mac.center[1]) < 0.04)) fail('coaxial MG must stay vertically aligned with main gun');
+    if (!(bounds.perforated_barrel_mac.center[0] > bounds.tank_gun_barrel.center[0] + 0.06)) fail('coaxial MG must sit as a visible side-offset barrel, not merge into the main gun');
+  }
   const assemblyState = readJson(path.join(outDir, 'review-state.json'));
   if (assemblyState.version !== 2) fail('assembly review state must be version 2');
   if (assemblyState.parts?.length !== 4) fail('assembly review state must list exactly the four visible tank components');

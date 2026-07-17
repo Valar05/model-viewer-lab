@@ -27,11 +27,77 @@ const height = Number(value('--height', '960'));
 const views = value('--views', 'front,left,top,right,back,fit').split(',').map((item) => item.trim()).filter(Boolean);
 const expectParts = value('--expect-parts').split(',').map((item) => item.trim()).filter(Boolean);
 const expectVisibleParts = value('--expect-visible-parts').split(',').map((item) => item.trim()).filter(Boolean);
+const expectTankAssemblyContract = flag('--expect-tank-assembly-contract');
 const expectStateUrl = value('--expect-state-url');
 const expectSrc = value('--expect-src');
 const requireCloudUrl = flag('--require-cloud-url');
 const failOnBlank = !flag('--allow-blank');
 mkdirSync(outDir, { recursive: true });
+
+
+async function fetchJson(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error('failed to fetch JSON ' + url + ': ' + response.status);
+  return response.json();
+}
+async function fetchGlbJson(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error('failed to fetch GLB ' + url + ': ' + response.status);
+  const data = Buffer.from(await response.arrayBuffer());
+  if (data.readUInt32LE(0) !== 0x46546c67 || data.readUInt32LE(4) !== 2) throw new Error('invalid GLB header from ' + url);
+  let offset = 12;
+  while (offset < data.length) {
+    const length = data.readUInt32LE(offset);
+    const type = data.readUInt32LE(offset + 4);
+    offset += 8;
+    const chunk = data.subarray(offset, offset + length);
+    offset += length;
+    if (type === 0x4e4f534a) return JSON.parse(chunk.toString('utf8').trim());
+  }
+  throw new Error('missing GLB JSON chunk from ' + url);
+}
+function nodeMeshBounds(glbJson) {
+  const bounds = {};
+  function meshBounds(meshIndex) {
+    const mesh = glbJson.meshes?.[meshIndex];
+    const min = [Infinity, Infinity, Infinity];
+    const max = [-Infinity, -Infinity, -Infinity];
+    for (const primitive of mesh?.primitives || []) {
+      const accessor = glbJson.accessors?.[primitive.attributes?.POSITION];
+      if (!accessor?.min || !accessor?.max) continue;
+      for (let axis = 0; axis < 3; axis++) {
+        min[axis] = Math.min(min[axis], accessor.min[axis]);
+        max[axis] = Math.max(max[axis], accessor.max[axis]);
+      }
+    }
+    if (min[0] === Infinity) return null;
+    return { min, max, dim: max.map((value, axis) => value - min[axis]), center: max.map((value, axis) => (value + min[axis]) / 2) };
+  }
+  for (const node of glbJson.nodes || []) if (node.mesh !== undefined && node.name) bounds[node.name] = meshBounds(node.mesh);
+  return bounds;
+}
+function assertTankAssemblyContract({ manifest, bounds, src }) {
+  const contract = manifest.relationshipContracts || {};
+  const requiredNodes = ['tank_hull', 'tank_turret_housing', 'tank_gun_barrel', 'perforated_barrel_mac'];
+  for (const id of requiredNodes) if (!bounds[id]) throw new Error('cloud GLB missing measured bounds for ' + id + ' from ' + src);
+  if (JSON.stringify(contract.tankForwardAxis) !== JSON.stringify([0, 0, -1])) throw new Error('cloud manifest does not declare tank-forward -Z');
+  if (contract.turretMantletSharesGunAxis !== true || contract.coaxialMgSharesGunAxis !== true) throw new Error('cloud manifest is missing gun/mantlet/MG axis contract');
+  if (contract.turretMustBeSeatedOnHull !== true || contract.barrelMustOverlapTurretFront !== true) throw new Error('cloud manifest is missing turret seating/front-overlap contract');
+  const hullTop = bounds.tank_hull.max[1];
+  const turretBottom = bounds.tank_turret_housing.min[1];
+  const seatingOverlap = hullTop - turretBottom;
+  if (!(seatingOverlap >= 0.003 && seatingOverlap <= 0.03)) throw new Error('cloud turret is not seated on hull roof; overlap=' + seatingOverlap.toFixed(6));
+  const widthRatio = bounds.tank_turret_housing.dim[0] / bounds.tank_hull.dim[0];
+  const lengthRatio = bounds.tank_turret_housing.dim[2] / bounds.tank_hull.dim[2];
+  if (!(widthRatio <= contract.turretMaxWidthRatioOfHull)) throw new Error('cloud turret is too wide for hull; ratio=' + widthRatio.toFixed(3));
+  if (!(lengthRatio <= contract.turretMaxLengthRatioOfHull)) throw new Error('cloud turret is too long for hull; ratio=' + lengthRatio.toFixed(3));
+  const turretFrontZ = bounds.tank_turret_housing.min[2];
+  if (!(bounds.tank_gun_barrel.min[2] < turretFrontZ && bounds.tank_gun_barrel.max[2] > turretFrontZ)) throw new Error('cloud main gun does not overlap turret front -Z plane');
+  if (!(bounds.perforated_barrel_mac.min[2] < turretFrontZ && bounds.perforated_barrel_mac.max[2] > turretFrontZ)) throw new Error('cloud MG does not overlap turret front -Z plane');
+  if (!(Math.abs(bounds.tank_gun_barrel.center[1] - bounds.perforated_barrel_mac.center[1]) < 0.04)) throw new Error('cloud MG is not vertically aligned with main gun');
+  if (!(bounds.perforated_barrel_mac.center[0] > bounds.tank_gun_barrel.center[0] + 0.06)) throw new Error('cloud MG is not a visible side-offset coaxial barrel');
+  return { contract, bounds, seatingOverlap, widthRatio, lengthRatio, turretFrontZ };
+}
 
 const browser = await chromium.launch({
   headless: true,
@@ -79,6 +145,17 @@ try {
   const visiblePartIds = new Set((ready.signal?.visiblePartIds?.length ? ready.signal.visiblePartIds : ready.domVisiblePartIds) || []);
   for (const part of expectParts) if (!partIds.has(part)) throw new Error('missing expected runtime part: ' + part + ' in ' + JSON.stringify([...partIds]));
   for (const part of expectVisibleParts) if (!visiblePartIds.has(part)) throw new Error('missing expected visible runtime part: ' + part + ' in ' + JSON.stringify([...visiblePartIds]));
+  let tankAssemblyContract = null;
+  if (expectTankAssemblyContract) {
+    const stateJson = await fetchJson(runtimeStateUrl);
+    const manifestUrl = ready.signal?.manifest || stateJson.manifest;
+    const srcUrl = expectSrc || ready.signal?.src || stateJson.src;
+    if (!manifestUrl) throw new Error('missing manifest URL for tank assembly contract');
+    if (!srcUrl) throw new Error('missing src URL for tank assembly contract');
+    const manifest = await fetchJson(manifestUrl);
+    const glbJson = await fetchGlbJson(srcUrl);
+    tankAssemblyContract = assertTankAssemblyContract({ manifest, bounds: nodeMeshBounds(glbJson), src: srcUrl });
+  }
   const captures = [];
   for (const view of views) {
     const clicked = await page.evaluate((viewName) => {
@@ -102,7 +179,7 @@ try {
       throw new Error(`blank or low-information screenshot for ${view}: ${screenshotBytes} bytes`);
     }
   }
-  report = { ok: true, url, viewport: { width, height }, views, ready, captures, consoleMessages, pageErrors };
+  report = { ok: true, url, viewport: { width, height }, views, ready, tankAssemblyContract, captures, consoleMessages, pageErrors };
 } catch (error) {
   const failurePng = path.join(outDir, 'failure.png');
   await page.screenshot({ path: failurePng, fullPage: false }).catch(() => {});

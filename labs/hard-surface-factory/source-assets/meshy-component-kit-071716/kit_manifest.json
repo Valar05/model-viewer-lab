@@ -1,7 +1,7 @@
 {
   "id": "meshy-component-kit-071716",
   "type": "meshy-reference-component-kit",
-  "generatedAt": "2026-07-17T17:44:57.613Z",
+  "generatedAt": "2026-07-17T18:08:46.015Z",
   "sourcePolicy": {
     "assetClass": "generated Meshy reference scaffolds",
     "productionTopology": false,
@@ -72,23 +72,23 @@
       "sourceFilename": "Meshy_AI_Tank_turret_housing_0717162705_texture.glb",
       "filename": "tank_turret_housing.glb",
       "category": "turret_reference_scaffold",
-      "intendedUse": "source reference scaffold for turret housing proportions",
+      "intendedUse": "source reference scaffold for turret housing proportions; rotated so mantlet/front detail shares the tank forward axis",
       "participatesInDefaultAssembly": true,
       "transform": {
         "position": [
           0,
-          0.3,
-          -0.02
+          0.226,
+          -0.04
         ],
         "rotationDeg": [
           0,
-          0,
+          180,
           0
         ],
         "scale": [
-          0.5,
-          0.5,
-          0.5
+          0.42,
+          0.42,
+          0.42
         ]
       },
       "bytes": 8252900,
@@ -128,13 +128,13 @@
       "sourceFilename": "Meshy_AI_Tank_gun_barrel_0717163811_texture.glb",
       "filename": "tank_gun_barrel.glb",
       "category": "main_gun_reference_scaffold",
-      "intendedUse": "source reference scaffold for main gun barrel; local X is rotated to tank-forward Z in the positioning study",
+      "intendedUse": "source reference scaffold for main gun barrel; local X is rotated to tank-forward -Z and seated into the mantlet face",
       "participatesInDefaultAssembly": true,
       "transform": {
         "position": [
           0,
-          0.31,
-          -0.55
+          0.26,
+          -0.54
         ],
         "rotationDeg": [
           0,
@@ -142,9 +142,9 @@
           0
         ],
         "scale": [
-          0.72,
-          0.72,
-          0.72
+          0.68,
+          0.68,
+          0.68
         ]
       },
       "bytes": 5987512,
@@ -184,23 +184,23 @@
       "sourceFilename": "Meshy_AI_Perforated_Barrel_Mac_0717163656_texture.glb",
       "filename": "perforated_barrel_mac.glb",
       "category": "secondary_barrel_reference_scaffold",
-      "intendedUse": "source reference scaffold for coaxial or alternate barrel detail",
+      "intendedUse": "source reference scaffold for coaxial MG detail; flipped so receiver/muzzle read in the same tank-forward -Z direction as the main gun",
       "participatesInDefaultAssembly": true,
       "transform": {
         "position": [
-          0.13,
-          0.29,
-          -0.45
+          0.115,
+          0.245,
+          -0.395
         ],
         "rotationDeg": [
           0,
-          90,
+          -90,
           0
         ],
         "scale": [
-          0.34,
-          0.34,
-          0.34
+          0.3,
+          0.3,
+          0.3
         ]
       },
       "bytes": 7608052,
