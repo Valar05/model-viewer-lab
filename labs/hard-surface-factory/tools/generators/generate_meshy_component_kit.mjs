@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import os from 'node:os';
 
 const root = process.cwd();
 const kitId = 'meshy-component-kit-071716';
@@ -107,6 +108,93 @@ function eulerToQuat(rotationDeg) {
   ].map((value) => Number(value.toFixed(8)));
 }
 function prefixedName(prefix, value, fallback) { return prefix + '__' + (value || fallback); }
+
+const materialHarmonizationConfig = {
+  referencePartId: 'tank_hull',
+  referenceBaseColorMeanRgb: [98.5, 96.6, 77.3],
+  targetPartIds: ['tank_turret_housing', 'tank_gun_barrel', 'perforated_barrel_mac'],
+  method: 'generated assembly base-color JPEG channel scaling toward the accepted hull/body texture family'
+};
+function baseColorImageBufferView(json) {
+  const material = json.materials?.[0];
+  const textureIndex = material?.pbrMetallicRoughness?.baseColorTexture?.index;
+  const imageIndex = json.textures?.[textureIndex]?.source;
+  return imageIndex !== undefined ? json.images?.[imageIndex]?.bufferView : undefined;
+}
+function extractBufferView(bin, view) {
+  return bin.subarray(view.byteOffset || 0, (view.byteOffset || 0) + view.byteLength);
+}
+function rebuildBinWithBufferViewReplacement(json, bin, replacements) {
+  const chunks = [];
+  let byteOffset = 0;
+  json.bufferViews = (json.bufferViews || []).map((view, index) => {
+    const nextBytes = replacements.get(index) || extractBufferView(bin, view);
+    const next = { ...view, byteOffset, byteLength: nextBytes.length };
+    chunks.push(nextBytes);
+    const pad = pad4(nextBytes.length);
+    if (pad) chunks.push(Buffer.alloc(pad));
+    byteOffset += nextBytes.length + pad;
+    return next;
+  });
+  return Buffer.concat(chunks);
+}
+function harmonizeJpegBytes(component, sourceBytes) {
+  const workDir = fs.mkdtempSync(path.join(os.tmpdir(), 'mvl-material-'));
+  const inputPath = path.join(workDir, 'input.jpg');
+  const outputPath = path.join(workDir, 'output.jpg');
+  const reportPath = path.join(workDir, 'report.json');
+  fs.writeFileSync(inputPath, sourceBytes);
+  const script = String.raw`
+import json
+import sys
+from PIL import Image, ImageStat
+source, target_json, output, report_path = sys.argv[1:5]
+target = json.loads(target_json)
+image = Image.open(source).convert('RGB')
+small = image.resize((128, 128))
+before_mean = ImageStat.Stat(small).mean
+factors = [target[i] / max(before_mean[i], 1.0) for i in range(3)]
+channels = []
+for channel, factor in zip(image.split(), factors):
+    channels.append(channel.point(lambda value, f=factor: max(0, min(255, int(round(value * f))))))
+out = Image.merge('RGB', channels)
+out.save(output, format='JPEG', quality=92, subsampling=0)
+after_mean = ImageStat.Stat(out.resize((128, 128))).mean
+def luma(values):
+    return values[0] * 0.2126 + values[1] * 0.7152 + values[2] * 0.0722
+report = {
+    'beforeMeanRgb': [round(v, 3) for v in before_mean],
+    'afterMeanRgb': [round(v, 3) for v in after_mean],
+    'targetMeanRgb': [round(v, 3) for v in target],
+    'beforeLuma': round(luma(before_mean), 3),
+    'afterLuma': round(luma(after_mean), 3),
+    'targetLuma': round(luma(target), 3),
+    'channelFactors': [round(v, 4) for v in factors]
+}
+with open(report_path, 'w', encoding='utf8') as f:
+    json.dump(report, f)
+`;
+  try {
+    execFileSync('python3', ['-c', script, inputPath, JSON.stringify(materialHarmonizationConfig.referenceBaseColorMeanRgb), outputPath, reportPath], { stdio: 'pipe' });
+    return { bytes: fs.readFileSync(outputPath), report: JSON.parse(fs.readFileSync(reportPath, 'utf8')) };
+  } catch (error) {
+    throw new Error('material harmonization requires python3 with Pillow/PIL for ' + component.id + ': ' + (error.stderr?.toString() || error.message));
+  } finally {
+    fs.rmSync(workDir, { recursive: true, force: true });
+  }
+}
+function harmonizeComponentMaterial(component, json, bin) {
+  if (!materialHarmonizationConfig.targetPartIds.includes(component.id)) return { json, bin, report: null };
+  const imageBufferView = baseColorImageBufferView(json);
+  if (imageBufferView === undefined) throw new Error(component.id + ': missing base-color texture image bufferView');
+  const originalBytes = json.bufferViews[imageBufferView].byteLength;
+  const replacement = harmonizeJpegBytes(component, extractBufferView(bin, json.bufferViews[imageBufferView]));
+  const replacements = new Map([[imageBufferView, replacement.bytes]]);
+  const nextBin = rebuildBinWithBufferViewReplacement(json, bin, replacements);
+  const material = json.materials?.[0];
+  material.extras = { ...(material.extras || {}), materialHarmonization: { referencePartId: materialHarmonizationConfig.referencePartId, method: materialHarmonizationConfig.method, ...replacement.report } };
+  return { json, bin: nextBin, report: { partId: component.id, baseColorImageBufferView: imageBufferView, originalBytes, harmonizedBytes: replacement.bytes.length, ...replacement.report } };
+}
 function degToQuatXYZ(rotationDeg) {
   const x = degToRad(rotationDeg[0]) / 2;
   const y = degToRad(rotationDeg[1]) / 2;
@@ -175,13 +263,16 @@ function transformSourceBin(component, json, bin) {
   return out;
 }
 function mergeGlbs(stats) {
+  const materialHarmonizationReports = [];
   const merged = { asset: { version: '2.0', generator: 'model-viewer-lab meshy component kit positioning study' }, scene: 0, scenes: [{ name: 'meshy_component_kit_positioning_study', nodes: [] }], nodes: [], meshes: [], materials: [], textures: [], images: [], samplers: [], accessors: [], bufferViews: [], buffers: [] };
   const binChunks = [];
   let byteOffset = 0;
   for (const component of stats.filter((entry) => entry.participatesInDefaultAssembly)) {
     const loaded = readGlb(path.join(sourceDir, component.filename));
     const json = loaded.json;
-    const bin = transformSourceBin(component, json, loaded.bin);
+    const harmonized = harmonizeComponentMaterial(component, json, loaded.bin);
+    if (harmonized.report) materialHarmonizationReports.push(harmonized.report);
+    const bin = transformSourceBin(component, harmonized.json, harmonized.bin);
     const bufferViewOffset = merged.bufferViews.length;
     const accessorOffset = merged.accessors.length;
     const materialOffset = merged.materials.length;
@@ -209,7 +300,7 @@ function mergeGlbs(stats) {
     }
     for (const material of json.materials || []) {
       const next = JSON.parse(JSON.stringify(material));
-      if (next.name) next.name = prefixedName(component.id, next.name, 'material');
+      next.name = prefixedName(component.id, next.name, 'material');
       const pbr = next.pbrMetallicRoughness;
       if (pbr?.baseColorTexture?.index !== undefined) pbr.baseColorTexture.index += textureOffset;
       if (pbr?.metallicRoughnessTexture?.index !== undefined) pbr.metallicRoughnessTexture.index += textureOffset;
@@ -264,6 +355,7 @@ function mergeGlbs(stats) {
   glb.writeUInt32LE(0x004e4942, cursor); cursor += 4;
   bin.copy(glb, cursor);
   fs.writeFileSync(path.join(outDir, 'meshy_component_kit_positioning_study.glb'), glb);
+  return { materialHarmonization: { ...materialHarmonizationConfig, reports: materialHarmonizationReports } };
 }
 function writeReviewState(file, state) { fs.writeFileSync(path.join(reviewDir, file), JSON.stringify(state, null, 2) + '\n'); }
 function componentReviewState(component) {
@@ -274,7 +366,7 @@ function assemblyReviewState(stats) {
 }
 
 const stats = components.map(componentStats);
-mergeGlbs(stats);
+const generatedAssembly = mergeGlbs(stats);
 const reviewStates = Object.fromEntries(stats.map((component) => [component.id, reviewRel + '/meshy-component-kit-' + component.id + '.json']));
 const manifest = { id: kitId, type: 'meshy-reference-component-kit', generatedAt: new Date().toISOString(), sourcePolicy: { assetClass: 'generated Meshy reference scaffolds', productionTopology: false, finalAuthoredGeometry: false, taskManifestsAvailable: false, notes: 'Original GLBs were found untracked at the Model Viewer Lab repo root. No Meshy task manifest or prompt payload accompanied them.' }, components: stats, positioningStudy: { id: 'meshy_component_kit_positioning_study', claim: 'non-production layout/reference study only; not visual acceptance and not authored topology', glb: outRel + '/meshy_component_kit_positioning_study.glb', manifest: outRel + '/model_manifest.json', reviewState: outRel + '/review-state.json' }, reviewStates };
 fs.writeFileSync(path.join(sourceDir, 'kit_manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
@@ -293,7 +385,7 @@ const redBuildEvidence = {
   requiredRepair: 'generated assembly GLB must rotate the turret front detail onto the gun axis, flip/reposition the MG as a coaxial barrel, shrink the turret, and lower it until its base overlaps the hull roof plane'
 };
 fs.writeFileSync(path.join(outDir, 'red-build-evidence.json'), JSON.stringify(redBuildEvidence, null, 2) + '\n');
-const modelManifest = { id: 'meshy_component_kit_positioning_study', type: 'visible-tank-positioning-study', sourceKit: sourceRel + '/kit_manifest.json', glb: outRel + '/meshy_component_kit_positioning_study.glb', reviewState: outRel + '/review-state.json', redBuildEvidence: outRel + '/red-build-evidence.json', claim: 'non-production visible tank assembly study only; not visual acceptance and not authored topology', visibleAssemblyRequiredParts: ['tank_hull', 'tank_turret_housing', 'tank_gun_barrel', 'perforated_barrel_mac'], relationshipContracts: { tankForwardAxis: [0, 0, -1], turretMantletSharesGunAxis: true, coaxialMgSharesGunAxis: true, turretMustBeSeatedOnHull: true, turretMaxWidthRatioOfHull: 0.7, turretMaxLengthRatioOfHull: 0.55, barrelMustOverlapTurretFront: true }, quarantinedSourceOnlyParts: ['canteen_lid'], parts: stats.map((component) => ({ id: component.id, category: component.category, source: component.sourcePath, originalTransform: component.transform, visibleByDefault: component.participatesInDefaultAssembly })) };
+const modelManifest = { id: 'meshy_component_kit_positioning_study', type: 'visible-tank-positioning-study', sourceKit: sourceRel + '/kit_manifest.json', glb: outRel + '/meshy_component_kit_positioning_study.glb', reviewState: outRel + '/review-state.json', redBuildEvidence: outRel + '/red-build-evidence.json', claim: 'non-production visible tank assembly study only; not visual acceptance and not authored topology', visibleAssemblyRequiredParts: ['tank_hull', 'tank_turret_housing', 'tank_gun_barrel', 'perforated_barrel_mac'], relationshipContracts: { tankForwardAxis: [0, 0, -1], turretMantletSharesGunAxis: true, coaxialMgSharesGunAxis: true, turretMustBeSeatedOnHull: true, turretMaxWidthRatioOfHull: 0.7, turretMaxLengthRatioOfHull: 0.55, barrelMustOverlapTurretFront: true }, materialHarmonization: generatedAssembly.materialHarmonization, quarantinedSourceOnlyParts: ['canteen_lid'], parts: stats.map((component) => ({ id: component.id, category: component.category, source: component.sourcePath, originalTransform: component.transform, visibleByDefault: component.participatesInDefaultAssembly })) };
 fs.writeFileSync(path.join(outDir, 'model_manifest.json'), JSON.stringify(modelManifest, null, 2) + '\n');
 console.log(JSON.stringify({ ok: true, kit: sourceRel, output: outRel, componentCount: stats.length }, null, 2));
 

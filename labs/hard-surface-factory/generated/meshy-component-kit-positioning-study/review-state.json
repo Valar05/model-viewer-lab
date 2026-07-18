@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "src": "https://media.githubusercontent.com/media/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/meshy_component_kit_positioning_study.glb?v=e2459a9",
-  "manifest": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/model_manifest.json?v=e2459a9",
+  "src": "https://media.githubusercontent.com/media/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/meshy_component_kit_positioning_study.glb?v=1784336096-material",
+  "manifest": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/model_manifest.json?v=1784336096-material",
   "title": "meshy_component_kit_positioning_study",
   "camera": {
     "position": [

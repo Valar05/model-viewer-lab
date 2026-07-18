@@ -60,6 +60,35 @@ function vectorClose(actual, expected, tolerance = 0.0001) {
   return Array.isArray(actual) && actual.length === expected.length && actual.every((value, index) => closeEnough(value, expected[index], tolerance));
 }
 function transformFor(modelManifest, id) { return modelManifest.parts?.find((part) => part.id === id)?.originalTransform; }
+
+function generatedMaterialHarmonizationByPart(glbJson) {
+  const result = {};
+  for (const material of glbJson.materials || []) {
+    const report = material.extras?.materialHarmonization;
+    const name = material.name || '';
+    const partId = name.split('__')[0];
+    if (report && partId) result[partId] = report;
+  }
+  return result;
+}
+function assertMaterialHarmonization(modelManifest, assemblyJson) {
+  const harmonization = modelManifest.materialHarmonization;
+  if (harmonization?.referencePartId !== 'tank_hull') fail('material harmonization must use tank_hull as reference');
+  if (!harmonization?.method?.includes('base-color JPEG channel scaling')) fail('material harmonization method must describe generated base-color texture scaling');
+  const expected = ['tank_turret_housing', 'tank_gun_barrel', 'perforated_barrel_mac'];
+  const reports = new Map((harmonization?.reports || []).map((report) => [report.partId, report]));
+  const materialReports = generatedMaterialHarmonizationByPart(assemblyJson);
+  const targetLuma = 95.6;
+  for (const id of expected) {
+    const report = reports.get(id);
+    if (!report) fail('missing material harmonization report for ' + id);
+    if (!materialReports[id]) fail('generated GLB material missing harmonization extras for ' + id);
+    if (!(report.afterLuma >= 90 && report.afterLuma <= 102)) fail('harmonized luma must land near hull reference for ' + id + ': ' + report.afterLuma);
+    if (!(Math.abs(report.afterLuma - targetLuma) < Math.abs(report.beforeLuma - targetLuma))) fail('harmonization must improve luma distance to hull for ' + id);
+    if (!(report.channelFactors?.length === 3)) fail('harmonization must record RGB channel factors for ' + id);
+    if (!(report.harmonizedBytes > 100000)) fail('harmonized base-color texture bytes look invalid for ' + id);
+  }
+}
 for (const file of expectedFiles) {
   const full = path.join(sourceDir, file);
   if (!fs.existsSync(full)) fail('missing source GLB: ' + file);
@@ -105,6 +134,7 @@ if (!process.exitCode) {
   if (!vectorClose(mgTransform?.rotationDeg, [0, -90, 0])) fail('MG must be flipped relative to the previous backwards orientation');
   if (!(turretTransform?.scale?.[0] <= 0.39)) fail('turret scale must be reduced from the red-build oversized setting');
   const assemblyJson = readGlbJson(path.join(outDir, 'meshy_component_kit_positioning_study.glb'));
+  assertMaterialHarmonization(modelManifest, assemblyJson);
   const sceneNodes = new Set((assemblyJson.scenes?.[assemblyJson.scene || 0]?.nodes || []).map((index) => assemblyJson.nodes?.[index]?.name));
   for (const id of ['tank_hull', 'tank_turret_housing', 'tank_gun_barrel', 'perforated_barrel_mac']) {
     if (!sceneNodes.has(id)) fail('visible assembly GLB scene missing node: ' + id);
