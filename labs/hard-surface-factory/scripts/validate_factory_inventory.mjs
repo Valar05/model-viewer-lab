@@ -16,6 +16,13 @@ const required = [
   'source-assets/meshy-lowpoly-envelope-v1/lowpoly_treads_envelope.glb',
   'review-states/meshy-envelope-hull.json',
   'review-states/meshy-lowpoly-hull.json',
+  'source-assets/meshy-component-kit-071716/kit_manifest.json',
+  'source-assets/meshy-component-kit-071716/PROVENANCE.md',
+  'review-states/meshy-component-kit-tank_hull.json',
+  'review-states/meshy-component-kit-tank_turret_housing.json',
+  'review-states/meshy-component-kit-tank_gun_barrel.json',
+  'review-states/meshy-component-kit-perforated_barrel_mac.json',
+  'review-states/meshy-component-kit-canteen_lid.json',
 ];
 
 const bannedPathFragments = [
@@ -49,10 +56,17 @@ const rels = files.map((file) => path.relative(labRoot, file).split(path.sep).jo
 const exporters = rels.filter((rel) => rel.startsWith('tools/exporters/') && rel.endsWith('.py'));
 const reports = rels.filter((rel) => rel.startsWith('history/raw-reports/') && rel.endsWith('.json'));
 const glbs = rels.filter((rel) => rel.endsWith('.glb'));
+const sourceGlbs = glbs.filter((rel) => rel.startsWith('source-assets/'));
+const generatedGlbs = glbs.filter((rel) => rel.startsWith('generated/'));
 
 if (exporters.length < 40) fail(`expected at least 40 archived exporter scripts, found ${exporters.length}`);
 if (reports.length < 100) fail(`expected at least 100 raw JSON reports, found ${reports.length}`);
-if (glbs.length !== 6) fail(`expected exactly 6 source/reference GLBs, found ${glbs.length}`);
+if (sourceGlbs.length !== 11) fail(`expected exactly 11 source/reference GLBs, found ${sourceGlbs.length}`);
+for (const rel of generatedGlbs) {
+  if (!rel.startsWith('generated/upper-glacis-manufactured-v1/') && !rel.startsWith('generated/meshy-component-kit-positioning-study/')) {
+    fail(`unexpected generated GLB outside approved evidence packages: ${rel}`);
+  }
+}
 
 for (const rel of rels) {
   for (const fragment of bannedPathFragments) {
@@ -75,11 +89,20 @@ const stateFiles = rels.filter((rel) => rel.startsWith('review-states/') && rel.
 for (const rel of stateFiles) {
   const state = JSON.parse(fs.readFileSync(path.join(labRoot, rel), 'utf8'));
   if (state.version !== 2) fail(`review state must be version 2: ${rel}`);
-  if (!state.src || !state.src.startsWith('https://raw.githubusercontent.com/Valar05/model-viewer-lab/')) {
-    fail(`review state src must be a raw GitHub URL: ${rel}`);
+  if (!state.src || !(state.src.startsWith('https://raw.githubusercontent.com/Valar05/model-viewer-lab/') || state.src.startsWith('https://media.githubusercontent.com/media/Valar05/model-viewer-lab/'))) {
+    fail(`review state src must be a raw/media GitHub URL: ${rel}`);
   }
 }
 
 if (!process.exitCode) {
-  console.log(`[hard-surface-factory] ok: ${exporters.length} exporters, ${reports.length} reports, ${glbs.length} source/reference GLBs, ${stateFiles.length} review states`);
+  const kitManifestPath = path.join(labRoot, 'source-assets/meshy-component-kit-071716/kit_manifest.json');
+  const kitManifest = JSON.parse(fs.readFileSync(kitManifestPath, 'utf8'));
+  if (kitManifest.sourcePolicy?.productionTopology !== false || kitManifest.sourcePolicy?.finalAuthoredGeometry !== false) {
+    fail('Meshy component kit must remain reference-only, not production/authored topology');
+  }
+  const canteen = kitManifest.components?.find((component) => component.id === 'canteen_lid');
+  if (!canteen || canteen.category !== 'quarantined_hatch_candidate') {
+    fail('Meshy component kit canteen_lid must remain quarantined');
+  }
+  console.log(`[hard-surface-factory] ok: ${exporters.length} exporters, ${reports.length} reports, ${sourceGlbs.length} source/reference GLBs, ${generatedGlbs.length} generated evidence GLBs, ${stateFiles.length} review states`);
 }

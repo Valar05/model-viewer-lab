@@ -1,0 +1,251 @@
+{
+  "id": "meshy_component_kit_positioning_study",
+  "type": "visible-tank-positioning-study",
+  "sourceKit": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/kit_manifest.json",
+  "glb": "labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/meshy_component_kit_positioning_study.glb",
+  "reviewState": "labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/review-state.json",
+  "redBuildEvidence": "labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/red-build-evidence.json",
+  "claim": "non-production visible tank assembly study only; not visual acceptance and not authored topology",
+  "visibleAssemblyRequiredParts": [
+    "tank_hull",
+    "tank_turret_housing",
+    "tank_gun_barrel",
+    "perforated_barrel_mac"
+  ],
+  "relationshipContracts": {
+    "tankForwardAxis": [
+      0,
+      0,
+      -1
+    ],
+    "turretMantletSharesGunAxis": true,
+    "coaxialMgSharesGunAxis": true,
+    "turretMustBeSeatedOnHull": true,
+    "turretMaxWidthRatioOfHull": 0.7,
+    "turretMaxLengthRatioOfHull": 0.55,
+    "barrelMustOverlapTurretFront": true
+  },
+  "materialHarmonization": {
+    "referencePartId": "tank_hull",
+    "referenceBaseColorMeanRgb": [
+      98.5,
+      96.6,
+      77.3
+    ],
+    "targetPartIds": [
+      "tank_turret_housing",
+      "tank_gun_barrel",
+      "perforated_barrel_mac"
+    ],
+    "method": "generated assembly base-color JPEG channel scaling toward the accepted hull/body texture family",
+    "reports": [
+      {
+        "partId": "tank_turret_housing",
+        "baseColorImageBufferView": 4,
+        "originalBytes": 2826512,
+        "harmonizedBytes": 1117709,
+        "beforeMeanRgb": [
+          94.695,
+          94.725,
+          78.157
+        ],
+        "afterMeanRgb": [
+          98.52,
+          96.615,
+          77.213
+        ],
+        "targetMeanRgb": [
+          98.5,
+          96.6,
+          77.3
+        ],
+        "beforeLuma": 93.523,
+        "afterLuma": 95.619,
+        "targetLuma": 95.61,
+        "channelFactors": [
+          1.0402,
+          1.0198,
+          0.989
+        ]
+      },
+      {
+        "partId": "tank_gun_barrel",
+        "baseColorImageBufferView": 4,
+        "originalBytes": 2256448,
+        "harmonizedBytes": 1118550,
+        "beforeMeanRgb": [
+          71.203,
+          68.42,
+          50.198
+        ],
+        "afterMeanRgb": [
+          98.233,
+          96.272,
+          76.841
+        ],
+        "targetMeanRgb": [
+          98.5,
+          96.6,
+          77.3
+        ],
+        "beforeLuma": 67.696,
+        "afterLuma": 95.286,
+        "targetLuma": 95.61,
+        "channelFactors": [
+          1.3834,
+          1.4119,
+          1.5399
+        ]
+      },
+      {
+        "partId": "perforated_barrel_mac",
+        "baseColorImageBufferView": 4,
+        "originalBytes": 2744191,
+        "harmonizedBytes": 1440248,
+        "beforeMeanRgb": [
+          65.162,
+          64.27,
+          57.094
+        ],
+        "afterMeanRgb": [
+          98.24,
+          96.42,
+          77.252
+        ],
+        "targetMeanRgb": [
+          98.5,
+          96.6,
+          77.3
+        ],
+        "beforeLuma": 63.941,
+        "afterLuma": 95.423,
+        "targetLuma": 95.61,
+        "channelFactors": [
+          1.5116,
+          1.503,
+          1.3539
+        ]
+      }
+    ]
+  },
+  "quarantinedSourceOnlyParts": [
+    "canteen_lid"
+  ],
+  "parts": [
+    {
+      "id": "tank_hull",
+      "category": "hull_reference_scaffold",
+      "source": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/tank_hull.glb",
+      "originalTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "visibleByDefault": true
+    },
+    {
+      "id": "tank_turret_housing",
+      "category": "turret_reference_scaffold",
+      "source": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/tank_turret_housing.glb",
+      "originalTransform": {
+        "position": [
+          0,
+          0.21,
+          -0.04
+        ],
+        "rotationDeg": [
+          0,
+          180,
+          0
+        ],
+        "scale": [
+          0.38,
+          0.38,
+          0.38
+        ]
+      },
+      "visibleByDefault": true
+    },
+    {
+      "id": "tank_gun_barrel",
+      "category": "main_gun_reference_scaffold",
+      "source": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/tank_gun_barrel.glb",
+      "originalTransform": {
+        "position": [
+          0,
+          0.26,
+          -0.54
+        ],
+        "rotationDeg": [
+          0,
+          90,
+          0
+        ],
+        "scale": [
+          0.68,
+          0.68,
+          0.68
+        ]
+      },
+      "visibleByDefault": true
+    },
+    {
+      "id": "perforated_barrel_mac",
+      "category": "secondary_barrel_reference_scaffold",
+      "source": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/perforated_barrel_mac.glb",
+      "originalTransform": {
+        "position": [
+          0.115,
+          0.245,
+          -0.37
+        ],
+        "rotationDeg": [
+          0,
+          -90,
+          0
+        ],
+        "scale": [
+          0.3,
+          0.3,
+          0.3
+        ]
+      },
+      "visibleByDefault": true
+    },
+    {
+      "id": "canteen_lid",
+      "category": "quarantined_hatch_candidate",
+      "source": "labs/hard-surface-factory/source-assets/meshy-component-kit-071716/canteen_lid.glb",
+      "originalTransform": {
+        "position": [
+          1.05,
+          0.18,
+          0.08
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.22,
+          0.22,
+          0.22
+        ]
+      },
+      "visibleByDefault": false
+    }
+  ]
+}

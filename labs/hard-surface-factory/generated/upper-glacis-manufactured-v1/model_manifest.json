@@ -1,0 +1,15 @@
+{
+  "id": "real_sherman_upper_glacis_manufactured_v1",
+  "type": "part-contract-upper-glacis",
+  "partContract": "upper_glacis_primary_part_v1",
+  "glb": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/real_sherman_upper_glacis_manufactured_v1.glb",
+  "parameters": "labs/hard-surface-factory/parameters/upper-glacis-manufactured-v1.json",
+  "reports": {
+    "measurement": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/measurement_report.json",
+    "authoredSolids": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/authored_solids_report.json",
+    "topology": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/topology_report.json",
+    "silhouetteDepth": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/silhouette_depth_report.json",
+    "provenance": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/provenance_note.md"
+  },
+  "reviewState": "labs/hard-surface-factory/generated/upper-glacis-manufactured-v1/review-state.json"
+}

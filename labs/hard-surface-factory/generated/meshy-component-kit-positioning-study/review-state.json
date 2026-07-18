@@ -1,0 +1,108 @@
+{
+  "version": 2,
+  "src": "https://media.githubusercontent.com/media/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/meshy_component_kit_positioning_study.glb?v=1784336096-material",
+  "manifest": "https://raw.githubusercontent.com/Valar05/model-viewer-lab/codex/pr1-upper-glacis-part-contract/labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/model_manifest.json?v=1784336096-material",
+  "title": "meshy_component_kit_positioning_study",
+  "camera": {
+    "position": [
+      0,
+      1,
+      3
+    ],
+    "target": [
+      0,
+      0.18,
+      -0.08
+    ],
+    "fov": 34
+  },
+  "display": {
+    "clay": false,
+    "wire": false,
+    "grid": true,
+    "boxes": false
+  },
+  "selectedPartId": "tank_hull",
+  "parts": [
+    {
+      "id": "tank_hull",
+      "label": "tank_hull",
+      "visible": true,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotationDeg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "tank_turret_housing",
+      "label": "tank_turret_housing",
+      "visible": true,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotationDeg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "tank_gun_barrel",
+      "label": "tank_gun_barrel",
+      "visible": true,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotationDeg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "perforated_barrel_mac",
+      "label": "perforated_barrel_mac",
+      "visible": true,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotationDeg": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

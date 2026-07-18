@@ -1,0 +1,110 @@
+{
+  "id": "real_sherman_upper_glacis_manufactured_v1",
+  "generatedAt": "2026-07-14T15:19:56.557Z",
+  "sourceTrianglesUsedAsFinalAuthoredTopology": false,
+  "partContract": {
+    "id": "upper_glacis_primary_part_v1",
+    "promotedPartName": "upper_glacis_primary_part",
+    "status": "experimental_factory_contract",
+    "acceptanceClaim": "valid generated review package with explicit part boundaries; not clean production topology",
+    "protectedVisibleSkin": {
+      "id": "outer_sloped_armor_skin",
+      "source": "front visible armor plate surface generated from measured boundaries",
+      "mutationPolicy": "preserve six-view silhouette and named interface edges before adding secondary detail",
+      "faceInterfaces": [
+        "outer_sloped_armor"
+      ]
+    },
+    "backingSolid": {
+      "id": "inner_backing_prism",
+      "source": "separately parameterized underside offset from protected skin",
+      "purpose": "closed review solid and depth evidence behind visible armor skin",
+      "faceInterfaces": [
+        "inner_backing_plane",
+        "front_lower_boundary",
+        "deck_transition",
+        "left_shoulder_return",
+        "right_shoulder_return"
+      ]
+    },
+    "requiredInterfaces": [
+      "frontLowerBoundary",
+      "leftShoulderReturn",
+      "rightShoulderReturn",
+      "deckTransition",
+      "turretRingSocketBoundary"
+    ],
+    "acceptanceViewsRequired": 6
+  },
+  "solids": [
+    {
+      "name": "upper_glacis_primary_part",
+      "role": "explicit upper glacis Part contract",
+      "manufacturingMethod": "single closed trapezoid prism",
+      "vertexCount": 8,
+      "triangleCount": 12,
+      "boundaryEdgeCount": 0,
+      "nonmanifoldEdgeCount": 0,
+      "namedInterfaces": {
+        "frontLowerBoundary": {
+          "edge": "front_lower",
+          "description": "front/lower boundary where the upper glacis meets the lower nose mass"
+        },
+        "leftShoulderReturn": {
+          "edge": "left_outboard",
+          "description": "left shoulder/return plane"
+        },
+        "rightShoulderReturn": {
+          "edge": "right_outboard",
+          "description": "right shoulder/return plane"
+        },
+        "deckTransition": {
+          "edge": "rear_deck",
+          "description": "upper deck transition boundary"
+        },
+        "turretRingSocketBoundary": {
+          "curve": "turret_socket_reference",
+          "description": "non-cut reference socket boundary authored as report metadata; no secondary detail is emitted before primary gate success"
+        }
+      },
+      "protectedVisibleSkin": {
+        "id": "outer_sloped_armor_skin",
+        "source": "front visible armor plate surface generated from measured boundaries",
+        "mutationPolicy": "preserve six-view silhouette and named interface edges before adding secondary detail",
+        "faceInterfaces": [
+          "outer_sloped_armor"
+        ]
+      },
+      "backingSolid": {
+        "id": "inner_backing_prism",
+        "source": "separately parameterized underside offset from protected skin",
+        "purpose": "closed review solid and depth evidence behind visible armor skin",
+        "faceInterfaces": [
+          "inner_backing_plane",
+          "front_lower_boundary",
+          "deck_transition",
+          "left_shoulder_return",
+          "right_shoulder_return"
+        ]
+      },
+      "faceInterfaceOrder": [
+        "outer_sloped_armor",
+        "outer_sloped_armor",
+        "inner_backing_plane",
+        "inner_backing_plane",
+        "front_lower_boundary",
+        "front_lower_boundary",
+        "deck_transition",
+        "deck_transition",
+        "left_shoulder_return",
+        "left_shoulder_return",
+        "right_shoulder_return",
+        "right_shoulder_return"
+      ]
+    }
+  ],
+  "secondaryDetails": {
+    "status": "not_started",
+    "reason": "Part contract gate is limited to protected visible skin, backing solid, named interfaces, and six fixed views."
+  }
+}

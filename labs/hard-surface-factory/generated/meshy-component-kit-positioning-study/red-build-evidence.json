@@ -1,0 +1,9 @@
+{
+  "id": "red-build-20260717-orientation-seating",
+  "capturePath": "/storage/emulated/0/Pictures/Screenshots/Screenshot_20260717-130121.png",
+  "captureTimestampLocal": "2026-07-17 13:01:21 America/Chicago",
+  "expectedVisibleState": "mantlet, main gun, and coaxial MG share one tank-forward axis; turret is scaled to the hull roof and visibly seated on the turret ring",
+  "actualVisibleRead": "capture shows the mantlet/front detail on the opposite side from the main gun axis, the MG reads backwards relative to the gun, and the turret is oversized with a visible dark seating gap above the hull roof",
+  "failingGate": "previous cloud capture proved the required part names were visible but did not prove part orientation, gun/mantlet relationship, or turret seating",
+  "requiredRepair": "generated assembly GLB must rotate the turret front detail onto the gun axis, flip/reposition the MG as a coaxial barrel, shrink the turret, and lower it until its base overlaps the hull roof plane"
+}

@@ -24,6 +24,10 @@ on:
       - 'scripts/browser-acceptance.mjs'
       - '.github/workflows/browser-acceptance.yml'
       - 'package.json'
+      - 'labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/**'
+      - 'labs/hard-surface-factory/source-assets/meshy-component-kit-071716/**'
+      - 'labs/hard-surface-factory/tools/generators/generate_meshy_component_kit.mjs'
+      - 'labs/hard-surface-factory/tools/validators/validate_meshy_component_kit.mjs'
       - 'package-lock.json'
 
 jobs:
@@ -31,6 +35,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: true
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -45,13 +51,45 @@ jobs:
           --url "${{ inputs.url }}"
           --out "artifacts/${{ inputs.label }}"
           --wait-ms "${{ inputs.wait_ms }}"
-      - name: Script syntax check for pull requests
+          --require-cloud-url
+      - name: Capture Meshy component kit cloud review for pull requests
         if: github.event_name == 'pull_request'
+        env:
+          HEAD_BRANCH: ${{ github.head_ref }}
+        run: |
+          set -euo pipefail
+          STATE_PATH="labs/hard-surface-factory/generated/meshy-component-kit-positioning-study/review-state.json"
+          STATE_URL="https://raw.githubusercontent.com/Valar05/model-viewer-lab/$HEAD_BRANCH/$STATE_PATH?v=${{ github.event.pull_request.head.sha }}"
+          SRC_URL="$(node -e "fetch(process.argv[1]).then(r => r.json()).then(j => process.stdout.write(j.src))" "$STATE_URL")"
+          ENCODED_STATE="$(node -e "process.stdout.write(encodeURIComponent(process.argv[1]))" "$STATE_URL")"
+          REVIEW_URL="https://valar05.github.io/model-viewer-lab/model-viewer.html?state=$ENCODED_STATE&title=meshy_component_kit_positioning_study"
+          node scripts/browser-acceptance.mjs \
+            --url "$REVIEW_URL" \
+            --out "artifacts/meshy-component-kit-cloud-review" \
+            --wait-ms "1200" \
+            --width "918" \
+            --height "2048" \
+            --views "front,left,right,fit" \
+            --require-cloud-url \
+            --expect-state-url "$STATE_URL" \
+            --expect-src "$SRC_URL" \
+            --expect-parts "tank_hull,tank_turret_housing,tank_gun_barrel,perforated_barrel_mac" \
+            --expect-visible-parts "tank_hull,tank_turret_housing,tank_gun_barrel,perforated_barrel_mac" \
+            --expect-tank-assembly-contract \
+            --expect-canvas-pixels
+      - name: Script syntax check
         run: node --check scripts/browser-acceptance.mjs
-      - name: Upload browser evidence
+      - name: Upload workflow-dispatch browser evidence
         if: always() && github.event_name == 'workflow_dispatch'
         uses: actions/upload-artifact@v4
         with:
           name: ${{ inputs.label }}
           path: artifacts/${{ inputs.label }}
+          if-no-files-found: error
+      - name: Upload PR cloud browser evidence
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: meshy-component-kit-cloud-review
+          path: artifacts/meshy-component-kit-cloud-review
           if-no-files-found: error
