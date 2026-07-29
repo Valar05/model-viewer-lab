@@ -26,14 +26,15 @@ let src = query.get('src') || '';
 let manifestUrl = query.get('manifest') || '';
 let title = query.get('title') || src.split('/').pop() || 'Model';
 let initialState: ReviewState | null = null;
-declare global { interface Window { __MODEL_VIEWER_LAB_READY?: { ready: boolean; title: string; src: string; partCount: number; status: string; timestamp: string }; } }
+declare global { interface Window { __MODEL_VIEWER_LAB_READY?: { ready: boolean; title: string; src: string; partCount: number; animationCount: number; animationNames: string[]; hierarchy: Array<{name:string; parent:string|null; type:string}>; activeAnimation: string | null; status: string; timestamp: string }; } }
 
 root.innerHTML = '<main class="viewer-shell">' +
   '<div class="viewer-stage"><canvas aria-label="Model Viewer Lab viewport"></canvas></div>' +
-  '<section class="viewer-toolbar" aria-label="Viewer panels"><button type="button" data-toggle-panel="info">Info</button><button type="button" data-toggle-panel="objects">Objects</button><button type="button" data-toggle-panel="tools">Tools</button></section>' +
+  '<section class="viewer-toolbar" aria-label="Viewer panels"><button type="button" data-toggle-panel="info">Info</button><button type="button" data-toggle-panel="objects">Objects</button><button type="button" data-toggle-panel="tools">Tools</button><button type="button" data-toggle-panel="animations">Animations</button></section>' +
   '<section class="hud" data-info-panel hidden><p class="kicker">model viewer lab</p><p class="title"></p><p class="status" data-status>loading model</p></section>' +
   '<section class="camera-widget" aria-label="Camera views"><button data-view="front">Front</button><button data-view="left">Left</button><button data-view="top">Top</button><button data-view="right">Right</button><button data-view="back">Back</button><button data-view="fit">Fit</button></section>' +
   '<section class="tweak-dock" aria-label="Object tweak controls" data-tools-panel hidden><div class="tweak-title" data-selected-title>No object selected</div><div class="row lock"><button data-edit-lock>Editing locked</button></div><div class="row modes"><button data-mode="move">Move</button><button data-mode="rotate">Rotate</button><button data-mode="scale">Scale</button></div><div class="row axes"><button data-axis="screen">Screen</button><button data-axis="x">X</button><button data-axis="y">Y</button><button data-axis="z">Z</button></div><div class="row actions"><button data-undo>Undo</button><button data-redo>Redo</button><button data-reset>Reset</button><button data-export>Export</button></div><div class="row display"><button data-clay>Clay</button><button data-wire>Wire</button><button data-grid>Grid</button><button data-boxes>Boxes</button></div></section>' +
+  '<section class="animation-dock" aria-label="Animation controls" data-animations-panel hidden><div class="animation-head"><strong>Named animations</strong><button data-animation-play>Play</button><button data-animation-pause>Pause</button></div><div class="animation-list" data-animation-list></div></section>' +
   '<section class="sheet" aria-label="Object list" data-objects-panel hidden><div class="sheet-head"><input class="search" data-search placeholder="Filter objects" /><button data-collapse>Panel</button><button data-show-all>All</button><button data-hide-all>Hide</button></div><div class="object-list" data-object-list></div></section>' +
   '<section class="export-panel" hidden><textarea data-export-output readonly></textarea><div class="export-actions"><button data-copy-json>Copy JSON</button><button data-copy-inline-url>Copy Inline URL</button><button data-copy-cloud-url>Copy Cloud URL</button><button data-close-export>Close</button></div><p class="export-status" data-export-status></p></section>' +
 '</main>';
@@ -50,6 +51,8 @@ const searchInput = root.querySelector<HTMLInputElement>('[data-search]')!;
 const infoPanel = root.querySelector<HTMLElement>('[data-info-panel]')!;
 const objectsPanel = root.querySelector<HTMLElement>('[data-objects-panel]')!;
 const toolsPanel = root.querySelector<HTMLElement>('[data-tools-panel]')!;
+const animationsPanel = root.querySelector<HTMLElement>('[data-animations-panel]')!;
+const animationListEl = root.querySelector<HTMLElement>('[data-animation-list]')!;
 let toolsOpen = false;
 let editUnlocked = false;
 
@@ -90,6 +93,11 @@ boxHelpers.name = 'object_bounds_helpers';
 scene.add(boxHelpers);
 
 const loader = new GLTFLoader();
+const clock = new THREE.Clock();
+let mixer: THREE.AnimationMixer | null = null;
+let animationClips: THREE.AnimationClip[] = [];
+let activeAnimation: THREE.AnimationAction | null = null;
+let activeAnimationName: string | null = null;
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 const pickMeshes: THREE.Mesh[] = [];
@@ -164,6 +172,10 @@ function loadModel() {
     modelObject = gltf.scene;
     modelObject.name = title;
     modelRoot.add(modelObject);
+    mixer = new THREE.AnimationMixer(modelObject);
+    animationClips = gltf.animations.slice().sort((a, b) => a.name.localeCompare(b.name));
+    renderAnimationList();
+    if (animationClips.length) playAnimation(animationClips[0].name);
     collectParts(modelObject);
     normalizeModel();
     buildBoxHelpers();
@@ -176,7 +188,7 @@ function loadModel() {
   }, undefined, (error) => {
     statusEl.textContent = 'load failed: ' + (error instanceof Error ? error.message : String(error));
     document.body.dataset.modelReady = 'error';
-    window.__MODEL_VIEWER_LAB_READY = { ready: false, title, src, partCount: 0, status: statusEl.textContent || 'load failed', timestamp: new Date().toISOString() };
+    window.__MODEL_VIEWER_LAB_READY = { ready: false, title, src, partCount: 0, animationCount: 0, animationNames: [], hierarchy: [], activeAnimation: null, status: statusEl.textContent || 'load failed', timestamp: new Date().toISOString() };
   });
 }
 
@@ -260,6 +272,7 @@ function bindUi() {
 function togglePanel(panel: string) {
   if (panel === 'info') infoPanel.hidden = !infoPanel.hidden;
   if (panel === 'objects') objectsPanel.hidden = !objectsPanel.hidden;
+  if (panel === 'animations') animationsPanel.hidden = !animationsPanel.hidden;
   if (panel === 'tools') {
     toolsPanel.hidden = !toolsPanel.hidden;
     toolsOpen = !toolsPanel.hidden;
@@ -267,7 +280,7 @@ function togglePanel(panel: string) {
   }
   root.querySelectorAll<HTMLButtonElement>('[data-toggle-panel]').forEach((button) => {
     const id = button.dataset.togglePanel;
-    const open = (id === 'info' && !infoPanel.hidden) || (id === 'objects' && !objectsPanel.hidden) || (id === 'tools' && !toolsPanel.hidden);
+    const open = (id === 'info' && !infoPanel.hidden) || (id === 'objects' && !objectsPanel.hidden) || (id === 'tools' && !toolsPanel.hidden) || (id === 'animations' && !animationsPanel.hidden);
     button.classList.toggle('is-active', open);
   });
 }
@@ -349,9 +362,26 @@ function focusPart(part: ViewPart, moveCamera = true) {
   controls.update();
 }
 
+function hierarchyEvidence() {
+  const rows: Array<{name:string; parent:string|null; type:string}> = [];
+  modelObject?.traverse((node) => rows.push({name: node.name || '(unnamed)', parent: node.parent && node.parent !== modelRoot ? node.parent.name || '(unnamed)' : null, type: node.type}));
+  return rows;
+}
+function renderAnimationList() {
+  animationListEl.innerHTML = '';
+  if (!animationClips.length) { animationListEl.textContent = 'No named animation clips'; return; }
+  for (const clip of animationClips) {
+    const button = document.createElement('button'); button.textContent = clip.name + ' · ' + clip.duration.toFixed(2) + 's'; button.dataset.animationName = clip.name; button.classList.toggle('is-active', clip.name === activeAnimationName); button.addEventListener('click', () => playAnimation(clip.name)); animationListEl.append(button);
+  }
+}
+function playAnimation(name: string) {
+  const clip = animationClips.find((candidate) => candidate.name === name); if (!clip || !mixer) return;
+  activeAnimation?.fadeOut(0.12); activeAnimation = mixer.clipAction(clip); activeAnimation.reset().setLoop(THREE.LoopRepeat, Infinity).fadeIn(0.12).play(); activeAnimation.paused = false; activeAnimationName = clip.name; renderAnimationList();
+  if (window.__MODEL_VIEWER_LAB_READY) window.__MODEL_VIEWER_LAB_READY.activeAnimation = activeAnimationName;
+}
 function markModelReady() {
   document.body.dataset.modelReady = 'true';
-  window.__MODEL_VIEWER_LAB_READY = { ready: true, title, src, partCount: parts.length, status: statusEl.textContent || 'loaded', timestamp: new Date().toISOString() };
+  window.__MODEL_VIEWER_LAB_READY = { ready: true, title, src, partCount: parts.length, animationCount: animationClips.length, animationNames: animationClips.map((clip) => clip.name), hierarchy: hierarchyEvidence(), activeAnimation: activeAnimationName, status: statusEl.textContent || 'loaded', timestamp: new Date().toISOString() };
   window.dispatchEvent(new CustomEvent('model-viewer-lab-ready', { detail: window.__MODEL_VIEWER_LAB_READY }));
 }
 
@@ -639,6 +669,7 @@ function resize() {
 }
 function animate() {
   resize();
+  mixer?.update(Math.min(clock.getDelta(), 0.1));
   controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
