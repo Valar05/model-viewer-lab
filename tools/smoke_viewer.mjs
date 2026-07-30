@@ -6,6 +6,8 @@ import { pathToWorkspaceUrl, viewerPathForDist } from './path_utils.mjs';
 const root = process.cwd();
 const required = ['dist/model-viewer.html', 'dist/assets/model-viewer.js', 'dist/assets/model-viewer.css'];
 const missing = required.filter((rel) => !fs.existsSync(path.join(root, rel)));
+const bundleSource = fs.existsSync(path.join(root, 'dist/assets/model-viewer.js')) ? fs.readFileSync(path.join(root, 'dist/assets/model-viewer.js'), 'utf8') : '';
+for (const marker of ['animationNames','activeAnimation','AnimationMixer','hierarchy']) { if (!bundleSource.includes(marker)) { console.error('missing animation/hierarchy contract: '+marker); process.exit(1); } }
 if (missing.length) {
   console.error('missing built files: ' + missing.join(', '));
   process.exit(1);

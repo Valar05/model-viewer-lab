@@ -12,8 +12,8 @@ html, body, #model-viewer-root, .viewer-shell, .viewer-stage, canvas { width: 10
 html, body { margin: 0; overflow: hidden; background: var(--bg); color: var(--ink); font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; touch-action: none; }
 .viewer-shell { position: relative; background: linear-gradient(180deg, #1d241a, #10120f); }
 canvas { display: block; }
-.hud, .camera-widget, .sheet, .tweak-dock, .export-panel, .viewer-toolbar { position: absolute; z-index: 5; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); backdrop-filter: blur(12px); box-shadow: 0 14px 36px rgba(0,0,0,.34); }
-.viewer-toolbar { top: max(10px, env(safe-area-inset-top)); left: max(10px, env(safe-area-inset-left)); padding: 6px; display: grid; grid-template-columns: repeat(3, auto); gap: 5px; }
+.hud, .camera-widget, .sheet, .tweak-dock, .animation-dock, .export-panel, .viewer-toolbar { position: absolute; z-index: 5; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); backdrop-filter: blur(12px); box-shadow: 0 14px 36px rgba(0,0,0,.34); }
+.viewer-toolbar { top: max(10px, env(safe-area-inset-top)); left: max(10px, env(safe-area-inset-left)); padding: 6px; display: grid; grid-template-columns: repeat(4, auto); gap: 5px; }
 .viewer-toolbar button { min-height: 30px; padding: 0 9px; }
 .hud { top: calc(max(10px, env(safe-area-inset-top)) + 48px); left: max(10px, env(safe-area-inset-left)); width: min(330px, calc(100vw - 20px)); padding: 10px 11px; }
 .kicker { margin: 0; color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
@@ -74,3 +74,9 @@ body.sheet-collapsed .tweak-dock { bottom: max(10px, env(safe-area-inset-bottom)
 .export-actions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 7px; }
 .export-status { min-height: 16px; margin: 6px 0 0; color: var(--muted); font-size: 11px; }
 @media (max-width: 520px) { .export-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.animation-dock { left: max(10px, env(safe-area-inset-left)); bottom: max(10px, env(safe-area-inset-bottom)); width: min(360px, calc(100vw - 20px)); padding: 8px; display: grid; gap: 7px; }
+.animation-head { display:grid; grid-template-columns:minmax(0,1fr) auto auto; gap:6px; align-items:center; font-size:12px; }
+.animation-list { display:grid; gap:5px; max-height:30vh; overflow:auto; }
+.animation-list button { text-align:left; }
+@media (max-width:520px) { .viewer-toolbar { grid-template-columns:repeat(2,auto); } .animation-dock { width:calc(100vw - 20px); } }
