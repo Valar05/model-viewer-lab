@@ -1,0 +1,12 @@
+assembly_id,parent_assembly_id,name,semantic_role,source_strategy,default_treatment,variant_axes,notes
+vehicle,,Vehicle Root,whole phenotype,aggregate,inspect,"hull_length;hull_width;hull_height;mechanical_biological_ratio;global_asymmetry","Top-level compilation boundary."
+hull,vehicle,Hull,primary armored body,measure-and-rebuild,retopo,"hull_length;hull_width;hull_height;armor_growth;plate_overlap;plate_tilt","Preserve silhouette before topology cleanup."
+frontal-armor,hull,Frontal Armor,glacis and face plates,measure-and-rebuild,retopo,"armor_growth;plate_overlap;plate_tilt;flesh_exposure","Treat visible flesh seams as intentional negative-space interfaces."
+side-armor,hull,Side Armor,side plates and skirts,measure-and-rebuild,retopo,"armor_growth;plate_overlap;rivet_density;flesh_exposure","Candidate for bilateral reconstruction."
+roof-hatches,hull,Roof and Hatches,upper access and silhouette,inspect,preserve,"hatch_count;armor_growth;damage_state","Retain asymmetry only when conceptually meaningful."
+cannon,vehicle,Cannon,primary weapon,measure-and-rebuild,rebuild,"gun_length;gun_caliber;mantlet_mass;weapon_organic_integration","Hard-surface datum anchor."
+locomotion,vehicle,Locomotion,track-limb hybrid system,family-canonicalization,instance,"locomotion_unit_count;locomotion_pitch;locomotion_scale;limb_tread_blend;gait_splay","Repeated family expected; canonicalize good representatives then instance with controlled irregularity."
+connective-tissue,vehicle,Connective Tissue,tendon flesh and cable interfaces,preserve-generated,preserve,"flesh_exposure;tendon_density;vascular_density;mechanical_biological_ratio","Organic irregularity is phenotype evidence, not automatic cleanup noise."
+ornament,vehicle,Ornament,reliefs insignia and ritual platework,selective-preserve,preserve,"iconography_density;ritualization;damage_state","Keep only features that survive silhouette/readability review."
+surface,vehicle,Surface System,paint grime scars and tissue finish,texture-system,texture-only,"paint_wear;grime;scar_density;tissue_wetness;roughness_bias","Texture phenotype independent from structural geometry where possible."
+unknown,vehicle,Unknown Archaeology,unclassified islands,archaeology,inspect,"global_asymmetry","Machine observations land here until promoted to a semantic assembly."
