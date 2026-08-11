@@ -10,14 +10,16 @@
     "smoke": "node tools/smoke_viewer.mjs",
     "pages-link": "node tools/make_github_pages_model_review_link.mjs",
     "validate:review-state": "node tools/validate_review_state.mjs docs/examples/review-state-v2.json",
-    "ci": "npm run build && npm run smoke && npm run smoke:mechanism && npm run validate:review-state && npm run validate:hard-surface-factory && npm run validate:foundry-ledger && npm run validate:mechanisms && npm run blender:prompt:test",
+    "ci": "npm run build && npm run smoke && npm run smoke:mechanism && npm run validate:review-state && npm run validate:hard-surface-factory && npm run validate:foundry-ledger && npm run validate:mechanisms && npm run blender:prompt:test && npm run blender:plugins:test",
     "validate:hard-surface-factory": "node labs/hard-surface-factory/scripts/validate_factory_inventory.mjs",
     "validate:foundry-ledger": "node labs/hard-surface-factory/scripts/validate_foundry_ledger.mjs",
     "mechanism-link": "node tools/make_mechanism_viewer_link.mjs",
     "smoke:mechanism": "node tools/smoke_mechanism_viewer.mjs",
     "validate:mechanisms": "node labs/hard-surface-factory/scripts/validate_mechanism_inventory.mjs",
     "blender:prompt": "node labs/hard-surface-factory/cli/blender-prompt.mjs",
-    "blender:prompt:test": "node labs/hard-surface-factory/cli/test-compiler.mjs"
+    "blender:prompt:test": "node labs/hard-surface-factory/cli/test-compiler.mjs",
+    "blender:plugins:test": "node labs/hard-surface-factory/cli/test-free-stack.mjs",
+    "blender:plugins:probe": "node labs/hard-surface-factory/cli/run-blender-tool.mjs labs/hard-surface-factory/cli/probe-free-stack.py"
   },
   "dependencies": {"three": "^0.166.1"},
   "devDependencies": {"esbuild-wasm": "^0.28.1", "typescript": "^5.7.3", "@types/node": "^22.13.5"}
