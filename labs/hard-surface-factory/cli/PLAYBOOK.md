@@ -53,7 +53,15 @@ Pose commands must choose direct final-rig authoring, explicit retargeting, or a
 
 `free-stack.json` is a capability ledger, not an install-everything bonfire. Each adapter records version, source, license, interactive/headless mode, verbs, and probe state. RetopoFlow, PolyQuilt, and F2 remain interactive until a real background-mode probe proves otherwise. Native deterministic equivalents are used only when they preserve the commissioned method; they are never silent substitutes.
 
+```sh
+npm run blender:plugins:test
+npm run blender:plugins:probe > free-stack-probe.json
+```
+
+The read-only probe searches the active Blender profile for matching modules and named operators. It does not install, enable, disable, or call an extension. Presence does not prove background-context safety: promotion to `headless: true` requires a pinned fixture, before/after mesh assertions, a clean `--background --python-exit-code 1` run, and a human ruling on the visible result.
+
+The zero-fee governed intake currently covers RetopoFlow, PolyQuilt, BSurfaces, LoopTools, F2, Auto Mirror, Bool Tool, and Material Utilities. RetopoFlow code may be audited and adapted under its code license, but the repository must not absorb RetopoFlow's excluded non-code assets. The factory stores provenance, adapters, probes, and results—not copied vendor payloads.
+
 ## Acceptance bundle
 
 Each run retains the prompt, compiler version, typed recipe, both hashes, source identity, Blender version, immutable workspace/revision IDs, inspection and validation JSON, GLB/.blend hashes, clay/wire/raking views when available, rejected-history links, and `humanAcceptance: unreviewed` until Drew rules on the actual artifact.
-
