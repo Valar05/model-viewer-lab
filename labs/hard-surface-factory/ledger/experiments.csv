@@ -1,0 +1,1 @@
+experiment_id,specimen_id,parent_experiment_id,changed_genes,generation_lane,prompt_or_recipe,source_ref,result_ref,geometry_metrics,visual_judgment,outcome,failure_reason,created_at,notes
