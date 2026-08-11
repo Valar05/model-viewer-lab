@@ -6,12 +6,14 @@
     "licenseIsolation": "Third-party code is installed from its own release or Blender Extensions package; this repository stores adapters and provenance, not copied non-code assets."
   },
   "entries": [
-    {"id":"retopoflow","source":"https://github.com/CGCookie/retopoflow","license":"GPL-2.0-or-later code; non-code assets excluded","pin":"3.4.11","mode":"interactive","verbs":["contours","polystrips","strokes","patches","loops","tweak"],"headless":false},
-    {"id":"polyquilt-fork","source":"https://extensions.blender.org/add-ons/polyquilt-fork/","license":"open-source Blender Extension","pin":"1.46.0","mode":"interactive","verbs":["quad-draw","extrude","knife","loopcut"],"headless":false},
-    {"id":"bsurfaces-gpl-edition","source":"https://extensions.blender.org/add-ons/bsurfaces-gpl-edition/","license":"GPL","pin":"1.8.4","mode":"interactive-adapter","verbs":["surface-from-strokes","crosshatch-retopo"],"headless":"probe-required"},
-    {"id":"looptools","source":"https://extensions.blender.org/add-ons/looptools/","license":"GPL","mode":"adapter-with-native-fallback","verbs":["circle","curve","flatten","relax","space"],"headless":"probe-required"},
-    {"id":"f2","source":"https://extensions.blender.org/add-ons/f2/","license":"GPL","mode":"interactive","verbs":["extend-face","fill-face"],"headless":false},
-    {"id":"blender-native","source":"https://docs.blender.org/api/current/","license":"Blender","mode":"headless","verbs":["bmesh","shrinkwrap","data-transfer","quadriflow","voxel-remesh","geometry-nodes","rigify","gltf-export"],"headless":true}
+    {"id":"retopoflow","source":"https://github.com/CGCookie/retopoflow","license":"GPL-2.0-or-later code; non-code assets excluded","pin":"3.4.11","mode":"interactive","verbs":["contours","polystrips","strokes","patches","loops","tweak"],"headless":false,"moduleProbes":["retopoflow"],"operatorProbes":[]},
+    {"id":"polyquilt-fork","source":"https://extensions.blender.org/add-ons/polyquilt-fork/","license":"open-source Blender Extension","pin":"1.46.0","mode":"interactive","verbs":["quad-draw","extrude","knife","loopcut"],"headless":false,"moduleProbes":["polyquilt"],"operatorProbes":[]},
+    {"id":"bsurfaces-gpl-edition","source":"https://extensions.blender.org/add-ons/bsurfaces-gpl-edition/","license":"GPL","pin":"1.8.4","mode":"interactive-adapter","verbs":["surface-from-strokes","crosshatch-retopo"],"headless":"probe-required","moduleProbes":["bsurfaces"],"operatorProbes":["mesh.surfsk_add_surface"]},
+    {"id":"looptools","source":"https://extensions.blender.org/add-ons/looptools/","license":"GPL","mode":"adapter-with-native-fallback","verbs":["circle","curve","flatten","relax","space"],"headless":"probe-required","moduleProbes":["looptools"],"operatorProbes":["mesh.looptools_circle","mesh.looptools_relax"]},
+    {"id":"f2","source":"https://extensions.blender.org/add-ons/f2/","license":"GPL","mode":"interactive","verbs":["extend-face","fill-face"],"headless":false,"moduleProbes":["f2"],"operatorProbes":[]},
+    {"id":"auto-mirror","source":"https://extensions.blender.org/add-ons/auto-mirror/","license":"GPL","pin":"2.5.4","mode":"interactive-adapter","verbs":["bisect-and-mirror","apply-mirror"],"headless":"probe-required","moduleProbes":["auto_mirror","automirror"],"operatorProbes":["object.automirror"]},
+    {"id":"bool-tool","source":"https://extensions.blender.org/add-ons/bool-tool/","license":"GPL","mode":"interactive-adapter","verbs":["boolean-union","boolean-difference","boolean-intersect","boolean-slice"],"headless":"probe-required","moduleProbes":["bool_tool","booltool"],"operatorProbes":[]},
+    {"id":"material-utilities","source":"https://extensions.blender.org/add-ons/material-utilities/","license":"GPL","mode":"interactive-adapter","verbs":["assign-material","replace-material","clean-slots"],"headless":"probe-required","moduleProbes":["material_utilities","materialutilities"],"operatorProbes":[]},
+    {"id":"blender-native","source":"https://docs.blender.org/api/current/","license":"Blender","mode":"headless","verbs":["bmesh","shrinkwrap","data-transfer","quadriflow","voxel-remesh","geometry-nodes","rigify","gltf-export"],"headless":true,"moduleProbes":[],"operatorProbes":["object.quadriflow_remesh","object.voxel_remesh","export_scene.gltf"]}
   ]
 }
-
