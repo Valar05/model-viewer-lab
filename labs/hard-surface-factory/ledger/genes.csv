@@ -1,1 +1,32 @@
 gene_id,description,value_type,default_value,min_value,max_value,allowed_values,affected_assemblies,implementation_lane,units,notes
+hull_length,Overall longitudinal hull scale,number,1.0,0.65,1.8,,hull,blender,ratio,Preserve attachment station ordering while scaling.
+hull_width,Overall hull width,number,1.0,0.7,1.5,,hull,blender,ratio,Locomotion stance may need coupled adjustment.
+hull_height,Overall hull height and looming mass,number,1.0,0.7,1.8,,hull,blender,ratio,Keep cannon eye-line independently controllable.
+armor_growth,Thickness and visual dominance of armor plates,number,0.65,0,1,,hull;frontal-armor;side-armor,hybrid,ratio,Maps to modeled thickness plus Meshy/reference prompt pressure.
+plate_overlap,Amount armor plates shingle over flesh seams,number,0.45,0,1,,frontal-armor;side-armor,blender,ratio,Changes seam reveal without changing core hull.
+plate_tilt,Angular exaggeration of armor planes,number,0.35,0,1,,frontal-armor;side-armor,blender,ratio,Silhouette gene.
+rivet_density,Frequency of rivets fasteners and stitch hardware,number,0.55,0,1,,hull;side-armor;ornament,hybrid,ratio,Prefer instanced hardware for deterministic variants.
+flesh_exposure,Visible biological tissue between manufactured plates,number,0.6,0,1,,hull;frontal-armor;side-armor;connective-tissue,hybrid,ratio,Primary Fleshpunk identity axis.
+tendon_density,Amount of exposed tendon cable and sinew,number,0.75,0,1,,connective-tissue;locomotion,meshy,ratio,Can drive texture and geometry generation.
+vascular_density,Surface vascular or cable-like secondary detail,number,0.55,0,1,,connective-tissue;surface,texture,ratio,Prefer texture until silhouette requires geometry.
+mechanical_biological_ratio,Mechanical versus biological visual balance,number,0.5,0,1,,vehicle;hull;locomotion;connective-tissue,hybrid,ratio,0 is organic 1 is mechanical.
+global_asymmetry,Controlled departure from bilateral symmetry,number,0.18,0,0.65,,vehicle;hull;ornament,hybrid,ratio,Do not use to excuse accidental broken topology.
+locomotion_unit_count,Number of repeated locomotion or skeletal shoe units,integer,24,8,48,,locomotion,blender,count,Compiler should derive placements from canonical family spacing.
+locomotion_pitch,Distance between repeated locomotion units,number,1.0,0.5,1.8,,locomotion,blender,ratio,Normalized to baseline spacing.
+locomotion_scale,Size of each repeated locomotion unit,number,1.0,0.55,1.6,,locomotion,blender,ratio,Can vary independently from pitch.
+limb_tread_blend,How strongly locomotion reads as limbs versus conventional track,number,0.8,0,1,,locomotion,hybrid,ratio,0 conventional tread 1 skeletal limbs.
+gait_splay,Lateral or downward splay of locomotion units,number,0.35,0,1,,locomotion,blender,ratio,Useful for creature stance variants.
+gun_length,Primary weapon barrel length,number,1.0,0.55,2.0,,cannon,blender,ratio,Measured from mantlet interface.
+gun_caliber,Primary weapon bore and barrel thickness,number,1.0,0.6,1.8,,cannon,blender,ratio,Keep barrel wall plausibility.
+mantlet_mass,Visual mass of weapon mounting,number,0.8,0.4,1.8,,cannon;frontal-armor,blender,ratio,Controls how buried the weapon feels.
+weapon_organic_integration,How much flesh and tendon visibly integrate with cannon mounting,number,0.55,0,1,,cannon;connective-tissue,hybrid,ratio,Separates clean machine gun from grown-in weapon.
+hatch_count,Count or prominence of roof hatches,integer,2,0,6,,roof-hatches,blender,count,May become crew-role affordances later.
+iconography_density,Amount of relief portrait insignia and ritual platework,number,0.4,0,1,,ornament,hybrid,ratio,Keep readability at gameplay camera distance.
+ritualization,How ceremonial versus utilitarian the manufactured shell reads,number,0.35,0,1,,ornament;surface,hybrid,ratio,Can influence relief placement and material storytelling.
+damage_state,Structural damage severity,number,0.1,0,1,,vehicle;hull;roof-hatches;ornament;surface,hybrid,ratio,Variant state not destructive edit to source.
+scar_density,Biological and plate scar frequency,number,0.35,0,1,,surface;connective-tissue,texture,ratio,Prefer decals or texture layers until silhouette matters.
+paint_wear,Paint abrasion chipping and exposed metal,number,0.6,0,1,,surface,texture,ratio,PBR texture axis.
+grime,Accumulated mud soot and battlefield residue,number,0.65,0,1,,surface,texture,ratio,PBR texture axis.
+tissue_wetness,Gloss and subsurface impression of exposed flesh,number,0.45,0,1,,surface;connective-tissue,texture,ratio,Should not make every organic surface uniformly glossy.
+roughness_bias,Global roughness shift after material-specific defaults,number,0.0,-0.35,0.35,,surface,texture,ratio,Clamp final material roughness to valid range.
+explosion_readability,Spacing multiplier used only by exploded review mode,number,1.0,0,6,,vehicle,viewer,ratio,Presentation-only gene never changes authored geometry.
