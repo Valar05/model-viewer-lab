@@ -187,7 +187,7 @@ function loadModel() {
     buildBoxHelpers();
     renderObjectList();
     selectPart(null);
-    fitCamera('front');
+    fitCamera(viewAxes === 'vehicle-x' ? 'fit' : 'front');
     if (initialState) applyReviewState(initialState);
     statusEl.textContent = 'loaded ' + parts.length + ' objects from ' + src;
     markModelReady();
@@ -414,11 +414,13 @@ function fitCamera(view: string) {
     back: new THREE.Vector3(distance, distance * 0.35, 0),
     left: new THREE.Vector3(0, distance * 0.35, distance),
     right: new THREE.Vector3(0, distance * 0.35, -distance),
-    top: new THREE.Vector3(0.01, distance, 0.01),
-    fit: camera.position.clone().sub(controls.target).normalize().multiplyScalar(distance)
+    top: new THREE.Vector3(0, distance, 0.01),
+    fit: new THREE.Vector3(-0.72, 0.48, 0.72).normalize().multiplyScalar(distance)
   };
   const offsets = viewAxes === 'vehicle-x' ? vehicleXOffsets : defaultOffsets;
   controls.target.copy(center);
+  if (view === 'top') camera.up.set(0, 0, -1);
+  else camera.up.set(0, 1, 0);
   camera.position.copy(center).add(offsets[view] || offsets.front);
   controls.minDistance = Math.max(0.08, distance * 0.12);
   controls.maxDistance = Math.max(10, distance * 6);
