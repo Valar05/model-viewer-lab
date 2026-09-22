@@ -31,9 +31,42 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  verify-outlaw:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install
+      - run: npm install --no-save playwright@1.61.1
+      - run: node node_modules/playwright/cli.js install --with-deps chromium
+      - name: Capture deployed textured Outlaw before-clearance views
+        run: >-
+          node scripts/browser-acceptance.mjs
+          --url "${{ needs.deploy.outputs.page_url }}model-viewer.html?preset=outlaw-before-textured"
+          --out "artifacts/outlaw-before-textured"
+          --wait-ms "900"
+      - name: Capture deployed textured Outlaw after-clearance views
+        run: >-
+          node scripts/browser-acceptance.mjs
+          --url "${{ needs.deploy.outputs.page_url }}model-viewer.html?preset=outlaw-after-textured"
+          --out "artifacts/outlaw-after-textured"
+          --wait-ms "900"
+      - name: Upload deployed Outlaw visual receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: outlaw-textured-pages-receipts
+          path: artifacts
+          if-no-files-found: error

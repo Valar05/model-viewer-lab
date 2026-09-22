@@ -40,20 +40,38 @@
       <span>Model</span>
       <select data-model-preset aria-label="Model preset">
         <option value="">Custom / URL model</option>
-        <option value="outlaw-before">Outlaw Before Clearance</option>
-        <option value="outlaw-after">Outlaw After Clearance</option>
+        <option value="outlaw-before-textured">Outlaw Before Clearance — Textured</option>
+        <option value="outlaw-after-textured">Outlaw After Clearance — Textured</option>
+        <option value="outlaw-before">Outlaw Before Clearance — Source</option>
+        <option value="outlaw-after">Outlaw After Clearance — Source</option>
       </select>
     </label>
     <script>
       (() => {
         const presets = {
+          'outlaw-before-textured': {
+            title: 'Outlaw Before Clearance — Textured',
+            src: './models/outlaw/Outlaw_Complete_WideTires_TEXTURED.glb',
+            up: 'z',
+            viewAxes: 'vehicle-x'
+          },
+          'outlaw-after-textured': {
+            title: 'Outlaw After Clearance — Textured',
+            src: './models/outlaw/Outlaw_Complete_Clearance_TEXTURED.glb',
+            up: 'z',
+            viewAxes: 'vehicle-x'
+          },
           'outlaw-before': {
-            title: 'Outlaw Before Clearance',
-            src: './models/outlaw/Outlaw_Complete_WideTires_CLEAN.glb'
+            title: 'Outlaw Before Clearance — Source',
+            src: './models/outlaw/Outlaw_Complete_WideTires_CLEAN.glb',
+            up: 'z',
+            viewAxes: 'vehicle-x'
           },
           'outlaw-after': {
-            title: 'Outlaw After Clearance',
-            src: './models/outlaw/Outlaw_Complete_Clearance_CLEAN.glb'
+            title: 'Outlaw After Clearance — Source',
+            src: './models/outlaw/Outlaw_Complete_Clearance_CLEAN.glb',
+            up: 'z',
+            viewAxes: 'vehicle-x'
           }
         };
         const params = new URLSearchParams(window.location.search);
@@ -63,6 +81,8 @@
         if (selected && !params.has('src')) {
           params.set('src', selected.src);
           params.set('title', selected.title);
+          params.set('up', selected.up || 'y');
+          params.set('viewAxes', selected.viewAxes || 'default');
           history.replaceState(null, '', window.location.pathname + '?' + params.toString() + window.location.hash);
         }
 
@@ -81,6 +101,8 @@
             nextParams.set('preset', select.value);
             nextParams.set('src', next.src);
             nextParams.set('title', next.title);
+            nextParams.set('up', next.up || 'y');
+            nextParams.set('viewAxes', next.viewAxes || 'default');
             nextParams.delete('manifest');
             nextParams.delete('state');
             nextParams.delete('state64');
