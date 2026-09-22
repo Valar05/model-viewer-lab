@@ -25,8 +25,10 @@ const query = new URLSearchParams(window.location.search);
 let src = query.get('src') || '';
 let manifestUrl = query.get('manifest') || '';
 let title = query.get('title') || src.split('/').pop() || 'Model';
+const modelUp = query.get('up') || 'y';
+const viewAxes = query.get('viewAxes') || 'default';
 let initialState: ReviewState | null = null;
-declare global { interface Window { __MODEL_VIEWER_LAB_READY?: { ready: boolean; title: string; src: string; partCount: number; animationCount: number; animationNames: string[]; hierarchy: Array<{name:string; parent:string|null; type:string}>; activeAnimation: string | null; status: string; timestamp: string }; } }
+declare global { interface Window { __MODEL_VIEWER_LAB_READY?: { ready: boolean; title: string; src: string; partCount: number; animationCount: number; animationNames: string[]; hierarchy: Array<{name:string; parent:string|null; type:string}>; activeAnimation: string | null; status: string; timestamp: string; up: string; viewAxes: string }; } }
 
 root.innerHTML = '<main class="viewer-shell">' +
   '<div class="viewer-stage"><canvas aria-label="Model Viewer Lab viewport"></canvas></div>' +
@@ -171,6 +173,10 @@ function loadModel() {
   loader.load(src, (gltf) => {
     modelObject = gltf.scene;
     modelObject.name = title;
+    if (modelUp === 'z') {
+      modelObject.rotateX(-Math.PI / 2);
+      modelObject.updateMatrixWorld(true);
+    }
     modelRoot.add(modelObject);
     mixer = new THREE.AnimationMixer(modelObject);
     animationClips = gltf.animations.slice().sort((a, b) => a.name.localeCompare(b.name));
@@ -188,7 +194,7 @@ function loadModel() {
   }, undefined, (error) => {
     statusEl.textContent = 'load failed: ' + (error instanceof Error ? error.message : String(error));
     document.body.dataset.modelReady = 'error';
-    window.__MODEL_VIEWER_LAB_READY = { ready: false, title, src, partCount: 0, animationCount: 0, animationNames: [], hierarchy: [], activeAnimation: null, status: statusEl.textContent || 'load failed', timestamp: new Date().toISOString() };
+    window.__MODEL_VIEWER_LAB_READY = { ready: false, title, src, partCount: 0, animationCount: 0, animationNames: [], hierarchy: [], activeAnimation: null, status: statusEl.textContent || 'load failed', timestamp: new Date().toISOString(), up: modelUp, viewAxes };
   });
 }
 
@@ -381,7 +387,7 @@ function playAnimation(name: string) {
 }
 function markModelReady() {
   document.body.dataset.modelReady = 'true';
-  window.__MODEL_VIEWER_LAB_READY = { ready: true, title, src, partCount: parts.length, animationCount: animationClips.length, animationNames: animationClips.map((clip) => clip.name), hierarchy: hierarchyEvidence(), activeAnimation: activeAnimationName, status: statusEl.textContent || 'loaded', timestamp: new Date().toISOString() };
+  window.__MODEL_VIEWER_LAB_READY = { ready: true, title, src, partCount: parts.length, animationCount: animationClips.length, animationNames: animationClips.map((clip) => clip.name), hierarchy: hierarchyEvidence(), activeAnimation: activeAnimationName, status: statusEl.textContent || 'loaded', timestamp: new Date().toISOString(), up: modelUp, viewAxes };
   window.dispatchEvent(new CustomEvent('model-viewer-lab-ready', { detail: window.__MODEL_VIEWER_LAB_READY }));
 }
 
@@ -395,7 +401,7 @@ function fitCamera(view: string) {
   box.getSize(size);
   const radius = Math.max(size.x, size.y, size.z, 0.1);
   const distance = Math.max(1.2, radius * 2.1);
-  const offsets: Record<string, THREE.Vector3> = {
+  const defaultOffsets: Record<string, THREE.Vector3> = {
     front: new THREE.Vector3(0, distance * 0.35, distance),
     back: new THREE.Vector3(0, distance * 0.35, -distance),
     left: new THREE.Vector3(-distance, distance * 0.35, 0),
@@ -403,6 +409,15 @@ function fitCamera(view: string) {
     top: new THREE.Vector3(0.01, distance, 0.01),
     fit: camera.position.clone().sub(controls.target).normalize().multiplyScalar(distance)
   };
+  const vehicleXOffsets: Record<string, THREE.Vector3> = {
+    front: new THREE.Vector3(-distance, distance * 0.35, 0),
+    back: new THREE.Vector3(distance, distance * 0.35, 0),
+    left: new THREE.Vector3(0, distance * 0.35, distance),
+    right: new THREE.Vector3(0, distance * 0.35, -distance),
+    top: new THREE.Vector3(0.01, distance, 0.01),
+    fit: camera.position.clone().sub(controls.target).normalize().multiplyScalar(distance)
+  };
+  const offsets = viewAxes === 'vehicle-x' ? vehicleXOffsets : defaultOffsets;
   controls.target.copy(center);
   camera.position.copy(center).add(offsets[view] || offsets.front);
   controls.minDistance = Math.max(0.08, distance * 0.12);
