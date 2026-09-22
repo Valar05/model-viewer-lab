@@ -93,6 +93,11 @@ writeHtml('model-viewer.html', 'model-viewer.html', 'model-viewer');
 writeHtml('mechanism-viewer.html', 'mechanism-viewer.html', 'mechanism-viewer');
 copyFileSync(path.join(root, 'README.md'), path.join(distDir, 'README.md'));
 
+const modelSource = path.join(root, 'models');
+if (existsSync(modelSource)) {
+  cpSync(modelSource, path.join(distDir, 'models'), { recursive: true });
+}
+
 const mechanismSource = path.join(root, 'labs', 'hard-surface-factory', 'mechanisms');
 if (existsSync(mechanismSource)) {
   cpSync(mechanismSource, path.join(distDir, 'labs', 'hard-surface-factory', 'mechanisms'), { recursive: true });
