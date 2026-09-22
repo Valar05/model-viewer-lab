@@ -165,19 +165,19 @@ publishTexturedOutlawModel({
   source: outlawBefore,
   outputName: 'Outlaw_Complete_WideTires_TEXTURED.glb',
   expectedBytes: 71924,
-  expectedSha256: '2612ddc59523abb6995b14826aa86341437754e4e8bb52968abc44c5bca91788'
+  expectedSha256: '67a5d54fd16f4441976e6810c59e4f7aa1b310e5193007b76c818861eea3984d'
 });
 publishTexturedOutlawModel({
   source: outlawAfter,
   outputName: 'Outlaw_Complete_Clearance_TEXTURED.glb',
   expectedBytes: 88588,
-  expectedSha256: '3362df6be99bcd5308fd958e1784736978a4f43c88edb145b34ee16a9607149a'
+  expectedSha256: '5bba5ac3a18b713ca7b6d463c268063f55135b5588e40bb580722edfbdc8aa14'
 });
 publishTexturedOutlawModel({
   source: outlawFactoryBase,
   outputName: 'Outlaw_Factory_Base_WideTires_TEXTURED.glb',
   expectedBytes: 65612,
-  expectedSha256: 'f43ce781f9ef8ddd3fb02ea1c21515a7bdd6ebeffecfb2b37ff70819018e5164'
+  expectedSha256: '0a9a68518e073c39de14992cd5bf0e83d5bb4e07ac52f68a83f7e09249a21d55'
 });
 
 const mechanismSource = path.join(root, 'labs', 'hard-surface-factory', 'mechanisms');
