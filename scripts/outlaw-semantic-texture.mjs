@@ -106,7 +106,8 @@ function triangleFacts(points) {
 function classifyBody(points) {
   const { centroid: [x, y, z], normal: n } = triangleFacts(points);
   const ay = Math.abs(y);
-  if (x >= -1.35 && x <= -0.75 && ay <= 0.70 && z >= 1.55 && n[0] < -0.50 && n[2] > 0.50) return 'TT_Pressure_Glass';\n  if (x >= 0.10 && x <= 0.22 && z >= 1.68 && Math.abs(n[0]) > 0.75) return 'TT_Pressure_Glass';
+  if (x >= -1.35 && x <= -0.75 && ay <= 0.70 && z >= 1.55 && n[0] < -0.50 && n[2] > 0.50) return 'TT_Pressure_Glass';
+  if (x >= 0.10 && x <= 0.22 && z >= 1.68 && Math.abs(n[0]) > 0.75) return 'TT_Pressure_Glass';
   if (ay >= 0.90 && z >= 1.28 && z <= 1.56 && Math.abs(n[1]) > 0.45) return 'TT_Industrial_Yellow';
   if (x <= -2.56 && ay >= 0.55 && z >= 0.89 && n[0] < -0.75) return 'TT_Headlamp';
   if (x <= -2.60 && ay >= 0.68 && z >= 0.78 && z <= 0.89 && n[0] < -0.75) return 'TT_Indicator_Amber';
