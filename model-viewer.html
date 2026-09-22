@@ -5,9 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Model Viewer Lab</title>
     <meta name="description" content="Official workspace GLB/GLTF model review viewer." />
+    <style>
+      .model-preset-switcher {
+        position: fixed;
+        z-index: 50;
+        top: max(0.75rem, env(safe-area-inset-top));
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.45rem 0.55rem;
+        border: 1px solid rgba(255,255,255,0.18);
+        border-radius: 0.7rem;
+        background: rgba(17,19,15,0.88);
+        backdrop-filter: blur(10px);
+        color: #f4ead2;
+        font: 600 0.78rem/1.2 system-ui, sans-serif;
+      }
+      .model-preset-switcher select {
+        max-width: min(62vw, 22rem);
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 0.45rem;
+        padding: 0.35rem 0.45rem;
+        background: #20241c;
+        color: #f4ead2;
+        font: inherit;
+      }
+    </style>
   </head>
   <body>
     <div id="model-viewer-root"></div>
+    <label class="model-preset-switcher">
+      <span>Model</span>
+      <select data-model-preset aria-label="Model preset">
+        <option value="">Custom / URL model</option>
+        <option value="outlaw-before">Outlaw Before Clearance</option>
+        <option value="outlaw-after">Outlaw After Clearance</option>
+      </select>
+    </label>
+    <script>
+      (() => {
+        const presets = {
+          'outlaw-before': {
+            title: 'Outlaw Before Clearance',
+            src: './models/outlaw/Outlaw_Complete_WideTires_CLEAN.glb'
+          },
+          'outlaw-after': {
+            title: 'Outlaw After Clearance',
+            src: './models/outlaw/Outlaw_Complete_Clearance_CLEAN.glb'
+          }
+        };
+        const params = new URLSearchParams(window.location.search);
+        const preset = params.get('preset') || '';
+        const selected = presets[preset];
+
+        if (selected && !params.has('src')) {
+          params.set('src', selected.src);
+          params.set('title', selected.title);
+          history.replaceState(null, '', window.location.pathname + '?' + params.toString() + window.location.hash);
+        }
+
+        const select = document.querySelector('[data-model-preset]');
+        if (select) {
+          if (selected) select.value = preset;
+          else {
+            const currentSrc = params.get('src') || '';
+            const match = Object.entries(presets).find(([, value]) => currentSrc.endsWith(value.src.replace('./', '')));
+            if (match) select.value = match[0];
+          }
+          select.addEventListener('change', () => {
+            const next = presets[select.value];
+            if (!next) return;
+            const nextParams = new URLSearchParams(window.location.search);
+            nextParams.set('preset', select.value);
+            nextParams.set('src', next.src);
+            nextParams.set('title', next.title);
+            nextParams.delete('manifest');
+            nextParams.delete('state');
+            nextParams.delete('state64');
+            window.location.assign(window.location.pathname + '?' + nextParams.toString());
+          });
+        }
+      })();
+    </script>
     <script type="module" src="/model-viewer-lab/src/model-viewer.ts"></script>
   </body>
 </html>
