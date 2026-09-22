@@ -1,6 +1,8 @@
 import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
+import { createHash } from 'node:crypto';
+import { brotliDecompressSync } from 'node:zlib';
 
 const require = createRequire(import.meta.url);
 let esbuild;
@@ -87,20 +89,53 @@ function writeHtml(sourceHtml, outputHtml, entry) {
   writeFileSync(path.join(distDir, outputHtml), html);
 }
 
+function sha256(buffer) {
+  return createHash('sha256').update(buffer).digest('hex');
+}
+
+function publishOutlawModel({ sourceParts, outputName, expectedSha256, expectedBytes }) {
+  const sourceBuffers = sourceParts.map((rel) => readFileSync(path.join(root, rel)));
+  const compressed = Buffer.concat(sourceBuffers);
+  const glb = brotliDecompressSync(compressed);
+  const actualSha256 = sha256(glb);
+  if (glb.length !== expectedBytes || actualSha256 !== expectedSha256) {
+    throw new Error(
+      'Outlaw model provenance mismatch for ' + outputName +
+      ': bytes=' + glb.length + '/' + expectedBytes +
+      ' sha256=' + actualSha256 + '/' + expectedSha256
+    );
+  }
+  const outputDir = path.join(distDir, 'models', 'outlaw');
+  mkdirSync(outputDir, { recursive: true });
+  writeFileSync(path.join(outputDir, outputName), glb);
+}
+
 await bundle('model-viewer');
 await bundle('mechanism-viewer');
 writeHtml('model-viewer.html', 'model-viewer.html', 'model-viewer');
 writeHtml('mechanism-viewer.html', 'mechanism-viewer.html', 'mechanism-viewer');
 copyFileSync(path.join(root, 'README.md'), path.join(distDir, 'README.md'));
 
-const modelSource = path.join(root, 'models');
-if (existsSync(modelSource)) {
-  cpSync(modelSource, path.join(distDir, 'models'), { recursive: true });
-}
+publishOutlawModel({
+  sourceParts: ['models/outlaw-source/Outlaw_Complete_WideTires_CLEAN.glb.br'],
+  outputName: 'Outlaw_Complete_WideTires_CLEAN.glb',
+  expectedBytes: 65832,
+  expectedSha256: '468d50db3157045fbfa016a71509ade836ec5833aa4abeb892864637546065e1'
+});
+
+publishOutlawModel({
+  sourceParts: [
+    'models/outlaw-source/Outlaw_Complete_Clearance_CLEAN.glb.br.part0',
+    'models/outlaw-source/Outlaw_Complete_Clearance_CLEAN.glb.br.part1'
+  ],
+  outputName: 'Outlaw_Complete_Clearance_CLEAN.glb',
+  expectedBytes: 78692,
+  expectedSha256: '6fc17cd21524fef4d3756afc9e01a8a88b840c1ab9a54f2a6a44ef7f755786cb'
+});
 
 const mechanismSource = path.join(root, 'labs', 'hard-surface-factory', 'mechanisms');
 if (existsSync(mechanismSource)) {
   cpSync(mechanismSource, path.join(distDir, 'labs', 'hard-surface-factory', 'mechanisms'), { recursive: true });
 }
 
-console.log('Built model-viewer-lab dist using esbuild-wasm.');
+console.log('Built model-viewer-lab dist using esbuild-wasm with verified Outlaw review models.');
