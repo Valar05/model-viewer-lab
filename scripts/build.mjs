@@ -3,6 +3,7 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 import { createHash } from 'node:crypto';
 import { brotliDecompressSync } from 'node:zlib';
+import { textureOutlawGlb } from './outlaw-semantic-texture.mjs';
 
 const require = createRequire(import.meta.url);
 let esbuild;
@@ -94,7 +95,10 @@ function sha256(buffer) {
 }
 
 function publishOutlawModel({ sourceParts, outputName, expectedSha256, expectedBytes }) {
-  const sourceBuffers = sourceParts.map((rel) => readFileSync(path.join(root, rel)));
+  const sourceBuffers = sourceParts.map((rel) => {
+    const bytes = readFileSync(path.join(root, rel));
+    return rel.endsWith('.b64') ? Buffer.from(bytes.toString('utf8').trim(), 'base64') : bytes;
+  });
   const compressed = Buffer.concat(sourceBuffers);
   const glb = brotliDecompressSync(compressed);
   const actualSha256 = sha256(glb);
@@ -108,6 +112,23 @@ function publishOutlawModel({ sourceParts, outputName, expectedSha256, expectedB
   const outputDir = path.join(distDir, 'models', 'outlaw');
   mkdirSync(outputDir, { recursive: true });
   writeFileSync(path.join(outputDir, outputName), glb);
+  return glb;
+}
+
+function publishTexturedOutlawModel({ source, outputName, expectedSha256, expectedBytes }) {
+  const glb = textureOutlawGlb(source);
+  const actualSha256 = sha256(glb);
+  if (glb.length !== expectedBytes || actualSha256 !== expectedSha256) {
+    throw new Error(
+      'Outlaw semantic albedo mismatch for ' + outputName +
+      ': bytes=' + glb.length + '/' + expectedBytes +
+      ' sha256=' + actualSha256 + '/' + expectedSha256
+    );
+  }
+  const outputDir = path.join(distDir, 'models', 'outlaw');
+  mkdirSync(outputDir, { recursive: true });
+  writeFileSync(path.join(outputDir, outputName), glb);
+  return glb;
 }
 
 await bundle('model-viewer');
@@ -116,14 +137,14 @@ writeHtml('model-viewer.html', 'model-viewer.html', 'model-viewer');
 writeHtml('mechanism-viewer.html', 'mechanism-viewer.html', 'mechanism-viewer');
 copyFileSync(path.join(root, 'README.md'), path.join(distDir, 'README.md'));
 
-publishOutlawModel({
+const outlawBefore = publishOutlawModel({
   sourceParts: ['models/outlaw-source/Outlaw_Complete_WideTires_CLEAN.glb.br'],
   outputName: 'Outlaw_Complete_WideTires_CLEAN.glb',
   expectedBytes: 65832,
   expectedSha256: '468d50db3157045fbfa016a71509ade836ec5833aa4abeb892864637546065e1'
 });
 
-publishOutlawModel({
+const outlawAfter = publishOutlawModel({
   sourceParts: [
     'models/outlaw-source/Outlaw_Complete_Clearance_CLEAN.glb.br.part0',
     'models/outlaw-source/Outlaw_Complete_Clearance_CLEAN.glb.br.part1'
@@ -133,9 +154,35 @@ publishOutlawModel({
   expectedSha256: '6fc17cd21524fef4d3756afc9e01a8a88b840c1ab9a54f2a6a44ef7f755786cb'
 });
 
+const outlawFactoryBase = publishOutlawModel({
+  sourceParts: ['models/outlaw-source/Outlaw_Factory_Base_WideTires_CLEAN.glb.br.b64'],
+  outputName: 'Outlaw_Factory_Base_WideTires_CLEAN.glb',
+  expectedBytes: 59076,
+  expectedSha256: 'ae1c1f3aabfc1ad261aa5a0853b85bc1505969f83ef929eb1a654714bbc044f1'
+});
+
+publishTexturedOutlawModel({
+  source: outlawBefore,
+  outputName: 'Outlaw_Complete_WideTires_TEXTURED.glb',
+  expectedBytes: 71924,
+  expectedSha256: 'ed49c6b37ddbb99b9a2fc64afb6deca8ea923e09a377617c02eccba90316ac80'
+});
+publishTexturedOutlawModel({
+  source: outlawAfter,
+  outputName: 'Outlaw_Complete_Clearance_TEXTURED.glb',
+  expectedBytes: 88588,
+  expectedSha256: 'bb0a48eb60e0a8b1db9a0dc42be4e9d7cef0173ca54fb9bcdd1c46326f6cf7ef'
+});
+publishTexturedOutlawModel({
+  source: outlawFactoryBase,
+  outputName: 'Outlaw_Factory_Base_WideTires_TEXTURED.glb',
+  expectedBytes: 65612,
+  expectedSha256: 'c1ce0e45da7b9dbbeb772c2fbe5b54feb50d3dc9ba71c1981b06e7e87b35cdcc'
+});
+
 const mechanismSource = path.join(root, 'labs', 'hard-surface-factory', 'mechanisms');
 if (existsSync(mechanismSource)) {
   cpSync(mechanismSource, path.join(distDir, 'labs', 'hard-surface-factory', 'mechanisms'), { recursive: true });
 }
 
-console.log('Built model-viewer-lab dist using esbuild-wasm with verified Outlaw review models.');
+console.log('Built model-viewer-lab dist with provenance-locked Outlaw sources and deterministic semantic albedo outputs.');
