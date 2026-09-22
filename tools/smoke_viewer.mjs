@@ -20,15 +20,15 @@ const outlawModels = {
   },
   'dist/models/outlaw/Outlaw_Complete_WideTires_TEXTURED.glb': {
     bytes: 71924,
-    sha256: 'ed49c6b37ddbb99b9a2fc64afb6deca8ea923e09a377617c02eccba90316ac80'
+    sha256: '2612ddc59523abb6995b14826aa86341437754e4e8bb52968abc44c5bca91788'
   },
   'dist/models/outlaw/Outlaw_Complete_Clearance_TEXTURED.glb': {
     bytes: 88588,
-    sha256: 'bb0a48eb60e0a8b1db9a0dc42be4e9d7cef0173ca54fb9bcdd1c46326f6cf7ef'
+    sha256: '3362df6be99bcd5308fd958e1784736978a4f43c88edb145b34ee16a9607149a'
   },
   'dist/models/outlaw/Outlaw_Factory_Base_WideTires_TEXTURED.glb': {
     bytes: 65612,
-    sha256: 'c1ce0e45da7b9dbbeb772c2fbe5b54feb50d3dc9ba71c1981b06e7e87b35cdcc'
+    sha256: 'f43ce781f9ef8ddd3fb02ea1c21515a7bdd6ebeffecfb2b37ff70819018e5164'
   }
 };
 const texturedOutlawModels = [
@@ -91,8 +91,12 @@ for (const rel of texturedOutlawModels) {
     }
   }
   const body = (gltf.meshes || []).find((mesh) => mesh.name === 'body_shell');
-  if (!body || body.primitives.length < 6 || gltf.asset?.extras?.outlawSemanticAlbedo !== 'v1') {
+  if (!body || body.primitives.length < 6 || gltf.asset?.extras?.outlawSemanticAlbedo !== 'v2') {
     console.error('semantic Outlaw body split missing in ' + rel);
+    process.exit(1);
+  }
+  if ((gltf.asset?.extras?.semanticZones?.TT_Pressure_Glass || 0) < 40) {
+    console.error('front windshield semantic glass zone missing in ' + rel);
     process.exit(1);
   }
 }

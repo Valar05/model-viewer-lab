@@ -9,7 +9,7 @@ const MATERIALS = [
   material('TT_Pressure_Glass', '#283843', 0.22, 0.00),
   material('TT_Cool_Metal', '#555D60', 0.48, 0.72),
   material('TT_Service_Orange', '#A85A24', 0.62, 0.05),
-  material('TT_Headlamp', '#E8DFC1', 0.24, 0.00, [0.16, 0.14, 0.10]),
+  material('TT_Headlamp', '#F4EACB', 0.22, 0.00, [0.45, 0.38, 0.24]),
   material('TT_TailLamp', '#812B29', 0.35, 0.00, [0.10, 0.015, 0.012]),
   material('TT_Indicator_Amber', '#B86B1D', 0.35, 0.00, [0.12, 0.05, 0.005]),
   material('TT_Cheatgun', '#333638', 0.42, 0.76)
@@ -106,11 +106,12 @@ function triangleFacts(points) {
 function classifyBody(points) {
   const { centroid: [x, y, z], normal: n } = triangleFacts(points);
   const ay = Math.abs(y);
+  if (x >= -1.35 && x <= -0.75 && ay <= 0.70 && z >= 1.55 && n[0] < -0.50 && n[2] > 0.50) return 'TT_Pressure_Glass';
   if (x >= 0.10 && x <= 0.22 && z >= 1.68 && Math.abs(n[0]) > 0.75) return 'TT_Pressure_Glass';
   if (ay >= 0.90 && z >= 1.28 && z <= 1.56 && Math.abs(n[1]) > 0.45) return 'TT_Industrial_Yellow';
   if (x <= -2.56 && ay >= 0.55 && z >= 0.89 && n[0] < -0.75) return 'TT_Headlamp';
   if (x <= -2.60 && ay >= 0.68 && z >= 0.78 && z <= 0.89 && n[0] < -0.75) return 'TT_Indicator_Amber';
-  if (x >= 2.60 && ay >= 0.80 && z >= 0.80 && z <= 1.08 && n[0] > 0.75) return 'TT_TailLamp';
+  if (x >= 2.60 && ay >= 0.82 && z >= 1.15 && z <= 1.35 && n[0] > 0.75) return 'TT_TailLamp';
   if (x >= -2.30 && x <= -2.14 && ay <= 0.48 && z >= 0.56 && z <= 1.16 && n[0] < -0.75) return 'TT_Graphite';
   if (x >= 0.10 && x <= 2.50) {
     if (n[2] > 0.80 && z <= 1.10 && ay <= 0.80) return 'TT_Graphite';
@@ -218,7 +219,7 @@ export function textureOutlawGlb(sourceBuffer) {
   output.asset = output.asset || { version: '2.0' };
   output.asset.extras = {
     ...(output.asset.extras || {}),
-    outlawSemanticAlbedo: 'v1',
+    outlawSemanticAlbedo: 'v2',
     semanticZones: Object.fromEntries(ZONE_ORDER.filter((zone) => zoneCounts[zone] > 0).map((zone) => [zone, zoneCounts[zone]]))
   };
 
