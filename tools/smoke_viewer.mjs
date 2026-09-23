@@ -20,15 +20,15 @@ const outlawModels = {
   },
   'dist/models/outlaw/Outlaw_Complete_WideTires_TEXTURED.glb': {
     bytes: 71924,
-    sha256: '2612ddc59523abb6995b14826aa86341437754e4e8bb52968abc44c5bca91788'
+    sha256: '67a5d54fd16f4441976e6810c59e4f7aa1b310e5193007b76c818861eea3984d'
   },
   'dist/models/outlaw/Outlaw_Complete_Clearance_TEXTURED.glb': {
     bytes: 88588,
-    sha256: '3362df6be99bcd5308fd958e1784736978a4f43c88edb145b34ee16a9607149a'
+    sha256: '5bba5ac3a18b713ca7b6d463c268063f55135b5588e40bb580722edfbdc8aa14'
   },
   'dist/models/outlaw/Outlaw_Factory_Base_WideTires_TEXTURED.glb': {
     bytes: 65612,
-    sha256: 'f43ce781f9ef8ddd3fb02ea1c21515a7bdd6ebeffecfb2b37ff70819018e5164'
+    sha256: '0a9a68518e073c39de14992cd5bf0e83d5bb4e07ac52f68a83f7e09249a21d55'
   }
 };
 const texturedOutlawModels = [
@@ -91,7 +91,7 @@ for (const rel of texturedOutlawModels) {
     }
   }
   const body = (gltf.meshes || []).find((mesh) => mesh.name === 'body_shell');
-  if (!body || body.primitives.length < 6 || gltf.asset?.extras?.outlawSemanticAlbedo !== 'v2') {
+  if (!body || body.primitives.length < 6 || gltf.asset?.extras?.outlawSemanticAlbedo !== 'v3') {
     console.error('semantic Outlaw body split missing in ' + rel);
     process.exit(1);
   }
